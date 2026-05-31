@@ -29,7 +29,7 @@ export default function Home2() {
             <SlideUpNoThres>
               <div className={`w-full flex items-center relative justify-between`}>
                 <div className="flex justify-start items-start" >
-                  <Image src="/works/yay.jpg" width={3099} height={3363} className="w-[64px] aspect-square mb-2 rounded-2xl shadow-xl" alt="Hung Tran"/> 
+                  <Image src="/works/works/yay.jpg" width={3099} height={3363} className="w-[64px] aspect-square mb-2 rounded-2xl shadow-xl" alt="Hung Tran"/> 
                 </div>
                 <div className="flex justify-end">
                   <MyButton variant="blue-button-outline" text="About me" link="about" target="_self" textSize="text-sm"/>

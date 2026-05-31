@@ -91,13 +91,13 @@ export default function Rules() {
                                 <div className="mb-12"></div>
                                 <div className="w-full 2xl:w-[70%] grid grid-cols-3 -gap-x-3">
                                     <ImageZoom>
-                                        <Image src="/rule-stickie-1.png" width={1469} height={1469} className="w-full h-auto mb-2 rotate-3 shadow-lg" alt="Samsung Knox"/> 
+                                        <Image src="/works/rule-stickie-1.png" width={1469} height={1469} className="w-full h-auto mb-2 rotate-3 shadow-lg" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     <ImageZoom>
-                                        <Image src="/rule-stickie-2.png" width={1469} height={1469} className="w-full h-auto mb-2 -rotate-6 shadow-lg" alt="Samsung Knox"/> 
+                                        <Image src="/works/rule-stickie-2.png" width={1469} height={1469} className="w-full h-auto mb-2 -rotate-6 shadow-lg" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     <ImageZoom>
-                                        <Image src="/rule-stickie-3.png" width={1469} height={1469} className="w-full h-auto mb-2 -rotate-2 shadow-lg" alt="Samsung Knox"/> 
+                                        <Image src="/works/rule-stickie-3.png" width={1469} height={1469} className="w-full h-auto mb-2 -rotate-2 shadow-lg" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                 </div>
                                 <div className="mb-5"></div>
@@ -120,13 +120,13 @@ export default function Rules() {
                         const theme = localStorage.getItem("theme-class") || "";
                         switch (theme) {
                             case "pink":
-                            return <Image src="/rules-map-pink.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
+                            return <Image src="/works/rules-map-pink.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
                             case "green":
-                            return <Image src="/rules-map-green.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
+                            return <Image src="/works/rules-map-green.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
                             case "orange":
-                            return <Image src="/rules-map-orange.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
+                            return <Image src="/works/rules-map-orange.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
                             default:
-                            return <Image src="/rules-map.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
+                            return <Image src="/works/rules-map.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
                         }
                         })()}
                     </ImageZoom>
@@ -152,15 +152,15 @@ export default function Rules() {
                         </div>
                         <div>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-0.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/works/rules-0.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Overview table.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-1.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/works/rules-1.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">View details through a sliding panel.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-1.5.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/works/rules-1.5.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Detailed sliding panel.</p>
                         </div>
@@ -175,15 +175,15 @@ export default function Rules() {
                         </div>
                         <div>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-2.png" width={3099} height={3363} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/works/rules-2.png" width={3099} height={3363} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Configuring time-based conditions.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-3.png" width={3099} height={3363} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/works/rules-3.png" width={3099} height={3363} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Configuring location-based conditions.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-4.png" width={2622} height={2622} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/works/rules-4.png" width={2622} height={2622} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Segment of the location-based conditions configuration flow.</p>
                         </div>
@@ -209,11 +209,11 @@ export default function Rules() {
                             <div>
                                 <div className="w-full md:w-[75%] 2xl:w-[75%] grid grid-cols-2 gap-2 md:gap-5">
                                     <div className="flex flex-col justify-start">
-                                        <Image src="/uxmas.jpg" width={3099} height={3363} className="w-full mb-3 rounded-3xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
+                                        <Image src="/works/uxmas.jpg" width={3099} height={3363} className="w-full mb-3 rounded-3xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
                                         <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">@ Samsung XMas party 🎄</p>
                                     </div>
                                     <div className="flex flex-col justify-start">
-                                        <Image src="/yehe.png" width={3099} height={3363} className="w-full mb-3 rounded-3xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
+                                        <Image src="/works/yehe.png" width={3099} height={3363} className="w-full mb-3 rounded-3xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
                                         <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">#summer_interns</p>
                                     </div>
                                 </div>

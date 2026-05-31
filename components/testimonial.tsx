@@ -16,7 +16,7 @@ export default function Testimonial(props: Props) {
             <div className="mb-9"></div>
             <div className="flex gap-4 items-center">
                 <div className="relative w-[40px] h-[40px] rounded-full overflow-hidden flex-shrink-0">
-                    <Image src={props.imgSrc} alt="" width={100} height={100} className="object-cover rounded-full"/>
+                    <Image src={`/works/${props.imgSrc} alt="" width={100} height={100} className="object-cover rounded-full"/>
                 </div>
                 <div>
                     <p className="text-sm font-semibold text-[var(--colour-bodytext)] leading-loose">{props.name}</p>
