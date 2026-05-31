@@ -17,33 +17,33 @@ export default function About() {
     const [hoveredShow, setHoveredShow] = useState<string | null>(null);
     const [hoveredBook, setHoveredBook] = useState<string | null>(null);
     const albums = [
-        { src: '/life support.webp', name: 'Life Support' },
-        { src: '/red.jpeg', name: "Red (Taylor's Version)" },
-        // { src: '/dw.png', name: 'Dangerous Woman' },
-        { src: '/sbs.png', name: 'Silence Between Songs' },
-        { src: '/think later.jpeg', name: 'THINK LATER' },
-        // { src: '/eics.png', name: 'emails i can’t send' },
-        // { src: '/1989.jpeg', name: "1989 (Taylor's Version)" },
-        { src: '/sctw.png', name: 'So Close To What' },
-        { src: '/gracie.png', name: 'The Secret Of Us' },
+        { src: '/works/life support.webp', name: 'Life Support' },
+        { src: '/works/red.jpeg', name: "Red (Taylor's Version)" },
+        // { src: '/works/dw.png', name: 'Dangerous Woman' },
+        { src: '/works/sbs.png', name: 'Silence Between Songs' },
+        { src: '/works/think later.jpeg', name: 'THINK LATER' },
+        // { src: '/works/eics.png', name: 'emails i can’t send' },
+        // { src: '/works/1989.jpeg', name: "1989 (Taylor's Version)" },
+        { src: '/works/sctw.png', name: 'So Close To What' },
+        { src: '/works/gracie.png', name: 'The Secret Of Us' },
     ];
 
     const shows = [
-        { src: '/devi.png', name: 'Never Have I Ever' },
-        { src: '/dho.png', name: 'Desperate Housewives' },
-        { src: '/ted.png', name: 'How I Met Your Mother' },
-        // { src: '/nakamura.png', name: 'Go for it, Nakamura-kun!' },
-        { src: '/mf.png', name: 'Modern Family' },
-        { src: '/gng.png', name: 'Ginny & Georgia' },
-        { src: '/nakamura.png', name: 'Go for it, Nakamura-kun!' },
+        { src: '/works/devi.png', name: 'Never Have I Ever' },
+        { src: '/works/dho.png', name: 'Desperate Housewives' },
+        { src: '/works/ted.png', name: 'How I Met Your Mother' },
+        // { src: '/works/nakamura.png', name: 'Go for it, Nakamura-kun!' },
+        { src: '/works/mf.png', name: 'Modern Family' },
+        { src: '/works/gng.png', name: 'Ginny & Georgia' },
+        { src: '/works/nakamura.png', name: 'Go for it, Nakamura-kun!' },
     ];
 
     const books = [
-        { src: '/hl.jpg', name: 'Heartless' },
-        { src: '/thoii.png', name: 'The Half Of It' },
-        { src: '/twbf.jpg', name: 'This Will Be Fun' },
-        { src: '/tnc.jpg', name: 'The Night Circus' },
-        { src: '/tml.jpg', name: 'The Midnight Library' },
+        { src: '/works/hl.jpg', name: 'Heartless' },
+        { src: '/works/thoii.png', name: 'The Half Of It' },
+        { src: '/works/twbf.jpg', name: 'This Will Be Fun' },
+        { src: '/works/tnc.jpg', name: 'The Night Circus' },
+        { src: '/works/tml.jpg', name: 'The Midnight Library' },
     ];
 
     return (
