@@ -17,7 +17,7 @@ export default function Visuals() {
 
                 <div className="w-full mt-20">
                     <div className="w-full flex justify-between items-center">
-                        <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
+                        <MyButton variant="hyperlink" text="Return to home" link="/works" textSize="text-sm" target="_self"/>
                         <div className="block md:hidden">
                             <DotsMenu/>
                         </div>
@@ -147,7 +147,7 @@ export default function Visuals() {
                 <div className="mb-40"></div>
 
                 <div className="w-full flex justify-center items-center">
-                    <MyButton variant="blue-button-outline" text="Return to home" link="/" textSize="text-sm" target="_self"/>
+                    <MyButton variant="blue-button-outline" text="Return to home" link="/works" textSize="text-sm" target="_self"/>
                 </div>
 
                 <div className="w-full">
