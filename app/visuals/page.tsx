@@ -124,7 +124,7 @@ export default function Visuals() {
                 <div className="bg-[var(--container-bg)] w-full flex justify-center items-center rounded-3xl py-15 mb-2">
                     <div className="w-[60%]" style={{ clipPath: "inset(2px 2px)" }}>
                         <video className="object-cover" autoPlay controls muted loop playsInline>
-                            <source src="videographics.mp4"type="video/mp4" />
+                            <source src="/works/videographics.mp4"type="video/mp4" />
                         </video>
                     </div>
                 </div>
@@ -139,7 +139,7 @@ export default function Visuals() {
                 <div className="bg-[var(--container-bg)] w-full flex justify-center items-center rounded-3xl py-15 mb-2">
                     <div className="w-[60%]" style={{ clipPath: "inset(2px 2px)" }}>
                         <video className="object-cover" autoPlay controls muted loop playsInline>
-                            <source src="upcc.mp4"type="video/mp4" />
+                            <source src="/works/upcc.mp4"type="video/mp4" />
                         </video>
                     </div>
                 </div>
