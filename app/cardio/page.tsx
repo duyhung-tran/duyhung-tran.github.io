@@ -79,13 +79,13 @@ export default function Cardio() {
                             <div className="grid grid-cols-1 md:grid-cols-[2fr_1.5fr] gap-x-3 items-center justify-between">
                                 <div className="w-full grid grid-cols-3 gap-x-3">
                                     <video className={`w-full h-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/context-vid-1.mp4" type="video/mp4" />
+                                        <source src="/works/context-vid-1.mp4" type="video/mp4" />
                                     </video>
                                     <video className={`w-full h-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/context-vid-2.mp4" type="video/mp4" />
+                                        <source src="/works/context-vid-2.mp4" type="video/mp4" />
                                     </video>
                                     <video className={`w-full h-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/context-vid-3.mp4" type="video/mp4" />
+                                        <source src="/works/context-vid-3.mp4" type="video/mp4" />
                                     </video>
                                 </div>
                                 <div className="w-full hidden md:block">
@@ -306,7 +306,7 @@ export default function Cardio() {
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
                                 <div className="w-full md:w-[45%] grid grid-cols-2 gap-x-4">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/sol-1.mp4" type="video/mp4" />
+                                        <source src="/works/sol-1.mp4" type="video/mp4" />
                                     </video>
                                     <ImageZoom>
                                         <Image src="/works/sol-11.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
@@ -340,7 +340,7 @@ export default function Cardio() {
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
                                 <div className="w-full md:w-[45%] grid grid-cols-2 gap-x-4">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/sol-3.mp4" type="video/mp4" />
+                                        <source src="/works/sol-3.mp4" type="video/mp4" />
                                     </video>
                                     <ImageZoom>
                                         <Image src="/works/sol-3.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
@@ -356,7 +356,7 @@ export default function Cardio() {
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
                                 <div className="w-[50%] md:w-[20%]">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/sol-4.mp4" type="video/mp4" />
+                                        <source src="/works/sol-4.mp4" type="video/mp4" />
                                     </video>
                                 </div>
                             </div>
@@ -380,7 +380,7 @@ export default function Cardio() {
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
                                 <div className="w-[50%] md:w-[20%]">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/draft.mp4" type="video/mp4" />
+                                        <source src="/works/draft.mp4" type="video/mp4" />
                                     </video>
                                 </div>
                             </div>
@@ -502,7 +502,7 @@ export default function Cardio() {
                                 <div className="w-full flex justify-center">
                                     <div className="w-[50%] md:w-[25%]">
                                         <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                            <source src="/swiping.mp4" type="video/mp4" />
+                                            <source src="/works/swiping.mp4" type="video/mp4" />
                                         </video>
                                     </div>
                                 </div>
