@@ -18,7 +18,7 @@ export default function Cardio() {
 
                 <div className="w-full mt-20">
                     <div className="w-full flex justify-between items-center">
-                        <MyButton variant="hyperlink" text="Return to home" link="" textSize="text-sm" target="_self"/>
+                        <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                         <div className="block md:hidden">
                             <DotsMenu/>
                         </div>
@@ -571,7 +571,7 @@ export default function Cardio() {
                     <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-15">
                         <ProjectThumbnail3 isLink="video-link" link="rules" name="Samsung Knox Manage: Rules" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcPoster="rule-poster.png" imageSrcDark="/Rule video - d.mp4" imageSrcPosterDark="rule-poster - d.png" target="_self"/>
                         <ProjectThumbnail3 isLink="image-link" link="organizations" name="Samsung Knox Manage: Organizations" desc="Designed a scalable, design-system–ready component that visualizes the inheritance logic among parent-child entities." imageSrc="/organize.png" imageSrcDark="/organize - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-                        {/* <MyButton variant="blue-button-outline" text="Return to home" link="" textSize="text-sm" target="_self"/> */}
+                        {/* <MyButton variant="blue-button-outline" text="Return to home" link="/" textSize="text-sm" target="_self"/> */}
                     </div>
                 </div>
 

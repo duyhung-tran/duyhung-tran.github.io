@@ -17,7 +17,7 @@ export default function Visuals() {
 
                 <div className="w-full mt-20">
                     <div className="w-full flex justify-between items-center">
-                        <MyButton variant="hyperlink" text="Return to home" link="" textSize="text-sm" target="_self"/>
+                        <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                         <div className="block md:hidden">
                             <DotsMenu/>
                         </div>
@@ -124,7 +124,7 @@ export default function Visuals() {
                 <div className="bg-[var(--container-bg)] w-full flex justify-center items-center rounded-3xl py-15 mb-2">
                     <div className="w-[60%]" style={{ clipPath: "inset(2px 2px)" }}>
                         <video className="object-cover" autoPlay controls muted loop playsInline>
-                            <source src="/videographics.mp4"type="video/mp4" />
+                            <source src="videographics.mp4"type="video/mp4" />
                         </video>
                     </div>
                 </div>
@@ -139,7 +139,7 @@ export default function Visuals() {
                 <div className="bg-[var(--container-bg)] w-full flex justify-center items-center rounded-3xl py-15 mb-2">
                     <div className="w-[60%]" style={{ clipPath: "inset(2px 2px)" }}>
                         <video className="object-cover" autoPlay controls muted loop playsInline>
-                            <source src="/upcc.mp4"type="video/mp4" />
+                            <source src="upcc.mp4"type="video/mp4" />
                         </video>
                     </div>
                 </div>
@@ -147,7 +147,7 @@ export default function Visuals() {
                 <div className="mb-40"></div>
 
                 <div className="w-full flex justify-center items-center">
-                    <MyButton variant="blue-button-outline" text="Return to home" link="" textSize="text-sm" target="_self"/>
+                    <MyButton variant="blue-button-outline" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                 </div>
 
                 <div className="w-full">

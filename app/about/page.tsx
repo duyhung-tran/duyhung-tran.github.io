@@ -52,7 +52,7 @@ export default function About() {
 
             <div className="px-10 md:w-2/3 md:px-0 lg:w-[85%] 2xl:w-[80%] flex flex-col justify-center items-center">
                 <div className="w-full mt-6 mb-9 flex justify-between items-center">
-                    <MyButton variant="hyperlink" text="Return to home" link="" textSize="text-sm" target="_self"/>
+                    <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                     <div className="flex">
                         <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" textSize="text-sm" target="_blank"/>
                     </div>
@@ -327,7 +327,7 @@ export default function About() {
                 <div className="mb-33"></div>
 
                 <div className="w-full flex items-center justify-center">
-                    <MyButton variant="blue-button-outline" text="Return to home" link="" target="_self" textSize="text-sm"/>
+                    <MyButton variant="blue-button-outline" text="Return to home" link="/" target="_self" textSize="text-sm"/>
                 </div>
 
                 <div className="-mb-2"></div>

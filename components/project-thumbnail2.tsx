@@ -31,7 +31,8 @@ export default function ProjectThumbnail2(props: Props) {
                 </div>
                 <div className="mb-7"></div>
                 <a className="relative block overflow-hidden group mt-auto bg-[var(--container-bg)] rounded-3xl shadow-[0px_0px_15px_rgba(0,0,0,0.01)] 2xl:shadow-[0px_0px_35px_rgba(0,0,0,0.01)]" href={props.link} target={props.target}>
-                    <Image src={`${props.imageSrc}`} alt={props.name} width={1640} height={1228} className="object-cover"/>
+                    <Image src={props.imageSrc} alt={props.name} width={1640} height={1228} className="object-cover"/>
+                    {/* <Image src={props.imageSrcDark} alt={props.name} width={1640} height={1228} className="object-cover hidden dark:block"/> */}
                     <div className="absolute inset-x-0 bottom-0 h-[30%] flex items-center justify-center
                                     translate-y-full opacity-0
                                     transition-all duration-300 ease-out
@@ -54,9 +55,12 @@ export default function ProjectThumbnail2(props: Props) {
                 </p>
                 <div className="mb-7"></div>
                 <a className="relative block overflow-hidden group mt-auto bg-[var(--container-bg)] rounded-3xl shadow-[0px_0px_15px_rgba(0,0,0,0.01)] 2xl:shadow-[0px_0px_35px_rgba(0,0,0,0.01)]" href={props.link} target={props.target}>
-                    <video className={`w-full h-full object-cover !bg-transparent block`} style={{ clipPath: "inset(-1px -1px)" }} autoPlay muted loop playsInline poster={`/${props.imageSrcPoster}`}>
-                        <source src={`${props.imageSrc}`} type="video/mp4" />
+                    <video className={`w-full h-full object-cover !bg-transparent block`} style={{ clipPath: "inset(-1px -1px)" }} autoPlay muted loop playsInline poster={props.imageSrcPoster}>
+                        <source src={props.imageSrc} type="video/mp4" />
                     </video>
+                    {/* <video className={`w-full h-full object-cover !bg-transparent hidden dark:block`} style={{ clipPath: "inset(-1px -1px)" }} autoPlay muted loop playsInline poster={props.imageSrcPosterDark}>
+                        <source src={props.imageSrcDark} type="video/mp4" />
+                    </video> */}
 
                     <div className="absolute inset-x-0 bottom-0 h-[30%] flex items-center justify-center
                                     translate-y-full opacity-0
