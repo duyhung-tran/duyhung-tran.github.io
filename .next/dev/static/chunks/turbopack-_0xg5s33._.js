@@ -7,9 +7,9 @@ if (!Array.isArray(globalThis["TURBOPACK"])) {
     return;
 }
 
-const CHUNK_BASE_PATH = "/works/_next/";
+const CHUNK_BASE_PATH = "/_next/";
 const RELATIVE_ROOT_PATH = "/ROOT";
-const RUNTIME_PUBLIC_PATH = "/works/_next/";
+const RUNTIME_PUBLIC_PATH = "/_next/";
 const ASSET_SUFFIX = getAssetSuffixFromScriptSrc();
 const WORKER_FORWARDED_GLOBALS = ["NEXT_DEPLOYMENT_ID","NEXT_CLIENT_ASSET_SUFFIX"];
 /**

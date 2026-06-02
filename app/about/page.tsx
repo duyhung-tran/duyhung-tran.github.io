@@ -17,33 +17,33 @@ export default function About() {
     const [hoveredShow, setHoveredShow] = useState<string | null>(null);
     const [hoveredBook, setHoveredBook] = useState<string | null>(null);
     const albums = [
-        { src: '/works/life support.webp', name: 'Life Support' },
-        { src: '/works/red.jpeg', name: "Red (Taylor's Version)" },
-        // { src: '/works/dw.png', name: 'Dangerous Woman' },
-        { src: '/works/sbs.png', name: 'Silence Between Songs' },
-        { src: '/works/think later.jpeg', name: 'THINK LATER' },
-        // { src: '/works/eics.png', name: 'emails i can’t send' },
-        // { src: '/works/1989.jpeg', name: "1989 (Taylor's Version)" },
-        { src: '/works/sctw.png', name: 'So Close To What' },
-        { src: '/works/gracie.png', name: 'The Secret Of Us' },
+        { src: '/life support.webp', name: 'Life Support' },
+        { src: '/red.jpeg', name: "Red (Taylor's Version)" },
+        // { src: '/dw.png', name: 'Dangerous Woman' },
+        { src: '/sbs.png', name: 'Silence Between Songs' },
+        { src: '/think later.jpeg', name: 'THINK LATER' },
+        // { src: '/eics.png', name: 'emails i can’t send' },
+        // { src: '/1989.jpeg', name: "1989 (Taylor's Version)" },
+        { src: '/sctw.png', name: 'So Close To What' },
+        { src: '/gracie.png', name: 'The Secret Of Us' },
     ];
 
     const shows = [
-        { src: '/works/devi.png', name: 'Never Have I Ever' },
-        { src: '/works/dho.png', name: 'Desperate Housewives' },
-        { src: '/works/ted.png', name: 'How I Met Your Mother' },
-        // { src: '/works/nakamura.png', name: 'Go for it, Nakamura-kun!' },
-        { src: '/works/mf.png', name: 'Modern Family' },
-        { src: '/works/gng.png', name: 'Ginny & Georgia' },
-        { src: '/works/nakamura.png', name: 'Go for it, Nakamura-kun!' },
+        { src: '/devi.png', name: 'Never Have I Ever' },
+        { src: '/dho.png', name: 'Desperate Housewives' },
+        { src: '/ted.png', name: 'How I Met Your Mother' },
+        // { src: '/nakamura.png', name: 'Go for it, Nakamura-kun!' },
+        { src: '/mf.png', name: 'Modern Family' },
+        { src: '/gng.png', name: 'Ginny & Georgia' },
+        { src: '/nakamura.png', name: 'Go for it, Nakamura-kun!' },
     ];
 
     const books = [
-        { src: '/works/hl.jpg', name: 'Heartless' },
-        { src: '/works/thoii.png', name: 'The Half Of It' },
-        { src: '/works/twbf.jpg', name: 'This Will Be Fun' },
-        { src: '/works/tnc.jpg', name: 'The Night Circus' },
-        { src: '/works/tml.jpg', name: 'The Midnight Library' },
+        { src: '/hl.jpg', name: 'Heartless' },
+        { src: '/thoii.png', name: 'The Half Of It' },
+        { src: '/twbf.jpg', name: 'This Will Be Fun' },
+        { src: '/tnc.jpg', name: 'The Night Circus' },
+        { src: '/tml.jpg', name: 'The Midnight Library' },
     ];
 
     return (
@@ -52,7 +52,7 @@ export default function About() {
 
             <div className="px-10 md:w-2/3 md:px-0 lg:w-[85%] 2xl:w-[80%] flex flex-col justify-center items-center">
                 <div className="w-full mt-6 mb-9 flex justify-between items-center">
-                    <MyButton variant="hyperlink" text="Return to home" link="/works" textSize="text-sm" target="_self"/>
+                    <MyButton variant="hyperlink" text="Return to home" link="" textSize="text-sm" target="_self"/>
                     <div className="flex">
                         <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" textSize="text-sm" target="_blank"/>
                     </div>
@@ -168,7 +168,7 @@ export default function About() {
 
                 <div className="w-full flex items-center justify-center">
                     <div className="w-full h-auto relative mt-3 mb-9">
-                        <Image src="/works/small.jpg" width={2040} height={1179} alt="hung tran" className="object-cover rounded-3xl shadow-md mb-3" style={{ filter: 'contrast(80%)' }}/>
+                        <Image src="/small.jpg" width={2040} height={1179} alt="hung tran" className="object-cover rounded-3xl shadow-md mb-3" style={{ filter: 'contrast(80%)' }}/>
                         <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Me but #2008 ✨</p>
                         {/* <Polaroid imageSrc="/small.jpg" alt="hung tran" desc="Summer 2008 🐦" angle={-4} textSize="text-xl"/> */}
                     </div>
@@ -327,7 +327,7 @@ export default function About() {
                 <div className="mb-33"></div>
 
                 <div className="w-full flex items-center justify-center">
-                    <MyButton variant="blue-button-outline" text="Return to home" link="/works" target="_self" textSize="text-sm"/>
+                    <MyButton variant="blue-button-outline" text="Return to home" link="" target="_self" textSize="text-sm"/>
                 </div>
 
                 <div className="-mb-2"></div>

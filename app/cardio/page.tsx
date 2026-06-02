@@ -18,7 +18,7 @@ export default function Cardio() {
 
                 <div className="w-full mt-20">
                     <div className="w-full flex justify-between items-center">
-                        <MyButton variant="hyperlink" text="Return to home" link="/works" textSize="text-sm" target="_self"/>
+                        <MyButton variant="hyperlink" text="Return to home" link="" textSize="text-sm" target="_self"/>
                         <div className="block md:hidden">
                             <DotsMenu/>
                         </div>
@@ -79,13 +79,13 @@ export default function Cardio() {
                             <div className="grid grid-cols-1 md:grid-cols-[2fr_1.5fr] gap-x-3 items-center justify-between">
                                 <div className="w-full grid grid-cols-3 gap-x-3">
                                     <video className={`w-full h-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/works/context-vid-1.mp4" type="video/mp4" />
+                                        <source src="/context-vid-1.mp4" type="video/mp4" />
                                     </video>
                                     <video className={`w-full h-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/works/context-vid-2.mp4" type="video/mp4" />
+                                        <source src="/context-vid-2.mp4" type="video/mp4" />
                                     </video>
                                     <video className={`w-full h-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/works/context-vid-3.mp4" type="video/mp4" />
+                                        <source src="/context-vid-3.mp4" type="video/mp4" />
                                     </video>
                                 </div>
                                 <div className="w-full hidden md:block">
@@ -93,13 +93,13 @@ export default function Cardio() {
                                     const theme = localStorage.getItem("theme-class") || "";
                                     switch (theme) {
                                         case "pink":
-                                        return <Image src="/works/context-pink.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
+                                        return <Image src="/context-pink.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
                                         case "green":
-                                        return <Image src="/works/context-green.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
+                                        return <Image src="/context-green.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
                                         case "orange":
-                                        return <Image src="/works/context-orange.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
+                                        return <Image src="/context-orange.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
                                         default:
-                                        return <Image src="/works/context.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
+                                        return <Image src="/context.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
                                     }
                                     })()}
                                 </div>
@@ -159,13 +159,13 @@ export default function Cardio() {
                     <div className="mb-5 md:mb-10"></div>
                     <div className="w-full md:w-[65%] 2xl:w-[50%] grid grid-cols-3 -gap-x-10">
                         <ImageZoom>
-                            <Image src="/works/stickie-1.png" width={1469} height={1469} className="w-full h-auto mb-2 rotate-6 shadow-lg" alt="Samsung Knox"/> 
+                            <Image src="/stickie-1.png" width={1469} height={1469} className="w-full h-auto mb-2 rotate-6 shadow-lg" alt="Samsung Knox"/> 
                         </ImageZoom>
                         <ImageZoom>
-                            <Image src="/works/stickie-2.png" width={1469} height={1779} className="w-full h-auto mb-2 -rotate-10 shadow-lg" alt="Samsung Knox"/> 
+                            <Image src="/stickie-2.png" width={1469} height={1779} className="w-full h-auto mb-2 -rotate-10 shadow-lg" alt="Samsung Knox"/> 
                         </ImageZoom>
                         <ImageZoom>
-                            <Image src="/works/stickie-3.png" width={1469} height={1511} className="w-full h-auto mb-2 rotate-5 shadow-lg" alt="Samsung Knox"/> 
+                            <Image src="/stickie-3.png" width={1469} height={1511} className="w-full h-auto mb-2 rotate-5 shadow-lg" alt="Samsung Knox"/> 
                         </ImageZoom>
                     </div>
                     <div className="w-full md:w-[50%]">
@@ -173,13 +173,13 @@ export default function Cardio() {
                             const theme = localStorage.getItem("theme-class") || "";
                             switch (theme) {
                                 case "pink":
-                                return <Image src="/works/arrows2-pink.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
+                                return <Image src="/arrows2-pink.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
                                 case "green":
-                                return <Image src="/works/arrows2-green.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
+                                return <Image src="/arrows2-green.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
                                 case "orange":
-                                return <Image src="/works/arrows2-orange.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
+                                return <Image src="/arrows2-orange.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
                                 default:
-                                return <Image src="/works/arrows2.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
+                                return <Image src="/arrows2.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
                             }
                         })()}
                     </div>
@@ -253,10 +253,10 @@ export default function Cardio() {
                                 <div className="mb-5"></div>
                                 <div className="w-full 2xl:w-[75%] grid grid-cols-2 md:grid-cols-4 gap-x-3">
                                     <ImageZoom>
-                                        <Image src="/works/stickie-g-1.png" width={1469} height={1469} className="w-full h-auto mb-2 shadow-lg" alt="Samsung Knox"/> 
+                                        <Image src="/stickie-g-1.png" width={1469} height={1469} className="w-full h-auto mb-2 shadow-lg" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     <ImageZoom>
-                                        <Image src="/works/stickie-g-2.png" width={1469} height={1469} className="w-full h-auto mb-2 shadow-lg" alt="Samsung Knox"/> 
+                                        <Image src="/stickie-g-2.png" width={1469} height={1469} className="w-full h-auto mb-2 shadow-lg" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                    <div></div>
                                    <div></div>
@@ -266,25 +266,25 @@ export default function Cardio() {
                                 <div className="mb-5"></div>
                                 <div className="w-full 2xl:w-[75%] grid grid-cols-2 md:grid-cols-4 gap-3">
                                     <ImageZoom>
-                                        <Image src="/works/stickie-sol-1.png" width={1469} height={1469} className="w-full shadow-lg" alt="Samsung Knox"/> 
+                                        <Image src="/stickie-sol-1.png" width={1469} height={1469} className="w-full shadow-lg" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     <ImageZoom>
-                                        <Image src="/works/stickie-sol-2.png" width={1469} height={1469} className="w-full shadow-lg" alt="Samsung Knox"/> 
+                                        <Image src="/stickie-sol-2.png" width={1469} height={1469} className="w-full shadow-lg" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     <ImageZoom>
-                                        <Image src="/works/stickie-sol-3.png" width={1469} height={1469} className="w-full shadow-lg" alt="Samsung Knox"/> 
+                                        <Image src="/stickie-sol-3.png" width={1469} height={1469} className="w-full shadow-lg" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     {(() => {
                                         const theme = localStorage.getItem("theme-class") || "";
                                         switch (theme) {
                                             case "pink":
-                                            return <Image src="/works/stickie-sol-note-pink.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/stickie-sol-note-pink.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
                                             case "green":
-                                            return <Image src="/works/stickie-sol-note-green.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/stickie-sol-note-green.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
                                             case "orange":
-                                            return <Image src="/works/stickie-sol-note-orange.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/stickie-sol-note-orange.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
                                             default:
-                                            return <Image src="/works/stickie-sol-note.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/stickie-sol-note.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
                                         }
                                     })()}
                                 </div>
@@ -306,10 +306,10 @@ export default function Cardio() {
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
                                 <div className="w-full md:w-[45%] grid grid-cols-2 gap-x-4">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/works/sol-1.mp4" type="video/mp4" />
+                                        <source src="/sol-1.mp4" type="video/mp4" />
                                     </video>
                                     <ImageZoom>
-                                        <Image src="/works/sol-11.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
+                                        <Image src="/sol-11.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                 </div>
                             </div>
@@ -322,13 +322,13 @@ export default function Cardio() {
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
                                 <div className="w-full md:w-[65%] grid grid-cols-3 gap-x-4">
                                     <ImageZoom>
-                                        <Image src="/works/sol-21.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
+                                        <Image src="/sol-21.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     <ImageZoom>
-                                        <Image src="/works/sol-22.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
+                                        <Image src="/sol-22.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     <ImageZoom>
-                                        <Image src="/works/sol-23.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
+                                        <Image src="/sol-23.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                 </div>
                             </div>
@@ -340,10 +340,10 @@ export default function Cardio() {
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
                                 <div className="w-full md:w-[45%] grid grid-cols-2 gap-x-4">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/works/sol-3.mp4" type="video/mp4" />
+                                        <source src="/sol-3.mp4" type="video/mp4" />
                                     </video>
                                     <ImageZoom>
-                                        <Image src="/works/sol-3.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
+                                        <Image src="/sol-3.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                 </div>
                             </div>
@@ -356,7 +356,7 @@ export default function Cardio() {
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
                                 <div className="w-[50%] md:w-[20%]">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/works/sol-4.mp4" type="video/mp4" />
+                                        <source src="/sol-4.mp4" type="video/mp4" />
                                     </video>
                                 </div>
                             </div>
@@ -380,7 +380,7 @@ export default function Cardio() {
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
                                 <div className="w-[50%] md:w-[20%]">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/works/draft.mp4" type="video/mp4" />
+                                        <source src="/draft.mp4" type="video/mp4" />
                                     </video>
                                 </div>
                             </div>
@@ -388,10 +388,10 @@ export default function Cardio() {
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col rounded-3xl">
                                 <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
                                     <ImageZoom>
-                                        <Image src="/works/slidebar.png" width={1104} height={2312} className="w-full rounded-2xl" alt="Samsung Knox"/> 
+                                        <Image src="/slidebar.png" width={1104} height={2312} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     <ImageZoom>
-                                        <Image src="/works/youtube.png" width={1104} height={2312} className="w-full rounded-2xl" alt="Samsung Knox"/> 
+                                        <Image src="/youtube.png" width={1104} height={2312} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                 </div>
                                 <div className="w-full justify-center items-center z-2 hidden md:flex">
@@ -399,13 +399,13 @@ export default function Cardio() {
                                         const theme = localStorage.getItem("theme-class") || "";
                                         switch (theme) {
                                             case "pink":
-                                            return <Image src="/works/comparison-pink.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
+                                            return <Image src="/comparison-pink.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
                                             case "green":
-                                            return <Image src="/works/comparison-green.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
+                                            return <Image src="/comparison-green.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
                                             case "orange":
-                                            return <Image src="/works/comparison-orange.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
+                                            return <Image src="/comparison-orange.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
                                             default:
-                                            return <Image src="/works/comparison.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
+                                            return <Image src="/comparison.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
                                         }
                                     })()}
                                 </div>
@@ -423,10 +423,10 @@ export default function Cardio() {
                                 <div className="w-full flex items-center justify-center">
                                     <div className="w-full md:w-[65%] 2xl:w-[45%] grid grid-cols-2 -gap-x-9">
                                         <ImageZoom>
-                                            <Image src="/works/ut-1.png" width={1469} height={1996} className="w-full h-auto mb-2 -rotate-6 shadow-lg" alt="Samsung Knox"/> 
+                                            <Image src="/ut-1.png" width={1469} height={1996} className="w-full h-auto mb-2 -rotate-6 shadow-lg" alt="Samsung Knox"/> 
                                         </ImageZoom>
                                         <ImageZoom>
-                                            <Image src="/works/ut-2.png" width={1469} height={1964} className="w-full h-auto mb-2 rotate-10 shadow-lg" alt="Samsung Knox"/> 
+                                            <Image src="/ut-2.png" width={1469} height={1964} className="w-full h-auto mb-2 rotate-10 shadow-lg" alt="Samsung Knox"/> 
                                         </ImageZoom>
                                     </div>
                                 </div>
@@ -451,32 +451,32 @@ export default function Cardio() {
                                         const theme = localStorage.getItem("theme-class") || "";
                                         switch (theme) {
                                             case "pink":
-                                            return <Image src="/works/before1-pink.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/before1-pink.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
                                             case "green":
-                                            return <Image src="/works/before1-green.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/before1-green.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
                                             case "orange":
-                                            return <Image src="/works/before1-orange.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/before1-orange.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
                                             default:
-                                            return <Image src="/works/before1.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/before1.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
                                         }
                                     })()}
                                     <ImageZoom>
-                                        <Image src="/works/draft.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
+                                        <Image src="/draft.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     <ImageZoom>
-                                        <Image src="/works/sol-3.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
+                                        <Image src="/sol-3.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     {(() => {
                                         const theme = localStorage.getItem("theme-class") || "";
                                         switch (theme) {
                                             case "pink":
-                                            return <Image src="/works/after1-pink.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/after1-pink.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
                                             case "green":
-                                            return <Image src="/works/after1-green.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/after1-green.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
                                             case "orange":
-                                            return <Image src="/works/after1-orange.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/after1-orange.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
                                             default:
-                                            return <Image src="/works/after1.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
+                                            return <Image src="/after1.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
                                         }
                                     })()}
                                 </div>
@@ -502,7 +502,7 @@ export default function Cardio() {
                                 <div className="w-full flex justify-center">
                                     <div className="w-[50%] md:w-[25%]">
                                         <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                            <source src="/works/swiping.mp4" type="video/mp4" />
+                                            <source src="/swiping.mp4" type="video/mp4" />
                                         </video>
                                     </div>
                                 </div>
@@ -571,7 +571,7 @@ export default function Cardio() {
                     <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-15">
                         <ProjectThumbnail3 isLink="video-link" link="rules" name="Samsung Knox Manage: Rules" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcPoster="rule-poster.png" imageSrcDark="/Rule video - d.mp4" imageSrcPosterDark="rule-poster - d.png" target="_self"/>
                         <ProjectThumbnail3 isLink="image-link" link="organizations" name="Samsung Knox Manage: Organizations" desc="Designed a scalable, design-system–ready component that visualizes the inheritance logic among parent-child entities." imageSrc="/organize.png" imageSrcDark="/organize - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-                        {/* <MyButton variant="blue-button-outline" text="Return to home" link="/works" textSize="text-sm" target="_self"/> */}
+                        {/* <MyButton variant="blue-button-outline" text="Return to home" link="" textSize="text-sm" target="_self"/> */}
                     </div>
                 </div>
 

@@ -17,7 +17,7 @@ export default function Organizations() {
             <div className="px-10 md:w-2/3 md:px-0 lg:w-[75%] 2xl:w-[75%]">
                 <div className="w-full mt-20">
                     <div className="w-full flex justify-between items-center">
-                        <MyButton variant="hyperlink" text="Return to home" link="/works" textSize="text-sm" target="_self"/>
+                        <MyButton variant="hyperlink" text="Return to home" link="" textSize="text-sm" target="_self"/>
                         <div className="block md:hidden">
                             <DotsMenu/>
                         </div>
@@ -46,7 +46,7 @@ export default function Organizations() {
 
                 <div>
                     <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl">
-                        <Image src="/works/org-00.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox"/> 
+                        <Image src="/org-00.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox"/> 
                     </ImageZoom>
                 </div>
 
@@ -128,27 +128,27 @@ export default function Organizations() {
                         </div>
                         <div>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/works/ds1.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/ds1.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <div className="mb-2"></div>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Specifying spacing specs during default state.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/works/ds2.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/ds2.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <div className="mb-2"></div>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Specifying specs during user interactions.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/works/ds3.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/ds3.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <div className="mb-2"></div>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Writing guidelines for multiple ways user can interact with the component.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/works/ds4.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/ds4.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <div className="mb-2"></div>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Specifying the interactions for multiple variants.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/works/ds5.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                                <Image src="/ds5.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <div className="mb-2"></div>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Final deliverables.</p>
@@ -167,10 +167,10 @@ export default function Organizations() {
                         </div>
                         <div>
                             <ImageZoom>
-                                <Image src="/works/org-2.png" width={3099} height={3363} className="w-full h-auto mb-2 block dark:hidden" alt="Samsung Knox"/> 
+                                <Image src="/org-2.png" width={3099} height={3363} className="w-full h-auto mb-2 block dark:hidden" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <ImageZoom>
-                                <Image src="/works/org-2-darkmode.png" width={3099} height={3363} className="w-full h-auto mb-2 hidden dark:block" alt="Samsung Knox"/> 
+                                <Image src="/org-2-darkmode.png" width={3099} height={3363} className="w-full h-auto mb-2 hidden dark:block" alt="Samsung Knox"/> 
                             </ImageZoom>
                         </div>
                     </div> */}
@@ -195,11 +195,11 @@ export default function Organizations() {
                             <div>
                                 <div className="w-full md:w-[85%] 2xl:w-[75%] grid grid-cols-2 gap-5">
                                     <div className="flex flex-col justify-start">
-                                        <Image src="/works/KM.png" width={3099} height={3363} className="w-full mb-3 rounded-3xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(80%)' }}/> 
+                                        <Image src="/KM.png" width={3099} height={3363} className="w-full mb-3 rounded-3xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(80%)' }}/> 
                                         <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Samsung Knox Manage team 🚀</p>
                                     </div>
                                     <div className="flex flex-col justify-start">
-                                        <Image src="/works/grouse.png" width={3099} height={3363} className="w-full mb-3 rounded-3xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(95%)' }}/> 
+                                        <Image src="/grouse.png" width={3099} height={3363} className="w-full mb-3 rounded-3xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(95%)' }}/> 
                                         <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Product Design meeting @ Grouse ⛰️</p>
                                     </div>
                                 </div>
@@ -217,7 +217,7 @@ export default function Organizations() {
                     <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-15">
                         <ProjectThumbnail3 isLink="video-link" link="rules" name="Samsung Knox Manage: Rules" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcPoster="rule-poster.png" imageSrcDark="/Rule video - d.mp4" imageSrcPosterDark="rule-poster - d.png" target="_self"/>
                         <ProjectThumbnail3 isLink="video-link" link="cardio" name="card.io" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" imageSrcDark="" imageSrcPosterDark="" target="_self"/>
-                        {/* <MyButton variant="blue-button-outline" text="Return to home" link="/works" textSize="text-sm" target="_self"/> */}
+                        {/* <MyButton variant="blue-button-outline" text="Return to home" link="" textSize="text-sm" target="_self"/> */}
                     </div>
                 </div>
 
