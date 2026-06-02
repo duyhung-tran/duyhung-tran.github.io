@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/works',
+  basePath: '/hungiie.github.io',
 };
 
 module.exports = nextConfig;
