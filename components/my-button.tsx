@@ -27,6 +27,12 @@ export default function MyButton(props: Props) {
         {props.text}
       </a>
     );
+  } else if (props.variant == "blue-button-outline-bg") {
+    return (
+      <a href={props.link} target={props.target} className={`text-center shadow-[inset_0_0_0_1px_var(--main-colour)] bg-white backdrop-blur-md hover:bg-[var(--main-colour)] rounded-full text-[var(--main-colour)] hover:text-white font-medium py-[10px] px-4 ${props.textSize ?? "text-xs"}`}>
+        {props.text}
+      </a>
+    );
   } else if (props.variant == "blue-button-outline-full-width") {
     return (
       <a href={props.link} target={props.target} className={`inline-block w-full text-center shadow-[inset_0_0_0_1px_var(--main-colour)] hover:bg-[var(--main-colour)] rounded-full text-[var(--main-colour)] hover:text-white font-medium py-[10px] px-4 ${props.textSize ?? "text-xs"}`}>

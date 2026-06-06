@@ -20,11 +20,11 @@ export default function ProjectThumbnail2(props: Props) {
     if (props.isLink == "image-link") {
         return (
             <div className="h-full flex flex-col group">
-                <div className="flex gap-5 items-center">
+                <div className="flex gap-8 items-center">
                     <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--main-colour)] mb-4 leading-loose">
                         {props.name}
                     </p>
-                    <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] mb-4 leading-loose">
+                    <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--colour-bodytext)] mb-4 leading-loose">
                         ({props.type})
                     </p>
                 </div>
@@ -57,11 +57,11 @@ export default function ProjectThumbnail2(props: Props) {
     else if (props.isLink == "video-link") {
         return (
             <div className="h-full flex flex-col group">
-                <div className="flex gap-5 items-center">
+                <div className="flex gap-8 items-center">
                     <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] mb-4 leading-loose md:group-hover:text-[var(--main-colour)]">
                         {props.name}
                     </p>
-                    <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] mb-4 leading-loose">
+                    <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] mb-4 md:group-hover:text-[var(--colour-bodytext)] leading-loose">
                         ({props.type})
                     </p>
                 </div>
