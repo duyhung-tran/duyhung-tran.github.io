@@ -86,13 +86,13 @@ export default function Home2() {
                 <ProjectThumbnail2 isLink="video-link" link="rules" type="UX design" name="Samsung Knox Manage: Rules" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcPoster="rule-poster.png" imageSrcDark="/Rule video - d.mp4" imageSrcPosterDark="rule-poster - d.png" target="_self"/>
               </SlideUpNoThres>
               <SlideUpNoThres>
-                  <ProjectThumbnail2 isLink="image-link" link="organizations" type="Design system" name="Samsung Knox Manage: Organizations" desc="Designed a scalable, design-system–ready component that visualizes the inheritance logic among parent-child entities." imageSrc="/organize.png" imageSrcDark="/organize - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+                  <ProjectThumbnail2 isLink="image-link" link="organizations" type="Design system" name="Samsung Knox Manage: Organizations" desc="Designed and wrote system documentation for a scalable table component that visualizes the inheritance logic among parent-child entities." imageSrc="/organize.png" imageSrcDark="/organize - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
               </SlideUpNoThres>
               <SlideUp>
                   <ProjectThumbnail2 isLink="video-link" link="cardio" type="UX design" name="card.io" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" imageSrcDark="/cardio video - d.mp4" imageSrcPosterDark="/cardio-poster - d.png" target="_self"/>
               </SlideUp>
               <SlideUp>
-                  <ProjectThumbnail2 isLink="image-link" link="" type="UX research" name="Samsung Health (coming soon)" desc="Conducted research to inform future Samsung Health wearable experiences, including Galaxy Watch & Galaxy Ring." imageSrc="/shealth.png" imageSrcPoster="" imageSrcDark="" imageSrcPosterDark="" target="_self"/>
+                  <ProjectThumbnail2 isLink="image-link" link="" type="UX research" name="Samsung Health (coming soon)" desc="Conducted research to inform future Samsung Health wearable experiences, including Galaxy Watch, Galaxy Ring, and the Samsung Health app." imageSrc="/shealth.png" imageSrcPoster="" imageSrcDark="" imageSrcPosterDark="" target="_self"/>
               </SlideUp>
             </div>
 
