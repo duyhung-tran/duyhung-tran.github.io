@@ -96,11 +96,9 @@ export default function Home2() {
               </SlideUp>
             </div>
 
-            <div className="mb-45"></div>
-
             {/* <Heading text="My other work spans development, visual design, and service design." variant="black"/>
             <div className="mb-12"></div> */}
-            <p className="text-lg text-[var(--colour-bodytext)] leading-loose mb-12">My other work spans development, visual design, and service design.</p>
+            {/* <p className="text-lg text-[var(--colour-bodytext)] leading-loose mb-12">My other work spans development, visual design, and service design.</p>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-5 gap-y-15 mt-12">
               <SlideUp>
                   <ProjectThumbnail isLink="image-link" link="https://drive.google.com/file/d/1d0jGR0QJN3mzwX6o9n0C54g6aHej0I9l/view" name="Full stack" desc="React Native note-taking app, integrating Apple Maps API, Text-to-speech API, and Firebase." imageSrc="/memorymate.png" imageSrcDark="/memorymate - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_blank"/>
@@ -111,11 +109,11 @@ export default function Home2() {
               <SlideUp>
                   <ProjectThumbnail isLink="image-link" link="servicedesign" name="Service design" desc="A cooling initiative helping neighbourhood houses protect vulnerable communities from extreme heat." imageSrc="/cool-tgt.png" imageSrcDark="/organize - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
               </SlideUp>
-            </div>
+            </div> */}
 
-            <div className="mb-45" id="testimonials"></div>
+            <div className="mb-35" id="testimonials"></div>
 
-            <div className="mb-12">
+            <div className="mb-11">
               <p className="text-lg text-[var(--colour-bodytext)] leading-loose mb-2">They said it, not me.</p>
               {/* <Heading text="They said it, not me." variant="black"/> */}
               <p className="text-md text-[var(--colour-bodytext-3)] leading-loose">Testimonials from those I reported to.</p>
@@ -125,7 +123,6 @@ export default function Home2() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 <div className="flex flex-col gap-5">
                     <Testimonial name="Tian Jia" job="Senior UX Designer, UX Manager" company="Samsung" text={<>Hung has demonstrated <span className="underline decoration-[var(--main-colour)] underline-offset-4 font-semibold">a strong talent for both UX research and graphical UI tasks</span>. His ability to analyze user needs and translate them into intuitive, visually appealing designs has been impressive. <br /> <div className="mt-5"></div> Overall, his dedication and versatility make him a valuable asset to any design team.</>} imgSrc="/tian.jpeg"/>
-                    {/* <Testimonial name="Tian Jia" job="Senior UX Designer, UX Lead" company="Samsung" text={<>Hung has demonstrated a strong talent for both UX research and graphical UI tasks. His ability to analyze user needs and translate them into intuitive, visually appealing designs has been impressive. <br /> <div className="mt-5"></div> Overall, his dedication and versatility make him a valuable asset to any design team.</>} imgSrc="/tian.jpeg"/> */}
                 </div>
                 {/* <div className="flex flex-col gap-5">
                   <SlideUp>
@@ -137,7 +134,6 @@ export default function Home2() {
                 </div> */}
                 <div className="flex flex-col gap-5">
                     <Testimonial name="Thomas Nelles" job="Senior Communications Consultant" company="Fraser Health" text={<>From designing a multi-page document for our Indigenous Health team to crafting a Urgent Care video, <span className="underline decoration-[var(--main-colour)] underline-offset-4 font-semibold">his clients have been very impressed with his work to date</span>. He adapts to changing timelines easily including timely requests and juggling multiple projects. <br /> <div className="mt-5"></div>His calm demeanor and ability to clearly communicate his working progress are just some of his strengths.</>} imgSrc="/thomas.jpeg"/>
-                    {/* <Testimonial name="Thomas Nelles" job="Senior Communications Consultant" company="Fraser Health" text={<>From designing a multi-page document for our Indigenous Health team to crafting a Urgent Care video, his clients have been very impressed with his work to date. He adapts to changing timelines easily including timely requests and juggling multiple projects. <br /> <div className="mt-5"></div> His calm demeanor and ability to clearly communicate his working progress are just some of his strengths.</>} imgSrc="/thomas.jpeg"/> */}
                 </div>
                 <div className="flex flex-col gap-5">
                     <div className="h-fit bg-[var(--container-bg)] shadow-[0px_0px_15px_rgba(0,0,0,0.01)] px-7 py-6 rounded-3xl">
@@ -148,6 +144,16 @@ export default function Home2() {
                 </div>
               </div>
             </SlideUp>
+
+            <div className="mb-33"></div>
+            
+            <div className="flex items-center justify-center gap-10">
+                <MyButton variant="hyperlink" text="Back to top" link="#top" textSize="text-sm" target="_self"/>
+                <MyButton variant="blue-button" text="About me" link="/about" target="_self" textSize="text-sm"/>
+            </div>
+
+            <div className="-mb-2"></div>
+
             <Footer/>
         </div>
     </div>
