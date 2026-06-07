@@ -149,7 +149,7 @@ export default function Home2() {
             
             <div className="flex items-center justify-center gap-10">
                 <MyButton variant="hyperlink" text="Back to top" link="#top" textSize="text-sm" target="_self"/>
-                <MyButton variant="blue-button" text="About me" link="/about" target="_self" textSize="text-sm"/>
+              <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" textSize="text-sm" target="_blank"/>
             </div>
 
             <div className="-mb-2"></div>
