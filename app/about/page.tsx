@@ -194,7 +194,7 @@ export default function About() {
                 <p className="mb-4 text-sm text-[var(--colour-bodytext)] leading-loose">If you&rsquo;re still here reading my yapping session, maybe that&rsquo;s one of them, so please don&rsquo;t hesitate to <MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="reach out" textSize="text-sm"/>. Let&rsquo;s chat :)</p>
 
 
-                <div className="mb-30"></div>
+                {/* <div className="mb-30"></div>
                 <Heading text="If loving these is wrong, I don't wanna be right" variant="black"/>
                 <div className="mb-8"></div>
 
@@ -224,7 +224,6 @@ export default function About() {
                                 className="rounded-full aspect-square overflow-hidden flex justify-center items-center bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.35),transparent_40%),radial-gradient(circle,rgba(0,0,0),black)]"
                             >
                                 <div className="rounded-full w-[93%] h-[93%] flex items-center justify-center border-2 border-[#303030]">
-                                    {/* <div className="rounded-full w-[95%] h-[95%] flex items-center justify-center border-1  border-[#404040]"> */}
                                         <div className="rounded-full w-[95%] h-[95%] flex items-center justify-center border-1  border-[#303030]">
                                             <div className="rounded-full w-[55%] h-[55%] flex items-center justify-center border-2  border-[#303030]">
                                                 <Image
@@ -235,7 +234,6 @@ export default function About() {
                                                     className="w-[90%] rounded-full object-cover duration-300 shadow-[0px_0px_15px_rgba(0,0,0,0.1)] transition-all transition-duration-300 filter-[contrast(90%)]"
                                                 />
                                             </div>
-                                        {/* </div> */}
                                     </div>
                                 </div>
                             </div>
@@ -319,7 +317,7 @@ export default function About() {
                             </div>
                         ))}
                     </div>
-                )}
+                )} */}
 
                 {/* <p className="text-lg text-[var(--colour-bodytext-3)] leading-loose mb-10">Outside of UX?</p> */}
 
