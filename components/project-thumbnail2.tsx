@@ -48,7 +48,7 @@ export default function ProjectThumbnail2(props: Props) {
                     </div> */}
                     <div className="absolute inset-x-0 bottom-0 h-[30%] flex items-center justify-center
                                     opacity-0
-                                    transition-all duration-100 ease-out
+                                    transition-all duration-0 ease-out
                                     group-hover:opacity-100">
                         <MyButton link={props.link} text={`Open ${props.name}`} textSize="text-sm" target={props.target} variant="blue-button"/>
                     </div>
@@ -93,7 +93,7 @@ export default function ProjectThumbnail2(props: Props) {
                     </div> */}
                     <div className="absolute inset-x-0 bottom-0 h-[30%] flex items-center justify-center
                                     opacity-0
-                                    transition-all duration-100 ease-out
+                                    transition-all duration-0 ease-out
                                     group-hover:opacity-100">
                         <MyButton link={props.link} text={`Open ${props.name}`} textSize="text-sm" target={props.target} variant="blue-button"/>
                     </div>
