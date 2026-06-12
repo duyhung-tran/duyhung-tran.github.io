@@ -45,7 +45,7 @@ export default function Cardio() {
                 <div className="mb-10"></div>
 
                 <div>
-                    <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl">
+                    <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl">
                     {/* <ImageZoom> */}
                         <Image src="/cool-tgt-wide.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox"/> 
                     </ImageZoom>
@@ -76,7 +76,7 @@ export default function Cardio() {
                             <Heading text="Design challenge" variant="black"/>
                         </div>
                         <div>
-                            <div className="bg-[var(--container-bg)] flex flex-col p-7 rounded-3xl">
+                            <div className="bg-[var(--container-bg)] flex flex-col p-7 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">Problem ⚠️</p>
                                 <div className="mb-4"></div>
                                 <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Social infrastructure of passing cooling.</p>
@@ -85,21 +85,21 @@ export default function Cardio() {
                                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">The permitting process can be complex and difficult to interpret, making it challenging for local organizations to navigate what is allowed, what is not, and how to proceed.</p>
                             </div>
                             <div className="mb-3"></div>
-                            <div className="bg-[var(--container-bg)] flex flex-col p-7 rounded-3xl">
+                            <div className="bg-[var(--container-bg)] flex flex-col p-7 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">How might we...</p>
                                 <div className="mb-4"></div>
                                 <p className="text-lg text-[var(--colour-bodytext)] leading-loose">... help City of Vancouver present its permit system more accessibly, so neighbourhood houses and community organizations feel less overwhelmed when implementing passive cooling solutions?</p>
                             </div>
                             <div className="mb-3"></div>
                             <div className="w-full 2xl:w-[80%] grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <div className="w-full bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 rounded-3xl">
+                                <div className="w-full bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 rounded-2xl">
                                     <ImageZoom>
                                         <Image src="/pc 1.png" width={1387} height={780} className="w-full shadow-lg" alt=""/> 
                                     </ImageZoom>
                                     <div className="mb-10"></div>
                                     <MyButton variant="blue-button-outline" link="https://www.bccancer.bc.ca/prevention/Documents/ShadeLookbook_May2024.pdf" text="Read more in new tab" textSize="text-sm" target="_blank"/>
                                 </div>
-                                <div className="w-full bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 rounded-3xl">
+                                <div className="w-full bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 rounded-2xl">
                                     <ImageZoom className="flex justify-center items-center">
                                         <Image src="/pc 2.png" width={1387} height={780} className="mx-auto w-full md:w-2/3 shadow-lg" alt=""/> 
                                     </ImageZoom>
@@ -119,13 +119,13 @@ export default function Cardio() {
                             <Heading text="Desk research (secondary)" variant="black"/>
                         </div>
                         <div>
-                            <div className="bg-[var(--main-darkercolour)] flex flex-col p-7 rounded-3xl">
+                            <div className="bg-[var(--main-darkercolour)] flex flex-col p-7 rounded-2xl">
                                 <p className="text-sm text-white leading-loose">Exploratory research direction</p>
                                 <div className="mb-2"></div>
                                 <p className="text-lg text-white leading-loose">At what point does the City of Vancouver’s presentation of information (websites, infographics, toolkit, etc.) become too complex for community-based organizations to effectively navigate?</p>
                             </div>
                             <div className="mb-3"></div>
-                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 rounded-3xl">
+                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">Questions to answer:</p>
                                 <div className="mb-5 md:mb-8"></div>
                                 <div className="w-full md:w-[70%] 2xl:w-[60%] grid grid-cols-3 gap-3 pb-5">
@@ -161,12 +161,12 @@ export default function Cardio() {
                             <Heading text="In-depth interview (primary)" variant="black"/>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                            <div className="col-span-2 rounded-3xl overflow-hidden shadow-lg">
+                            <div className="col-span-2 rounded-2xl overflow-hidden shadow-lg">
                                 <ImageZoom>
                                     <Image src="/kitsilano.png" width={1469} height={1469} className="w-full" alt=""/> 
                                 </ImageZoom>
                             </div>
-                            <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-9 rounded-3xl">
+                            <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-9 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">Recruit</p>
                                 <div className="mb-4"></div>
                                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Interviewee works at Kitsilano Neighbourhood House (The Kits House), a non-profit community building.</p>
@@ -175,7 +175,7 @@ export default function Cardio() {
                                     <MyButton variant="blue-button-outline" link="https://www.kitshouse.org/" text="The Kits House's website" target="_blank" textSize="text-sm" />
                                 </div>
                             </div>
-                            <div className="bg-[var(--container-bg)] flex flex-col p-7 rounded-3xl">
+                            <div className="bg-[var(--container-bg)] flex flex-col p-7 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">Interview goal</p>
                                 <div className="mb-4"></div>
                                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">To collect missing context about the permit process, the House’s role in extreme heat events, and existing support from the City of Vancouver (CoV).</p>
@@ -192,7 +192,7 @@ export default function Cardio() {
                             <Heading text="Insights" variant="black"/>
                         </div>
                         <div>
-                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 rounded-3xl">
+                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 rounded-2xl">
                                 <div className="w-full flex flex-col">
                                     <p className="text-sm text-[var(--main-colour)] leading-loose">Insight 1</p>
                                     <div className="mb-5"></div>
@@ -215,7 +215,7 @@ export default function Cardio() {
 
                             <div className="mb-5"></div>
 
-                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 rounded-3xl">
+                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 rounded-2xl">
                                 <div className="w-full flex flex-col">
                                     <p className="text-sm text-[var(--main-colour)] leading-loose">Insight 2</p>
                                     <div className="mb-5"></div>
@@ -237,7 +237,7 @@ export default function Cardio() {
                             </div>
                             
                             {/* <div className="mb-5"></div>
-                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center rounded-3xl">
+                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center rounded-2xl">
                                 <ImageZoom>
                                     <Image src="/jamm.png" width={1469} height={1469} className="w-full" alt=""/> 
                                 </ImageZoom>
@@ -255,12 +255,12 @@ export default function Cardio() {
                         </div>
                         <div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                                <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-9 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-9 rounded-2xl">
                                     <p className="text-sm text-[var(--main-colour)] leading-loose">What we realized</p>
                                     <div className="mb-4"></div>
                                     <p className="text-lg text-[var(--colour-bodytext-2)] leading-loose">Neighbourhood houses play an important role in supporting communities during extreme heat events, but their impact is influenced <span className="font-semibold underline decoration-[var(--main-colour)] underline-offset-4 text-[var(--colour-bodytext)]">less by regulatory barriers and more by funding constraints and their role as trusted social spaces</span>!</p>
                                 </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-9 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-9 rounded-2xl">
                                     <p className="text-sm text-[var(--main-colour)] leading-loose">-&gt;  Our decision</p>
                                     <div className="mb-4"></div>
                                     <p className="text-lg text-[var(--colour-bodytext-2)] leading-loose">Therefore, we decided to shift our focus away from the permitting process as a barrier to the House's impact, and toward what it offers most to its communities: <span className="font-semibold underline decoration-[var(--main-colour)] underline-offset-4 text-[var(--colour-bodytext)]">communal support</span> and <span className="font-semibold underline decoration-[var(--main-colour)] underline-offset-4 text-[var(--colour-bodytext)]">human connection</span>.</p>
@@ -268,14 +268,14 @@ export default function Cardio() {
 
                             </div>
                             <div className="mb-5"></div>
-                            <div className="bg-[var(--container-bg)] flex flex-col p-7 rounded-3xl">
+                            <div className="bg-[var(--container-bg)] flex flex-col p-7 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">How might we...</p>
                                 <div className="mb-4"></div>
                                 <p className="text-lg text-[var(--colour-bodytext-3)] leading-loose line-through">... help City of Vancouver present its permit system more accessibly, so neighbourhood houses and community organizations feel less overwhelmed when implementing passive cooling solutions?</p>
                                 <div className="mb-5"></div>
                                 <p className="text-lg text-[var(--colour-bodytext)] leading-loose">... help the City of Vancouver encourage community resilience to extreme heat through low-cost passive cooling practices, while also strengthening social connections and emotional support within communities?</p>
                                 <div className="mb-8"></div>
-                                <div className="p-7 rounded-3xl bg-[var(--background)]">
+                                <div className="p-7 rounded-2xl bg-[var(--background)]">
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">“Community resilience is a measure of the [...] ability of a community to utilize available resources to respond to, withstand, and recover from adverse situations.”</p>
                                     <div className="mb-4"></div>
                                     <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">RAND, public policy research organization</p>
@@ -293,7 +293,7 @@ export default function Cardio() {
                             <Heading text="Our solution" variant="black"/>
                         </div>
                         <div>
-                            <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-9 rounded-3xl">
+                            <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-9 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">"Cool Together" initiative</p>
                                 <div className="mb-4"></div>
                                 <p className="text-lg text-[var(--colour-bodytext)] leading-loose">“Cool Together” is a new cooling initiative from the City of Vancouver designed to support local organizations in helping its vulnerable communities cope with extreme heat.</p>

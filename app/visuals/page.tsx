@@ -39,18 +39,18 @@ export default function Visuals() {
                 <SlideUpNoThres>
                 <p className="text-md text-[var(--colour-bodytext-3)] mb-9">VSA - Movie Night promotions 🎥</p>
                 <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-2">
-                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-3xl">
+                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-2xl">
                         <Image src="/movie-2.png" width={1200} height={1200} className="w-full h-full object-cover" alt="Visual design"/>
                     </ImageZoom>
-                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-3xl">
-                        <Image src="/movie-3.png" width={1200} height={1200} className="w-full h-full object-cover rounded-3xl" alt="Visual design"/>
+                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-2xl">
+                        <Image src="/movie-3.png" width={1200} height={1200} className="w-full h-full object-cover rounded-2xl" alt="Visual design"/>
                     </ImageZoom>
-                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-3xl">
-                        <Image src="/movie-5.png" width={1200} height={1200} className="w-full h-full object-cover rounded-3xl" alt="Visual design"/>
+                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-2xl">
+                        <Image src="/movie-5.png" width={1200} height={1200} className="w-full h-full object-cover rounded-2xl" alt="Visual design"/>
                     </ImageZoom>
-                    <div className="col-span-2 bg-[var(--container-bg)] w-full flex justify-center items-center rounded-3xl">
+                    <div className="col-span-2 bg-[var(--container-bg)] w-full flex justify-center items-center rounded-2xl">
                         <ImageZoom>
-                            <Image src="/movie-1.png" width={1200} height={1200} className="w-[100%] object-cover rounded-3xl" alt="Visual design"/>
+                            <Image src="/movie-1.png" width={1200} height={1200} className="w-[100%] object-cover rounded-2xl" alt="Visual design"/>
                         </ImageZoom>
                     </div>
                     <div></div>
@@ -61,8 +61,8 @@ export default function Visuals() {
 
                 <p className="text-md text-[var(--colour-bodytext-3)] mb-9">VSA - Halloween costume contest promotions 🎃</p>
                 <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-2">
-                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-3xl">
-                        <Image src="/halloween-1.png" width={1200} height={1200} className="w-full h-full object-cover rounded-3xl" alt="Visual design"/>
+                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-2xl">
+                        <Image src="/halloween-1.png" width={1200} height={1200} className="w-full h-full object-cover rounded-2xl" alt="Visual design"/>
                     </ImageZoom>
                     <div></div>
                 </div>
@@ -71,14 +71,14 @@ export default function Visuals() {
 
                 <p className="text-md text-[var(--colour-bodytext-3)] mb-9">VSA - Back to School promotions 🏫</p>
                 <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-2">
-                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-3xl">
-                        <Image src="/vsa-1.png" width={1200} height={1200} className="w-full h-full object-cover rounded-3xl" alt="Visual design"/>
+                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-2xl">
+                        <Image src="/vsa-1.png" width={1200} height={1200} className="w-full h-full object-cover rounded-2xl" alt="Visual design"/>
                     </ImageZoom>
-                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-3xl">
-                        <Image src="/vsa-2.png" width={1200} height={1200} className="w-full h-full object-cover rounded-3xl" alt="Visual design"/>
+                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-2xl">
+                        <Image src="/vsa-2.png" width={1200} height={1200} className="w-full h-full object-cover rounded-2xl" alt="Visual design"/>
                     </ImageZoom>
-                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-3xl">
-                        <Image src="/vsa-3.png" width={1200} height={1200} className="w-full h-full object-cover rounded-3xl" alt="Visual design"/>
+                    <ImageZoom className="bg-[var(--container-bg)] overflow-hidden rounded-2xl">
+                        <Image src="/vsa-3.png" width={1200} height={1200} className="w-full h-full object-cover rounded-2xl" alt="Visual design"/>
                     </ImageZoom>
                 </div>
 
@@ -87,15 +87,15 @@ export default function Visuals() {
                 <p className="text-md text-[var(--colour-bodytext-3)] mb-9">Greenwich university's Cultural festival 🌎</p>
                 <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-2">
                     <ImageZoom>
-                        <Image src="/w-1.png" width={1200} height={1200} className="w-full h-full object-cover rounded-3xl  " alt="Visual design"/>
+                        <Image src="/w-1.png" width={1200} height={1200} className="w-full h-full object-cover rounded-2xl  " alt="Visual design"/>
                     </ImageZoom>
                     <div></div>
                     <div></div>
                     <ImageZoom>
-                        <Image src="/w-2.png" width={1200} height={1200} className="w-full h-full object-cover rounded-3xl  " alt="Visual design"/>
+                        <Image src="/w-2.png" width={1200} height={1200} className="w-full h-full object-cover rounded-2xl  " alt="Visual design"/>
                     </ImageZoom>
                     <ImageZoom>
-                        <Image src="/w-3.png" width={1200} height={1200} className="w-full h-full object-cover rounded-3xl  " alt="Visual design"/>
+                        <Image src="/w-3.png" width={1200} height={1200} className="w-full h-full object-cover rounded-2xl  " alt="Visual design"/>
                     </ImageZoom>
                 </div> */}
 
@@ -103,14 +103,14 @@ export default function Visuals() {
 
                 <p className="text-md text-[var(--colour-bodytext-3)] mb-9">Fraser Health's Official Corporate Brochure 🩺</p>
                 <div className="w-full grid grid-cols-2 md:grid-cols-2 gap-2">
-                    <div className=" bg-[var(--container-bg)] w-full flex justify-center items-center rounded-3xl">
+                    <div className=" bg-[var(--container-bg)] w-full flex justify-center items-center rounded-2xl">
                         <ImageZoom>
-                            <Image src="/fh-1.png" width={1200} height={1200} className="w-[100%] object-cover rounded-3xl  " alt="Visual design"/>
+                            <Image src="/fh-1.png" width={1200} height={1200} className="w-[100%] object-cover rounded-2xl  " alt="Visual design"/>
                         </ImageZoom>
                     </div>
-                    <div className=" bg-[var(--container-bg)] w-full flex justify-center items-center rounded-3xl">
+                    <div className=" bg-[var(--container-bg)] w-full flex justify-center items-center rounded-2xl">
                         <ImageZoom>
-                            <Image src="/fh-2.png" width={1200} height={1200} className="w-[100%] object-cover rounded-3xl  " alt="Visual design"/>
+                            <Image src="/fh-2.png" width={1200} height={1200} className="w-[100%] object-cover rounded-2xl  " alt="Visual design"/>
                         </ImageZoom>
                     </div>
                 </div>
@@ -122,7 +122,7 @@ export default function Visuals() {
                     <MyButton variant="blue-button-outline" text="View on Youtube" link="https://www.youtube.com/watch?v=ZBhZYYxJFnw" textSize="text-sm" target="_blank"/>
                 </div>
                 <div className="mb-9"></div>
-                <div className="bg-[var(--container-bg)] w-full flex justify-center items-center rounded-3xl py-15 mb-2">
+                <div className="bg-[var(--container-bg)] w-full flex justify-center items-center rounded-2xl py-15 mb-2">
                     <div className="w-[60%]" style={{ clipPath: "inset(2px 2px)" }}>
                         <video className="object-cover" autoPlay controls muted loop playsInline>
                             <source src="videographics.mp4"type="video/mp4" />
@@ -137,7 +137,7 @@ export default function Visuals() {
                     <MyButton variant="blue-button-outline" text="View on Youtube" link="https://www.youtube.com/watch?v=OhkqwG9JYLw" textSize="text-sm" target="_blank"/>
                 </div>
                 <div className="mb-9"></div>
-                <div className="bg-[var(--container-bg)] w-full flex justify-center items-center rounded-3xl py-15 mb-2">
+                <div className="bg-[var(--container-bg)] w-full flex justify-center items-center rounded-2xl py-15 mb-2">
                     <div className="w-[60%]" style={{ clipPath: "inset(2px 2px)" }}>
                         <video className="object-cover" autoPlay controls muted loop playsInline>
                             <source src="upcc.mp4"type="video/mp4" />

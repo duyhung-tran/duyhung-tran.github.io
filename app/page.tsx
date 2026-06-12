@@ -136,7 +136,7 @@ export default function Home2() {
                     <Testimonial name="Thomas Nelles" job="Senior Communications Consultant" company="Fraser Health" text={<>From designing a multi-page document for our Indigenous Health team to crafting a Urgent Care video, <span className="underline decoration-[var(--main-colour)] underline-offset-4 font-semibold">his clients have been very impressed with his work to date</span>. He adapts to changing timelines easily including timely requests and juggling multiple projects. <br /> <div className="mt-5"></div>His calm demeanor and ability to clearly communicate his working progress are just some of his strengths.</>} imgSrc="/thomas.jpeg"/>
                 </div>
                 <div className="flex flex-col gap-5">
-                    <div className="h-fit bg-[var(--container-bg)] shadow-[0px_0px_15px_rgba(0,0,0,0.01)] px-7 py-6 rounded-3xl">
+                    <div className="h-fit bg-[var(--container-bg)] shadow-[0px_0px_15px_rgba(0,0,0,0.01)] px-7 py-6 rounded-2xl">
                       <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">This spot is for you :"&#41;</p> 
                       <div className="mb-5"></div>
                       <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Let's build something great together! I’d love to hear from you via my <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-md"/></span>, or <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-md"/></span>.</p> 

@@ -168,7 +168,7 @@ export default function About() {
 
                 <div className="w-full flex items-center justify-center">
                     <div className="w-full h-auto relative mt-3 mb-9">
-                        <Image src="/small.jpg" width={2040} height={1179} alt="hung tran" className="object-cover rounded-3xl shadow-md mb-3" style={{ filter: 'contrast(80%)' }}/>
+                        <Image src="/small.jpg" width={2040} height={1179} alt="hung tran" className="object-cover rounded-2xl shadow-lg mb-3" style={{ filter: 'contrast(80%)' }}/>
                         <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Me but #2008 ✨</p>
                         {/* <Polaroid imageSrc="/small.jpg" alt="hung tran" desc="Summer 2008 🐦" angle={-4} textSize="text-xl"/> */}
                     </div>
@@ -266,7 +266,7 @@ export default function About() {
                                 key={i}
                                 onMouseEnter={() => setHoveredShow(show.name)}
                                 onMouseLeave={() => setHoveredShow(null)}
-                                className="overflow-hidden rounded-3xl"
+                                className="overflow-hidden rounded-2xl"
                             >
                                 <Image
                                     src={show.src}

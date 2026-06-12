@@ -23,7 +23,7 @@ export default function ProjectThumbnail3(props: Props) {
                         {props.name}
                     </p>
                 </div>
-                <a className="relative block overflow-hidden group bg-[var(--container-bg)] rounded-3xl shadow-[0px_0px_20px_rgba(0,0,0,0.02)]" href={props.link} target={props.target}>
+                <a className="relative block overflow-hidden group bg-[var(--container-bg)] rounded-2xl shadow-[0px_0px_20px_rgba(0,0,0,0.02)]" href={props.link} target={props.target}>
                     <Image src={props.imageSrc} alt={props.name} width={1640} height={1228} className="object-cover"/>
                 </a>
                 <div className="mt-6">
@@ -42,7 +42,7 @@ export default function ProjectThumbnail3(props: Props) {
                         {props.name}
                     </p>
                 </div>
-                <a className="relative block overflow-hidden group bg-[var(--container-bg)] rounded-3xl shadow-[0px_0px_20px_rgba(0,0,0,0.02)]" href={props.link} target={props.target}>
+                <a className="relative block overflow-hidden group bg-[var(--container-bg)] rounded-2xl shadow-[0px_0px_20px_rgba(0,0,0,0.02)]" href={props.link} target={props.target}>
                     <video className={`w-full h-full object-cover !bg-transparent block`} style={{ clipPath: "inset(-1px -1px)" }} autoPlay muted loop playsInline poster={props.imageSrcPoster}>
                         <source src={props.imageSrc} type="video/mp4" />
                     </video>

@@ -47,7 +47,7 @@ export default function Cardio() {
                     <div className="mb-10"></div>
 
                     <div>
-                        <video className="w-full h-full object-cover rounded-3xl" autoPlay muted loop playsInline poster="/cardio-wide-poster.png">
+                        <video className="w-full h-full object-cover rounded-2xl" autoPlay muted loop playsInline poster="/cardio-wide-poster.png">
                             <source src="cardio video wide.mp4"type="video/mp4" />
                         </video>
                     </div>
@@ -119,17 +119,17 @@ export default function Cardio() {
                             <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Observations</p>
                             <div className="mb-6"></div>
                             <div className="w-full grid grid-cols-1 gap-3">
-                                <div className="flex flex-col h-full bg-[var(--colour-grey)] px-7 py-7 rounded-3xl">
+                                <div className="flex flex-col h-full bg-[var(--colour-grey)] px-7 py-7 rounded-2xl">
                                     <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Template for a “typical” cardio session?</p>
                                     <div className="mb-3"></div>
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Influencers follow a conventional template of a cardio session with 3 phases: Warm-up, Endurance and Cool-down.</p>
                                 </div>
-                                <div className="flex flex-col h-full bg-[var(--colour-grey)] px-7 py-7 rounded-3xl">
+                                <div className="flex flex-col h-full bg-[var(--colour-grey)] px-7 py-7 rounded-2xl">
                                     <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Requests for artist or album specific playlists.</p>
                                     <div className="mb-3"></div>
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Viewers usually ask influencers to make cardio playlists specific for their favourite artist or album.</p>
                                 </div>
-                                <div className="flex flex-col h-full bg-[var(--colour-grey)] px-7 py-7 rounded-3xl">
+                                <div className="flex flex-col h-full bg-[var(--colour-grey)] px-7 py-7 rounded-2xl">
                                     <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Strategically organized songs that can‘t be shuffled.</p>
                                     <div className="mb-3"></div>
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">The playlists are structured to match the current speed range. The faster the treadmill (MPH), the faster the song (BPM).</p>
@@ -154,7 +154,7 @@ export default function Cardio() {
 
                 <div className="mb-10"></div>
 
-                <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 pb-13 rounded-3xl">
+                <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 pb-13 rounded-2xl">
                     <p className="text-sm text-[var(--main-colour)] leading-loose">Reoccurring themes</p>
                     <div className="mb-5 md:mb-10"></div>
                     <div className="w-full md:w-[65%] 2xl:w-[50%] grid grid-cols-3 -gap-x-10">
@@ -202,35 +202,35 @@ export default function Cardio() {
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Now that I have a deeper understanding of my user, it's time to translate those data into a persona.</p>
                             <div className="mb-6"></div>
                             <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-2xl">
                                     <p className="text-sm text-[var(--main-colour)] leading-loose">Who she is</p>
                                     <div className="mb-2"></div>
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Michelle is a Sabrina Carpenter fan who loves doing cardio.</p>
                                 </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-2xl">
                                     <p className="text-sm text-[var(--main-colour)] leading-loose">Her goal</p>
                                     <div className="mb-2"></div>
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">She wants to make a playlist to vibe to during her 45-minute cardio session.</p>
                                 </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-2xl">
                                     <p className="text-sm text-[var(--main-colour)] leading-loose">Pain point</p>
                                     <div className="mb-2"></div>
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">She’s 5'3" and runs at a slower pace than most fitness influencers, so she needs to customize her playlist to account for her height.</p>
                                 </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-2xl">
                                     <p className="text-sm text-[var(--main-colour)] leading-loose">Another pain point</p>
                                     <div className="mb-2"></div>
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">She doesn’t like some of Sabrina’s songs and wants to remove them, also add more songs from different artists.</p>
                                 </div>
                             </div>
                             <div className="mb-3"></div>
-                            <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-8 rounded-3xl">
+                            <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-8 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">Problem ⚠️</p>
                                 <div className="mb-2"></div>
                                 <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Michelle feels frustrated because she doesn‘t have confidence in customizing & testing the playlist‘s effectiveness on her own.</p>
                             </div>
                             <div className="mb-3"></div>
-                            <div className="bg-[var(--main-darkercolour)] flex flex-col p-7 pb-8 rounded-3xl">
+                            <div className="bg-[var(--main-darkercolour)] flex flex-col p-7 pb-8 rounded-2xl">
                                 <p className="text-sm text-white leading-loose">How might we...</p>
                                 <div className="mb-2"></div>
                                 <p className="text-lg text-white leading-loose">... make sure Michelle feels informed and confident in customizing & testing her own cardio playlists?</p>
@@ -248,7 +248,7 @@ export default function Cardio() {
                             <Heading text="Brainstorming my solutions" variant="black"/>
                         </div>
                         <div>
-                            <div className="w-full bg-[var(--container-bg)] flex flex-col px-10 py-7 rounded-3xl">
+                            <div className="w-full bg-[var(--container-bg)] flex flex-col px-10 py-7 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">Solution must solve 2 main goals</p>
                                 <div className="mb-5"></div>
                                 <div className="w-full 2xl:w-[75%] grid grid-cols-2 md:grid-cols-4 gap-x-3">
@@ -303,7 +303,7 @@ export default function Cardio() {
                             <div className="mb-9"></div>
                         </div>
                         <div>
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
+                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
                                 <div className="w-full md:w-[45%] grid grid-cols-2 gap-x-4">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
                                         <source src="/sol-1.mp4" type="video/mp4" />
@@ -319,7 +319,7 @@ export default function Cardio() {
 
                             <div className="mb-20"></div>
 
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
+                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
                                 <div className="w-full md:w-[65%] grid grid-cols-3 gap-x-4">
                                     <ImageZoom>
                                         <Image src="/sol-21.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
@@ -337,7 +337,7 @@ export default function Cardio() {
 
                             <div className="mb-20"></div>
 
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
+                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
                                 <div className="w-full md:w-[45%] grid grid-cols-2 gap-x-4">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
                                         <source src="/sol-3.mp4" type="video/mp4" />
@@ -353,7 +353,7 @@ export default function Cardio() {
                         
                             <div className="mb-20"></div>
 
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
+                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
                                 <div className="w-[50%] md:w-[20%]">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
                                         <source src="/sol-4.mp4" type="video/mp4" />
@@ -377,7 +377,7 @@ export default function Cardio() {
                         <div>
                             <p className="text-lg text-[var(--colour-bodytext)] leading-loose">This is the first iteration of card.io. I conducted a Heuristic evaluation session with another UX designer, along with 2 in-person user testing sessions to discover issues with this interface.</p>
                             <div className="mb-5"></div>
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
+                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
                                 <div className="w-[50%] md:w-[20%]">
                                     <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
                                         <source src="/draft.mp4" type="video/mp4" />
@@ -385,7 +385,7 @@ export default function Cardio() {
                                 </div>
                             </div>
                             <div className="mb-4"></div>
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col rounded-3xl">
+                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col rounded-2xl">
                                 <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
                                     <ImageZoom>
                                         <Image src="/slidebar.png" width={1104} height={2312} className="w-full rounded-2xl" alt="Samsung Knox"/> 
@@ -417,7 +417,7 @@ export default function Cardio() {
                                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">The straight slide bar in card.io resembles the draggable bars on platforms like YouTube or Netflix. But in card.io, it functions solely as a progress indicator and isn’t interactive.</p>
                             </div>
                             <div className="mb-4"></div>
-                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center p-10 pb-15 rounded-3xl">
+                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center p-10 pb-15 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">2 reoccurring themes from UT</p>
                                 <div className="mb-10"></div>
                                 <div className="w-full flex items-center justify-center">
@@ -445,7 +445,7 @@ export default function Cardio() {
                         <div>
                             <p className="text-lg text-[var(--colour-bodytext)] leading-loose">1) From scrubber to a circular design.</p>
                             <div className="mb-6"></div>
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-3xl">
+                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
                                 <div className="w-full md:w-[75%] grid grid-cols-[1fr_2fr_2fr_1fr] gap-x-2 md:gap-x-4">
                                     {(() => {
                                         const theme = localStorage.getItem("theme-class") || "";
@@ -483,13 +483,13 @@ export default function Cardio() {
                             </div>
                             <div className="mb-3"></div>
                             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3">
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">More conventional non interactive progress indicator.</p>
                                 </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Remove confusion with the progress bar for streaming services.</p>
                                 </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Able to incorporate a thicker bezel, improving glanceability.</p>
                                 </div>
                             </div>
@@ -509,13 +509,13 @@ export default function Cardio() {
                             </div>
                             <div className="mb-3"></div>
                             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3">
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Large interaction area, hard to miss.</p>
                                 </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Low precision, high accuracy (compare to tapping which requires high precision).</p>
                                 </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Easy to interact during intense physical activities.</p>
                                 </div>
                             </div>
@@ -525,13 +525,13 @@ export default function Cardio() {
                             <p className="text-lg text-[var(--colour-bodytext)] leading-loose">3) Chunking information.</p>
                             <div className="mb-6"></div>
                             <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3">
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Instead of showing all information at once, sort them into 3 groups separated by a swipe.</p>
                                 </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Reduce visual clutter, improve glanceability during intense running.</p>
                                 </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-3xl">
+                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Resemblance to a modern treadmill interface.</p>
                                 </div>
                             </div>

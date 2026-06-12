@@ -11,7 +11,7 @@ interface Props {
 
 export default function Testimonial(props: Props) {
     return (
-        <div className="flex flex-col justify-between bg-[var(--container-bg)] shadow-[0px_0px_15px_rgba(0,0,0,0.01)] px-7 py-6 rounded-3xl">
+        <div className="flex flex-col justify-between bg-[var(--container-bg)] shadow-[0px_0px_15px_rgba(0,0,0,0.01)] px-7 py-5 rounded-2xl">
             <p className="text-sm text-[var(--colour-bodytext-2)] leading-loose">"{props.text}"</p> 
             <div className="mb-9"></div>
             <div className="flex gap-4 items-center">

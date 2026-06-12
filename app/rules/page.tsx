@@ -46,7 +46,7 @@ export default function Rules() {
 
                 <div className="mb-15"></div>
 
-                <div className="rounded-3xl overflow-hidden">
+                <div className="rounded-2xl overflow-hidden">
                     <video className="w-full h-full object-cover" autoPlay muted loop playsInline poster="/rule-poster-wide.png">
                         <source src="Rule video wide.mp4"type="video/mp4" />
                     </video>
@@ -76,7 +76,7 @@ export default function Rules() {
                             <Heading text="Overview" variant="black"/>
                         </div>
                         <div>
-                            <div className="flex flex-col justify-center bg-[var(--container-bg)] p-10 rounded-3xl">
+                            <div className="flex flex-col justify-center bg-[var(--container-bg)] p-10 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">Problem ⚠️</p>
                                 <div className="mb-9"></div>
                                 <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Current device management settings are often static and uniformly applied across large device fleets, limiting flexibility and preventing <span className="font-semibold underline decoration-[var(--main-colour)] underline-offset-7">context-aware adjustments</span> based on time, location, or usage conditions.</p>
@@ -84,7 +84,7 @@ export default function Rules() {
                                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">When a setting is applied to a group of devices, it remains continuously active, forcing IT admins to manually adjust when circumstances change, increasing their workload.</p>
                             </div> 
                             <div className="mb-4"></div>
-                            <div className="flex flex-col justify-center items-center bg-[var(--container-bg)] p-10 rounded-3xl">
+                            <div className="flex flex-col justify-center items-center bg-[var(--container-bg)] p-10 rounded-2xl">
                                 <div className="w-full flex justify-between">
                                     <p className="text-sm text-[var(--main-colour)] leading-loose self-start">Notes from PM team</p>
                                     <p className="text-sm text-[var(--main-colour)] leading-loose self-start"><span className="text-[var(--colour-bodytext-3)]">(generalized to avoid NDA)</span></p>
@@ -104,7 +104,7 @@ export default function Rules() {
                                 <div className="mb-5"></div>
                             </div> 
                             <div className="mb-4"></div>
-                            {/* <div className="flex flex-col justify-center bg-[var(--colour-grey)] p-10 rounded-3xl">
+                            {/* <div className="flex flex-col justify-center bg-[var(--colour-grey)] p-10 rounded-2xl">
                                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Due to NDA restrictions, I&rsquo;m unable to share my project's process & specific details publicly, but I&rsquo;d be happy to elaborate on my experience and design contributions during an interview.</p>
                                 <p className="text-sm text-[var(--colour-bodytext)] mt-5 leading-loose">Feel free to send me an <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>!</p>
                             </div> */}
@@ -136,7 +136,7 @@ export default function Rules() {
                 <div className="mb-40"></div>
 
                 <div className="w-full">
-                    <div className="flex flex-col justify-center bg-[var(--colour-grey)] p-10 rounded-3xl">
+                    <div className="flex flex-col justify-center bg-[var(--colour-grey)] p-10 rounded-2xl">
                         <p className="text-md text-[var(--colour-bodytext)] leading-loose">Due to NDA restrictions, I can only share the final deliverables publicly, but I&rsquo;d be happy to elaborate more on my experience and design process during an interview.</p>
                         <div className="mb-9"></div>
                         <p className="text-md text-[var(--colour-bodytext)] leading-loose">Feel free to send me an <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-md"/></span>!</p>
@@ -152,16 +152,16 @@ export default function Rules() {
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose mb-8">Simplifies rule reviewing with an overview table and a sliding panel for detailed views.</p>
                         </div>
                         <div>
-                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-0.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
+                                <Image src="/rules-0.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Overview table.</p>
-                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-1.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
+                                <Image src="/rules-1.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">View details through a sliding panel.</p>
-                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-1.5.png" width={3099} height={1823} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
+                                <Image src="/rules-1.5.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Detailed sliding panel.</p>
                         </div>
@@ -175,16 +175,16 @@ export default function Rules() {
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose mb-8">Streamlines the configuration process for time & location conditions.</p>
                         </div>
                         <div>
-                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-2.png" width={3099} height={3363} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
+                                <Image src="/rules-2.png" width={3099} height={3363} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Configuring time-based conditions.</p>
-                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-3.png" width={3099} height={3363} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
+                                <Image src="/rules-3.png" width={3099} height={3363} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Configuring location-based conditions.</p>
-                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-3xl overflow-hidden">
-                                <Image src="/rules-4.png" width={2622} height={2622} className="w-full rounded-3xl" alt="Samsung Knox"/> 
+                            <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
+                                <Image src="/rules-4.png" width={2622} height={2622} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Segment of the location-based conditions configuration flow.</p>
                         </div>
@@ -210,11 +210,11 @@ export default function Rules() {
                             <div>
                                 <div className="w-full md:w-[75%] 2xl:w-[75%] grid grid-cols-2 gap-2 md:gap-5">
                                     <div className="flex flex-col justify-start">
-                                        <Image src="/uxmas.jpg" width={3099} height={3363} className="w-full mb-3 rounded-3xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
+                                        <Image src="/uxmas.jpg" width={3099} height={3363} className="w-full mb-3 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
                                         <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">@ Samsung XMas party 🎄</p>
                                     </div>
                                     <div className="flex flex-col justify-start">
-                                        <Image src="/yehe.png" width={3099} height={3363} className="w-full mb-3 rounded-3xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
+                                        <Image src="/yehe.png" width={3099} height={3363} className="w-full mb-3 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
                                         <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">#summer_interns</p>
                                     </div>
                                 </div>
