@@ -96,7 +96,7 @@ export default function About() {
 
                 <div className="grid grid-cols-1 md:grid-cols-[2.5fr_2fr_1fr] w-full gap-y-2">
                     <div className="w-full flex items-center -mb-1 md:mb-0">
-                        <MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung" textSize="text-sm"/>
+                        <MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung Research Canada" textSize="text-sm"/>
                     </div>
                     <div className="w-full flex items-center">
                         <p className="text-sm text-[var(--colour-bodytext)]">UX designer</p>
