@@ -39,12 +39,12 @@ export default function ProjectThumbnail2(props: Props) {
                 <div className="mb-7"></div>
                 <a className="relative overflow-hidden block group mt-auto bg-[var(--container-bg)] rounded-2xl shadow-[0px_0px_25px_rgba(0,0,0,0.015)] 2xl:shadow-[0px_0px_35px_rgba(0,0,0,0.01)]" href={props.link} target={props.target}>
                     <Image src={props.imageSrc} alt={props.name} width={1640} height={1228} className="object-cover"/>
-                    <div className="absolute inset-x-0 bottom-0 h-[30%] flex items-center justify-center
+                    {/* <div className="absolute inset-x-0 bottom-0 h-[30%] flex items-center justify-center
                                     translate-y-full opacity-0
                                     transition-all duration-300 ease-out
                                     group-hover:translate-y-0 group-hover:opacity-100">
                         <MyButton link={props.link} text={`Open ${props.name}`} textSize="text-sm" target={props.target} variant="blue-button"/>
-                    </div>
+                    </div> */}
                     {/* <div className="absolute inset-x-0 bottom-0 h-[30%] flex items-center justify-center
                                     opacity-0
                                     transition-all duration-0 ease-out
@@ -80,12 +80,12 @@ export default function ProjectThumbnail2(props: Props) {
                         <source src={props.imageSrc} type="video/mp4" />
                     </video>
 
-                    <div className="absolute inset-x-0 bottom-0 h-[30%] flex items-center justify-center
+                    {/* <div className="absolute inset-x-0 bottom-0 h-[30%] flex items-center justify-center
                                     translate-y-full opacity-0
                                     transition-all duration-300 ease-out
                                     group-hover:translate-y-0 group-hover:opacity-100">
                         <MyButton link={props.link} text={`Open ${props.name}`} textSize="text-sm" target={props.target} variant="blue-button"/>
-                    </div>
+                    </div> */}
                     {/* <div className="absolute inset-x-0 bottom-0 h-[30%] flex items-center justify-center
                                     opacity-0
                                     transition-all duration-0 ease-out

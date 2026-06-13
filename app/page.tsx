@@ -13,6 +13,7 @@ import ProjectThumbnail from "@/components/project-thumbnail";
 import { ThemeSelector } from "@/components/ui/shadcn-io/colour-toggle-button";
 import { ThemeToggleButton } from "@/components/ui/shadcn-io/theme-toggle-button";
 import Testimonial from "@/components/testimonial";
+import ProjectThumbnailNew from "@/components/project-thumbnail-new";
 
 export default function Home2() {
   const [animate, setAnimate] = useState(false);
@@ -29,7 +30,7 @@ export default function Home2() {
             <SlideUpNoThres>
               <div className={`w-full flex items-center relative justify-between`}>
                 <div className="flex justify-start items-start" >
-                  <Image src="/yay.jpg" width={3099} height={3363} className="w-[64px] aspect-square mb-2 rounded-2xl shadow-xl" alt="Hung Tran"/> 
+                  <Image src="/la.png" width={3099} height={3363} className="w-[64px] aspect-square mb-2 rounded-2xl shadow-xl" alt="Hung Tran"/> 
                 </div>
                 <div className="flex justify-end">
                   <MyButton variant="blue-button-outline" text="About me" link="about" target="_self" textSize="text-sm"/>
@@ -81,19 +82,19 @@ export default function Home2() {
             {/* <Heading text="These are what I have done." variant="black"/>
             <div className="mb-12"></div> */}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-25">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-15">
               <SlideUpNoThres>
-                <ProjectThumbnail2 isLink="video-link" link="rules" type="UX design" name="Samsung Knox: Rules" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcPoster="rule-poster.png" imageSrcDark="/Rule video - d.mp4" imageSrcPosterDark="rule-poster - d.png" target="_self"/>
+                <ProjectThumbnailNew isLink="video-link" link="rules" type="UX design" name="Samsung Knox: Rules for context-aware device management" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcPoster="rule-poster.png" target="_self"/>
               </SlideUpNoThres>
               <SlideUpNoThres>
-                  <ProjectThumbnail2 isLink="image-link" link="organizations" type="Design system" name="Samsung Knox: Organizations" desc="Designed and wrote system documentation for a scalable table component that visualizes the inheritance logic among parent-child entities." imageSrc="/organize.png" imageSrcDark="/organize - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+                  <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system" name="Samsung Knox: Organizations for hierarchical device management" desc="Designed and wrote system documentation for a scalable table component that visualizes the inheritance logic among parent-child entities." imageSrc="/organize.png" imageSrcPoster="" target="_self"/>
               </SlideUpNoThres>
               <SlideUp>
-                  <ProjectThumbnail2 isLink="video-link" link="cardio" type="UX design" name="card.io" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" imageSrcDark="/cardio video - d.mp4" imageSrcPosterDark="/cardio-poster - d.png" target="_self"/>
+                  <ProjectThumbnailNew isLink="video-link" link="cardio" type="UX design" name="card.io: Perfect cardio session starts with a perfect playlist" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" target="_self"/>
               </SlideUp>
-              {/* <SlideUp>
-                  <ProjectThumbnail2 isLink="image-link" link="" type="UX research" name="Samsung Health (coming soon)" desc="Conducted research to inform future Samsung Health wearable experiences, including Galaxy Watch, Galaxy Ring, and the Samsung Health app." imageSrc="/shealth.png" imageSrcPoster="" imageSrcDark="" imageSrcPosterDark="" target="_self"/>
-              </SlideUp> */}
+              <SlideUp>
+                  <ProjectThumbnailNew isLink="coming-soon" link="" type="UX research" name="Samsung Health (In progress)" desc="Conducted research to inform future Samsung Health wearable experiences, including Galaxy Watch, Galaxy Ring, and the Samsung Health app." imageSrc="/shealth.png" imageSrcPoster="" target="_self"/>
+              </SlideUp>
             </div>
 
             {/* <Heading text="My other work spans development, visual design, and service design." variant="black"/>
