@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row w-full justify-between">
                 <MyButton variant="hyperlink" text="LinkedIn" link="https://www.linkedin.com/in/hung-tran-profile" target="_blank" textSize="text-sm"></MyButton>
                 <div className="mb-1"></div>
-                <MyButton variant="hyperlink" text="GitHub" link="https://github.com/hungiie" target="_blank" textSize="text-sm"></MyButton>
+                <MyButton variant="hyperlink" text="GitHub" link="https://github.com/duyhung-tran" target="_blank" textSize="text-sm"></MyButton>
                 <div className="mb-1"></div>
                 <MyButton variant="hyperlink" text="d.hungtran12@gmail.com" link="mailto:d.hungtran12@gmail.com" target="_blank" textSize="text-sm"></MyButton>
                 <div className="mb-1"></div>
