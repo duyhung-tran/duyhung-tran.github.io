@@ -48,7 +48,7 @@ export default function Home2() {
               <div className="w-full md:w-[75%]">
                 <p className="text-md text-[var(--colour-bodytext)] leading-loose">As an overthinker, I think a lot about all my interactions... probably more than I should.</p>
                 {/* <p className="text-md text-[var(--colour-bodytext)] leading-loose">Luckily, that's also my job. I'm a UX designer, previously at <span className="inline-block"><MyButton link="https://fraserhealth.ca/" target="_blank" variant="hyperlink" text="Fraser Health" textSize="text-md"/></span>, currently at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung" textSize="text-md"/></span>.</p> */}
-                <p className="text-md text-[var(--colour-bodytext)] leading-loose">Luckily, that's also my job. I'm a UX designer, currently at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung Research Canada" textSize="text-md"/></span>.</p>
+                <p className="text-md text-[var(--colour-bodytext)] leading-loose">Luckily, that's also my job. I'm an interaction designer, currently at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung Research Canada" textSize="text-md"/></span>.</p>
               </div>
               <div className="mb-9"></div>
               <div>
