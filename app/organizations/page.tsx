@@ -186,7 +186,7 @@ export default function Organizations() {
                         <div className="flex flex-col">
                             <p className="text-lg text-[var(--colour-bodytext)] leading-loose">The first design is almost never the best one.</p>
                             <div className="mb-4"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">If there is 1 thing I have grown to not scared of anymore, is to scrap ideas and start from scratch. I've always known designing is an iterative process, but to actually understand why it is needed and how to do it correctly, is what working with Product Manages had taught me.</p>
+                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">If there is 1 thing I have grown to not scared of anymore, is to scrap ideas and start from scratch. I've always known designing is an iterative process, but to actually understand why it is needed and how to do it correctly, is what working with Product Managers had taught me.</p>
                             <div className="mb-15"></div>
                             <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Break down complex concept into simple words.</p>
                             <div className="mb-4"></div>
@@ -195,11 +195,11 @@ export default function Organizations() {
                             <div>
                                 <div className="w-full md:w-[85%] 2xl:w-[75%] grid grid-cols-2 gap-5">
                                     <div className="flex flex-col justify-start">
-                                        <Image src="/KM.png" width={3099} height={3363} className="w-full mb-3 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(80%)' }}/> 
-                                        <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Samsung Knox Manage team 🚀</p>
+                                        <Image src="/KM.png" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(80%)' }}/> 
+                                        <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Samsung #Knox_Manage team</p>
                                     </div>
                                     <div className="flex flex-col justify-start">
-                                        <Image src="/grouse.png" width={3099} height={3363} className="w-full mb-3 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(95%)' }}/> 
+                                        <Image src="/grouse.png" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(95%)' }}/> 
                                         <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Product Design meeting @ Grouse ⛰️</p>
                                     </div>
                                 </div>

@@ -30,7 +30,7 @@ export default function Home2() {
             <SlideUpNoThres>
               <div className={`w-full flex items-center relative justify-between`}>
                 <div className="flex justify-start items-start" >
-                  <Image src="/la.png" width={3099} height={3363} className="w-[64px] aspect-square mb-2 rounded-2xl shadow-xl" alt="Hung Tran"/> 
+                  <Image src="/yay.jpg" width={3099} height={3363} className="w-[64px] aspect-square mb-2 rounded-2xl shadow-xl" alt="Hung Tran"/> 
                 </div>
                 <div className="flex justify-end">
                   <MyButton variant="blue-button-outline" text="About me" link="about" target="_self" textSize="text-sm"/>
@@ -84,16 +84,16 @@ export default function Home2() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-15">
               <SlideUpNoThres>
-                <ProjectThumbnailNew isLink="video-link" link="rules" type="UX design" name="Samsung Knox: Rules for context-aware device management" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcPoster="rule-poster.png" target="_self"/>
+                <ProjectThumbnailNew isLink="video-link" link="rules" type="UX design, 2025" name="Samsung Knox Rules: Context-aware device management" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcPoster="rule-poster.png" target="_self"/>
               </SlideUpNoThres>
               <SlideUpNoThres>
-                  <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system" name="Samsung Knox: Organizations for hierarchical device management" desc="Designed and wrote system documentation for a scalable table component that visualizes the inheritance logic among parent-child entities." imageSrc="/organize.png" imageSrcPoster="" target="_self"/>
+                  <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, 2025" name="Samsung Knox Organizations: Hierarchical device management" desc="Designed and wrote system documentation for a scalable table component that visualizes the inheritance logic among parent-child entities." imageSrc="/organize.png" imageSrcPoster="" target="_self"/>
               </SlideUpNoThres>
               <SlideUp>
-                  <ProjectThumbnailNew isLink="video-link" link="cardio" type="UX design" name="card.io: Perfect cardio session starts with a perfect playlist" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" target="_self"/>
+                  <ProjectThumbnailNew isLink="video-link" link="cardio" type="UX design, 2024" name="card.io: Perfect cardio session starts with a perfect playlist" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" target="_self"/>
               </SlideUp>
               <SlideUp>
-                  <ProjectThumbnailNew isLink="coming-soon" link="" type="UX research" name="Samsung Health (In progress)" desc="Conducted research to inform future Samsung Health wearable experiences, including Galaxy Watch, Galaxy Ring, and the Samsung Health app." imageSrc="/shealth.png" imageSrcPoster="" target="_self"/>
+                  <ProjectThumbnailNew isLink="coming-soon" link="" type="UX research, 2026" name="Samsung Health (In progress)" desc="Conducted research to inform future Samsung Health wearable experiences, including Galaxy Watch, Galaxy Ring, and the Samsung Health app." imageSrc="/shealth.png" imageSrcPoster="" target="_self"/>
               </SlideUp>
             </div>
 
@@ -123,7 +123,7 @@ export default function Home2() {
             <SlideUp>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 <div className="flex flex-col gap-5">
-                    <Testimonial name="Tian Jia" job="Senior UX Designer, UX Manager" company="Samsung" text={<>Hung has demonstrated <span className="underline decoration-[var(--main-colour)] underline-offset-4 font-semibold">a strong talent for both UX research and graphical UI tasks</span>. His ability to analyze user needs and translate them into intuitive, visually appealing designs has been impressive. <br /> <div className="mt-5"></div> Overall, his dedication and versatility make him a valuable asset to any design team.</>} imgSrc="/tian.jpeg"/>
+                    <Testimonial name="Tian Jia" job="Senior UX Designer, UX Manager" company="Samsung Research Canada" text={<>Hung has demonstrated <span className="underline decoration-[var(--main-colour)] underline-offset-4 font-semibold">a strong talent for both UX research and graphical UI tasks</span>. His ability to analyze user needs and translate them into intuitive, visually appealing designs has been impressive. <br /> <div className="mt-5"></div> Overall, his dedication and versatility make him a valuable asset to any design team.</>} imgSrc="/tian.jpeg"/>
                 </div>
                 {/* <div className="flex flex-col gap-5">
                   <SlideUp>

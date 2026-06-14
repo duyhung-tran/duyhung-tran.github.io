@@ -39,7 +39,7 @@ export default function Rules() {
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">During my time at Samsung, my work focused on designing features for <span className="inline-block"><MyButton link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" target="_blank" variant="hyperlink" text="Knox Manage" textSize="text-sm"/></span> - a B2B SaaS device management solution that allows IT admins to remotely manage & ensure security for fleets of Samsung devices.</p>
                             <div className="mb-6"></div>
                             <p className="mb-1 text-sm text-[var(--colour-bodytext)] leading-loose">Special thanks to:</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Tian Jia (Senior UX Designer & UX Lead) and Hosoo Lee (Product Manager)</p>
+                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Tian Jia (Senior UX Designer & UX Manager) and Hosoo Lee (Product Manager)</p>
                         </div>
                     </div>
                 </div>
@@ -210,12 +210,12 @@ export default function Rules() {
                             <div>
                                 <div className="w-full md:w-[75%] 2xl:w-[75%] grid grid-cols-2 gap-2 md:gap-5">
                                     <div className="flex flex-col justify-start">
-                                        <Image src="/uxmas.jpg" width={3099} height={3363} className="w-full mb-3 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
+                                        <Image src="/uxmas.jpg" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
                                         <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">@ Samsung XMas party 🎄</p>
                                     </div>
                                     <div className="flex flex-col justify-start">
-                                        <Image src="/yehe.png" width={3099} height={3363} className="w-full mb-3 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
-                                        <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">#summer_interns</p>
+                                        <Image src="/yehe.png" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
+                                        <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Last day as an intern</p>
                                     </div>
                                 </div>
                             </div>

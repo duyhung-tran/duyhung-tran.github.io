@@ -87,7 +87,7 @@ export default function AboutHero() {
 
           {/* top */}
           <motion.div
-            onHoverStart={() => setHovered("Samsung 2025 interns 📚")}
+            onHoverStart={() => setHovered("Office's rooftop 🏢")}
             onHoverEnd={() => setHovered(null)}
             className="flex justify-center  w-[60%]"
             initial={{
@@ -107,7 +107,7 @@ export default function AboutHero() {
             }}
           >
             <motion.div
-              animate={{ scale: hovered === "Samsung 2025 interns 📚" ? 1.05 : 1 }}
+              animate={{ scale: hovered === "Office's rooftop 🏢" ? 1.05 : 1 }}
               transition={{ type: "spring", stiffness: 200 }}
               className=" "
             >
@@ -118,7 +118,7 @@ export default function AboutHero() {
           <div className="mb-25 2xl:mb-40"></div>
 
           {/* bottom */}
-          <motion.div
+          {/* <motion.div
             onHoverStart={() => setHovered("Sunday coffee ☀️")}
             onHoverEnd={() => setHovered(null)}
             className="flex justify-start  w-[60%]"
@@ -145,6 +145,35 @@ export default function AboutHero() {
             >
               <Image src="/coffee.JPG" width={837} height={779} className="w-full rounded-2xl shadow-md -rotate-8" alt="hung tran dark mode"/>
             </motion.div>
+          </motion.div> */}
+
+          <motion.div
+            onHoverStart={() => setHovered("Tim Drake #1 fan 🦸🏻")}
+            onHoverEnd={() => setHovered(null)}
+            initial={{
+              opacity: 0,
+              filter: "blur(12px)",
+               
+            }}
+            animate={{
+              opacity: 1,
+              filter: "blur(0px)",
+               
+            }}
+            transition={{
+              delay: 0.8,
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className=" w-[60%] mb-9"
+          >
+            <motion.div
+              animate={{ scale: hovered === "Tim Drake #1 fan 🦸🏻" ? 1.05 : 1 }}
+              transition={{ type: "spring", stiffness: 200 }}
+              className=" "
+            >
+              <Image src="/robin.jpg" width={837} height={779} className="w-full rounded-2xl 2xl:rounded-2xl shadow-md -rotate-6" alt="hung tran dark mode"/>
+            </motion.div>
           </motion.div>
 
         </div>
@@ -159,12 +188,12 @@ export default function AboutHero() {
 
           <div className="w-[55%]">
             <motion.div
-              onHoverStart={() => setHovered("...")}
+              onHoverStart={() => setHovered("Selfie #2837")}
               onHoverEnd={() => setHovered(null)}
-              animate={{ scale: hovered === "..." ? 1.02 : 1 }}
+              animate={{ scale: hovered === "Selfie #2837" ? 1.02 : 1 }}
               transition={{ type: "spring", stiffness: 200 }}
             >
-              <Image src="/la.png" width={3099} height={3363} className="w-full mb-2 rounded-3xl shadow-2xl -rotate-2" alt="Hung Tran" style={{ filter: "contrast(100%)" }}/>
+              <Image src="/yay.jpg" width={3099} height={3363} className="w-full mb-2 rounded-3xl shadow-2xl -rotate-2" alt="Hung Tran" style={{ filter: "contrast(100%)" }}/>
             </motion.div>
           </div>
 

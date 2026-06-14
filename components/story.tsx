@@ -57,7 +57,7 @@
 //               `}
 //             >
 //               <Image
-//                 src="/la.png"
+//                 src="/yay.jpg"
 //                 width={716}
 //                 height={716}
 //                 alt="hung tran"
@@ -145,7 +145,7 @@
 //               `}
 //             >
 //               <Image
-//                 src="/la.png"
+//                 src="/yay.jpg"
 //                 width={716}
 //                 height={716}
 //                 alt="hung tran"
@@ -223,7 +223,7 @@ export default function Story() {
               `}
             >
               <Image
-                src="/la.png"
+                src="/yay.jpg"
                 width={716}
                 height={716}
                 alt="hung tran"

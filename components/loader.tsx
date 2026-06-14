@@ -8,7 +8,7 @@ export default function Loader() {
     <div className={`${styles.story} w-full h-full relative hidden md:block`}>
       <div className="absolute inset-0 rounded-full overflow-hidden">
         <Image
-          src="/la.png"
+          src="/yay.jpg"
           alt="Story Image"
           fill
           className="rounded-full object-cover hidden"
