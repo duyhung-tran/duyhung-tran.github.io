@@ -19,7 +19,7 @@ export default function ProjectThumbnailNew(props: Props) {
         return (
             <div className="h-full flex flex-col group">
                 <div className="flex gap-2 flex-col md:flex-row md:justify-between">
-                    <p className="text-sm text-[var(--colour-bodytext)] md:text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--main-colour)] leading-loose">
+                    <p className="text-sm font-medium text-[var(--colour-bodytext)] md:text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--main-colour)] leading-loose">
                         {props.name}
                     </p>
                     <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--colour-bodytext)] leading-loose">
@@ -37,7 +37,7 @@ export default function ProjectThumbnailNew(props: Props) {
         return (
             <div className="h-full flex flex-col group">
                 <div className="flex gap-2 flex-col md:flex-row md:justify-between">
-                    <p className="text-sm text-[var(--colour-bodytext)] md:text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] leading-loose md:group-hover:text-[var(--main-colour)]">
+                    <p className="text-sm font-medium text-[var(--colour-bodytext)] md:text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] leading-loose md:group-hover:text-[var(--main-colour)]">
                         {props.name}
                     </p>
                     <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--colour-bodytext)] leading-loose">
@@ -57,7 +57,7 @@ export default function ProjectThumbnailNew(props: Props) {
         return (
             <div className="h-full flex flex-col group">
                 <div className="flex gap-2 flex-col md:flex-row md:justify-between">
-                    <p className="text-sm text-[var(--colour-bodytext)] md:text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] leading-loose md:group-hover:text-[var(--main-colour)]">
+                    <p className="text-sm font-medium text-[var(--colour-bodytext)] md:text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] leading-loose md:group-hover:text-[var(--main-colour)]">
                         {props.name}
                     </p>
                     <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--colour-bodytext)] leading-loose">

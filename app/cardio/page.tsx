@@ -114,22 +114,22 @@ export default function Cardio() {
                             <div className="mb-6"></div>
                             {/* <MyButton text="Learn more about the effects music has on running" link="" target="_blank" variant="hyperlink" textSize="text-sm"/> */}
 
-                            {/* <div className="mb-20"></div>
+                            <div className="mb-20"></div>
 
-                            <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Observations</p>
+                            {/* <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Observations</p>
                             <div className="mb-6"></div>
-                            <div className="w-full grid grid-cols-1 gap-3">
-                                <div className="flex flex-col h-full bg-[var(--colour-grey)] px-7 py-7 rounded-2xl">
+                            <div className="w-full grid grid-cols-3 gap-3">
+                                <div className="flex flex-col h-full bg-[var(--container-bg)] px-7 py-7 rounded-2xl">
                                     <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Template for a “typical” cardio session?</p>
                                     <div className="mb-3"></div>
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Influencers follow a conventional template of a cardio session with 3 phases: Warm-up, Endurance and Cool-down.</p>
                                 </div>
-                                <div className="flex flex-col h-full bg-[var(--colour-grey)] px-7 py-7 rounded-2xl">
+                                <div className="flex flex-col h-full bg-[var(--container-bg)] px-7 py-7 rounded-2xl">
                                     <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Requests for artist or album specific playlists.</p>
                                     <div className="mb-3"></div>
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Viewers usually ask influencers to make cardio playlists specific for their favourite artist or album.</p>
                                 </div>
-                                <div className="flex flex-col h-full bg-[var(--colour-grey)] px-7 py-7 rounded-2xl">
+                                <div className="flex flex-col h-full bg-[var(--container-bg)] px-7 py-7 rounded-2xl">
                                     <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Strategically organized songs that can‘t be shuffled.</p>
                                     <div className="mb-3"></div>
                                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">The playlists are structured to match the current speed range. The faster the treadmill (MPH), the faster the song (BPM).</p>

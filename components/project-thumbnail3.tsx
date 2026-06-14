@@ -19,7 +19,7 @@ export default function ProjectThumbnail3(props: Props) {
         return (
             <div className="overflow-hidden flex flex-col group">
                 <div>
-                    <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--main-colour)] mb-5 leading-loose">
+                    <p className="text-sm font-mediumtext-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--main-colour)] mb-5 leading-loose">
                         {props.name}
                     </p>
                 </div>
@@ -38,7 +38,7 @@ export default function ProjectThumbnail3(props: Props) {
         return (
             <div className="overflow-hidden flex flex-col group">
                 <div>
-                    <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--main-colour)] mb-5 leading-loose">
+                    <p className="text-sm font-medium text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--main-colour)] mb-5 leading-loose">
                         {props.name}
                     </p>
                 </div>

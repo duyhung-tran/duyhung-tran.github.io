@@ -78,7 +78,7 @@ export default function Organizations() {
                                 <p className="text-sm text-white leading-loose">Due to NDA restrictions,I’m unable to share project details publicly, but I’d be happy to elaborate on my experience and design contributions during an interview.</p>
 \                            </div>
                             <div className="mb-4"></div>
-                            <div className="w-full flex flex-col justify-center bg-[var(--colour-grey)] px-7 py-7 rounded-2xl ">
+                            <div className="w-full flex flex-col justify-center bg-[var(--container-bg-2)] px-7 py-7 rounded-2xl ">
                                 <Heading text="How might me..." variant="black"/>
                                 <div className="-mb-2"></div>
                                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">... effectively communicate the concept of inherited and assigned profiles to IT admins, using existing components and not reliant on texts?</p>
@@ -110,7 +110,7 @@ export default function Organizations() {
                                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">The </p> */}
                             </div>
                             <div className="mb-4"></div>
-                            <div className="flex flex-col justify-center bg-[var(--colour-grey)] p-10 rounded-2xl">
+                            <div className="flex flex-col justify-center bg-[var(--container-bg-2)] p-10 rounded-2xl">
                                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Due to NDA restrictions, I can only share the final deliverables publicly, but I&rsquo;d be happy to elaborate more on my experience and design process during an interview.</p>
                                 <p className="text-sm text-[var(--colour-bodytext)] mt-5 leading-loose">Feel free to send me an <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>!</p>
                             </div>

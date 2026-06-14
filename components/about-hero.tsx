@@ -161,7 +161,7 @@ export default function AboutHero() {
                
             }}
             transition={{
-              delay: 0.8,
+              delay: 0.5,
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1],
             }}
