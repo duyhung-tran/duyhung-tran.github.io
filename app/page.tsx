@@ -47,15 +47,11 @@ export default function Home2() {
               <div className="mb-9"></div>
               <div className="w-full md:w-[75%]">
                 <p className="text-md text-[var(--colour-bodytext)] leading-loose">As an overthinker, I think a lot about all my interactions... probably more than I should.</p>
-                {/* <p className="text-md text-[var(--colour-bodytext)] leading-loose">Luckily, that's also my job. I'm a UX designer, previously at <span className="inline-block"><MyButton link="https://fraserhealth.ca/" target="_blank" variant="hyperlink" text="Fraser Health" textSize="text-md"/></span>, currently at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung" textSize="text-md"/></span>.</p> */}
                 <p className="text-md text-[var(--colour-bodytext)] leading-loose">Luckily, that's also my job. I'm an interaction designer, currently at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung Research Canada" textSize="text-md"/></span>.</p>
               </div>
               <div className="mb-9"></div>
               <div>
-                {/* <p className="text-md text-[var(--colour-bodytext)]">Good things start with a hello - whether through an <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-md"/></span>, a <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-md"/></span> message, or my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-md"/></span>!</p> */}
                 <p className="text-md text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-md"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-md"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-md"/></span>!</p>
-                {/* <p className="text-md text-[var(--colour-bodytext)]">Send me a message on <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-md"/></span>.</p> */}
-                {/* <p className="text-md text-[var(--colour-bodytext)]">Check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-md"/></span>.</p> */}
               </div>
               <div className="mb-9"></div>
               <p className="text-md text-[var(--colour-bodytext-3)] leading-loose">Scroll down for works.</p>
@@ -73,6 +69,37 @@ export default function Home2() {
                 />
                 <ThemeSelector/>
               </div>
+
+              {/* Smaller version */}
+              {/* <div className="flex justify-between">
+                <p className="text-sm font-semibold text-[var(--colour-pure)] leading-loose">Hi, my name is Hung.</p>
+              </div>
+              <div className="mb-7"></div>
+              <div className="w-full md:w-[75%]">
+                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">As an overthinker, I think a lot about all my interactions... probably more than I should.</p>
+                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Luckily, that's also my job. I'm an interaction designer, currently at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung Research Canada" textSize="text-sm"/></span>.</p>
+              </div>
+              <div className="mb-7"></div>
+              <div>
+                <p className="text-sm text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-sm"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-sm"/></span>!</p>
+              </div>
+              <div className="mb-7"></div>
+              <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Scroll down for works.</p>
+              <div className="mb-9"></div>
+              <div className="w-full hidden md:flex justify-start items-center gap-4">
+                <ThemeToggleButton
+                  theme={theme === "light" ? "dark" : "light"}
+                  onClick={() => {
+                    const next = theme === "dark" ? "light" : "dark";
+                    setTheme(next);
+                  }}
+                  variant="none"
+                  start="center"
+                  className="hover:cursor-pointer"
+                  showLabel={false}
+                />
+                <ThemeSelector/>
+              </div> */}
             </SlideUpNoThres>
 
             <div className="mb-35"></div>
@@ -91,7 +118,7 @@ export default function Home2() {
                   <ProjectThumbnailNew isLink="video-link" link="cardio" type="UX design, 2024" name="card.io: Perfect cardio session starts with a perfect playlist" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" target="_self"/>
               </SlideUp>
               <SlideUp>
-                  <ProjectThumbnailNew isLink="coming-soon" link="" type="UX research, 2026" name="Samsung Health's wearable experiences (In progress)" desc="Conducted research to inform future Samsung Health wearable experiences, including Galaxy Watch, Galaxy Ring, and the Samsung Health app." imageSrc="/shealth.png" imageSrcPoster="" target="_self"/>
+                  <ProjectThumbnailNew isLink="coming-soon" link="" type="UX research, 2026" name="Samsung Health's wearable experiences (In progress 🚧)" desc="Conducted research to inform future Samsung Health wearable experiences, including Galaxy Watch, Galaxy Ring, and the Samsung Health app." imageSrc="/shealth.png" imageSrcPoster="" target="_self"/>
               </SlideUp>
             </div>
 
