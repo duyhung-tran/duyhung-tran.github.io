@@ -76,7 +76,7 @@ export default function AboutHero() {
               transition={{ type: "spring", stiffness: 200 }}
               className=" "
             >
-              <Image src="/mad.jpg" width={837} height={779} className="w-full rounded-2xl 2xl:rounded-2xl shadow-md -rotate-6" alt="hung tran dark mode"/>
+              <Image src="/mad.png" width={837} height={779} className="w-full rounded-2xl 2xl:rounded-2xl shadow-md -rotate-6" alt="hung tran dark mode"/>
             </motion.div>
           </motion.div>
         </div>
@@ -172,7 +172,7 @@ export default function AboutHero() {
               transition={{ type: "spring", stiffness: 200 }}
               className=" "
             >
-              <Image src="/robin.jpg" width={837} height={779} className="w-full rounded-2xl 2xl:rounded-2xl shadow-md -rotate-6" alt="hung tran dark mode"/>
+              <Image src="/robin.png" width={837} height={779} className="w-full rounded-2xl 2xl:rounded-2xl shadow-md -rotate-6" alt="hung tran dark mode"/>
             </motion.div>
           </motion.div>
 
@@ -232,7 +232,7 @@ export default function AboutHero() {
               transition={{ type: "spring", stiffness: 200 }}
               className=" "
             >
-              <Image src="/matcha.jpeg" width={837} height={779} className="w-full rounded-2xl shadow-md -rotate-8" alt="hung tran dark mode"/>
+              <Image src="/matcha.png" width={837} height={779} className="w-full rounded-2xl shadow-md -rotate-8" alt="hung tran dark mode"/>
             </motion.div>
           </motion.div>
 
@@ -263,7 +263,7 @@ export default function AboutHero() {
               transition={{ type: "spring", stiffness: 200 }}
               className=" "
             >
-              <Image src="/spinning.jpeg" width={837} height={779} className="w-full rounded-2xl 2xl:rounded-2xl shadow-md rotate-6" alt="hung tran dark mode"/>
+              <Image src="/spinning.png" width={837} height={779} className="w-full rounded-2xl 2xl:rounded-2xl shadow-md rotate-6" alt="hung tran dark mode"/>
             </motion.div>
           </motion.div>
         </div>
@@ -293,7 +293,7 @@ export default function AboutHero() {
               transition={{ type: "spring", stiffness: 200 }}
               className=" "
             >
-              <Image src="/belini.jpg" width={837} height={779} className="w-full rounded-2xl shadow-md rotate-6" alt="hung tran dark mode"/>
+              <Image src="/belini.png" width={837} height={779} className="w-full rounded-2xl shadow-md rotate-6" alt="hung tran dark mode"/>
             </motion.div>
           </motion.div>
         </div>
