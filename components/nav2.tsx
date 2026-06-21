@@ -32,7 +32,7 @@ export default function MyNav2(props: Props) {
       {props.variant === "About to home" && (
         <div className="w-full px-10 md:w-2/3 md:px-0 lg:w-[85%] 2xl:w-[80%] flex items-center justify-between">
           <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
-          <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" textSize="text-sm" target="_blank"/>
+          <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
         </div>
       )}
 
@@ -43,7 +43,7 @@ export default function MyNav2(props: Props) {
           <div className="hidden md:flex">
             <MyButton variant="blue-button-outline" text="About me" link="about" textSize="text-sm" target="_self"/>
             <div className="ml-3" />
-            <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" textSize="text-sm" target="_blank"/>
+            <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
           </div>
           {/* Mobile 3-dots menu */}
           <DotsMenu />
@@ -57,7 +57,7 @@ export default function MyNav2(props: Props) {
           <div className="hidden md:flex items-center">
             <MyButton variant="blue-button-outline" text="About me" link="about" textSize="text-sm" target="_self"/>
             <div className="ml-3" />
-            <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" textSize="text-sm" target="_blank"/>
+            <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
           </div>
           {/* Mobile 3-dots menu */}
           <DotsMenu />

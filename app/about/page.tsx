@@ -54,7 +54,7 @@ export default function About() {
                 <div className="w-full mt-6 mb-9 flex justify-between items-center">
                     <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                     <div className="flex">
-                        <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" textSize="text-sm" target="_blank"/>
+                        <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
                     </div>
                 </div>
                 <div className="mb-20"></div>
@@ -77,10 +77,10 @@ export default function About() {
                 {/* <div className="">
                     <p className="text-sm text-[var(--colour-bodytext)]">Send me an <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>.</p>
                     <p className="text-sm text-[var(--colour-bodytext)]">Send me a message on <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-sm"/></span>.</p>
-                    <p className="text-sm text-[var(--colour-bodytext)]">Check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-sm"/></span>.</p>
+                    <p className="text-sm text-[var(--colour-bodytext)]">Check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-sm"/></span>.</p>
                 </div> */}
 
-                <p className="text-sm text-[var(--colour-bodytext)]">Our first chapter has to start somewhere - maybe an <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>, a message on <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-sm"/></span>, or my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-sm"/></span>?</p>
+                <p className="text-sm text-[var(--colour-bodytext)]">Our first chapter has to start somewhere - maybe an <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>, a message on <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-sm"/></span>, or my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-sm"/></span>?</p>
                 
 
                 <div className="mb-25"></div>

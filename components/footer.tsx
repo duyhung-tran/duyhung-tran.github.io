@@ -15,7 +15,7 @@ export default function Footer() {
                 <div className="mb-1"></div>
                 <MyButton variant="hyperlink" text="d.hungtran12@gmail.com" link="mailto:d.hungtran12@gmail.com" target="_blank" textSize="text-sm"></MyButton>
                 <div className="mb-1"></div>
-                <MyButton variant="hyperlink" text="Resume" link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" target="_blank" textSize="text-sm"></MyButton>
+                <MyButton variant="hyperlink" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-sm"></MyButton>
             </div>
             {/* <div className="mb-7"></div>
             <div className="w-full justify-between flex">

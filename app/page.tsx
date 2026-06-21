@@ -35,7 +35,7 @@ export default function Home2() {
                 <div className="flex justify-end">
                   <MyButton variant="blue-button-outline" text="About me" link="about" target="_self" textSize="text-sm"/>
                   <div className="ml-4"></div>
-                  <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" textSize="text-sm" target="_blank"/>
+                  <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
                 </div>
               </div>
 
@@ -51,7 +51,7 @@ export default function Home2() {
               </div>
               <div className="mb-9"></div>
               <div>
-                <p className="text-md text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-md"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-md"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-md"/></span>!</p>
+                <p className="text-md text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-md"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-md"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-md"/></span>!</p>
               </div>
               <div className="mb-9"></div>
               <p className="text-md text-[var(--colour-bodytext-3)] leading-loose">Scroll down for works.</p>
@@ -81,7 +81,7 @@ export default function Home2() {
               </div>
               <div className="mb-7"></div>
               <div>
-                <p className="text-sm text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-sm"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-sm"/></span>!</p>
+                <p className="text-sm text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-sm"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-sm"/></span>!</p>
               </div>
               <div className="mb-7"></div>
               <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Scroll down for works.</p>
@@ -175,7 +175,7 @@ export default function Home2() {
             
             <div className="flex items-center justify-center gap-10">
                 <MyButton variant="blue-button-outline" text="Back to top" link="#top" textSize="text-sm" target="_self"/>
-                {/* <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" textSize="text-sm" target="_blank"/> */}
+                {/* <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/> */}
             </div>
 
             <div className="-mb-2"></div>

@@ -20,7 +20,7 @@ export default function DotsMenu() {
                     <a href="/about" className="block w-50 px-4 py-4 text-sm text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
                         About me
                     </a>
-                    <a href="https://drive.google.com/file/d/1CrubhoYF0ok5oFfJT3Ffxlkr6Jp0p8Jk/view?usp=sharing" target="_blank" className="w-full block px-4 py-4 text-sm text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
+                    <a href="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" className="w-full block px-4 py-4 text-sm text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
                         Resume
                     </a>
                 </div>
