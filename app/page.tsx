@@ -14,6 +14,7 @@ import { ThemeSelector } from "@/components/ui/shadcn-io/colour-toggle-button";
 import { ThemeToggleButton } from "@/components/ui/shadcn-io/theme-toggle-button";
 import Testimonial from "@/components/testimonial";
 import ProjectThumbnailNew from "@/components/project-thumbnail-new";
+import HearThisButton from "@/components/hear-this";
 
 export default function Home2() {
   const [animate, setAnimate] = useState(false);
@@ -41,7 +42,7 @@ export default function Home2() {
 
               <div className="mb-12"></div>
 
-              <div className="flex justify-between">
+              <div className="flex gap-4">
                 <p className="text-md font-semibold text-[var(--colour-pure)] leading-loose">Hi, my name is Hung.</p>
               </div>
               <div className="mb-9"></div>
@@ -54,7 +55,10 @@ export default function Home2() {
                 <p className="text-md text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-md"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-md"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-md"/></span>!</p>
               </div>
               <div className="mb-9"></div>
-              <p className="text-md text-[var(--colour-bodytext-3)] leading-loose">Scroll down for works.</p>
+              <div className="flex gap-1">
+                <p className="text-md text-[var(--colour-bodytext-3)] leading-loose">Scroll down for works.</p>
+                {/* <HearThisButton/> */}
+              </div>
               <div className="w-full hidden md:flex justify-start items-center mt-14 gap-4">
                 <ThemeToggleButton
                   theme={theme === "light" ? "dark" : "light"}
@@ -117,9 +121,9 @@ export default function Home2() {
               <SlideUp>
                   <ProjectThumbnailNew isLink="video-link" link="cardio" type="UX design, 2024" name="card.io: Perfect cardio session starts with a perfect playlist" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" target="_self"/>
               </SlideUp>
-              {/* <SlideUp>
+              <SlideUp>
                   <ProjectThumbnailNew isLink="coming-soon" link="" type="UX research, 2026" name="Samsung Health's wearable experiences (In progress)" desc="Conducted research to inform future Samsung Health wearable experiences, including Galaxy Watch, Galaxy Ring, and the Samsung Health app." imageSrc="/shealth.png" imageSrcPoster="" target="_self"/>
-              </SlideUp> */}
+              </SlideUp>
             </div>
 
             {/* <Heading text="My other work spans development, visual design, and service design." variant="black"/>
