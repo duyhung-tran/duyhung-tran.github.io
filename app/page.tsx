@@ -48,7 +48,7 @@ export default function Home2() {
               <div className="mb-9"></div>
               <div className="w-full md:w-[75%]">
                 <p className="text-md text-[var(--colour-bodytext)] leading-loose">As an overthinker, I think a lot about all my interactions... probably more than I should.</p>
-                <p className="text-md text-[var(--colour-bodytext)] leading-loose">Luckily, that's also my job. I'm an interaction designer, currently at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung Research Canada" textSize="text-md"/></span>.</p>
+                <p className="text-md text-[var(--colour-bodytext)] leading-loose">Luckily, that's also my job. I'm an interaction designer, currently at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung Electronics Canada" textSize="text-md"/></span>.</p>
               </div>
               <div className="mb-9"></div>
               <div>
@@ -152,7 +152,7 @@ export default function Home2() {
             <SlideUp>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
                 <div className="flex flex-col gap-5">
-                    <Testimonial name="Tian Jia" job="Senior UX Designer, UX Manager" company="Samsung Research Canada" text={<>Hung has demonstrated <span className="underline decoration-[var(--main-colour)] underline-offset-4 font-semibold">a strong talent for both UX research and graphical UI tasks</span>. His ability to analyze user needs and translate them into intuitive, visually appealing designs has been impressive. <br /> <div className="mt-5"></div> Overall, his dedication and versatility make him a valuable asset to any design team.</>} imgSrc="/tian.jpeg"/>
+                    <Testimonial name="Tian Jia" job="Senior UX Designer, UX Manager" company="Samsung Electronics Canada" text={<>Hung has demonstrated <span className="underline decoration-[var(--main-colour)] underline-offset-4 font-semibold">a strong talent for both UX research and graphical UI tasks</span>. His ability to analyze user needs and translate them into intuitive, visually appealing designs has been impressive. <br /> <div className="mt-5"></div> Overall, his dedication and versatility make him a valuable asset to any design team.</>} imgSrc="/tian.jpeg"/>
                 </div>
                 {/* <div className="flex flex-col gap-5">
                   <SlideUp>
