@@ -13,8 +13,8 @@ interface Props {
     imageSrcPoster: string;
     imageSrcPosterDark: string;
     link: string;
-    target: string;
     isLink: string;
+    target: string;
     type: string;
 }
 
@@ -27,27 +27,22 @@ export default function ProjectThumbnailNew(props: Props) {
     if (!mounted) {
         return null;
     }
-    
+
     if (props.isLink == "image-link") {
         return (
             <div className="h-full flex flex-col group">
-                <div className="flex gap-2 flex-col md:flex-row md:justify-between">
-                    <p className="text-sm font-medium text-[var(--colour-bodytext)] md:text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--main-colour)] leading-loose">
-                        {props.name}
-                    </p>
-                    <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--colour-bodytext)] leading-loose">
-                        ({props.type})
-                    </p>
-                </div>
-                <div className="mb-3"></div>
-                <a className="relative overflow-hidden block group mt-auto bg-[var(--container-bg)] rounded-2xl shadow-[0px_0px_25px_rgba(0,0,0,0.015)] 2xl:shadow-[0px_0px_35px_rgba(0,0,0,0.01)] duration-300" href={props.link} target={props.target}>
+                <a
+                    className="relative h-[400px] flex justify-center items-center overflow-hidden block group mt-auto bg-[var(--container-bg)]"
+                    href={props.link}
+                    target={props.target}
+                >
                     {theme === "dark" ? (
                         <Image
                             src={props.imageSrcDark}
                             alt={props.name}
                             width={1640}
                             height={1228}
-                            className="object-cover"
+                            className="object-contain max-h-[65%] max-w-[65%] w-auto h-auto"
                         />
                     ) : (
                         <Image
@@ -55,55 +50,116 @@ export default function ProjectThumbnailNew(props: Props) {
                             alt={props.name}
                             width={1640}
                             height={1228}
-                            className="object-cover"
+                            className="object-contain max-h-[65%] max-w-[65%] w-auto h-auto"
                         />
                     )}
+
+                    <div className="absolute inset-0 flex flex-col justify-end p-9 opacity-0 group-hover:opacity-100">
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">
+                            {props.name}
+                        </p>
+                        <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">
+                            {props.desc}
+                        </p>
+                    </div>
                 </a>
-            </div>
-        );
-    }
-    else if (props.isLink == "video-link") {
-        return (
-            <div className="h-full flex flex-col group">
-                <div className="flex gap-2 flex-col md:flex-row md:justify-between">
-                    <p className="text-sm font-medium text-[var(--colour-bodytext)] md:text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] leading-loose md:group-hover:text-[var(--main-colour)]">
-                        {props.name}
-                    </p>
-                    <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--colour-bodytext)] leading-loose">
-                        ({props.type})
-                    </p>
-                </div>
-                <div className="mb-3"></div>
-                <a className="relative overflow-hidden block group mt-auto bg-[var(--container-bg)] rounded-2xl shadow-[0px_0px_25px_rgba(0,0,0,0.015)] 2xl:shadow-[0px_0px_35px_rgba(0,0,0,0.01)] duration-300" href={props.link} target={props.target}>
-                    {theme === "dark" ? (
-                        <video className={`w-full h-full object-cover !bg-transparent block`} style={{ clipPath: "inset(-1px -1px)" }} autoPlay muted loop playsInline poster={props.imageSrcPosterDark}>
-                            <source src={props.imageSrcDark} type="video/mp4" />
-                        </video>
-                    ) : (
-                        <video className={`w-full h-full object-cover !bg-transparent block`} style={{ clipPath: "inset(-1px -1px)" }} autoPlay muted loop playsInline poster={props.imageSrcPoster}>
-                            <source src={props.imageSrc} type="video/mp4" />
-                        </video>
-                    )}
-                </a>
-            </div>
-        );
-    }
-    else if (props.isLink == "coming-soon") {
-        return (
-            <div className="h-full flex flex-col group">
-                <div className="flex gap-2 flex-col md:flex-row md:justify-between">
-                    <p className="text-sm font-medium text-[var(--colour-bodytext)] md:text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] leading-loose md:group-hover:text-[var(--main-colour)]">
-                        {props.name}
-                    </p>
-                    <p className="text-sm text-[var(--colour-bodytext-3)] md:text-[var(--colour-bodytext-4)] md:group-hover:text-[var(--colour-bodytext)] leading-loose">
-                        ({props.type})
-                    </p>
-                </div>
-                <div className="mb-3"></div>
-                <div className="relative overflow-hidden block group mt-auto bg-[var(--container-bg)] rounded-2xl shadow-[0px_0px_25px_rgba(0,0,0,0.015)] 2xl:shadow-[0px_0px_35px_rgba(0,0,0,0.01)] duration-300 inline">
-                    <Image src={props.imageSrc} alt={props.name} width={1640} height={1228} className="object-cover"/>
-                </div>
             </div>
         );
     }
 }
+
+
+// "use client"
+
+// import Image from "next/image";
+// import MyButton from "./my-button";
+// import { useTheme } from "next-themes";
+// import { useEffect, useState } from "react";
+
+// interface Props {
+//     name: string;
+//     desc: string;
+//     imageSrc: string;
+//     imageSrcDark: string;
+//     imageSrcPoster: string;
+//     imageSrcPosterDark: string;
+//     link: string;
+//     isLink: string;
+//     target: string;
+//     type: string;
+// }
+
+// export default function ProjectThumbnailNew(props: Props) {
+//     const { theme } = useTheme();
+//     const [mounted, setMounted] = useState(false);
+//     const [isHovering, setIsHovering] = useState(false);
+//     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+
+//     useEffect(() => {
+//         setMounted(true);
+//     }, []);
+//     if (!mounted) {
+//         return null;
+//     }
+
+//     if (props.isLink == "image-link") {
+//         return (
+//             <div className="h-full flex flex-col group">
+//                 <a
+//                     className="relative h-[400px] flex justify-center items-center overflow-hidden block group mt-auto bg-[var(--container-bg)] cursor-none"
+//                     href={props.link}
+//                     target={props.target}
+//                     onMouseEnter={() => setIsHovering(true)}
+//                     onMouseLeave={() => setIsHovering(false)}
+//                     onMouseMove={(e) => {
+//                         const rect = e.currentTarget.getBoundingClientRect();
+//                         setCursorPos({
+//                             x: e.clientX - rect.left,
+//                             y: e.clientY - rect.top,
+//                         });
+//                     }}
+//                 >
+//                     {theme === "dark" ? (
+//                         <Image
+//                             src={props.imageSrcDark}
+//                             alt={props.name}
+//                             width={1640}
+//                             height={1228}
+//                             className="object-contain max-h-[60%] max-w-[60%] w-auto h-auto"
+//                         />
+//                     ) : (
+//                         <Image
+//                             src={props.imageSrc}
+//                             alt={props.name}
+//                             width={1640}
+//                             height={1228}
+//                             className="object-contain max-h-[60%] max-w-[60%] w-auto h-auto"
+//                         />
+//                     )}
+
+//                     <div className="absolute inset-0 flex flex-col justify-end p-9 opacity-0 group-hover:opacity-100">
+//                         <p className="text-sm text-[var(--colour-bodytext)] leading-loose">
+//                             {props.name}
+//                         </p>
+//                         <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">
+//                             {props.desc}
+//                         </p>
+//                     </div>
+
+//                     {isHovering && (
+//                         <div
+//                             className="absolute pointer-events-none bg-[var(--container-bg-reversed)] text-white text-xs px-3 py-1.5 z-10"
+//                             style={{
+//                                 left: cursorPos.x,
+//                                 top: cursorPos.y,
+//                                 transform: "translate(-50%, -50%)",
+//                             }}
+//                         >
+//                             View
+//                         </div>
+//                     )}
+//                 </a>
+//             </div>
+//         );
+//     }
+// }

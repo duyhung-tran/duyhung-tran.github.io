@@ -6,8 +6,7 @@ import Footer from "@/components/footer";
 import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import MyNav2 from "@/components/nav2";
-import DotsMenu from "@/components/menu";
-import ProjectThumbnail3 from "@/components/project-thumbnail3";
+import Menu from "@/components/menu";
 import SlideUpNoThres from "@/components/slide-up-nothres";
 
 export default function Organizations() {
@@ -21,12 +20,12 @@ export default function Organizations() {
                         <div className="w-full flex justify-between items-center">
                             <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                             <div className="block md:hidden">
-                                <DotsMenu/>
+                                <Menu/>
                             </div>
                             <div className="hidden md:flex">
-                                <MyButton variant="blue-button-outline" text="About me" link="about" textSize="text-sm" target="_self"/>
+                                <MyButton variant="secondary" text="About me" link="about" textSize="text-sm" target="_self"/>
                                 <div className="ml-3"></div>
-                                <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
+                                <MyButton variant="primary" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
                             </div>
                         </div>
                         <div className="mb-20"></div>
@@ -60,7 +59,7 @@ export default function Organizations() {
                         <div>
                             <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Designed a scalable, design-system–ready component that visualizes the inheritance logic among parent-child entities.</p>
                             <div className="mb-5"></div>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">What is Samsung Knox Manage? <MyButton variant="hyperlink" text="Learn more" link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" textSize="text-sm" target="blank"/>.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">What is Samsung Knox Manage? <MyButton variant="hyperlink" text="Learn more" link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" textSize="text-sm" target="blank"/>.</p>
                             <div className="mb-7"></div>
                         </div>
                     </div>
@@ -131,27 +130,27 @@ export default function Organizations() {
                                 <Image src="/ds1.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <div className="mb-2"></div>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Specifying spacing specs during default state.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying spacing specs during default state.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
                                 <Image src="/ds2.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <div className="mb-2"></div>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Specifying specs during user interactions.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying specs during user interactions.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
                                 <Image src="/ds3.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <div className="mb-2"></div>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Writing guidelines for multiple ways user can interact with the component.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Writing guidelines for multiple ways user can interact with the component.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
                                 <Image src="/ds4.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <div className="mb-2"></div>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Specifying the interactions for multiple variants.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying the interactions for multiple variants.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
                                 <Image src="/ds5.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
                             <div className="mb-2"></div>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Final deliverables.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Final deliverables.</p>
                             {/* <ProtectedPhoto2 src1="/doc1.png" src2="/doc2.png" alt="organizations" password="2002"/> */}
                             {/* <div className="mb-4"></div> */}
                             {/* <ProtectedPhoto src="/doc2.png" alt="organizations" password="2002"/> */}
@@ -196,11 +195,11 @@ export default function Organizations() {
                                 <div className="w-full md:w-[85%] 2xl:w-[75%] grid grid-cols-2 gap-5">
                                     <div className="flex flex-col justify-start">
                                         <Image src="/KM.png" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(80%)' }}/> 
-                                        <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Samsung #Knox_Manage team</p>
+                                        <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Samsung #Knox_Manage team</p>
                                     </div>
                                     <div className="flex flex-col justify-start">
                                         <Image src="/grouse.png" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(95%)' }}/> 
-                                        <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Product Design meeting @ Grouse ⛰️</p>
+                                        <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Product Design meeting @ Grouse ⛰️</p>
                                     </div>
                                 </div>
                             </div>
@@ -209,22 +208,9 @@ export default function Organizations() {
                 </div>
 
                 <div className="mb-40"></div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-x-4">
-                    <div className="md:sticky md:top-25 md:self-start">
-                        <Heading text="My other projects" variant="black"/>
-                    </div>
-                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-15">
-                        <ProjectThumbnail3 isLink="video-link" link="rules" name="Samsung Knox Manage: Rules" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcPoster="rule-poster.png" imageSrcDark="/Rule video - d.mp4" imageSrcPosterDark="rule-poster - d.png" target="_self"/>
-                        <ProjectThumbnail3 isLink="video-link" link="cardio" name="card.io" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" imageSrcDark="" imageSrcPosterDark="" target="_self"/>
-                        {/* <MyButton variant="blue-button-outline" text="Return to home" link="/" textSize="text-sm" target="_self"/> */}
-                    </div>
-                </div>
-
-                <div className="mb-40"></div>
                                 
                 <div className="w-full flex flex-col md:flex-row justify-center gap-3">
-                    <MyButton variant="blue-button-outline" text="Return to home" link="/" textSize="text-sm" target="_self"/>
+                    <MyButton variant="secondary" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                 </div>
 
                 <div className="w-full">

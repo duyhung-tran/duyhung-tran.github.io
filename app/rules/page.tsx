@@ -6,8 +6,7 @@ import Footer from "@/components/footer";
 import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import MyNav2 from "@/components/nav2";
-import DotsMenu from "@/components/menu";
-import ProjectThumbnail3 from "@/components/project-thumbnail3";
+import Menu from "@/components/menu";
 import SlideUpNoThres from "@/components/slide-up-nothres";
 
 export default function Rules() {
@@ -21,12 +20,12 @@ export default function Rules() {
                     <div className="w-full flex justify-between items-center">
                         <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                         <div className="block md:hidden">
-                            <DotsMenu/>
+                            <Menu/>
                         </div>
                         <div className="hidden md:flex">
-                            <MyButton variant="blue-button-outline" text="About me" link="about" textSize="text-sm" target="_self"/>
+                            <MyButton variant="secondary" text="About me" link="about" textSize="text-sm" target="_self"/>
                             <div className="ml-3"></div>
-                            <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
+                            <MyButton variant="primary" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
                         </div>
                     </div>
                     <div className="mb-20"></div>
@@ -64,7 +63,7 @@ export default function Rules() {
                        <div>
                             <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)</p>
                             <div className="mb-5"></div>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">What is Samsung Knox Manage? <MyButton variant="hyperlink" text="Learn more" link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" textSize="text-sm" target="blank"/>.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">What is Samsung Knox Manage? <MyButton variant="hyperlink" text="Learn more" link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" textSize="text-sm" target="blank"/>.</p>
                             <div className="mb-7"></div>
                         </div>
                     </div>
@@ -89,7 +88,7 @@ export default function Rules() {
                             <div className="flex flex-col justify-center items-center bg-[var(--container-bg)] p-10 rounded-2xl">
                                 <div className="w-full flex justify-between">
                                     <p className="text-sm text-[var(--main-colour)] leading-loose self-start">Notes from PM team</p>
-                                    <p className="text-sm text-[var(--main-colour)] leading-loose self-start"><span className="text-[var(--colour-bodytext-3)]">(generalized to avoid NDA)</span></p>
+                                    <p className="text-sm text-[var(--main-colour)] leading-loose self-start"><span className="text-[var(--colour-bodytext-light)]">(generalized to avoid NDA)</span></p>
                                 </div>
                                 <div className="mb-12"></div>
                                 <div className="w-full 2xl:w-[70%] grid grid-cols-3 -gap-x-3">
@@ -157,15 +156,15 @@ export default function Rules() {
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
                                 <Image src="/rules-0.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Overview table.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Overview table.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
                                 <Image src="/rules-1.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">View details through a sliding panel.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">View details through a sliding panel.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
                                 <Image src="/rules-1.5.png" width={3099} height={1823} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Detailed sliding panel.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Detailed sliding panel.</p>
                         </div>
                     </div>
 
@@ -180,15 +179,15 @@ export default function Rules() {
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
                                 <Image src="/rules-2.png" width={3099} height={3363} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Configuring time-based conditions.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Configuring time-based conditions.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
                                 <Image src="/rules-3.png" width={3099} height={3363} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Configuring location-based conditions.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Configuring location-based conditions.</p>
                             <ImageZoom className="bg-[var(--container-bg-2)] rounded-2xl overflow-hidden">
                                 <Image src="/rules-4.png" width={2622} height={2622} className="w-full rounded-2xl" alt="Samsung Knox"/> 
                             </ImageZoom>
-                            <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose mb-6">Segment of the location-based conditions configuration flow.</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Segment of the location-based conditions configuration flow.</p>
                         </div>
                     </div>
                 </div>
@@ -213,11 +212,11 @@ export default function Rules() {
                                 <div className="w-full md:w-[75%] 2xl:w-[75%] grid grid-cols-2 gap-2 md:gap-5">
                                     <div className="flex flex-col justify-start">
                                         <Image src="/uxmas.jpg" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
-                                        <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">@ Samsung XMas party 🎄</p>
+                                        <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">@ Samsung XMas party 🎄</p>
                                     </div>
                                     <div className="flex flex-col justify-start">
                                         <Image src="/yehe.png" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
-                                        <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Group selfie #116</p>
+                                        <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Group selfie #116</p>
                                     </div>
                                 </div>
                             </div>
@@ -226,22 +225,9 @@ export default function Rules() {
                 </div>
 
                 <div className="mb-40"></div>
-
-                <div className="grid grid-cols-1 md:grid-cols-[1.5fr_3fr] gap-x-4">
-                    <div className="md:sticky md:top-25 md:self-start">
-                        <Heading text="My other projects" variant="black"/>
-                    </div>
-                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-15">
-                        <ProjectThumbnail3 isLink="image-link" link="organizations" name="Samsung Knox Manage: Organizations" desc="Designed a scalable, design-system–ready component that visualizes the inheritance logic among parent-child entities." imageSrc="/organizations.png" imageSrcDark="/organize - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-                        <ProjectThumbnail3 isLink="video-link" link="cardio" name="card.io" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" imageSrcDark="" imageSrcPosterDark="" target="_self"/>
-                        {/* <MyButton variant="blue-button-outline" text="Return to home" link="/" textSize="text-sm" target="_self"/> */}
-                    </div>
-                </div>
-
-                <div className="mb-40"></div>
                 
                 <div className="w-full flex flex-col md:flex-row justify-center gap-3">
-                    <MyButton variant="blue-button-outline" text="Return to home" link="/" textSize="text-sm" target="_self"/>
+                    <MyButton variant="secondary" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                 </div>
 
                 <div className="w-full">

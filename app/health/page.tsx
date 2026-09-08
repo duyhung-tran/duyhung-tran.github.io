@@ -6,7 +6,7 @@ import Footer from "@/components/footer";
 import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import MyNav2 from "@/components/nav2";
-import DotsMenu from "@/components/menu";
+import Menu from "@/components/menu";
 import SlideUpNoThres from "@/components/slide-up-nothres";
 
 export default function Health() {
@@ -21,12 +21,12 @@ export default function Health() {
                     <div className="w-full flex justify-between items-center">
                         <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                         <div className="block md:hidden">
-                            <DotsMenu/>
+                            <Menu/>
                         </div>
                         <div className="hidden md:flex">
-                            <MyButton variant="blue-button-outline" text="About me" link="about" textSize="text-sm" target="_self"/>
+                            <MyButton variant="secondary" text="About me" link="about" textSize="text-sm" target="_self"/>
                             <div className="ml-3"></div>
-                            <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
+                            <MyButton variant="primary" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
                         </div>
                     </div>
                     <div className="mb-20"></div>
@@ -66,7 +66,7 @@ export default function Health() {
                                 </a>
                             </div>
                             <div className="mb-3"></div>
-                            {/* <p className="mt-2 text-sm text-[var(--colour-bodytext-3)] leading-loose">Managing weight in Samsung Health. Image sourced from Samsung Health website.</p>
+                            {/* <p className="mt-2 text-sm text-[var(--colour-bodytext-light)] leading-loose">Managing weight in Samsung Health. Image sourced from Samsung Health website.</p>
                             <div className="mb-6"></div> */}
                             <div className="bg-[var(--container-bg)] flex flex-col p-7 rounded-2xl">
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">Current state of Samsung Health</p>
@@ -94,7 +94,7 @@ export default function Health() {
                 <div className="mb-30"></div>
 
                 <div className="w-full flex flex-col md:flex-row justify-center gap-3">
-                    <MyButton variant="blue-button-outline" text="Return to home" link="/" textSize="text-sm" target="_self"/>
+                    <MyButton variant="secondary" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                 </div>
 
                 <div className="w-full">

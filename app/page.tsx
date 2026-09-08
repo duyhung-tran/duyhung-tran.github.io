@@ -3,22 +3,14 @@
 import Image from "next/image";
 import MyButton from "@/components/my-button";
 import Footer from "@/components/footer";
-import ProjectThumbnail2 from "@/components/project-thumbnail2";
-import SlideUp from "@/components/slide-up";
 import { useEffect, useState } from "react";
 import SlideUpNoThres from "@/components/slide-up-nothres";
-import { useTheme } from "next-themes";
-import MyNav2 from "@/components/nav2";
-import ProjectThumbnail from "@/components/project-thumbnail";
-import { ThemeSelector } from "@/components/ui/shadcn-io/colour-toggle-button";
-import { ThemeToggleButton } from "@/components/ui/shadcn-io/theme-toggle-button";
-import Testimonial from "@/components/testimonial";
 import ProjectThumbnailNew from "@/components/project-thumbnail-new";
-import HearThisButton from "@/components/hear-this";
+import Menu from "@/components/menu";
+import Nav from "@/components/nav";
 
 export default function Home2() {
   const [animate, setAnimate] = useState(false);
-  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     setTimeout(() => setAnimate(true), 900);
@@ -26,171 +18,26 @@ export default function Home2() {
 
   return (
     <div className="flex items-center justify-center" id="top">
-        <MyNav2 variant="Home"/>
-        <div className="w-full px-10 md:w-2/3 md:px-0 lg:w-[85%] 2xl:w-[80%] mt-28">
-            <SlideUpNoThres>
-              <div className={`w-full flex items-center relative justify-between`}>
-                <div className="flex justify-start items-start" >
-                  <Image src="/aboot.jpeg" width={3099} height={3363} className="w-[64px] aspect-square mb-2 rounded-2xl shadow-xl" alt="Hung Tran"/> 
-                </div>
-                <div className="flex justify-end">
-                  <MyButton variant="blue-button-outline" text="About me" link="about" target="_self" textSize="text-sm"/>
-                  <div className="ml-4"></div>
-                  <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
-                </div>
-              </div>
+        <div className="w-full p-10">
+          <Nav variant="home" /> 
 
-              <div className="mb-12"></div>
+          <div className="mb-10"></div>
 
-              <div className="flex gap-4">
-                <p className="text-md font-semibold text-[var(--colour-pure)] leading-loose">Hi, my name is Hung.</p>
-              </div>
-              <div className="mb-9"></div>
-              <div className="w-full md:w-[75%]">
-                <p className="text-md text-[var(--colour-bodytext)] leading-loose">As an overthinker, I think a lot about all my interactions... probably more than I should.</p>
-                <p className="text-md text-[var(--colour-bodytext)] leading-loose">Luckily, that's also my job. I'm an interaction designer, currently at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung Electronics Canada" textSize="text-md"/></span>.</p>
-              </div>
-              <div className="mb-9"></div>
-              <div>
-                <p className="text-md text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-md"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-md"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-md"/></span>!</p>
-              </div>
-              <div className="mb-9"></div>
-              <div className="flex gap-1">
-                <p className="text-md text-[var(--colour-bodytext-3)] leading-loose">Scroll down for works.</p>
-                {/* <HearThisButton/> */}
-              </div>
-              <div className="w-full hidden md:flex justify-start items-center mt-14 gap-4">
-                <ThemeToggleButton
-                  theme={theme === "light" ? "dark" : "light"}
-                  onClick={() => {
-                    const next = theme === "dark" ? "light" : "dark";
-                    setTheme(next);
-                  }}
-                  variant="none"
-                  start="center"
-                  className="hover:cursor-pointer"
-                  showLabel={false}
-                />
-                <ThemeSelector/>
-              </div>
+          <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Currently reading tickets at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung Electronics Canada" textSize="text-sm"/></span>.</p>
+          {/* <p className="text-sm text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="sm"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-sm"/></span>!</p> */}
 
-              {/* Smaller version */}
-              {/* <div className="flex justify-between">
-                <p className="text-sm font-semibold text-[var(--colour-pure)] leading-loose">Hi, my name is Hung.</p>
-              </div>
-              <div className="mb-7"></div>
-              <div className="w-full md:w-[75%]">
-                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">As an overthinker, I think a lot about all my interactions... probably more than I should.</p>
-                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Luckily, that's also my job. I'm an interaction designer, currently at <span className="inline-block"><MyButton link="https://research.samsung.com/srca" target="_blank" variant="hyperlink" text="Samsung Research Canada" textSize="text-sm"/></span>.</p>
-              </div>
-              <div className="mb-7"></div>
-              <div>
-                <p className="text-sm text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-sm"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-sm"/></span>!</p>
-              </div>
-              <div className="mb-7"></div>
-              <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Scroll down for works.</p>
-              <div className="mb-9"></div>
-              <div className="w-full hidden md:flex justify-start items-center gap-4">
-                <ThemeToggleButton
-                  theme={theme === "light" ? "dark" : "light"}
-                  onClick={() => {
-                    const next = theme === "dark" ? "light" : "dark";
-                    setTheme(next);
-                  }}
-                  variant="none"
-                  start="center"
-                  className="hover:cursor-pointer"
-                  showLabel={false}
-                />
-                <ThemeSelector/>
-              </div> */}
-            </SlideUpNoThres>
+          <div className="mb-11"></div>
 
-            <div className="mb-35"></div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Samsung Knox AI's design system" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+            <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" imageSrc="/geofenceee.png" imageSrcDark="/geofenceee.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+            <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+            <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+            <ProjectThumbnailNew isLink="image-link" link="health" type="UX research" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" imageSrcDark="/health logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+          </div>
 
-            {/* <Heading text="These are what I have done." variant="black"/>
-            <div className="mb-12"></div> */}
+          <div className="mb-25"></div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-5 gap-y-20">
-              <SlideUpNoThres>
-                <ProjectThumbnailNew isLink="video-link" link="rules" type="UX design, shipped" name="Samsung Knox Rules: Context-aware device management" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcDark="/Rule video.mp4" imageSrcPoster="rule-poster.png" imageSrcPosterDark="rule-poster.png" target="_self"/>
-              </SlideUpNoThres>
-              <SlideUpNoThres>
-                  <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Samsung Knox Organizations: Hierarchical device management" desc="Designed and wrote system documentation for a scalable table component that visualizes the inheritance logic among parent-child entities." imageSrc="/organizations.png" imageSrcDark="/organizations.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-              </SlideUpNoThres>
-              <SlideUp>
-                  <ProjectThumbnailNew isLink="video-link" link="cardio" type="UX design, POC" name="card.io: Perfect cardio session starts with a perfect playlist" desc="Designed a Spotify feature that guides runners in creating personalized cardio playlists, helping them feel confident and in control." imageSrc="/cardio video.mp4" imageSrcDark="/cardio video.mp4" imageSrcPoster="/cardio-poster.png" imageSrcPosterDark="/cardio-poster.png" target="_self"/>
-              </SlideUp>
-              <SlideUp>
-                  <ProjectThumbnailNew isLink="image-link" link="health" type="UX research" name="Samsung Health: Supporting a healthy weight journey" desc="Conducted research to inform future Samsung Health wearable experiences, including Galaxy Watch, Galaxy Ring, and the Samsung Health app." imageSrc="/shealth.png" imageSrcDark="/shealth.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-              </SlideUp>
-              {/* <SlideUp>
-                  <ProjectThumbnailNew isLink="image-link" link="#" type="UX design, shipped" name="Ednoda: Simplify lesson planning for ESL teachers" desc="" imageSrc="/ednodap.png" imageSrcPoster=".png" target="_self"/>
-              </SlideUp> */}
-              {/* <SlideUp>
-                  <ProjectThumbnailNew isLink="image-link" link="others" type="Graphics & animations" name="Other works" desc={`I like to play around with visual design and motions. Here's the damage.`} imageSrc="/other.png" imageSrcDark="/other.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-              </SlideUp> */}
-            </div>
-
-            {/* <Heading text="My other work spans development, visual design, and service design." variant="black"/>
-            <div className="mb-12"></div> */}
-            {/* <p className="text-lg text-[var(--colour-bodytext)] leading-loose mb-12">My other work spans development, visual design, and service design.</p>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-5 gap-y-15 mt-12">
-              <SlideUp>
-                  <ProjectThumbnail isLink="image-link" link="https://drive.google.com/file/d/1d0jGR0QJN3mzwX6o9n0C54g6aHej0I9l/view" name="Full stack" desc="React Native note-taking app, integrating Apple Maps API, Text-to-speech API, and Firebase." imageSrc="/memorymate.png" imageSrcDark="/memorymate - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_blank"/>
-              </SlideUp>
-              <SlideUp>
-                  <ProjectThumbnail isLink="image-link" link="visuals" name="Visual design" desc={`I like to play around with visual design and motions. Here's the damage.`} imageSrc="/visuall.png" imageSrcDark="/visuall - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-              </SlideUp>
-              <SlideUp>
-                  <ProjectThumbnail isLink="image-link" link="servicedesign" name="Service design" desc="A cooling initiative helping neighbourhood houses protect vulnerable communities from extreme heat." imageSrc="/cool-tgt.png" imageSrcDark="/organize - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-              </SlideUp>
-            </div> */}
-
-            <div className="mb-35" id="testimonials"></div>
-
-            <div className="mb-11">
-              <p className="text-lg text-[var(--colour-bodytext)] leading-loose mb-2">In their words</p>
-              {/* <Heading text="They said it, not me." variant="black"/> */}
-              <p className="text-md text-[var(--colour-bodytext-3)] leading-loose">Testimonials from those I reported to.</p>
-            </div>
-
-            <SlideUp>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-                <div className="flex flex-col gap-5">
-                    <Testimonial name="Tian Jia" job="Senior UX Designer, UX Manager" company="Samsung Electronics Canada" text={<>Hung has demonstrated <span className="underline decoration-[var(--main-colour)] underline-offset-4 font-semibold">a strong talent for both UX research and graphical UI tasks</span>. His ability to analyze user needs and translate them into intuitive, visually appealing designs has been impressive. <br /> <div className="mt-5"></div> Overall, his dedication and versatility make him a valuable asset to any design team.</>} imgSrc="/tian.jpeg"/>
-                </div>
-                {/* <div className="flex flex-col gap-5">
-                  <SlideUp>
-                    <Testimonial name="Andrea Lin" job="Senior UX Designer" company="Samsung" text="Hung is a dumb ho." imgSrc="/andrea.jpeg"/>
-                  </SlideUp>
-                  <SlideUp>
-                    <Testimonial name="Jessica Yuki Huang" job="Senior UX Designer" company="Samsung" text="Hung is a dumb ho." imgSrc="/jessica.jpeg"/>
-                  </SlideUp>
-                </div> */}
-                <div className="flex flex-col gap-5">
-                    <Testimonial name="Thomas Nelles" job="Senior Communications Consultant" company="Fraser Health" text={<>From designing a multi-page document for our Indigenous Health team to crafting a Urgent Care video, <span className="underline decoration-[var(--main-colour)] underline-offset-4 font-semibold">his clients have been very impressed with his work to date</span>. He adapts to changing timelines easily including timely requests and juggling multiple projects. <br /> <div className="mt-5"></div>His calm demeanor and ability to clearly communicate his working progress are just some of his strengths.</>} imgSrc="/thomas.jpeg"/>
-                </div>
-                <div className="flex flex-col gap-5">
-                    <div className="h-fit bg-[var(--container-bg)] shadow-[0px_0px_15px_rgba(0,0,0,0.01)] px-7 py-6 rounded-2xl">
-                      <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">This spot is for you :"&#41;</p> 
-                      <div className="mb-5"></div>
-                      <p className="text-sm text-[var(--colour-bodytext-3)] leading-loose">Let's build something great together! I’d love to hear from you via my <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-md"/></span>, or <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="text-md"/></span>.</p> 
-                    </div>
-                </div>
-              </div>
-            </SlideUp>
-
-            <div className="mb-33"></div>
-            
-            <div className="flex items-center justify-center gap-10">
-                <MyButton variant="blue-button-outline" text="Back to top" link="#top" textSize="text-sm" target="_self"/>
-                {/* <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/> */}
-            </div>
-
-            <div className="-mb-2"></div>
-
-            <Footer/>
         </div>
     </div>
   );

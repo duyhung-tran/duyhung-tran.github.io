@@ -6,8 +6,7 @@ import Footer from "@/components/footer";
 import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import MyNav2 from "@/components/nav2";
-import DotsMenu from "@/components/menu";
-import ProjectThumbnail3 from "@/components/project-thumbnail3";
+import Menu from "@/components/menu";
 import SlideUpNoThres from "@/components/slide-up-nothres";
 
 export default function Cardio() {
@@ -21,12 +20,12 @@ export default function Cardio() {
                         <div className="w-full flex justify-between items-center">
                             <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                             <div className="block md:hidden">
-                                <DotsMenu/>
+                                <Menu/>
                             </div>
                             <div className="hidden md:flex">
-                                <MyButton variant="blue-button-outline" text="About me" link="about" textSize="text-sm" target="_self"/>
+                                <MyButton variant="secondary" text="About me" link="about" textSize="text-sm" target="_self"/>
                                 <div className="ml-3"></div>
-                                <MyButton variant="blue-button" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
+                                <MyButton variant="primary" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
                             </div>
                         </div>
                         <div className="mb-20"></div>
@@ -38,7 +37,7 @@ export default function Cardio() {
                             <div>
                                 <p className="text-lg text-[var(--colour-bodytext)] leading-loose">card.io is catered towards the fitness community and aims to improve the cardio running experience with personalized music selection and playlists.</p>
                                 <div className="mb-12"></div>
-                                <MyButton variant="blue-button-outline" text="View prototype on Figma" link="https://www.figma.com/proto/5SjXuZ0MgUNMOFRmh3qOOY/card.io?page-id=0%3A1&node-id=24-151&viewport=779%2C110%2C0.2&t=Yy6S9WYqbPXyKWdL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=24%3A151" textSize="text-sm" target="blank"/>
+                                <MyButton variant="secondary" text="View prototype on Figma" link="https://www.figma.com/proto/5SjXuZ0MgUNMOFRmh3qOOY/card.io?page-id=0%3A1&node-id=24-151&viewport=779%2C110%2C0.2&t=Yy6S9WYqbPXyKWdL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=24%3A151" textSize="text-sm" target="blank"/>
                                 <div className="mb-7"></div>
                             </div>
                         </div>
@@ -563,22 +562,9 @@ export default function Cardio() {
                 </div>
 
                 <div className="mb-40"></div>
-
-                <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-4">
-                    <div className="md:sticky md:top-25 md:self-start">
-                        <Heading text="My other projects" variant="black"/>
-                    </div>
-                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-15">
-                        <ProjectThumbnail3 isLink="video-link" link="rules" name="Samsung Knox Manage: Rules" desc="Designed a device management feature that triggers actions when specific conditions are met (time, location, device status, etc.)" imageSrc="/Rule video.mp4" imageSrcPoster="rule-poster.png" imageSrcDark="/Rule video - d.mp4" imageSrcPosterDark="rule-poster - d.png" target="_self"/>
-                        <ProjectThumbnail3 isLink="image-link" link="organizations" name="Samsung Knox Manage: Organizations" desc="Designed a scalable, design-system–ready component that visualizes the inheritance logic among parent-child entities." imageSrc="/organizations.png" imageSrcDark="/organize - d.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-                        {/* <MyButton variant="blue-button-outline" text="Return to home" link="/" textSize="text-sm" target="_self"/> */}
-                    </div>
-                </div>
-
-                <div className="mb-40"></div>
                                 
                 <div className="w-full flex flex-col md:flex-row justify-center gap-3">
-                    <MyButton variant="blue-button-outline" text="Return to home" link="/" textSize="text-sm" target="_self"/>
+                    <MyButton variant="secondary" text="Return to home" link="/" textSize="text-sm" target="_self"/>
                 </div>
 
                 <div className="w-full">
