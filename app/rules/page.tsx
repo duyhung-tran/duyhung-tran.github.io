@@ -117,21 +117,6 @@ export default function Rules() {
 
                 <div className="w-full">
                     <Heading text="What I did" variant="black"/>
-                    <ImageZoom>
-                        {(() => {
-                        const theme = localStorage.getItem("theme-class") || "";
-                        switch (theme) {
-                            case "pink":
-                            return <Image src="/rules-map-pink.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
-                            case "green":
-                            return <Image src="/rules-map-green.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
-                            case "orange":
-                            return <Image src="/rules-map-orange.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
-                            default:
-                            return <Image src="/rules-map.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
-                        }
-                        })()}
-                    </ImageZoom>
                 </div>
 
                 <div className="mb-40"></div>
