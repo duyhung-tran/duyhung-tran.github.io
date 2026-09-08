@@ -2,9 +2,6 @@
 
 import Image from "next/image";
 import MyButton from "@/components/my-button";
-import Footer from "@/components/footer";
-import Heading from "@/components/heading";
-import MyNav2 from "@/components/nav2";
 import { useState } from "react";
 import Nav from "@/components/nav";
 

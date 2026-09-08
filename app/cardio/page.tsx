@@ -88,19 +88,6 @@ export default function Cardio() {
                                     </video>
                                 </div>
                                 <div className="w-full hidden md:block">
-                                    {(() => {
-                                    const theme = localStorage.getItem("theme-class") || "";
-                                    switch (theme) {
-                                        case "pink":
-                                        return <Image src="/context-pink.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
-                                        case "green":
-                                        return <Image src="/context-green.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
-                                        case "orange":
-                                        return <Image src="/context-orange.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
-                                        default:
-                                        return <Image src="/context.png" width={2985} height={2236} className="w-[85%] 2xl:w-[65%]" alt="Samsung Knox" />;
-                                    }
-                                    })()}
                                 </div>
                             </div>
                             <div className="mb-8"></div>
@@ -110,30 +97,7 @@ export default function Cardio() {
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Many viewers struggle to stay motivated throughout their cardio sessions, and often cutting their workouts short. With the right music, runners can feel more energized and motivated - making it easier to push through.</p>
                             <div className="mb-6"></div>
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">This need had sparked the trend of cardio playlists.</p>
-                            <div className="mb-6"></div>
-                            {/* <MyButton text="Learn more about the effects music has on running" link="" target="_blank" variant="hyperlink" textSize="text-sm"/> */}
-
                             <div className="mb-20"></div>
-
-                            {/* <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Observations</p>
-                            <div className="mb-6"></div>
-                            <div className="w-full grid grid-cols-3 gap-3">
-                                <div className="flex flex-col h-full bg-[var(--container-bg)] px-7 py-7 rounded-2xl">
-                                    <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Template for a “typical” cardio session?</p>
-                                    <div className="mb-3"></div>
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Influencers follow a conventional template of a cardio session with 3 phases: Warm-up, Endurance and Cool-down.</p>
-                                </div>
-                                <div className="flex flex-col h-full bg-[var(--container-bg)] px-7 py-7 rounded-2xl">
-                                    <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Requests for artist or album specific playlists.</p>
-                                    <div className="mb-3"></div>
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Viewers usually ask influencers to make cardio playlists specific for their favourite artist or album.</p>
-                                </div>
-                                <div className="flex flex-col h-full bg-[var(--container-bg)] px-7 py-7 rounded-2xl">
-                                    <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Strategically organized songs that can‘t be shuffled.</p>
-                                    <div className="mb-3"></div>
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">The playlists are structured to match the current speed range. The faster the treadmill (MPH), the faster the song (BPM).</p>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -168,19 +132,6 @@ export default function Cardio() {
                         </ImageZoom>
                     </div>
                     <div className="w-full md:w-[50%]">
-                        {(() => {
-                            const theme = localStorage.getItem("theme-class") || "";
-                            switch (theme) {
-                                case "pink":
-                                return <Image src="/arrows2-pink.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
-                                case "green":
-                                return <Image src="/arrows2-green.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
-                                case "orange":
-                                return <Image src="/arrows2-orange.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
-                                default:
-                                return <Image src="/arrows2.png" width={2985} height={2236} className="w-full h-auto" alt="Samsung Knox" />;
-                            }
-                        })()}
                     </div>
                     <div className="-mb-1 md:-mb-3"></div>
                     <div className="w-full md:w-[50%] flex flex-col justify-center items-center">
@@ -273,19 +224,6 @@ export default function Cardio() {
                                     <ImageZoom>
                                         <Image src="/stickie-sol-3.png" width={1469} height={1469} className="w-full shadow-lg" alt="Samsung Knox"/> 
                                     </ImageZoom>
-                                    {(() => {
-                                        const theme = localStorage.getItem("theme-class") || "";
-                                        switch (theme) {
-                                            case "pink":
-                                            return <Image src="/stickie-sol-note-pink.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
-                                            case "green":
-                                            return <Image src="/stickie-sol-note-green.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
-                                            case "orange":
-                                            return <Image src="/stickie-sol-note-orange.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
-                                            default:
-                                            return <Image src="/stickie-sol-note.png" width={2985} height={2236} className="w-full mb-2" alt="Samsung Knox" />;
-                                        }
-                                    })()}
                                 </div>
                             </div>
                         </div>
@@ -394,19 +332,6 @@ export default function Cardio() {
                                     </ImageZoom>
                                 </div>
                                 <div className="w-full justify-center items-center z-2 hidden md:flex">
-                                    {(() => {
-                                        const theme = localStorage.getItem("theme-class") || "";
-                                        switch (theme) {
-                                            case "pink":
-                                            return <Image src="/comparison-pink.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
-                                            case "green":
-                                            return <Image src="/comparison-green.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
-                                            case "orange":
-                                            return <Image src="/comparison-orange.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
-                                            default:
-                                            return <Image src="/comparison.png" width={2985} height={2236} className="w-[40%] 2xl:w-[30%]" alt="Samsung Knox" />;
-                                        }
-                                    })()}
                                 </div>
                                 <div className="mb-4"></div>
                                 <p className="text-sm text-[var(--main-colour)] leading-loose">Heuristic issue</p>
@@ -446,38 +371,12 @@ export default function Cardio() {
                             <div className="mb-6"></div>
                             <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
                                 <div className="w-full md:w-[75%] grid grid-cols-[1fr_2fr_2fr_1fr] gap-x-2 md:gap-x-4">
-                                    {(() => {
-                                        const theme = localStorage.getItem("theme-class") || "";
-                                        switch (theme) {
-                                            case "pink":
-                                            return <Image src="/before1-pink.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
-                                            case "green":
-                                            return <Image src="/before1-green.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
-                                            case "orange":
-                                            return <Image src="/before1-orange.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
-                                            default:
-                                            return <Image src="/before1.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
-                                        }
-                                    })()}
                                     <ImageZoom>
                                         <Image src="/draft.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
                                     <ImageZoom>
                                         <Image src="/sol-3.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
                                     </ImageZoom>
-                                    {(() => {
-                                        const theme = localStorage.getItem("theme-class") || "";
-                                        switch (theme) {
-                                            case "pink":
-                                            return <Image src="/after1-pink.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
-                                            case "green":
-                                            return <Image src="/after1-green.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
-                                            case "orange":
-                                            return <Image src="/after1-orange.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
-                                            default:
-                                            return <Image src="/after1.png" width={2985} height={2236} className="w-full h-auto mb-2" alt="Samsung Knox" />;
-                                        }
-                                    })()}
                                 </div>
                             </div>
                             <div className="mb-3"></div>
