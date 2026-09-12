@@ -44,7 +44,7 @@ export default function Rules() {
                 </div>
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)] p-20">
-                    <Image src="/geofenceee.png" alt="knox manage geofence" width={1640} height={1228} className="w-[55%]"/>
+                    <Image src="/geofenceee.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-[55%]"/>
                 </div>
 
                 <div className="mb-16"></div>
