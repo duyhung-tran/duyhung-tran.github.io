@@ -5,15 +5,11 @@ import MyButton from "@/components/my-button";
 import Footer from "@/components/footer";
 import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
-import MyNav2 from "@/components/nav2";
 import Menu from "@/components/menu";
-import SlideUpNoThres from "@/components/slide-up-nothres";
 
 export default function Organizations() {
   return (
     <div>
-        <MyNav2 variant="Projects to home"/>
-        <SlideUpNoThres>
         <div className="w-full flex flex-col items-center justify-center self-center">
             <div className="px-10 md:w-2/3 md:px-0 lg:w-[75%] 2xl:w-[75%]">
                     <div className="w-full mt-20">
@@ -219,7 +215,6 @@ export default function Organizations() {
 
             </div>
         </div>
-        </SlideUpNoThres>
     </div>
   );
 }

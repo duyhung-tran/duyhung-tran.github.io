@@ -50,12 +50,15 @@
 }
 .dark {
   --colour-bodytext: #ebebeb;
-  --colour-bodytext-light: #787878;
+  --colour-bodytext-light: #5d5d5d;
+  --colour-bodytext-reversed: #393939;
   --colour-pure: #ffffff;
+  --colour-pure-reversed: #000000;
   --nav-bg: rgb(32, 32, 32);
   --nav-border: rgba(80, 80, 80, 0.2);
-  --container-bg: #101010;
-  --container-bg-2: #323232;
+  --container-bg: #151515;
+  --container-bg-reversed: #fbfbfb;
+  --container-bg-2: #151515;
 
   --background: #191919;
   --foreground: oklch(0.985 0 0);
