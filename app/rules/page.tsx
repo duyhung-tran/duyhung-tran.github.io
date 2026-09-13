@@ -71,7 +71,7 @@ export default function Rules() {
                     <div className="flex w-full justify-between">
                         <div>
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung Electronics Canada</p>
+                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
                         </div>
                         <div>
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
