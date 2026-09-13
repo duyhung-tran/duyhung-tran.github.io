@@ -71,7 +71,7 @@ export default function Nav(props: Props) {
     if (isHome) return;
 
     const handleScroll = () => {
-      setScrolled(window.scrollY > 24);
+      setScrolled(window.scrollY > 1);
     };
 
     handleScroll();

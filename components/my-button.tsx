@@ -109,7 +109,7 @@ export default function MyButton(props: Props) {
       <a
         href={props.link}
         target={props.target}
-        className={`flex justify-center items-center border-1 bg-[var(--container-bg)] text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)] p-4 ${props.textSize ?? "text-xs"}`}
+        className={`flex justify-center items-center border-1 text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)] p-4 ${props.textSize ?? "text-xs"}`}
       >
         <span>{props.text}</span>
       </a>

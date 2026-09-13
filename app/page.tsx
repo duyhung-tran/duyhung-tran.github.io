@@ -28,10 +28,10 @@ export default function Home2() {
           <div className="mb-11"></div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-            <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Samsung Knox AI's design system" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+            <ProjectThumbnailNew isLink="image-link" link="knoxai" type="UX design, shipped" name="Samsung Knox AI's design system" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
             <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" imageSrc="/geofenceee.png" imageSrcDark="/geofenceee.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
             <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-            <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+            <ProjectThumbnailNew isLink="image-link" link="alerts" type="UX design, shipped" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
             <ProjectThumbnailNew isLink="image-link" link="health" type="UX research" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" imageSrcDark="/health logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
           </div>
 
