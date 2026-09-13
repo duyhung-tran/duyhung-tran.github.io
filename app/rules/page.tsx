@@ -27,9 +27,9 @@ export default function Rules() {
             </div> */}
 
             <div className="w-full h-full flex flex-col justify-between">
-                <div id="overview" className="md:sticky md:top-[20%]">
+                <div id="overview" className="md:sticky md:top-[23%]">
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung Electronics Canada</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
                     <div className="mb-6"></div>
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Knox Manage (New Console)</p>
@@ -52,13 +52,13 @@ export default function Rules() {
                     </video>
                 </div> */}
 
-                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Dynamically configuring devices based on their real-time location.</p>
+                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Dynamically configure devices based on real-time location.</p>
 
                 <div className="mb-8"></div>
 
                 <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
                     <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose"><span className="inline-block"><MyButton link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" target="_blank" variant="hyperlink" text="Knox Manage" textSize="text-sm"/></span> is a B2B device management solution that allows IT admins to remotely manage Samsung devices.</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose"><span className="inline-block"><MyButton link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" target="_blank" variant="hyperlink" text="Knox Manage" textSize="text-sm"/></span> is Samsung's B2B device management solution that allows IT admins to remotely control corporate devices.</p>
                 </div>
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)] p-20">
@@ -129,7 +129,7 @@ export default function Rules() {
                     "Rules" feature
                 </p>
                 <div className="mb-4"></div>
-                <div className="p-8 border-1 rounded-xl flex gap-5 items-center">
+                <div className="p-8 border-1 bg-[var(--container-bg)] rounded-xl flex gap-5 items-center">
                     <ShieldQuestionMark className="w-5 h-5 text-[var(--colour-bodytext)]" />
                     <p className="text-xl text-[var(--colour-bodytext)] leading-loose">What if device configurations could respond to events and conditions automatically?</p>
                     {/* <p className="text-xl text-[var(--colour-bodytext)] leading-loose">IT admins need to respond to changing security and operational conditions, but device management is often static and reactive.</p>
@@ -147,7 +147,7 @@ export default function Rules() {
 
                 <div className="p-4 border-1 rounded-xl flex justify-between items-center">
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Simplifies rule reviewing with an overview table and a sliding panel for detailed views.</p>
-                    <MyButton variant="secondary" text="Read official documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/view-and-edit-rules/" target="_blank" textSize="text-sm" onClick={() => {}}/>
+                    <MyButton variant="secondary-external" text="Read official documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/view-and-edit-rules/" target="_blank" textSize="text-sm" onClick={() => {}}/>
                 </div>
                 <div className="mb-8"></div>
                 <div>
@@ -173,7 +173,7 @@ export default function Rules() {
                 <div className="mb-4"></div>
                 <div className="p-4 border-1 rounded-xl flex justify-between items-center">
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Streamlines the configuration process for creating a geofence.</p>
-                    <MyButton variant="secondary" text="Read official documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/create-rules/#:~:text=add%20your%20configuration.-,Geofence,-The%20geofence%20condition" target="_blank" textSize="text-sm" onClick={() => {}}/>
+                    <MyButton variant="secondary-external" text="Read official documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/create-rules/#:~:text=add%20your%20configuration.-,Geofence,-The%20geofence%20condition" target="_blank" textSize="text-sm" onClick={() => {}}/>
                 </div>
 
                 <div className="mb-8"></div>

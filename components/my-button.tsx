@@ -1,5 +1,6 @@
 "use client";
 
+import { SquareArrowOutUpRight } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -109,9 +110,20 @@ export default function MyButton(props: Props) {
       <a
         href={props.link}
         target={props.target}
-        className={`flex justify-center items-center border-1 text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)] p-4 ${props.textSize ?? "text-xs"}`}
+        className={`flex justify-center items-center border-1 text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)] p-3 ${props.textSize ?? "text-xs"}`}
       >
         <span>{props.text}</span>
+      </a>
+    );
+  } else if (props.variant == "secondary-external") {
+    return (
+      <a
+        href={props.link}
+        target={props.target}
+        className={`group flex justify-center items-center border-1 text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)] p-3 ${props.textSize ?? "text-xs"}`}
+      >
+        <span>{props.text}</span>
+        <SquareArrowOutUpRight className="ml-3 w-4 h-4 text-[var(--colour-bodytext)] group-hover:text-[var(--colour-bodytext-reversed)]" />
       </a>
     );
   } else if (props.variant == "hyperlink") {
