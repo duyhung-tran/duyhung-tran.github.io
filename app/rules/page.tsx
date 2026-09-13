@@ -40,7 +40,7 @@ export default function Rules() {
 
                 <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
                     <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
-                    <p className="text-md text-[var(--colour-bodytext)] leading-loose"><span className="inline-block"><MyButton link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" target="_blank" variant="hyperlink" text="Knox Manage" textSize="text-md"/></span> is a B2B device management solution that allows IT admins to remotely manage Samsung devices.</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose"><span className="inline-block"><MyButton link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" target="_blank" variant="hyperlink" text="Knox Manage" textSize="text-sm"/></span> is a B2B device management solution that allows IT admins to remotely manage Samsung devices.</p>
                 </div>
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)] p-20">
