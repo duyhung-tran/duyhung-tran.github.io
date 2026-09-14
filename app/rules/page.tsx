@@ -61,7 +61,7 @@ export default function Rules() {
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose"><span className="inline-block"><MyButton link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" target="_blank" variant="hyperlink" text="Knox Manage" textSize="text-sm"/></span> is Samsung's B2B device management solution that allows IT admins to remotely control corporate devices.</p>
                 </div>
                 <div className="mb-10"></div>
-                <div className="flex justify-center bg-[var(--container-bg-2)] p-20">
+                <div className="flex justify-center bg-[var(--container-bg-2)] p-6 lg:p-20">
                     <Image src="/geofenceee.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full lg:w-[55%]"/>
                 </div>
 
