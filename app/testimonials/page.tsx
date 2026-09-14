@@ -16,7 +16,7 @@ export default function Testimonials() {
             <p className="text-md text-[var(--colour-bodytext-light)] leading-loose">from those I reported to.</p>
             <div className="mb-15"></div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="p-8 border-1 rounded-xl flex flex-col">
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose mb-2">"Hung has demonstrated a strong talent for both UX research and graphical UI tasks. His ability to analyze user needs and translate them into intuitive, visually appealing designs has been impressive.</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Overall, his dedication and versatility make him a valuable asset to any design team."</p>
