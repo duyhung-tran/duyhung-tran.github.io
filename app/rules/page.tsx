@@ -88,6 +88,10 @@ export default function Rules() {
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Feature design</p>
                         </div>
+                        {/* <div>
+                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Special thanks to</p>
+                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Tian Jia (Senior UX Designer), Hosoo Lee (Product Manager)</p>
+                        </div> */}
                     </div>
                 </div>
 
@@ -128,6 +132,7 @@ export default function Rules() {
                 <p id="framing" className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight">
                     "Rules" feature
                 </p>
+                {/* <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Special thanks to: Tian Jia (Senior UX Designer), Hosoo Lee (Product Manager)</p> */}
                 <div className="mb-4"></div>
                 <div className="p-8 border-1 bg-[var(--container-bg)] rounded-xl flex gap-5 items-center">
                     <ShieldQuestionMark className="w-5 h-5 text-[var(--colour-bodytext)]" />
@@ -137,9 +142,16 @@ export default function Rules() {
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">An event-based approach enables IT admins to define conditions that automatically trigger device configurations—providing more nuanced control while reducing manual intervention and response time.</p> */}
                 </div>
 
-
                 <div className="mb-18"></div>
-                
+
+                {/* <p id="framing" className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight">
+                    What I did
+                </p>
+                <div className="mb-4"></div>
+                <Image src="/rules-map.png" alt="knox manage geofence" width={1640} height={1228} className="w-full"/>
+
+                <div className="mb-22"></div> */}
+
                 <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="reviewing-all-rules">
                     Reviewing all rules
                 </p>

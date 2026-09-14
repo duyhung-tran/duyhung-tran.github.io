@@ -96,7 +96,8 @@ export default function Organizations() {
                 </p>
                 <div className="mb-5"></div>
                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">I designed & wrote documentations for a hierarchical table component that displays the inheritance hierarchy and override status of settings, while reusing atom and molecule components from the design system.</p>
-
+                <div className="mb-5"></div>
+                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Special thanks to: <span className="text-[var(--colour-bodytext)]">Andrea Lin (Senior UX Designer), Hyejeong Kim (Product Manager)</span></p>
                 <div className="mb-16"></div>
 
                 <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">
