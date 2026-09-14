@@ -21,13 +21,13 @@ export default function Rules() {
   return (
     <div className="w-full p-10">
         <Nav variant="others" />
-        <div className="grid *:grid-cols-1 md:grid-cols-[1fr_3fr]">
+        <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr]">
             {/* <div className="w-full md:sticky md:top-[30%] md:self-start flex flex-col justify-end">
                 <TableOfContents sections={sections} />
             </div> */}
 
-            <div className="w-full h-full flex flex-col justify-between">
-                <div id="overview" className="md:sticky md:top-[23%]">
+            <div className="w-full h-full flex flex-col justify-between hidden lg:block">
+                <div id="overview" className="lg:sticky lg:top-[23%]">
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
                     <div className="mb-6"></div>
@@ -45,7 +45,7 @@ export default function Rules() {
                 </div>
             </div>
 
-            <div className="mt-10 pr-18">
+            <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
                 {/* <div className="rounded-2xl overflow-hidden">
                     <video className="w-full h-full object-cover" autoPlay muted loop playsInline poster="/rule-poster-wide.png">
                         <source src="Rule video wide.mp4"type="video/mp4" />
@@ -62,13 +62,13 @@ export default function Rules() {
                 </div>
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)] p-20">
-                    <Image src="/geofenceee.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-[55%]"/>
+                    <Image src="/geofenceee.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full lg:w-[55%]"/>
                 </div>
 
                 <div className="mb-10"></div>
 
                 <div id="overview" className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
-                    <div className="flex w-full justify-between">
+                    <div className="flex flex-col gap-3 lg:gap-0 lg:flex w-full lg:justify-between">
                         <div>
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
@@ -88,10 +88,6 @@ export default function Rules() {
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Feature design</p>
                         </div>
-                        {/* <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Special thanks to</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Tian Jia (Senior UX Designer), Hosoo Lee (Product Manager)</p>
-                        </div> */}
                     </div>
                 </div>
 
@@ -112,7 +108,7 @@ export default function Rules() {
                 <div className="mb-2"></div>
                 <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Generalized to avoid NDA</p>
                 <div className="mb-6"></div>
-                <div className="w-full grid grid-cols-3 gap-x-4">
+                <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
                     <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
                         <MapPinCheck className="w-5 h-5 text-[var(--colour-bodytext)]" />
                         <p className="text-sm text-[var(--colour-bodytext)] leading-loose">An event-based device management approach will be our unique selling point.</p>
@@ -134,9 +130,9 @@ export default function Rules() {
                 </p>
                 {/* <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Special thanks to: Tian Jia (Senior UX Designer), Hosoo Lee (Product Manager)</p> */}
                 <div className="mb-4"></div>
-                <div className="p-8 border-1 bg-[var(--container-bg)] rounded-xl flex gap-5 items-center">
+                <div className="block lg:flex p-8 border-1 bg-[var(--container-bg)] rounded-xl gap-5 items-center">
                     <ShieldQuestionMark className="w-5 h-5 text-[var(--colour-bodytext)]" />
-                    <p className="text-xl text-[var(--colour-bodytext)] leading-loose">What if device configurations could respond to events and conditions automatically?</p>
+                    <p className="mt-5 lg:mt-0 text-lg lg:text-xl text-[var(--colour-bodytext)] leading-loose">What if device configurations could respond to events and conditions automatically?</p>
                     {/* <p className="text-xl text-[var(--colour-bodytext)] leading-loose">IT admins need to respond to changing security and operational conditions, but device management is often static and reactive.</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Security events can require manual intervention, while device settings may need to change depending on where, when, or under what conditions a device is being used.</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">An event-based approach enables IT admins to define conditions that automatically trigger device configurations—providing more nuanced control while reducing manual intervention and response time.</p> */}
@@ -157,22 +153,22 @@ export default function Rules() {
                 </p>
                 <div className="mb-4"></div>
 
-                <div className="p-4 border-1 rounded-xl flex justify-between items-center">
+                <div className="flex flex-col gap-6 lg:gap-0 lg:flex-row p-4 border-1 rounded-xl lg:justify-between lg:items-center">
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Simplifies rule reviewing with an overview table and a sliding panel for detailed views.</p>
                     <MyButton variant="secondary-external" text="Read official documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/view-and-edit-rules/" target="_blank" textSize="text-sm" onClick={() => {}}/>
                 </div>
                 <div className="mb-8"></div>
                 <div>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules-0.png" width={3099} height={1823} className="w-[70%]" alt="Samsung Knox"/> 
+                        <Image src="/rules-0.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Overview table.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules-1.png" width={3099} height={1823} className="w-[70%]" alt="Samsung Knox"/> 
+                        <Image src="/rules-1.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">View details through a sliding panel.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules-1.5.png" width={3099} height={1823} className="w-[70%]" alt="Samsung Knox"/> 
+                        <Image src="/rules-1.5.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Detailed sliding panel.</p>
                 </div>
@@ -183,7 +179,7 @@ export default function Rules() {
                     Create a geofence rule
                 </p>
                 <div className="mb-4"></div>
-                <div className="p-4 border-1 rounded-xl flex justify-between items-center">
+                <div className="flex flex-col gap-6 lg:gap-0 lg:flex-row p-4 border-1 rounded-xl lg:justify-between lg:items-center">
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Streamlines the configuration process for creating a geofence.</p>
                     <MyButton variant="secondary-external" text="Read official documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/create-rules/#:~:text=add%20your%20configuration.-,Geofence,-The%20geofence%20condition" target="_blank" textSize="text-sm" onClick={() => {}}/>
                 </div>
@@ -192,11 +188,11 @@ export default function Rules() {
 
                 <div>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules-3.png" width={3099} height={3363} className="w-[70%]" alt="Samsung Knox"/> 
+                        <Image src="/rules-3.png" width={3099} height={3363} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Configuring location-based conditions.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules-4.png" width={2622} height={2622} className="w-[70%]" alt="Samsung Knox"/> 
+                        <Image src="/rules-4.png" width={2622} height={2622} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Segment of the location-based conditions configuration flow.</p>
                 </div>
@@ -228,7 +224,7 @@ export default function Rules() {
                 </p>
                 <div className="mb-8"></div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
                     <ProjectThumbnailNew isLink="image-link" link="knoxai" type="UX design, shipped" name="Samsung Knox AI's design system" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
                     <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
                     <ProjectThumbnailNew isLink="image-link" link="health" type="UX research" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" imageSrcDark="/health logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>

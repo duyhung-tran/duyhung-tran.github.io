@@ -84,7 +84,7 @@ export default function Nav(props: Props) {
   return (
     <div
       className={`w-full flex items-center justify-between z-50 bg-[var(--colour-background)] ${
-        isHome ? "" : "sticky top-10 transition-all duration-300"
+        isHome ? "" : "lg:sticky lg:top-10 transition-all duration-300"
       }`}
     >
         <div className={`flex gap-x-4 items-center ${isHome ? "" : "transition-all duration-300"}`}>
@@ -100,19 +100,19 @@ export default function Nav(props: Props) {
                 />
             </a>
             <div
-            className={`overflow-hidden ${isHome ? "" : "transition-all duration-300"} ${
+            className={`overflow-hidden hidden lg:block ${isHome ? "" : "transition-all duration-300"} ${
                 isScrolled ? "opacity-0 translate-y-0" : "opacity-100 translate-y-0"
             }`}
             >
-            <p className="text-sm text-[var(--colour-bodytext)] leading-loose -mb-1 whitespace-nowrap">
-                Hung Tran
-            </p>
-            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose whitespace-nowrap">
-                UX Designer, gamer, influencer (aspiring)
-            </p>
+              <p className="text-sm text-[var(--colour-bodytext)] leading-loose -mb-1 whitespace-nowrap">
+                  Hung Tran
+              </p>
+              <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose whitespace-nowrap">
+                  UX Designer, gamer, influencer (aspiring)
+              </p>
             </div>
         </div>
-        <div className="flex gap-x-6 items-center">
+        <div className="fixed top-10 right-10 z-100 lg:static flex gap-x-6 items-center bg-[var(--container-bg)] lg:bg-transparent border-1 lg:border-0">
             <Menu />
         </div>
     </div>

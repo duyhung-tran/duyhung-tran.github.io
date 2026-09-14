@@ -131,7 +131,7 @@ export default function MyButton(props: Props) {
       <a
         href={props.link}
         target={props.target}
-        className={`bg-transparent text-[var(--colour-bodytext-light)] leading-loose hover:underline hover:text-[var(--colour-bodytext)] p-0 ${props.textSize ?? "text-sm"}`}
+        className={`bg-transparent text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] leading-loose hover:underline hover:text-[var(--colour-bodytext)] p-0 ${props.textSize ?? "text-sm"}`}
       >
         {props.text}
       </a>

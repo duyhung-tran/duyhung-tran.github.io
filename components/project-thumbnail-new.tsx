@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image";
-import MyButton from "./my-button";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
@@ -32,7 +31,7 @@ export default function ProjectThumbnailNew(props: Props) {
         return (
             <div className="h-full flex flex-col group">
                 <a
-                    className="relative h-[400px] flex justify-center items-center overflow-hidden block group mt-auto bg-[var(--container-bg)]"
+                    className="relative h-[350px] lg:h-[400px] flex justify-center items-center overflow-hidden block group mt-auto bg-[var(--container-bg)]"
                     href={props.link}
                     target={props.target}
                 >
@@ -54,7 +53,7 @@ export default function ProjectThumbnailNew(props: Props) {
                         />
                     )}
 
-                    <div className="absolute inset-0 flex flex-col justify-end p-9 opacity-0 group-hover:opacity-100">
+                    <div className="absolute inset-0 flex flex-col justify-end p-9 opacity-100 lg:opacity-0 group-hover:opacity-100">
                         <p className="text-sm text-[var(--colour-bodytext)] leading-loose">
                             {props.name}
                         </p>

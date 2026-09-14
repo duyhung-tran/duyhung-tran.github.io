@@ -14,8 +14,8 @@ export default function Organizations() {
     <div className="w-full p-10">
         <Nav variant="others" />
 
-        <div className="grid *:grid-cols-1 md:grid-cols-[1fr_3fr]">
-            <div className="w-full h-full flex flex-col justify-between">
+        <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr]">
+            <div className="w-full h-full flex flex-col justify-between hidden lg:block">
                 <div id="overview" className="md:sticky md:top-[23%]">
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
@@ -33,7 +33,7 @@ export default function Organizations() {
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design system</p>
                 </div>
             </div>
-            <div className="mt-10 pr-18">
+            <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
                 <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Visualize how settings are inherited across nested device management levels.</p>
             
                 <div className="mb-8"></div>
@@ -50,7 +50,7 @@ export default function Organizations() {
                 <div className="mb-10"></div>
 
                 <div id="overview" className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
-                    <div className="flex w-full justify-between">
+                    <div className="flex flex-col gap-3 lg:gap-0 lg:flex w-full lg:justify-between">
                         <div>
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
@@ -107,23 +107,23 @@ export default function Organizations() {
 
                 <div>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/ds1.png" width={3099} height={1823} className="w-[80%]" alt="Samsung Knox"/> 
+                        <Image src="/ds1.png" width={3099} height={1823} className="w-full lg:w-[80%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying spacing specs during default state.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/ds2.png" width={3099} height={1823} className="w-[90%]" alt="Samsung Knox"/> 
+                        <Image src="/ds2.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying specs during user interactions.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/ds3.png" width={3099} height={1823} className="w-[90%]" alt="Samsung Knox"/> 
+                        <Image src="/ds3.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Writing guidelines for multiple ways user can interact with the component.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/ds4.png" width={3099} height={1823} className="w-[90%]" alt="Samsung Knox"/> 
+                        <Image src="/ds4.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying the interactions for multiple variants.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/ds5.png" width={3099} height={1823} className="w-[90%]" alt="Samsung Knox"/> 
+                        <Image src="/ds5.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Final deliverables.</p>
                 </div>
@@ -155,7 +155,7 @@ export default function Organizations() {
                 </p>
                 <div className="mb-8"></div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
                     <ProjectThumbnailNew isLink="image-link" link="knoxai" type="UX design, shipped" name="Samsung Knox AI's design system" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
                     <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" imageSrc="/geofenceee.png" imageSrcDark="/geofenceee.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
                     <ProjectThumbnailNew isLink="image-link" link="health" type="UX research" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" imageSrcDark="/health logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
