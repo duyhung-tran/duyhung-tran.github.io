@@ -50,7 +50,7 @@ export default function Organizations() {
                 <div className="mb-10"></div>
 
                 <div id="overview" className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
-                    <div className="flex flex-col gap-3 lg:gap-0 lg:flex w-full lg:justify-between">
+                    <div className="flex flex-col lg:flex-row gap-3 lg:gap-0 w-full lg:justify-between">
                         <div>
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
