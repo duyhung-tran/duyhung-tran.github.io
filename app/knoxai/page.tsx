@@ -49,7 +49,7 @@ export default function KnoxAI() {
 
                 <div className="mb-12"></div>
                 <div className="flex justify-center bg-[var(--container-bg)]">
-                    <Image src="/knox logo.png" alt="samsung" width={1640} height={1228} className="w-full"/>
+                    <Image src="/knox logo 2.png" alt="samsung" width={1640} height={1228} className="w-full"/>
                 </div>
                 
                 <div className="mb-16"></div>
