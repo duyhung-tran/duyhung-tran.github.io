@@ -35,7 +35,7 @@ export default function Health() {
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
-                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Research ways to help people build healthier weight habits.</p>
+                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Research ways to help people build healthier weight habits</p>
             
                 <div className="mb-8"></div>
 

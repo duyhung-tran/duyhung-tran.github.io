@@ -52,7 +52,7 @@ export default function Rules() {
                     </video>
                 </div> */}
 
-                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Dynamically configure devices based on real-time location.</p>
+                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Dynamically configure devices based on real-time location</p>
 
                 <div className="mb-8"></div>
 
