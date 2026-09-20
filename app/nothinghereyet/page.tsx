@@ -17,7 +17,7 @@ export default function Nothing() {
                      <p className="text-5xl text-[var(--colour-bodytext)] font-semibold leading-relaxed tracking-tight">Nothing here yet</p>
                     <div className="mb-15"></div>
                     
-                    <div className="px-6 py-6 border-1 rounded-xl flex flex-col lg:flex-row gap-6 lg:justify-between">
+                    <div className="pl-9 pr-6 py-6 border-1 rounded-xl flex flex-col lg:flex-row gap-6 lg:justify-between">
                         <div className="flex gap-6 items-center">
                             <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">This project is likely under a stricter NDA, or hasn't been launched yet.</p>
