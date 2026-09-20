@@ -12,7 +12,7 @@ export default function Nothing() {
             <Nav variant="home" />
             <div className="mb-20"></div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr]">
+            <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr]">
                 <div>
                      <p className="text-5xl text-[var(--colour-bodytext)] font-semibold leading-relaxed tracking-tight">Nothing here yet</p>
                     <div className="mb-15"></div>
