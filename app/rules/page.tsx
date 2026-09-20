@@ -225,10 +225,10 @@ export default function Rules() {
                 <div className="mb-8"></div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
-                    <ProjectThumbnailNew isLink="image-link" link="nothinghereyet" type="UX design, shipped" name="Samsung Knox AI's design system" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+                    <ProjectThumbnailNew isLink="image-link" link="knoxai" type="UX design, shipped" name="Samsung Knox AI's design system" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
                     <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
                     <ProjectThumbnailNew isLink="image-link" link="health" type="UX research" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" imageSrcDark="/health logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-                    <ProjectThumbnailNew isLink="image-link" link="nothinghereyet" type="UX design, shipped" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+                    <ProjectThumbnailNew isLink="image-link" link="alerts" type="UX design, shipped" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
                 </div>
 
                 <div className="mb-25"></div>
