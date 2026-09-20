@@ -22,7 +22,7 @@ export default function KnoxAI() {
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
                     <div className="mb-6"></div>
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Knox AI assistant</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">In-console AI assistant</p>
                     <div className="mb-6"></div>
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
                     <div className="flex items-center justify-start gap-2">
@@ -37,14 +37,19 @@ export default function KnoxAI() {
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
                 <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Building interactive widgets for AI conversations</p>
             
-                <div className="mb-16"></div>
+                <div className="mb-8"></div>
 
-                <div className="pl-9 pr-6 py-6 border-1 rounded-xl flex flex-col lg:flex-row gap-6 lg:justify-between">
+                <div className="pl-6 pr-5 py-5 border-1 rounded-xl flex flex-col lg:flex-row gap-6 lg:justify-between">
                     <div className="flex gap-6 items-center">
                         <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
-                        <p className="text-sm lg:text-md text-[var(--colour-bodytext)] leading-loose">This project is likely under a stricter NDA, or hasn't been launched yet.</p>
+                        <p className="text-sm lg:text-[16px] text-[var(--colour-bodytext)] leading-loose">This project is likely under a stricter NDA, or hasn't been launched yet.</p>
                     </div>
-                    <MyButton variant="secondary-menu" text="Contacts for details" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-sm"/>
+                    <MyButton variant="secondary-menu" text="Contact for details" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-sm"/>
+                </div>
+
+                <div className="mb-12"></div>
+                <div className="flex justify-center bg-[var(--container-bg)]">
+                    <Image src="/knox logo.png" alt="samsung" width={1640} height={1228} className="w-full"/>
                 </div>
                 
                 <div className="mb-16"></div>
