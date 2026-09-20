@@ -12,7 +12,7 @@ export default function Nothing() {
             <Nav variant="home" />
             <div className="mb-20"></div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr]">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr]">
                 <div>
                      <p className="text-5xl text-[var(--colour-bodytext)] font-semibold leading-relaxed tracking-tight">Nothing here yet</p>
                     <div className="mb-15"></div>
@@ -22,7 +22,7 @@ export default function Nothing() {
                             <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">This project is likely under a stricter NDA, or hasn't been launched yet.</p>
                         </div>
-                        <MyButton variant="secondary-menu" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-sm"/>
+                        <MyButton variant="secondary-menu" text="Contacts for details" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-sm"/>
                     </div>
                 </div>
                 <div>
