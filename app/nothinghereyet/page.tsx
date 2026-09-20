@@ -14,7 +14,7 @@ export default function Nothing() {
 
             <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr]">
                 <div>
-                     <p className="text-5xl text-[var(--colour-bodytext)] font-semibold leading-relaxed tracking-tight">Under wraps for now.</p>
+                     <p className="text-5xl text-[var(--colour-bodytext)] font-semibold leading-relaxed tracking-tight">Nothing here yet</p>
                     <div className="mb-15"></div>
                     
                     <div className="px-6 py-6 border-1 rounded-xl flex flex-col lg:flex-row gap-6 lg:justify-between">
