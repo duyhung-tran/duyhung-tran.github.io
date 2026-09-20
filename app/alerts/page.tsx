@@ -42,7 +42,7 @@ export default function Alerts() {
                 <div className="pl-6 pr-5 py-5 border-1 rounded-xl flex flex-col lg:flex-row gap-6 lg:justify-between">
                     <div className="flex gap-6 items-center">
                         <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
-                        <p className="text-sm lg:text-[16px] text-[var(--colour-bodytext)] leading-loose">This project is likely under a stricter NDA, or hasn't been launched yet.</p>
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">This project is likely under a stricter NDA, or hasn't been launched yet.</p>
                     </div>
                     <MyButton variant="secondary-menu" text="Contact for details" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-sm"/>
                 </div>
