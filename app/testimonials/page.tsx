@@ -17,19 +17,29 @@ export default function Testimonials() {
             <div className="mb-15"></div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="p-8 border-1 rounded-xl flex flex-col">
+                <div className="p-8 border-1 rounded-xl flex flex-col h-fit">
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose mb-2">"Hung has demonstrated a strong talent for both UX research and graphical UI tasks. His ability to analyze user needs and translate them into intuitive, visually appealing designs has been impressive.</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Overall, his dedication and versatility make him a valuable asset to any design team."</p>
                     <div className="mb-8"></div>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Tian Jia</p>
-                    <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Senior UX Designer, UX Manager at Samsung Electronics Canada.</p>
+                    <div className="flex w-full gap-6 items-center">
+                        {/* <Image src="/tian.jpeg" alt="tian" width={64} height={64} className="w-[48px] h-[48px] aspect-square rounded-full"/> */}
+                        <div>
+                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Tian Jia</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Senior UX Designer at Samsung Electronics</p>
+                        </div>
+                    </div>
                 </div>
-                <div className="p-8 border-1 rounded-xl flex flex-col">
+                <div className="p-8 border-1 rounded-xl flex flex-col h-fit">
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose mb-2">"From designing a multi-page document for our Indigenous Health team to crafting a Urgent Care video, his clients have been very impressed with his work to date. He adapts to changing timelines easily including timely requests and juggling multiple projects.</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">His calm demeanor and ability to clearly communicate his working progress are just some of his strengths."</p>
                     <div className="mb-8"></div>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Thomas Nelles</p>
-                    <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Senior Communications Consultant at Fraser Health.</p>
+                    <div className="flex w-full gap-6 items-center">
+                        {/* <Image src="/thomas.jpeg" alt="thomas" width={64} height={64} className="w-[48px] h-[48px] aspect-square rounded-full"/> */}
+                        <div>
+                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Thomas Nelles</p>
+                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Senior Communications Consultant at Fraser Health</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 

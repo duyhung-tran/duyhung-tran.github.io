@@ -13,7 +13,9 @@ export default function About() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
                 <div className="flex lg:hidden items-center justify-center mb-15">
-                    <Image src="/about.png" width={3363} height={3363} className="w-[70%] aspect-square" alt="Hung Tran"/>
+                    <div className="block overflow-hidden aspect-square w-[70%]">
+                        <Image src="/about.png" width={3363} height={3363} className="w-full scale-103 origin-bottom aspect-square" alt="Hung Tran"/>
+                    </div>
                 </div>
                 <div>
                     <p className="text-5xl text-[var(--colour-bodytext)] font-semibold tracking-tight">About me</p>
@@ -36,7 +38,9 @@ export default function About() {
                     </div>
                 </div>
                 <div className="hidden lg:flex items-start justify-end">
-                    <Image src="/about.png" width={3363} height={3363} className="w-[35%] aspect-square" alt="Hung Tran"/>
+                    <div className="block overflow-hidden aspect-square w-[35%]">
+                        <Image src="/about.png" width={3363} height={3363} className="w-full scale-103 origin-bottom aspect-square" alt="Hung Tran"/>
+                    </div>
                 </div>
             </div>
 
