@@ -35,7 +35,7 @@ export default function KnoxAI() {
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
-                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Building interactive widgets for AI conversations</p>
+                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Interactive widgets for AI conversations</p>
             
                 <div className="mb-8"></div>
 
