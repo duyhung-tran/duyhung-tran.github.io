@@ -48,7 +48,7 @@ export default function KnoxAI() {
                 </div>
 
                 <div className="mb-12"></div>
-                <div className="flex justify-center bg-[var(--container-bg)]">
+                <div className="flex justify-center bg-[var(--container-bg-2)]">
                     <Image src="/aii biggg.png" alt="samsung" width={1640} height={1228} className="w-full"/>
                 </div>
                 
