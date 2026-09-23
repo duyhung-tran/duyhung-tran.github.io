@@ -35,7 +35,7 @@ export default function KnoxAI() {
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
-                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Interactive widgets for AI conversations</p>
+                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">A library of interactive widgets for AI conversations</p>
             
                 <div className="mb-8"></div>
 
@@ -49,7 +49,7 @@ export default function KnoxAI() {
 
                 <div className="mb-12"></div>
                 <div className="flex justify-center bg-[var(--container-bg)]">
-                    <Image src="/knox logo 2.png" alt="samsung" width={1640} height={1228} className="w-full"/>
+                    <Image src="/aii biggg.png" alt="samsung" width={1640} height={1228} className="w-full"/>
                 </div>
                 
                 <div className="mb-16"></div>
