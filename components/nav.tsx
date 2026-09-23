@@ -108,7 +108,7 @@ export default function Nav(props: Props) {
                   Hung Tran
               </p>
               <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose whitespace-nowrap">
-                  UX Designer, UI engineer, influencer (aspiring)
+                  UX Designer, UI Engineer
               </p>
             </div>
         </div>
