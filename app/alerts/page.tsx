@@ -15,7 +15,7 @@ export default function Alerts() {
     <div className="w-full p-10">
         <Nav variant="others" />
 
-        <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr]">
+        <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr] 2xl:grid-cols-[0.75fr_3fr]">
             <div className="w-full h-full flex flex-col justify-between hidden lg:block">
                 <div id="overview" className="md:sticky md:top-[23%]">
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>

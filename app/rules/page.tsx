@@ -21,7 +21,7 @@ export default function Rules() {
   return (
     <div className="w-full p-10">
         <Nav variant="others" />
-        <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr]">
+        <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr] 2xl:grid-cols-[0.75fr_3fr]">
             {/* <div className="w-full md:sticky md:top-[30%] md:self-start flex flex-col justify-end">
                 <TableOfContents sections={sections} />
             </div> */}

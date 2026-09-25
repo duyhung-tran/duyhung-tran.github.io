@@ -31,7 +31,7 @@ export default function ProjectThumbnailNew(props: Props) {
         return (
             <div className="h-full flex flex-col group">
                 <a
-                    className="relative h-[350px] lg:h-[400px] flex justify-center items-center overflow-hidden block group mt-auto bg-[var(--container-bg)]"
+                    className="relative h-[350px] lg:h-[400px] 2xl:h-[500px] flex justify-center items-center overflow-hidden block group mt-auto bg-[var(--container-bg)]"
                     href={props.link}
                     target={props.target}
                 >
