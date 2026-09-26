@@ -80,11 +80,11 @@ export default function TableOfContents({ sections }: TableOfContentsProps) {
 
   return (
     <nav aria-label="Table of contents" className="relative">
-      <span
+      {/* <span
         className="-translate-x-4 absolute left-0 w-1.5 h-1.5 rounded-full bg-[var(--colour-bodytext-light)] transition-[top] duration-300 ease-out"
         style={{ top: dotTop, transform: "translate(-50%, -50%)" }}
         aria-hidden="true"
-      />
+      /> */}
 
       <ul ref={listRef} className="flex flex-col gap-y-4">
         {sections.map((section) => {
@@ -99,7 +99,7 @@ export default function TableOfContents({ sections }: TableOfContentsProps) {
               <a
                 href={`#${section.id}`}
                 onClick={(e) => handleClick(e, section.id)}
-                className={`w-full block text-sm hover:text-[var(--colour-bodytext)] hover:underline transition-all ${
+                className={`w-full block text-xs hover:text-[var(--colour-bodytext)] transition-all ${
                   isActive
                     ? "text-[var(--colour-bodytext)]"
                     : "text-[var(--colour-bodytext-light)]"
