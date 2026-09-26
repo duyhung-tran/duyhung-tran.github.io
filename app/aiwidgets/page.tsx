@@ -10,7 +10,7 @@ import Nav from "@/components/nav";
 import { CircleAlert, Info } from "lucide-react";
 import ProjectThumbnailNew from "@/components/project-thumbnail-new";
 
-export default function KnoxAI() {
+export default function AIWidgets() {
   return (
     <div className="w-full p-10">
         <Nav variant="others" />
@@ -35,7 +35,7 @@ export default function KnoxAI() {
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
-                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">A library of interactive widgets for AI conversations</p>
+                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Bring interactive widgets into AI conversations</p>
             
                 <div className="mb-8"></div>
 

@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
+import PageTransition from "./page-transition";
 
 const interSans = Inter({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} ${ibmPlexSerif.variable} antialiased`}
       >
+        {/* <PageTransition> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -60,6 +62,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        {/* </PageTransition> */}
       </body>
     </html>
   );
