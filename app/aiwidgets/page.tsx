@@ -26,8 +26,8 @@ export default function AIWidgets() {
                     <div className="mb-6"></div>
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
                     <div className="flex items-center justify-start gap-2">
-                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Developing</p>
-                        <span className="w-1.5 h-1.5 rounded-full bg-orange-400" aria-hidden="true"/>
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Shipped</p>
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500" aria-hidden="true"/>
                     </div>
                     <div className="mb-6"></div>
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
