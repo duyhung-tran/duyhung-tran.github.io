@@ -32,7 +32,7 @@ export default function KnoxAgent() {
                     <div className="mb-6"></div>
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design system</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">AI agent experience</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Agent experience</p>
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">

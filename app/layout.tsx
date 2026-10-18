@@ -50,6 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      {/* hi stalker */}
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} ${ibmPlexSerif.variable} antialiased`}
       >
