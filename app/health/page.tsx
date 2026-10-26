@@ -69,7 +69,7 @@ export default function Health() {
                         </div>
                         <div>
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design system</p>
+                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">UX Research</p>
                         </div>
                     </div>
                 </div>

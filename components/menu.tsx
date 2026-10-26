@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import MyButton from "./my-button";
 import { useMrFork } from "./mr-fork/provider";
-import { Utensils } from "lucide-react";
+import { Menu as MenuIcon, Utensils, X } from "lucide-react";
 
 export default function Menu() {
     const [openMenu, setOpenMenu] = useState(false);
@@ -29,27 +29,14 @@ export default function Menu() {
 
     return (
         <div className="relative z-3" ref={menuRef}>
+            {/* Same icon button style as the Mr. Fork panel's collapse button */}
             <button
                 onClick={() => setOpenMenu(!openMenu)}
-                className="w-8 h-8 flex flex-col items-center justify-center gap-1.5 hover:bg-[var(--nav-border)] hover:cursor-pointer transition"
-                aria-label="Open menu"
+                className="size-8 flex items-center justify-center text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] cursor-pointer transition"
+                aria-label={openMenu ? "Close menu" : "Open menu"}
                 aria-expanded={openMenu}
             >
-                <span
-                    className={`block h-[1px] w-5 bg-[var(--colour-bodytext)] transition-transform duration-300 ${
-                        openMenu ? "rotate-45 translate-y-[3.5px]" : ""
-                    }`}
-                />
-                {/* <span
-                    className={`block h-[1px] w-5 bg-[var(--colour-bodytext)] transition-opacity duration-300 ${
-                        openMenu ? "opacity-0" : "opacity-100"
-                    }`}
-                /> */}
-                <span
-                    className={`block h-[1px] w-5 bg-[var(--colour-bodytext)] transition-transform duration-300 ${
-                        openMenu ? "-rotate-45 -translate-y-[3.5px]" : ""
-                    }`}
-                />
+                {openMenu ? <X className="size-5" strokeWidth={1.5} /> : <MenuIcon className="size-5" strokeWidth={1.5} />}
             </button>
 
             {openMenu && (
@@ -69,16 +56,17 @@ export default function Menu() {
                             mrFork.setOpen(!mrFork.open);
                             setOpenMenu(false);
                         }}
-                        className="flex w-full items-center justify-between p-4 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] hover:cursor-pointer border-1"
+                        className="hidden md:flex w-full items-center justify-between p-4 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)] hover:cursor-pointer border-1"
                     >
                         {mrFork.open ? "Dismiss Mr. Fork" : "Summon Mr. Fork"}
                         <Utensils
                             aria-hidden
-                            className="size-3.5 text-[var(--colour-bodytext)]"
+                            className="size-3.5"
                             strokeWidth={1.5}
                         />
                         {/* <Image src="/mrfork/fork.svg" alt="" width={24} height={24} className="size-4" /> */}
                     </button>
+                    {/* <div className="mb-1"></div> */}
                     {/* <MyButton variant="secondary-menu" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
                 </div>
             )}
