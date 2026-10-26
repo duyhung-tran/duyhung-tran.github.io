@@ -8,9 +8,11 @@ import ProjectThumbnailNew from "@/components/project-thumbnail-new";
 import Menu from "@/components/menu";
 import Nav from "@/components/nav";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useMrFork } from "@/components/mr-fork/provider";
 
 export default function Home2() {
   const [animate, setAnimate] = useState(false);
+  const { open: mrForkOpen } = useMrFork();
 
   useEffect(() => {
     setTimeout(() => setAnimate(true), 900);
@@ -27,7 +29,7 @@ export default function Home2() {
           {/* <p className="text-sm text-[var(--colour-bodytext)]">Reach me via <span className="inline-block"><MyButton link="mailto:d.hungtran12@gmail.com" target="_blank" variant="hyperlink" text="email" textSize="text-sm"/></span>, <span className="inline-block"><MyButton link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" variant="hyperlink" text="LinkedIn" textSize="sm"/></span>, or check out my <span className="inline-block"><MyButton link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" variant="hyperlink" text="resume" textSize="text-sm"/></span>!</p> */}          
           <div className="mb-11"></div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-3">
+          <div className={`grid grid-cols-1 gap-10 lg:gap-3 ${mrForkOpen ? "lg:grid-cols-2" : "lg:grid-cols-3"}`}>
             <ProjectThumbnailNew isLink="image-link" link="knoxagent" type="UX design, shipped" name="Samsung Knox in-console AI agent" desc="Interactive widgets for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" imageSrcDark="/yuhh.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
             <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" imageSrc="/geofenceee.png" imageSrcDark="/geofenceee.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
             <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>

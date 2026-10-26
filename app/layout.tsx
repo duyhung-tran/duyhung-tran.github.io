@@ -6,6 +6,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import PageTransition from "./page-transition";
+import { MrForkProvider } from "@/components/mr-fork/provider";
 
 const interSans = Inter({
   subsets: ["latin"],
@@ -61,7 +62,7 @@ export default function RootLayout({
           enableSystem
           // disableTransitionOnChange
         >
-          {children}
+          <MrForkProvider>{children}</MrForkProvider>
         </ThemeProvider>
         {/* </PageTransition> */}
       </body>

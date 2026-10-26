@@ -1,11 +1,15 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import MyButton from "./my-button";
+import { useMrFork } from "./mr-fork/provider";
+import { Utensils } from "lucide-react";
 
 export default function Menu() {
     const [openMenu, setOpenMenu] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    const mrFork = useMrFork();
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -56,21 +60,26 @@ export default function Menu() {
                     <a href="/about" className="mb-1 block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
                         About
                     </a>
-                    {/* <a href="/testimonials" className="mb-1 block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
-                        Testimonials
-                    </a> */}
                     <div className="mb-1"></div>
                     <MyButton variant="secondary-theme" text="Dark mode" link="" target="" textSize="text-xs" onClick={() => setOpenMenu(false)}/>
-
-                    {/* <a href="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" className="block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
-                        Resume
-                    </a> */}
                     <div className="mb-1"></div>
-                    <div className="flex flex-col w-full gap-y-1">
-                        <MyButton variant="secondary-menu" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/>
-                        {/* <MyButton variant="secondary-theme" text="Dark Mode" link="#" target="_blank" textSize="text-xs"/> */}
-                        {/* <MyButton variant="secondary-menu" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
-                    </div>
+                    <button
+                        type="button"
+                        onClick={() => {
+                            mrFork.setOpen(!mrFork.open);
+                            setOpenMenu(false);
+                        }}
+                        className="flex w-full items-center justify-between p-4 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] hover:cursor-pointer border-1"
+                    >
+                        {mrFork.open ? "Dismiss Mr. Fork" : "Summon Mr. Fork"}
+                        <Utensils
+                            aria-hidden
+                            className="size-3.5 text-[var(--colour-bodytext)]"
+                            strokeWidth={1.5}
+                        />
+                        {/* <Image src="/mrfork/fork.svg" alt="" width={24} height={24} className="size-4" /> */}
+                    </button>
+                    {/* <MyButton variant="secondary-menu" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
                 </div>
             )}
         </div>
