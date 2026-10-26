@@ -9,7 +9,8 @@ export type ChatMessage =
   | { role: "assistant"; reply: ChatReply };
 
 export type ChatReply = {
-  // Paragraphs of text. Wrap words in **double asterisks** to bold them.
+  // Paragraphs of text. Wrap words in **double asterisks** to bold them, and
+  // write links as [text](url).
   paragraphs: string[];
   // Optional project card shown under the text
   project?: Project["id"];

@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* dark: follows the site theme toggle (next-themes adds .dark to <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --main-colour: #097ff6;
   --main-darkercolour: #0071e3;

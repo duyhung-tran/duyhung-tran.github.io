@@ -104,7 +104,7 @@ const intents: Intent[] = [
     keywords: ["agent", "ai", "assistant", "chatbot", "widget", "knox cloud"],
     reply: {
       paragraphs: [
-        "At Samsung Canada, Hung shapes AI agent experiences for Knox Cloud Services.",
+        "At [Samsung Canada](https://research.samsung.com/srca), Hung shapes AI agent experiences for Knox Cloud Services.",
         "His project designs **interactive widgets for the in-console AI assistant**, so admins can review and act on what the agent created without leaving the chat.",
       ],
       project: "knoxagent",
@@ -144,8 +144,8 @@ const intents: Intent[] = [
     keywords: ["samsung canada", "team", "job", "work at", "current", "role", "experience", "fraser health", "douglas college", "greenwich", "visual designer"],
     reply: {
       paragraphs: [
-        "Hung is a UX designer and engineer at **Samsung Canada**, shaping AI experiences for Samsung's B2B products.",
-        "Before that, he was a visual designer at Fraser Health, Douglas College and the University of Greenwich.",
+        "Hung is a UX designer and engineer at [Samsung Canada](https://research.samsung.com/srca), shaping AI experiences for Samsung's B2B products.",
+        "Before that, he was a visual designer at [Fraser Health](https://www.fraserhealth.ca/), [Douglas College](https://www.douglascollegeroyals.ca/landing/index) and the [University of Greenwich](https://greenwich.edu.vn/en/about-greenwich-vietnam/).",
       ],
       suggestions: [SUGGESTIONS.b2b, SUGGESTIONS.knoxAgent],
     },
@@ -156,7 +156,8 @@ const intents: Intent[] = [
     keywords: ["contact", "email", "reach", "hire", "linkedin", "resume", "cv"],
     reply: {
       paragraphs: [
-        "The best way to reach Hung is by email at **d.hungtran12@gmail.com**, or say hi to him on LinkedIn. You can find both, plus his resume, under Contacts in the menu.",
+        "The best way to reach Hung is by email at [d.hungtran12@gmail.com](mailto:d.hungtran12@gmail.com), or say hi to him on [LinkedIn](https://www.linkedin.com/in/hung-tran-profile/).",
+        "You can also check out his [resume](https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing).",
       ],
       suggestions: [SUGGESTIONS.b2b, SUGGESTIONS.person],
     },
@@ -184,7 +185,7 @@ const intents: Intent[] = [
 
 const fallback: ChatReply = {
   paragraphs: [
-    "Good question! I'm just a fork, so I only know a few things about Hung for now. Try one of these, or email him and the real Hung will reply.",
+    "Good question! I'm just a fork, so I only know a few things about Hung for now. Try one of these, or [email him](mailto:d.hungtran12@gmail.com) and the real Hung will reply.",
   ],
   suggestions: STARTER_SUGGESTIONS,
 };

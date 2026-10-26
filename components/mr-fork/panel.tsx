@@ -26,7 +26,7 @@ function SuggestedPrompt({ text, onClick, className }: { text: string; onClick: 
       type="button"
       onClick={onClick}
       className={cn(
-        "flex items-center gap-3 px-5 py-2 rounded-full text-left cursor-pointer transition-colors",
+        "flex items-center gap-3 px-5 py-1.5 rounded-full text-left cursor-pointer transition-colors",
         "bg-[var(--mrfork-surface)] hover:bg-[var(--mrfork-surface-hover)] border border-[var(--mrfork-border)]",
         "text-sm leading-loose text-[var(--colour-bodytext)]",
         className,
@@ -48,19 +48,22 @@ function UserBubble({ text }: { text: string }) {
   );
 }
 
-// Splits **bold** segments out of a reply paragraph
-function richSegments(text: string) {
+type Segment = { text: string; bold?: boolean; href?: string };
+
+// Splits **bold** and [link](url) segments out of a reply paragraph
+function richSegments(text: string): Segment[] {
   return text
-    .split(/(\*\*[^*]+\*\*)/g)
+    .split(/(\*\*[^*]+\*\*|\[[^\]]+\]\([^)]+\))/g)
     .filter(Boolean)
-    .map((part) =>
-      part.startsWith("**") && part.endsWith("**")
-        ? { text: part.slice(2, -2), bold: true }
-        : { text: part, bold: false },
-    );
+    .map((part) => {
+      if (part.startsWith("**") && part.endsWith("**")) return { text: part.slice(2, -2), bold: true };
+      const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+      if (link) return { text: link[1], href: link[2] };
+      return { text: part };
+    });
 }
 
-// Number of visible characters in a paragraph (without the ** markers)
+// Number of visible characters in a paragraph (without the markup)
 function richLength(text: string) {
   return richSegments(text).reduce((n, s) => n + s.text.length, 0);
 }
@@ -74,6 +77,22 @@ function RichText({ text, limit = Infinity }: { text: string; limit?: number }) 
         if (left <= 0) return null;
         const shown = seg.text.slice(0, left);
         left -= seg.text.length;
+        if (seg.href) {
+          // Other sites open in a new tab; pages on this site and mailto: don't
+          const external = seg.href.startsWith("http");
+          return (
+            <a
+              key={i}
+              href={seg.href}
+              target={external ? "_blank" : undefined}
+              rel={external ? "noopener noreferrer" : undefined}
+              // Same look as MyButton's hyperlink variant
+              className="text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] hover:underline hover:text-[var(--colour-bodytext)]"
+            >
+              {shown}
+            </a>
+          );
+        }
         return seg.bold ? (
           <strong key={i} className="font-semibold text-[var(--colour-pure)]">
             {shown}
@@ -270,7 +289,8 @@ export default function MrForkPanel({ open, onClose }: { open: boolean; onClose:
             avatarHidden ? "opacity-100" : "opacity-0 pointer-events-none",
           )}
         >
-          <Image src="/mrfork/fork.svg" alt="" width={28} height={28} className="size-7" />
+          <Image src="/mrfork/fork.svg" alt="" width={28} height={28} className="size-7 dark:hidden" />
+          <Image src="/mrfork/fork-dark.svg" alt="" width={28} height={28} className="size-7 hidden dark:block" />
           <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Mr. Fork</p>
         </div>
         {chatting && (
@@ -288,7 +308,8 @@ export default function MrForkPanel({ open, onClose }: { open: boolean; onClose:
 
       <div ref={scrollRef} className="flex-1 overflow-y-auto overscroll-contain px-7 pt-8 pb-6">
         <div ref={avatarRef} className="flex flex-col items-center gap-2">
-          <Image src="/mrfork/fork.svg" alt="" width={40} height={40} className="size-10" />
+          <Image src="/mrfork/fork.svg" alt="" width={40} height={40} className="size-10 dark:hidden" />
+          <Image src="/mrfork/fork-dark.svg" alt="" width={40} height={40} className="size-10 hidden dark:block" />
           <p className="text-md font-semibold text-[var(--colour-bodytext-light)] leading-loose">Mr. Fork</p>
         </div>
 
