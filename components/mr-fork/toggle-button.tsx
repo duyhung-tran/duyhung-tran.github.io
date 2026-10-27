@@ -20,7 +20,7 @@ export default function MrForkToggle({ className }: { className?: string }) {
         className,
       )}
     >
-      <Utensils className="size-5" strokeWidth={1.5} />
+      <Utensils className="size-4" strokeWidth={1.5} />
     </button>
   );
 }

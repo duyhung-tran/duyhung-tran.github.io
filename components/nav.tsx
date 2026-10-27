@@ -57,10 +57,13 @@
 
 import { useState, useEffect } from "react";
 import Menu from "./menu";
+import MrForkToggle from "./mr-fork/toggle-button";
 import Image from "next/image";
 
 interface Props {
   variant: string;
+  // Show the Mr. Fork button to the left of the menu
+  mrFork?: boolean;
 }
 
 export default function Nav(props: Props) {
@@ -112,7 +115,8 @@ export default function Nav(props: Props) {
               </p>
             </div>
         </div>
-        <div className="fixed top-10 right-10 z-100 lg:static flex gap-x-6 items-center bg-[var(--container-bg)] lg:bg-transparent border-1 lg:border-0">
+        <div className="fixed top-10 right-10 z-100 lg:static flex gap-x-3 items-center bg-[var(--container-bg)] lg:bg-transparent border-1 lg:border-0">
+            {props.mrFork && <MrForkToggle />}
             <Menu />
         </div>
     </div>

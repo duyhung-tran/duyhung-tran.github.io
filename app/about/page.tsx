@@ -8,7 +8,7 @@ import Nav from "@/components/nav";
 export default function About() {
     return (
         <div className="w-full p-10">
-            <Nav variant="others" />
+            <Nav variant="others" mrFork />
             <div className="mb-20"></div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 w-full">

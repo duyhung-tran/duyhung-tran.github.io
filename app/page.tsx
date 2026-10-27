@@ -21,7 +21,7 @@ export default function Home2() {
   return (
     <div className="flex items-center justify-center" id="top">
         <div className="w-full p-10">
-          <Nav variant="home" /> 
+          <Nav variant="home" mrFork /> 
 
           <div className="mb-10"></div>
 
