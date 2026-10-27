@@ -50,7 +50,7 @@ export default function Menu() {
                     <div className="mb-1"></div>
                     <MyButton variant="secondary-theme" text="Dark mode" link="" target="" textSize="text-xs" onClick={() => setOpenMenu(false)}/>
                     <div className="mb-1"></div>
-                    <button
+                    {/* <button
                         type="button"
                         onClick={() => {
                             mrFork.setOpen(!mrFork.open);
@@ -64,10 +64,9 @@ export default function Menu() {
                             className="size-3.5"
                             strokeWidth={1.5}
                         />
-                        {/* <Image src="/mrfork/fork.svg" alt="" width={24} height={24} className="size-4" /> */}
-                    </button>
+                    </button> */}
                     {/* <div className="mb-1"></div> */}
-                    {/* <MyButton variant="secondary-menu" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
+                    <MyButton variant="secondary-menu" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/>
                 </div>
             )}
         </div>

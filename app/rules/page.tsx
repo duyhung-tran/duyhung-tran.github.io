@@ -6,6 +6,7 @@ import Nav from "@/components/nav";
 import { Info, Locate, MapPinCheck, SlidersHorizontal, Snail, UserSearch, Pencil, Puzzle, ShieldQuestionMark } from "lucide-react";
 import TableOfContents, { TocSection } from "@/components/table-of-contents";
 import ProjectThumbnailNew from "@/components/project-thumbnail-new";
+import MrForkToggle from "@/components/mr-fork/toggle-button";
 
 const sections: TocSection[] = [
   { id: "overview", label: "Project overview" },
@@ -42,6 +43,9 @@ export default function Rules() {
                     <div className="mb-6"></div>
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Feature design</p>
+                    <div className="mb-10"></div>
+                    {/* -ml-1.5 lines the icon up with the labels above */}
+                    <MrForkToggle className="-ml-1.5" />
                 </div>
             </div>
 

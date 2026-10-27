@@ -9,8 +9,12 @@ import Menu from "@/components/menu";
 import Nav from "@/components/nav";
 import { CircleAlert, Info } from "lucide-react";
 import ProjectThumbnailNew from "@/components/project-thumbnail-new";
+import { useMrFork } from "@/components/mr-fork/provider";
+import MrForkToggle from "@/components/mr-fork/toggle-button";
 
 export default function Health() {
+  const { setOpen: setMrForkOpen } = useMrFork();
+
   return (
     <div className="w-full p-10">
         <Nav variant="others" />
@@ -32,6 +36,10 @@ export default function Health() {
                     <div className="mb-6"></div>
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">UX Research</p>
+                    <div className="mb-10"></div>
+                    {/* <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Questions</p> */}
+                    {/* -ml-1.5 lines the icon up with the labels above */}
+                    <MrForkToggle className="-ml-1.5" />
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
@@ -70,6 +78,10 @@ export default function Health() {
                         <div>
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">UX Research</p>
+                        </div>
+                        <div>
+                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Questions</p>
+                            <button type="button" onClick={() => setMrForkOpen(true)} className="bg-transparent text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] leading-loose hover:underline hover:text-[var(--colour-bodytext)] p-0 text-sm cursor-pointer">Mr. Fork</button>
                         </div>
                     </div>
                 </div>
