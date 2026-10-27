@@ -79,7 +79,8 @@ export default function Health() {
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">UX Research</p>
                         </div>
-                        <div>
+                        {/* Desktop only: Mr. Fork isn't available on mobile */}
+                        <div className="hidden lg:block">
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Questions</p>
                             <button type="button" onClick={() => setMrForkOpen(true)} className="bg-transparent text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] leading-loose hover:underline hover:text-[var(--colour-bodytext)] p-0 text-sm cursor-pointer">Mr. Fork</button>
                         </div>

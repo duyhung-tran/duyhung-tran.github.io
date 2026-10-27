@@ -265,7 +265,8 @@ export default function MrForkPanel({ open, onClose }: { open: boolean; onClose:
       aria-hidden={!open}
       inert={!open}
       className={cn(
-        "fixed top-0 right-0 z-[200] h-dvh w-full lg:w-[var(--mrfork-width)] flex flex-col",
+        // Desktop only: never shown below lg, even if it was left open
+        "fixed top-0 right-0 z-[200] h-dvh w-full lg:w-[var(--mrfork-width)] hidden lg:flex flex-col",
         "bg-[var(--container-bg)] lg:border-l border-[var(--mrfork-border)]",
         "transition-transform duration-300 ease-out",
         open ? "translate-x-0" : "translate-x-full",

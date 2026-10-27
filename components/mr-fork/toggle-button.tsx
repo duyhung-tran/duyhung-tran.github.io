@@ -16,7 +16,8 @@ export default function MrForkToggle({ className }: { className?: string }) {
       aria-label={open ? "Close Mr. Fork" : "Open Mr. Fork"}
       aria-expanded={open}
       className={cn(
-        "size-8 flex items-center justify-center text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] cursor-pointer transition",
+        // Desktop only: Mr. Fork isn't available on mobile
+        "size-8 hidden lg:flex items-center justify-center text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] cursor-pointer transition",
         className,
       )}
     >
