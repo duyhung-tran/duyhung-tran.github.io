@@ -27,7 +27,7 @@ function SuggestedPrompt({ text, onClick, className }: { text: string; onClick: 
       onClick={onClick}
       className={cn(
         "flex items-center gap-3 px-5 py-1.5 rounded-full text-left cursor-pointer transition-colors",
-        "bg-[var(--mrfork-surface)] hover:bg-[var(--mrfork-surface-hover)] border border-[var(--mrfork-border)]",
+        "bg-[var(--mrfork-surface)] hover:bg-[var(--mrfork-surface-hover)] border border-[var(--nav-border)]",
         "text-sm leading-loose text-[var(--colour-bodytext)]",
         className,
       )}
@@ -41,7 +41,7 @@ function SuggestedPrompt({ text, onClick, className }: { text: string; onClick: 
 function UserBubble({ text }: { text: string }) {
   return (
     <div className="flex justify-end">
-      <p className="max-w-[85%] px-5 py-2 rounded-[24px] bg-[var(--mrfork-surface)] border border-[var(--mrfork-border)] text-sm leading-loose text-[var(--colour-bodytext)]">
+      <p className="max-w-[85%] px-5 py-2 rounded-[24px] bg-[var(--mrfork-surface)] border border-[var(--nav-border)] text-sm leading-loose text-[var(--colour-bodytext)]">
         {text}
       </p>
     </div>
@@ -109,11 +109,11 @@ function RichText({ text, limit = Infinity }: { text: string; limit?: number }) 
 function ProjectLink({ id }: { id: Project["id"] }) {
   const project = getProject(id);
   return (
-    <div className="flex flex-col gap-3 p-4 rounded-xl bg-[var(--mrfork-surface)] border border-[var(--mrfork-border)]">
+    <div className="flex flex-col gap-3 p-4 rounded-xl bg-[var(--mrfork-surface)] border border-[var(--nav-border)]">
       <div className="flex items-center justify-between">
         <p className="text-md font-semibold tracking-tight text-[var(--colour-bodytext)]">{project.name}</p>
       </div>
-      <a href={project.href} className="group relative h-[180px] lg:h-[228px] rounded-[8px] overflow-hidden bg-[var(--container-bg)] border-[var(--mrfork-border)] border-1">
+      <a href={project.href} className="group relative h-[180px] lg:h-[228px] rounded-[8px] overflow-hidden bg-[var(--container-bg)] border-[var(--nav-border)] border-1">
         <Image src={project.image} alt={project.name} fill sizes="480px" className="object-contain p-8" />
         <SquareArrowOutUpRight
           aria-hidden
@@ -267,7 +267,7 @@ export default function MrForkPanel({ open, onClose }: { open: boolean; onClose:
       className={cn(
         // Desktop only: never shown below lg, even if it was left open
         "fixed top-0 right-0 z-[200] h-dvh w-full lg:w-[var(--mrfork-width)] hidden lg:flex flex-col",
-        "bg-[var(--container-bg)] lg:border-l border-[var(--mrfork-border)]",
+        "bg-[var(--container-bg)] lg:border-l border-[var(--nav-border)]",
         "transition-transform duration-300 ease-out",
         open ? "translate-x-0" : "translate-x-full",
       )}
@@ -351,7 +351,7 @@ export default function MrForkPanel({ open, onClose }: { open: boolean; onClose:
 
       <div className="shrink-0 flex items-center gap-2 px-4 py-4 border-t border-[var(--nav-border)]">
         <form
-          className="flex-1 min-w-0 flex items-center gap-3 pl-6 pr-2 h-[44px] rounded-[24px] bg-[var(--mrfork-surface)] border border-[var(--mrfork-border)] focus-within:border-[var(--colour-bodytext-light)] transition-colors"
+          className="flex-1 min-w-0 flex items-center gap-3 pl-6 pr-2 h-[44px] rounded-[24px] bg-[var(--mrfork-surface)] border border-[var(--nav-border)] focus-within:border-[var(--colour-bodytext-light)] transition-colors"
           onSubmit={(e) => {
             e.preventDefault();
             ask(input);
