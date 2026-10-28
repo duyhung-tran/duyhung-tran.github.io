@@ -99,19 +99,26 @@ export default function Rules() {
 
                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Special thanks to: Tian Jia (Senior UX Designer), Hosoo Lee (Product Manager), Maia Puyat (UX Writer)</p>
 
-                <div className="mb-12"></div>
+                <div className="mb-15"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">
-                    Problem
-                </p>
-                <div className="mb-5"></div>
-                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Current device management settings are often static and uniformly applied across large device fleets, limiting flexibility and preventing context-aware adjustments based on time, location, or usage conditions.</p>
-                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">When a setting is applied to a group of devices, it remains continuously active, forcing IT admins to manually adjust when circumstances change, increasing their workload.</p>
+                <hr className="border-[var(--nav-border)]" />
+
+                <div className="mb-15"></div>
+
+                {/* <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">Problem</p> */}
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-12 font-semibold tracking-tight" id="problem">Current device management practices are applied statically, lacking the ability to adapt to different contexts.</p>
+                <div className="mb-8"></div>
+                <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
+                    <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">When a setting is applied to a group of devices, it remains continuously active, forcing IT admins to manually adjust when circumstances change, increasing their workload.</p>
+                </div>
+                {/* <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Current device management settings are often static and uniformly applied across large device fleets, limiting flexibility and preventing context-aware adjustments based on time, location, or usage conditions.</p> */}
+                {/* <p className="text-sm text-[var(--colour-bodytext)] leading-loose">When a setting is applied to a group of devices, it remains continuously active, forcing IT admins to manually adjust when circumstances change, increasing their workload.</p> */}
 
                 <div className="mb-16"></div>
 
                 <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="findings">
-                    PMs' research insights
+                    What emerged from PM's conversations
                 </p>
                 <div className="mb-2"></div>
                 <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Generalized to avoid NDA</p>
@@ -131,10 +138,14 @@ export default function Rules() {
                     </div>
                 </div>
 
-                <div className="mb-16"></div>
+                <div className="mb-19"></div>
 
-                <p id="framing" className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight">
-                    "Rules" feature
+                <hr className="border-[var(--nav-border)]" />
+
+                <div className="mb-15"></div>
+
+                <p id="framing" className="text-3xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight">
+                    "Rules" feature's PRD
                 </p>
                 {/* <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Special thanks to: Tian Jia (Senior UX Designer), Hosoo Lee (Product Manager)</p> */}
                 <div className="mb-4"></div>
@@ -146,7 +157,7 @@ export default function Rules() {
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">An event-based approach enables IT admins to define conditions that automatically trigger device configurations—providing more nuanced control while reducing manual intervention and response time.</p> */}
                 </div>
 
-                <div className="mb-18"></div>
+                <div className="mb-14"></div>
 
                 {/* <p id="framing" className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight">
                     What I did

@@ -81,34 +81,36 @@ export default function Organizations() {
 
                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Special thanks to: Andrea Lin (Senior UX Designer), Hyejeong Kim (Product Manager), Maia Puyat (UX Writer)</p>
 
-                <div className="mb-12"></div>
+                <div className="mb-15"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">
-                    Problem
-                </p>
-                <div className="mb-5"></div>
+                <hr className="border-[var(--nav-border)]" />
+
+                <div className="mb-15"></div>
+
+                {/* <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">Problem</p> */}
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-12 font-semibold tracking-tight" id="problem">A need to demonstrate how settings flow from parent to child entities while keeping development effort low.</p>
                 
-                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Due to limited development bandwidth, the inheritance logic among parent-to-child entities needs to be visualized with minimal dev effort - without adding new patterns, animations, or complex interactions.</p>
-
-                <div className="mb-5"></div>
-
+                <div className="mb-8"></div>
+                
+                {/* <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Due to limited development bandwidth, the inheritance logic among parent-to-child entities needs to be visualized with minimal dev effort - without adding new patterns, animations, or complex interactions.</p> */}
                 <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
                     <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">When a setting is assigned to a parent organization, it is inherited by all of its child organizations. This setting is not editable in the child organization, and can only be overriden by assigning a new setting to the child organization.</p>
                 </div>
 
-                <div className="mb-16"></div>
+                <div className="mb-12"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">
-                    What I did
-                </p>
-                <div className="mb-5"></div>
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">What I did</p>
+                <div className="mb-4"></div>
                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">I designed & wrote documentations for a hierarchical table component that displays the inheritance hierarchy and override status of settings, while reusing atom and molecule components from the design system.</p>
-                <div className="mb-5"></div>
-                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Special thanks to: <span className="text-[var(--colour-bodytext)]">Andrea Lin (Senior UX Designer), Hyejeong Kim (Product Manager)</span></p>
-                <div className="mb-16"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">
+                <div className="mb-15"></div>
+
+                <hr className="border-[var(--nav-border)]" />
+
+                <div className="mb-12"></div>
+
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">
                     UX documentations
                 </p>
                 <div className="mb-5"></div>
