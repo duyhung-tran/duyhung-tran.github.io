@@ -77,7 +77,11 @@ export default function Organizations() {
                     </div>
                 </div>
 
-                <div className="mb-16"></div>
+                <div className="mb-7"></div>
+
+                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Special thanks to: Andrea Lin (Senior UX Designer), Hyejeong Kim (Product Manager), Maia Puyat (UX Writer)</p>
+
+                <div className="mb-12"></div>
 
                 <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">
                     Problem
