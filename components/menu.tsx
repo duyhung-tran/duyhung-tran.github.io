@@ -50,13 +50,13 @@ export default function Menu() {
                     <div className="mb-1"></div>
                     {/* <MyButton variant="secondary-theme" text="Dark mode" link="" target="" textSize="text-xs" onClick={() => setOpenMenu(false)}/> */}
                     <div className="mb-1"></div>
-                    {/* <button
+                    <button
                         type="button"
                         onClick={() => {
                             mrFork.setOpen(!mrFork.open);
                             setOpenMenu(false);
                         }}
-                        className="hidden md:flex w-full items-center justify-between p-4 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)] hover:cursor-pointer border-1"
+                        className="hidden md:flex w-full items-center justify-between p-4 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)] hover:cursor-pointer"
                     >
                         {mrFork.open ? "Dismiss Mr. Fork" : "Summon Mr. Fork"}
                         <Utensils
@@ -64,9 +64,9 @@ export default function Menu() {
                             className="size-3.5"
                             strokeWidth={1.5}
                         />
-                    </button> */}
-                    {/* <div className="mb-1"></div> */}
-                    <MyButton variant="secondary-menu" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/>
+                    </button>
+                    <div className="mb-1"></div>
+                    <MyButton variant="secondary-contacts" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/>
                 </div>
             )}
         </div>

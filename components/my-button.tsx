@@ -32,7 +32,7 @@ export default function MyButton(props: Props) {
         {props.text}
       </a>
     );
-  } else if (props.variant == "secondary-menu") {
+  } else if (props.variant == "secondary-contacts") {
     return (
       <a
         href={props.link}
@@ -44,30 +44,6 @@ export default function MyButton(props: Props) {
             xmlns="http://www.w3.org/2000/svg"
             width="14"
             height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="2" y="4" width="20" height="16" rx="2" />
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-          </svg>
-      </a>
-    );
-  } else if (props.variant == "tertiary-menu") {
-    return (
-      <a
-        href={props.link}
-        target={props.target}
-        className={`block flex justify-between items-center border-1 text-[var(--colour-bodytext-reversed)] bg-[var(--container-bg-reversed)] p-3.5 ${props.textSize ?? "text-xs"}`}
-      >
-        <span className="mr-3">{props.text}</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="12"
-            height="12"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"

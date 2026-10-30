@@ -23,7 +23,7 @@
 //                     </div>
 //                 </div>
 //                 <div className="flex gap-x-6 items-center">
-//                     {/* <MyButton variant="secondary-menu" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
+//                     {/* <MyButton variant="secondary-contacts" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
 //                     {/* <MyButton variant="secondary-theme" text="Dark Mode" link="#" target="_blank" textSize="text-xs"/> */}
 //                     <Menu/>
 //                 </div>
@@ -43,7 +43,7 @@
 //                     </div>
 //                 </div>
 //                 <div className="flex gap-x-6 items-center">
-//                     {/* <MyButton variant="secondary-menu" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
+//                     {/* <MyButton variant="secondary-contacts" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
 //                     {/* <MyButton variant="secondary-theme" text="Dark Mode" link="#" target="_blank" textSize="text-xs"/> */}
 //                     <Menu/>
 //                 </div>
@@ -116,7 +116,7 @@ export default function Nav(props: Props) {
             </div>
         </div>
         <div className="fixed top-10 right-10 z-100 lg:static flex gap-x-3 items-center bg-[var(--container-bg)] lg:bg-transparent border-1 lg:border-0">
-            {props.mrFork && <MrForkToggle />}
+            {/* {props.mrFork && <MrForkToggle />} */}
             <Menu />
         </div>
     </div>
