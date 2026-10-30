@@ -1,3 +1,5 @@
 node_modules
 .next
 out
+# Source export for the Geofence thumbnail (ProRes, too large for the repo)
+public/hi.mov

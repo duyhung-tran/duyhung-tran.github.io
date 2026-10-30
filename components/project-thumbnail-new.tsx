@@ -11,6 +11,13 @@ interface Props {
     imageSrcDark: string;
     imageSrcPoster: string;
     imageSrcPosterDark: string;
+    // Optional looping video that fills the tile instead of the image.
+    // For a transparent background, pass a WebM (VP9 with alpha) as videoSrc
+    // and an HEVC-with-alpha .mov as videoSrcSafari: Safari only keeps
+    // transparency in HEVC, and other browsers only in WebM.
+    // imageSrcPoster is shown while the video loads.
+    videoSrc?: string;
+    videoSrcSafari?: string;
     link: string;
     isLink: string;
     target: string;
@@ -27,15 +34,30 @@ export default function ProjectThumbnailNew(props: Props) {
         return null;
     }
 
+    const isSafari = /^((?!chrome|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent);
+    const video = (isSafari && props.videoSrcSafari) || props.videoSrc;
+
     if (props.isLink == "image-link") {
         return (
             <div className="h-full flex flex-col group">
                 <a
-                    className="relative h-[350px] lg:h-[400px] 2xl:h-[500px] flex justify-center items-center overflow-hidden block group mt-auto bg-[var(--container-bg)]"
+                    className="relative aspect-square lg:aspect-[4/3] flex justify-center items-center overflow-hidden block group mt-auto bg-[var(--container-bg)]"
                     href={props.link}
                     target={props.target}
                 >
-                    {theme === "dark" ? (
+                    {video ? (
+                        <video
+                            src={video}
+                            poster={props.imageSrcPoster || undefined}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="auto"
+                            aria-label={props.name}
+                            className="absolute inset-0 w-full h-full object-cover"
+                        />
+                    ) : theme === "dark" ? (
                         <Image
                             src={props.imageSrcDark}
                             alt={props.name}

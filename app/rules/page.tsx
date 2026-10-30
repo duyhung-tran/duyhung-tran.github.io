@@ -66,6 +66,7 @@ export default function Rules() {
                 </div>
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)] p-6 lg:p-20">
+                {/* <div className="flex justify-center bg-[var(--container-bg-2)]"> */}
                     <Image src="/geofenceee.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full lg:w-[55%]"/>
                 </div>
 
@@ -147,7 +148,6 @@ export default function Rules() {
                 <p id="framing" className="text-3xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight">
                     "Rules" feature's PRD
                 </p>
-                {/* <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Special thanks to: Tian Jia (Senior UX Designer), Hosoo Lee (Product Manager)</p> */}
                 <div className="mb-4"></div>
                 <div className="block lg:flex p-8 border-1 bg-[var(--container-bg)] rounded-xl gap-5 items-center">
                     <ShieldQuestionMark className="w-5 h-5 text-[var(--colour-bodytext)]" />
@@ -156,6 +156,8 @@ export default function Rules() {
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Security events can require manual intervention, while device settings may need to change depending on where, when, or under what conditions a device is being used.</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">An event-based approach enables IT admins to define conditions that automatically trigger device configurations—providing more nuanced control while reducing manual intervention and response time.</p> */}
                 </div>
+                <div className="mb-4"></div>
+                <video src="/geofence.mp4" autoPlay muted loop playsInline aria-label="knox manage geofence" className="w-full" />
 
                 <div className="mb-14"></div>
 
@@ -245,7 +247,7 @@ export default function Rules() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
                     <ProjectThumbnailNew isLink="image-link" link="knoxagent" type="UX design, shipped" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" imageSrcDark="/yuhh.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-                    <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+                    <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/organizations.mp4" target="_self"/>
                     <ProjectThumbnailNew isLink="image-link" link="health" type="UX research" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" imageSrcDark="/health logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
                     {/* <ProjectThumbnailNew isLink="image-link" link="alerts" type="UX design, shipped" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/> */}
                 </div>
