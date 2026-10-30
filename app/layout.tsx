@@ -59,6 +59,9 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
+          // Dark mode is switched off for now; forcedTheme also overrides
+          // the theme saved by visitors who picked dark before
+          forcedTheme="light"
           enableSystem
           // disableTransitionOnChange
         >

@@ -48,7 +48,7 @@ export default function Menu() {
                         About
                     </a>
                     <div className="mb-1"></div>
-                    <MyButton variant="secondary-theme" text="Dark mode" link="" target="" textSize="text-xs" onClick={() => setOpenMenu(false)}/>
+                    {/* <MyButton variant="secondary-theme" text="Dark mode" link="" target="" textSize="text-xs" onClick={() => setOpenMenu(false)}/> */}
                     <div className="mb-1"></div>
                     {/* <button
                         type="button"

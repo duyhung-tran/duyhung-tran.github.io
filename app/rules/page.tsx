@@ -7,7 +7,6 @@ import { Info, Locate, MapPinCheck, SlidersHorizontal, Snail, UserSearch, Pencil
 import TableOfContents, { TocSection } from "@/components/table-of-contents";
 import ProjectThumbnailNew from "@/components/project-thumbnail-new";
 import MrForkToggle from "@/components/mr-fork/toggle-button";
-import { useEffect, useState } from "react";
 
 const sections: TocSection[] = [
   { id: "overview", label: "Project overview" },
@@ -20,12 +19,6 @@ const sections: TocSection[] = [
 ];
 
 export default function Rules() {
-  // Safari drops WebM transparency, so it gets the white-background mp4
-  const [geofenceVideo, setGeofenceVideo] = useState("/geofence.webm");
-  useEffect(() => {
-    if (/^((?!chrome|android|crios|fxios|edg).)*safari/i.test(navigator.userAgent)) setGeofenceVideo("/geofence.mp4");
-  }, []);
-
   return (
     <div className="w-full p-10">
         <Nav variant="others" />
@@ -165,7 +158,7 @@ export default function Rules() {
                 </div>
                 <div className="mb-4"></div>
                 <div className="bg-[var(--container-bg-2)]">
-                    <video src={geofenceVideo} autoPlay muted loop playsInline aria-label="knox manage geofence" className="w-full" />
+                    <video src="/geofence.mp4" autoPlay muted loop playsInline aria-label="knox manage geofence" className="w-full" />
                 </div>
 
                 <div className="mb-14"></div>
@@ -256,7 +249,7 @@ export default function Rules() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
                     <ProjectThumbnailNew isLink="image-link" link="knoxagent" type="UX design, shipped" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" imageSrcDark="/yuhh.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-                    <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/organizations.webm" videoSrcSafari="/organizations.mp4" target="_self"/>
+                    <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/organizations.mp4" target="_self"/>
                     <ProjectThumbnailNew isLink="image-link" link="health" type="UX research" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" imageSrcDark="/health logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
                     {/* <ProjectThumbnailNew isLink="image-link" link="alerts" type="UX design, shipped" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/> */}
                 </div>
