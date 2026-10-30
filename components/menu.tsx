@@ -56,7 +56,7 @@ export default function Menu() {
                             mrFork.setOpen(!mrFork.open);
                             setOpenMenu(false);
                         }}
-                        className="hidden md:flex w-full items-center justify-between p-4 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)] hover:cursor-pointer"
+                        className="hidden lg:flex w-full items-center justify-between p-4 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] hover:cursor-pointer"
                     >
                         {mrFork.open ? "Dismiss Mr. Fork" : "Summon Mr. Fork"}
                         <Utensils
