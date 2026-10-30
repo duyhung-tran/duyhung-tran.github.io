@@ -9,7 +9,6 @@ import Menu from "@/components/menu";
 import Nav from "@/components/nav";
 import { CircleAlert, Info } from "lucide-react";
 import ProjectThumbnailNew from "@/components/project-thumbnail-new";
-import MrForkToggle from "@/components/mr-fork/toggle-button";
 
 export default function KnoxAgent() {
   return (
@@ -34,9 +33,6 @@ export default function KnoxAgent() {
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design system</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Agent experience</p>
-                    <div className="mb-10"></div>
-                    {/* -ml-1.5 lines the icon up with the labels above */}
-                    <MrForkToggle className="-ml-1.5" />
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">

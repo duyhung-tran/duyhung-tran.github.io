@@ -6,9 +6,8 @@ import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import Menu from "@/components/menu";
 import Nav from "@/components/nav";
-import { Info, Lightbulb, Puzzle } from "lucide-react";
+import { ExternalLink, Info, Lightbulb, Puzzle } from "lucide-react";
 import ProjectThumbnailNew from "@/components/project-thumbnail-new";
-import MrForkToggle from "@/components/mr-fork/toggle-button";
 
 export default function Organizations() {
   return (
@@ -32,9 +31,11 @@ export default function Organizations() {
                     <div className="mb-6"></div>
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design system</p>
-                    <div className="mb-10"></div>
-                    {/* -ml-1.5 lines the icon up with the labels above */}
-                    <MrForkToggle className="-ml-1.5" />
+                    <div className="mb-6"></div>
+                    <a href="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-organizations/manage-organizations/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] leading-loose hover:underline hover:text-[var(--colour-bodytext)]">
+                        Documentations
+                        <ExternalLink className="size-3.5" strokeWidth={1.5} aria-hidden="true"/>
+                    </a>
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
