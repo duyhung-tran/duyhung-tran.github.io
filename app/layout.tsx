@@ -5,7 +5,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
-import PageTransition from "./page-transition";
 import { MrForkProvider } from "@/components/mr-fork/provider";
 
 const interSans = Inter({
@@ -55,7 +54,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} ${ibmPlexSerif.variable} antialiased`}
       >
-        {/* <PageTransition> */}
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
@@ -67,7 +65,6 @@ export default function RootLayout({
         >
           <MrForkProvider>{children}</MrForkProvider>
         </ThemeProvider>
-        {/* </PageTransition> */}
       </body>
     </html>
   );
