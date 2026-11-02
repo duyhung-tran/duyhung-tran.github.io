@@ -109,9 +109,9 @@ function RichText({ text, limit = Infinity }: { text: string; limit?: number }) 
 function ProjectLink({ id }: { id: Project["id"] }) {
   const project = getProject(id);
   return (
-    <div className="flex flex-col gap-3 p-4 rounded-xl bg-[var(--mrfork-surface)] border border-[var(--nav-border)]">
+    <div className="flex flex-col gap-3 p-3 rounded-xl bg-[var(--mrfork-surface)] border border-[var(--nav-border)]">
       <div className="flex items-center justify-between">
-        <p className="text-md font-semibold tracking-tight text-[var(--colour-bodytext)]">{project.name}</p>
+        <p className="text-sm font-semibold tracking-tight text-[var(--colour-bodytext)]">{project.name}</p>
       </div>
       <a href={project.href} className="group relative h-[180px] lg:h-[228px] rounded-[8px] overflow-hidden bg-[var(--container-bg)] border-[var(--nav-border)] border-1">
         <Image src={project.image} alt={project.name} fill sizes="480px" className="object-contain p-8" />
@@ -286,7 +286,7 @@ export default function MrForkPanel({ open, onClose }: { open: boolean; onClose:
         <div
           aria-hidden={!avatarHidden}
           className={cn(
-            "flex items-center gap-2 transition-opacity duration-200",
+            "flex items-center gap-2 transition-opacity duration-0",
             avatarHidden ? "opacity-100" : "opacity-0 pointer-events-none",
           )}
         >
@@ -311,7 +311,7 @@ export default function MrForkPanel({ open, onClose }: { open: boolean; onClose:
         <div ref={avatarRef} className="flex flex-col items-center gap-2">
           <Image src="/mrfork/fork.svg" alt="" width={40} height={40} className="size-10 dark:hidden" />
           <Image src="/mrfork/fork-dark.svg" alt="" width={40} height={40} className="size-10 hidden dark:block" />
-          <p className="text-md font-semibold text-[var(--colour-bodytext-light)] leading-loose">Mr. Fork</p>
+          <p className="text-md text-[var(--colour-bodytext-light)] leading-loose">Mr. Fork</p>
         </div>
 
         <div className="mt-8 flex flex-col gap-2">
