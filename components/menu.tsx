@@ -3,11 +3,13 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import MyButton from "./my-button";
-import { Menu as MenuIcon, X } from "lucide-react";
+// import { useMrFork } from "./mr-fork/provider";
+import { Menu as MenuIcon, /* Utensils, */ X } from "lucide-react";
 
 export default function Menu() {
     const [openMenu, setOpenMenu] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
+    // const mrFork = useMrFork();
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -48,6 +50,22 @@ export default function Menu() {
                     <div className="mb-1"></div>
                     {/* <MyButton variant="secondary-theme" text="Dark mode" link="" target="" textSize="text-xs" onClick={() => setOpenMenu(false)}/> */}
                     <div className="mb-1"></div>
+                    {/* <button
+                        type="button"
+                        onClick={() => {
+                            mrFork.setOpen(!mrFork.open);
+                            setOpenMenu(false);
+                        }}
+                        className="hidden lg:flex w-full items-center justify-between p-4 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] hover:cursor-pointer"
+                    >
+                        {mrFork.open ? "Dismiss Mr. Fork" : "Summon Mr. Fork"}
+                        <Utensils
+                            aria-hidden
+                            className="size-3.5"
+                            strokeWidth={1.5}
+                        />
+                    </button>
+                    <div className="mb-1"></div> */}
                     <MyButton variant="secondary-contacts" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/>
                 </div>
             )}
