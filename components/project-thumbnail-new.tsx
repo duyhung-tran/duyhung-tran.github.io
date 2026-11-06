@@ -79,7 +79,7 @@ export default function ProjectThumbnailNew(props: Props) {
                         <p className="text-sm text-[var(--colour-bodytext)] leading-loose">
                             {props.name}
                         </p>
-                        <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">
+                        <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">
                             {props.desc}
                         </p>
                     </div>

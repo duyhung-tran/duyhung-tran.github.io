@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cardio Timer</title>
+<style>
+  @font-face { font-family: "PN"; font-weight: 700; src: local("Proxima Nova Bold"), local("ProximaNova-Bold"); }
+  @font-face { font-family: "PN"; font-weight: 300; src: local("Proxima Nova Light"), local("ProximaNova-Light"); }
+  html, body { margin: 0; height: 100%; background: #fff; }
+  body { display: grid; place-items: center; overflow: hidden; }
+  canvas { display: block; width: min(100vw, calc(100vh * 1920 / 1382)); height: auto; aspect-ratio: 1920 / 1382; }
+  body.still canvas { width: 1920px; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1382"></canvas>
+<script>
+/* Frame "cardio" (Figma 420:16683) — 1920 × 1382 */
+const W = 1920, H = 1382;
+const CX = 960.01, CY = 691.29;           // ring centre
+const R = 297.1, STROKE = 87.78;          // ring centre-line radius / thickness
+const END = 219.5 * Math.PI / 180;        // progress end (same as frame)
+const FONT = '"PN", "Proxima Nova", "Montserrat", "Helvetica Neue", Arial, sans-serif';
+
+const cvs = document.getElementById("c");
+const ctx = cvs.getContext("2d");
+
+// ---------- helpers ----------
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const prog = (t, s, d) => clamp((t - s) / d);
+const easeOutCubic = x => 1 - Math.pow(1 - x, 3);
+const easeInOutCubic = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const lerp = (a, b, k) => a + (b - a) * k;
+const hex = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mix = (c1, c2, k) => c1.map((v, i) => Math.round(lerp(v, c2[i], k)));
+
+// ---------- timeline (seconds) ----------
+const T = {
+  big:   [0.25, 0.50],   // "28:05"
+  small: [0.40, 0.50],   // "/ 45:00"   (overlaps)
+  track: [0.65, 0.55],
+  arc:   [0.85, 1.10],
+  wave:  [1.55, 0.90],
+};
+const DURATION = 5.5;
+const SCALE = 0.65;              // overall size of the graphic in the frame
+
+// ---------- soundwave ----------
+// Radial bars around the ring. Amplitude is a smooth, periodic sum of
+// harmonics so it loops seamlessly around the circle and feels like audio.
+const BARS = 150;
+const WAVE_R0 = R + STROKE / 2 + 18;      // inner edge of bars
+const WAVE_MIN = 8, WAVE_MAX = 92;
+const PALETTE = ["#86CFA0", "#7FC4B0", "#80B6C4", "#93A9DA", "#80B6C4", "#7FC4B0"].map(hex);   // muted mint → sage-teal → dusty blue
+const seeds = Array.from({ length: BARS }, (_, i) => {
+  const s = Math.sin(i * 12.9898) * 43758.5453; return s - Math.floor(s);
+});
+
+function amp(i, t) {
+  const a = i / BARS * Math.PI * 2;
+  let v =
+    0.42 * Math.sin(a * 3 + t * 1.6) +
+    0.28 * Math.sin(a * 5 - t * 2.3 + 1.2) +
+    0.18 * Math.sin(a * 9 + t * 3.7 + 0.4) +
+    0.12 * Math.sin(a * 2 - t * 0.9 + 2.1);
+  v = (v + 1) / 2;                                   // 0..1
+  v = Math.pow(v * v * (3 - 2 * v), 1.4);              // soften, sharpen peaks
+  const jitter = 0.18 * Math.sin(t * (6 + seeds[i] * 5) + seeds[i] * 20);
+  return clamp(v * 0.85 + 0.15 + jitter * v);
+}
+
+function barColor(i) {
+  const p = i / BARS * PALETTE.length;
+  const k = Math.floor(p), f = p - k;
+  return mix(PALETTE[k % PALETTE.length], PALETTE[(k + 1) % PALETTE.length], f);
+}
+
+function drawWave(t) {
+  const p = prog(t, ...T.wave);
+  if (p <= 0) return;
+  const tt = t - T.wave[0];
+  ctx.save();
+  ctx.translate(CX, CY);
+  ctx.lineCap = "round";
+  ctx.lineWidth = 6;
+  for (let i = 0; i < BARS; i++) {
+    // bars grow in clockwise from the top, staggered
+    const lp = clamp(p * 1.6 - (i / BARS) * 0.6);
+    if (lp <= 0) continue;
+    const local = easeOutCubic(lp);
+    const alpha = easeOutCubic(clamp(lp * 2));
+    const a = i / BARS * Math.PI * 2 - Math.PI / 2;
+    const len = (WAVE_MIN + (WAVE_MAX - WAVE_MIN) * amp(i, tt + 2)) * local;
+    const r0 = WAVE_R0 + (1 - Math.min(1, local)) * 6;
+    const [r, g, b] = barColor(i);
+    ctx.strokeStyle = `rgba(${r},${g},${b},${0.9 * alpha})`;
+    const c = Math.cos(a), s = Math.sin(a);
+    ctx.beginPath();
+    ctx.moveTo(c * r0, s * r0);
+    ctx.lineTo(c * (r0 + len), s * (r0 + len));
+    ctx.stroke();
+  }
+  ctx.restore();
+}
+
+// ---------- ring ----------
+function drawRing(t) {
+  const ptRaw = prog(t, ...T.track);
+  if (ptRaw > 0) {
+    const sc = lerp(0.9, 1, easeOutCubic(ptRaw));
+    ctx.save();
+    ctx.globalAlpha = easeOutCubic(clamp(ptRaw * 2));
+    ctx.translate(CX, CY);
+    ctx.scale(sc, sc);
+    ctx.beginPath();
+    ctx.arc(0, 0, R, 0, Math.PI * 2);
+    ctx.lineWidth = STROKE;
+    ctx.strokeStyle = "rgba(0,0,0,0.2)";
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  const pa = easeInOutCubic(prog(t, ...T.arc));
+  if (pa > 0) {
+    const sweep = Math.max(0.0001, END * pa);
+    const g = ctx.createLinearGradient(0, CY - R - STROKE / 2 + 44, 0, CY + R - 4);
+    g.addColorStop(0, "#1AD558");
+    g.addColorStop(1, "#072B71");
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(CX, CY, R, -Math.PI / 2, -Math.PI / 2 + sweep);
+    ctx.lineWidth = STROKE;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = g;
+    ctx.stroke();
+    ctx.restore();
+  }
+}
+
+// ---------- clock icon ----------
+function drawIcon(t) {
+  const p = prog(t, ...T.icon);
+  if (p <= 0) return;
+  const s = lerp(0.6, 1, easeOutCubic(p));
+  const k = 78.287 / 400;                          // icon artboard → frame px
+  const ix = 924.81, iy = 561.42;
+  ctx.save();
+  ctx.translate(ix + 200 * k, iy + 200 * k);
+  ctx.scale(s, s);
+  ctx.globalAlpha = clamp(p * 3);
+  ctx.beginPath();
+  ctx.arc(0, 0, 154 * k, 0, Math.PI * 2);
+  ctx.fillStyle = "#1DD75B";
+  ctx.fill();
+  // hands sweep into place
+  const spin = (1 - easeOutCubic(p)) * -Math.PI;
+  ctx.strokeStyle = "#fff";
+  ctx.lineWidth = 30 * k;
+  ctx.lineCap = "round";
+  ctx.lineJoin = "round";
+  ctx.translate(0, 4 * k);
+  ctx.rotate(spin);
+  ctx.beginPath();
+  ctx.moveTo(0, -58 * k);
+  ctx.lineTo(0, 10 * k);
+  ctx.lineTo(57 * k, 54 * k);
+  ctx.stroke();
+  ctx.restore();
+}
+
+// ---------- text ----------
+function drawText(t) {
+  const rb = prog(t, ...T.big), rs = prog(t, ...T.small);
+  if (rb <= 0 && rs <= 0) return;
+  const pb = easeOutCubic(clamp(rb * 1.8)), ps = easeOutCubic(clamp(rs * 1.8));
+  const yb = (1 - easeOutCubic(rb)) * 24, ys = (1 - easeOutCubic(rs)) * 18;
+  const bigFont = `700 88.881px ${FONT}`;
+  const smallFont = `300 44.546px ${FONT}`;
+  ctx.save();
+  ctx.textBaseline = "alphabetic";
+  const BIG_COLOR = "#2A3340", SMALL_COLOR = "#7A828C";   // soft slate instead of pure black
+  ctx.font = bigFont;  ctx.letterSpacing = "-3.5552px";
+  const bigTxt = "28:05 ";
+  const wb = ctx.measureText(bigTxt).width;
+  ctx.font = smallFont; ctx.letterSpacing = "-1.78px";
+  const smallTxt = "/ 45:00";
+  const ws = ctx.measureText(smallTxt).width;
+  const x0 = CX - (wb + ws) / 2;
+  const base = CY + 31;                            // caps optically centred in the ring
+  if (pb > 0) {
+    ctx.globalAlpha = pb;
+    ctx.fillStyle = BIG_COLOR;
+    ctx.font = bigFont; ctx.letterSpacing = "-3.5552px";
+    ctx.fillText(bigTxt, x0, base + yb);
+  }
+  if (ps > 0) {
+    ctx.globalAlpha = ps;
+    ctx.fillStyle = SMALL_COLOR;
+    ctx.font = smallFont; ctx.letterSpacing = "-1.78px";
+    ctx.fillText(smallTxt, x0 + wb, base + ys);
+  }
+  ctx.restore();
+}
+
+function render(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(0, 0, W, H);
+  // shrink the whole composition inside the white canvas
+  ctx.translate(CX, CY); ctx.scale(SCALE, SCALE); ctx.translate(-CX, -CY);
+  drawWave(t);
+  drawRing(t);
+  drawText(t);
+}
+
+// ---------- playback ----------
+// ?t=2.5  → render a single still at that time (used for video export)
+// otherwise play, hold, and replay on click.
+const q = new URLSearchParams(location.search);
+document.fonts.load(`700 40px ${FONT}`).then(() => document.fonts.load(`300 40px ${FONT}`)).finally(() => {
+  if (q.has("t")) {
+    document.body.classList.add("still");
+    render(parseFloat(q.get("t")));
+    document.title = "ready";
+    return;
+  }
+  let start = performance.now();
+  const loop = now => { render((now - start) / 1000); requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+  cvs.addEventListener("click", () => { start = performance.now(); });
+});
+</script>
+</body>
+</html>
