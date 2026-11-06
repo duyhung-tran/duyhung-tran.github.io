@@ -2,470 +2,443 @@
 
 import Image from "next/image";
 import MyButton from "@/components/my-button";
-import Footer from "@/components/footer";
-import Heading from "@/components/heading";
+import Nav from "@/components/nav";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
-import Menu from "@/components/menu";
+import { ExternalLink, Info, Lightbulb, Target, User, Ruler, ListMusic, Gauge, Hand, Eye, Accessibility } from "lucide-react";
+import ProjectThumbnailNew from "@/components/project-thumbnail-new";
+
+const PROTOTYPE_URL = "https://www.figma.com/proto/5SjXuZ0MgUNMOFRmh3qOOY/card.io?page-id=0%3A1&node-id=24-151&viewport=779%2C110%2C0.2&t=Yy6S9WYqbPXyKWdL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=24%3A151";
+
+// TODO(Hung): confirm these project details
+const META = {
+  company: "Personal project",
+  product: "card.io",
+  status: "Concept",
+  focus: "UX design",
+};
+
+function MetaStatus() {
+  return (
+    <div className="flex items-center justify-start gap-2">
+      <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.status}</p>
+      <span className="w-1.5 h-1.5 rounded-full bg-amber-400" aria-hidden="true"/>
+    </div>
+  );
+}
 
 export default function Cardio() {
   return (
-    <div>
-        <div className="w-full flex flex-col items-center justify-center self-center bg-transparent">
-            <div className="px-10 md:w-2/3 md:px-0 lg:w-[75%] 2xl:w-[75%]">
-                    <div className="w-full mt-20">
-                        <div className="w-full flex justify-between items-center">
-                            <MyButton variant="hyperlink" text="Return to home" link="/" textSize="text-sm" target="_self"/>
-                            <div className="block md:hidden">
-                                <Menu/>
-                            </div>
-                            <div className="hidden md:flex">
-                                <MyButton variant="secondary" text="About me" link="about" textSize="text-sm" target="_self"/>
-                                <div className="ml-3"></div>
-                                <MyButton variant="primary" text="Resume" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" textSize="text-sm" target="_blank"/>
-                            </div>
-                        </div>
-                        <div className="mb-20"></div>
+    <div className="w-full p-10">
+        <Nav variant="others" />
 
-                        <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-6">
-                            <div className="">
-                                <Heading text="card.io" variant="black"/>
-                            </div>
-                            <div>
-                                <p className="text-lg text-[var(--colour-bodytext)] leading-loose">card.io is catered towards the fitness community and aims to improve the cardio running experience with personalized music selection and playlists.</p>
-                                <div className="mb-12"></div>
-                                <MyButton variant="secondary" text="View prototype on Figma" link="https://www.figma.com/proto/5SjXuZ0MgUNMOFRmh3qOOY/card.io?page-id=0%3A1&node-id=24-151&viewport=779%2C110%2C0.2&t=Yy6S9WYqbPXyKWdL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=24%3A151" textSize="text-sm" target="blank"/>
-                                <div className="mb-7"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="mb-10"></div>
-
-                    <div>
-                        <video className="w-full h-full object-cover rounded-2xl" autoPlay muted loop playsInline poster="/cardio-wide-poster.png">
-                            <source src="cardio video wide.mp4"type="video/mp4" />
-                        </video>
-                    </div>
-                <div className="w-full mt-20">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-4">
-                        <div className="">
-                            <Heading text="Why this topic?" variant="black"/>
-                        </div>
-                        <div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">As a high school senior during the 2020 pandemic, I had more free time than ever. And like many others, I found myself searching Chloe Ting home workout (I know, how original) on YouTube, looking for a way to feel better and more in control about my physical health.</p>
-                            <div className="mb-6"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">That moment wasn’t unique, it was part of a larger shift. As the world slowed down, people began to reflect more deeply on their well-being as a form of self-care. Social media played a key role, with influencers encouraging healthy habits through creative trends.</p>
-                            <div className="mb-6"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">One that stood out was the rise of curated cardio playlists—energizing soundtracks that made workouts more engaging, especially on TikTok and Instagram.</p>
-                        </div>
-                    </div>
+        <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr] 2xl:grid-cols-[0.75fr_3fr]">
+            <div className="w-full h-full flex flex-col justify-between hidden lg:block">
+                <div id="overview" className="lg:sticky lg:top-[23%]">
+                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.company}</p>
+                    <div className="mb-6"></div>
+                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.product}</p>
+                    <div className="mb-6"></div>
+                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
+                    <MetaStatus/>
+                    <div className="mb-6"></div>
+                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.focus}</p>
+                    <div className="mb-6"></div>
+                    <a href={PROTOTYPE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] leading-loose hover:underline hover:text-[var(--colour-bodytext)]">
+                        Figma prototype
+                        <ExternalLink className="size-3.5" strokeWidth={1.5} aria-hidden="true"/>
+                    </a>
                 </div>
+            </div>
 
-                <div className="mb-30"></div>
+            <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
+                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Help runners build cardio playlists that match their pace</p>
 
-                <div className="w-full mt-20">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-4">
-                        <div className="md:sticky md:top-25 md:self-start">
-                            <Heading text="Understanding the trend" variant="black"/>
-                        </div>
-                        <div>
-                            <p className="text-lg text-[var(--colour-bodytext)] leading-loose">The faster the song, the faster the treadmill.</p>
-                            <div className="mb-6"></div>
-                            <div className="grid grid-cols-1 md:grid-cols-[2fr_1.5fr] gap-x-3 items-center justify-between">
-                                <div className="w-full grid grid-cols-3 gap-x-3">
-                                    <video className={`w-full h-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/context-vid-1.mp4" type="video/mp4" />
-                                    </video>
-                                    <video className={`w-full h-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/context-vid-2.mp4" type="video/mp4" />
-                                    </video>
-                                    <video className={`w-full h-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/context-vid-3.mp4" type="video/mp4" />
-                                    </video>
-                                </div>
-                                <div className="w-full hidden md:block">
-                                </div>
-                            </div>
-                            <div className="mb-8"></div>
-                            <p className="text-lg text-[var(--colour-bodytext)] leading-loose">The trend aims to create an engaging, fun running experience and motivate runners to finish their cardio session.</p>
-                            <div className="mb-6"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Fitness influencers makes cardio playlists, where songs are organized to match different speed ranges (phases) of a typical cardio session.</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Many viewers struggle to stay motivated throughout their cardio sessions, and often cutting their workouts short. With the right music, runners can feel more energized and motivated - making it easier to push through.</p>
-                            <div className="mb-6"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">This need had sparked the trend of cardio playlists.</p>
-                            <div className="mb-20"></div>
-                        </div>
-                    </div>
+                <div className="mb-8"></div>
+
+                <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
+                    <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">card.io is catered towards the fitness community and aims to improve the cardio running experience with personalized music selection and playlists.</p>
                 </div>
-
-                <div className="mb-30"></div>
-
-                <div className="w-full mt-20">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-4">
-                        <div className="">
-                            <Heading text="Research findings" variant="black"/>
-                        </div>
-                        <div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">I conducted 5 interviews with 5 users that identify themselves as fitness enthusiasts, and have participated in the trend on TikTok with their favourite fitness influencers. After the interviews, I categorized my data into 3 themes, and 1 driving insight.</p>
-                        </div>
-                    </div>
+                <div className="mb-10"></div>
+                <div className="flex justify-center bg-[var(--container-bg-2)]">
+                    <video src="/cardio animation.mp4" autoPlay muted loop playsInline aria-label="card.io running progress ring" className="w-full" />
                 </div>
 
                 <div className="mb-10"></div>
 
-                <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center items-center p-10 pb-13 rounded-2xl">
-                    <p className="text-sm text-[var(--main-colour)] leading-loose">Reoccurring themes</p>
-                    <div className="mb-5 md:mb-10"></div>
-                    <div className="w-full md:w-[65%] 2xl:w-[50%] grid grid-cols-3 -gap-x-10">
+                <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
+                    <div className="flex flex-col lg:flex-row gap-3 lg:gap-0 w-full lg:justify-between">
+                        <div>
+                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
+                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.company}</p>
+                        </div>
+                        <div>
+                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
+                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.product}</p>
+                        </div>
+                        <div>
+                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
+                            <MetaStatus/>
+                        </div>
+                        <div>
+                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
+                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.focus}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="mb-15"></div>
+
+                <hr className="border-[var(--nav-border)]" />
+
+                <div className="mb-15"></div>
+
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-12 font-semibold tracking-tight" id="problem">Runners struggle to customize and test a cardio playlist that actually fits their own pace.</p>
+                <div className="mb-8"></div>
+                <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
+                    <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">How might we make sure runners feel informed and confident in customizing & testing their own cardio playlists?</p>
+                </div>
+
+                <div className="mb-16"></div>
+
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="why">
+                    Why this topic?
+                </p>
+                <div className="mb-5"></div>
+                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">As a high school senior during the 2020 pandemic, I had more free time than ever. And like many others, I found myself searching Chloe Ting home workout (I know, how original) on YouTube, looking for a way to feel better and more in control about my physical health.</p>
+                <div className="mb-4"></div>
+                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">That moment wasn’t unique, it was part of a larger shift. As the world slowed down, people began to reflect more deeply on their well-being as a form of self-care. Social media played a key role, with influencers encouraging healthy habits through creative trends.</p>
+                <div className="mb-4"></div>
+                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">One that stood out was the rise of curated cardio playlists—energizing soundtracks that made workouts more engaging, especially on TikTok and Instagram.</p>
+
+                <div className="mb-16"></div>
+
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="trend">
+                    The faster the song, the faster the treadmill
+                </p>
+                <div className="mb-5"></div>
+                <div className="flex justify-center bg-[var(--container-bg-2)] p-6 lg:p-12">
+                    <div className="w-full lg:w-[60%] grid grid-cols-3 gap-3">
+                        <video src="/context-vid-1.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover rounded-xl" />
+                        <video src="/context-vid-2.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover rounded-xl" />
+                        <video src="/context-vid-3.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover rounded-xl" />
+                    </div>
+                </div>
+                <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Cardio playlist trend on TikTok.</p>
+                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Fitness influencers make cardio playlists, where songs are organized to match different speed ranges (phases) of a typical cardio session. The trend aims to create an engaging, fun running experience and motivate runners to finish their cardio session.</p>
+                <div className="mb-4"></div>
+                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Many viewers struggle to stay motivated throughout their cardio sessions, often cutting their workouts short. With the right music, runners can feel more energized and motivated - making it easier to push through. This need had sparked the trend of cardio playlists.</p>
+
+                <div className="mb-19"></div>
+
+                <hr className="border-[var(--nav-border)]" />
+
+                <div className="mb-15"></div>
+
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="findings">
+                    Research insights
+                </p>
+                <div className="mb-2"></div>
+                <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">5 interviews with fitness enthusiasts who have joined the trend on TikTok</p>
+                <div className="mb-6"></div>
+                <div className="flex justify-center bg-[var(--container-bg-2)] p-8 lg:p-14">
+                    <div className="w-full lg:w-[60%] grid grid-cols-3">
                         <ImageZoom>
-                            <Image src="/stickie-1.png" width={1469} height={1469} className="w-full h-auto mb-2 rotate-6 shadow-lg" alt="Samsung Knox"/> 
+                            <Image src="/stickie-1.png" width={1469} height={1469} className="w-full h-auto rotate-6 shadow-lg" alt="Research theme 1"/>
                         </ImageZoom>
                         <ImageZoom>
-                            <Image src="/stickie-2.png" width={1469} height={1779} className="w-full h-auto mb-2 -rotate-10 shadow-lg" alt="Samsung Knox"/> 
+                            <Image src="/stickie-2.png" width={1469} height={1779} className="w-full h-auto -rotate-10 shadow-lg" alt="Research theme 2"/>
                         </ImageZoom>
                         <ImageZoom>
-                            <Image src="/stickie-3.png" width={1469} height={1511} className="w-full h-auto mb-2 rotate-5 shadow-lg" alt="Samsung Knox"/> 
+                            <Image src="/stickie-3.png" width={1469} height={1511} className="w-full h-auto rotate-5 shadow-lg" alt="Research theme 3"/>
                         </ImageZoom>
                     </div>
-                    <div className="w-full md:w-[50%]">
+                </div>
+                <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">3 reoccurring themes from the interviews.</p>
+                <div className="block lg:flex p-8 border-1 bg-[var(--container-bg)] rounded-xl gap-5 items-center">
+                    <Lightbulb className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
+                    <p className="mt-5 lg:mt-0 text-lg lg:text-xl text-[var(--colour-bodytext)] leading-loose">Influencer-made playlists are a good starting point, but personal customization is what makes a “good” cardio playlist.</p>
+                </div>
+
+                <div className="mb-16"></div>
+
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="persona">
+                    Meet Michelle
+                </p>
+                <div className="mb-5"></div>
+                <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <User className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Michelle is a Sabrina Carpenter fan who loves doing cardio.</p>
                     </div>
-                    <div className="-mb-1 md:-mb-3"></div>
-                    <div className="w-full md:w-[50%] flex flex-col justify-center items-center">
-                        <p className="text-sm text-[var(--main-colour)] leading-loose">Driving insight</p>
-                        <div className="mb-2"></div>
-                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose text-center">Influencer-made playlist is considered a good starting point, but personal customization is what makes a “good” cardio playlist.</p>
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <Target className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">She wants to make a playlist to vibe to during her 45-minute cardio session.</p>
+                    </div>
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <Ruler className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">She’s 5&apos;3&quot; and runs at a slower pace than most fitness influencers, so she needs to customize her playlist to account for her height.</p>
+                    </div>
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <ListMusic className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">She doesn’t like some of Sabrina’s songs and wants to remove them, and add more songs from different artists.</p>
                     </div>
                 </div>
 
-                <div className="mb-30"></div>
+                <div className="mb-16"></div>
 
-                <div className="w-full mt-20">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-4">
-                        <div className="md:sticky md:top-25 md:self-start">
-                            <Heading text="Synthesizing my findings" variant="black"/>
-                        </div>
-                        <div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Now that I have a deeper understanding of my user, it's time to translate those data into a persona.</p>
-                            <div className="mb-6"></div>
-                            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-2xl">
-                                    <p className="text-sm text-[var(--main-colour)] leading-loose">Who she is</p>
-                                    <div className="mb-2"></div>
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Michelle is a Sabrina Carpenter fan who loves doing cardio.</p>
-                                </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-2xl">
-                                    <p className="text-sm text-[var(--main-colour)] leading-loose">Her goal</p>
-                                    <div className="mb-2"></div>
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">She wants to make a playlist to vibe to during her 45-minute cardio session.</p>
-                                </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-2xl">
-                                    <p className="text-sm text-[var(--main-colour)] leading-loose">Pain point</p>
-                                    <div className="mb-2"></div>
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">She’s 5'3" and runs at a slower pace than most fitness influencers, so she needs to customize her playlist to account for her height.</p>
-                                </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 pb-8 rounded-2xl">
-                                    <p className="text-sm text-[var(--main-colour)] leading-loose">Another pain point</p>
-                                    <div className="mb-2"></div>
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">She doesn’t like some of Sabrina’s songs and wants to remove them, also add more songs from different artists.</p>
-                                </div>
-                            </div>
-                            <div className="mb-3"></div>
-                            <div className="bg-[var(--container-bg)] flex flex-col p-7 pb-8 rounded-2xl">
-                                <p className="text-sm text-[var(--main-colour)] leading-loose">Problem ⚠️</p>
-                                <div className="mb-2"></div>
-                                <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Michelle feels frustrated because she doesn‘t have confidence in customizing & testing the playlist‘s effectiveness on her own.</p>
-                            </div>
-                            <div className="mb-3"></div>
-                            <div className="bg-[var(--main-darkercolour)] flex flex-col p-7 pb-8 rounded-2xl">
-                                <p className="text-sm text-white leading-loose">How might we...</p>
-                                <div className="mb-2"></div>
-                                <p className="text-lg text-white leading-loose">... make sure Michelle feels informed and confident in customizing & testing her own cardio playlists?</p>
-                            </div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose"></p>
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="brainstorm">
+                    Brainstorming solutions
+                </p>
+                <div className="mb-5"></div>
+                <div className="bg-[var(--container-bg-2)] p-8 lg:p-14 flex flex-col gap-10">
+                    <div>
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">The solution must solve 2 main goals</p>
+                        <div className="mb-4"></div>
+                        <div className="w-full lg:w-[60%] grid grid-cols-2 lg:grid-cols-4 gap-3">
+                            <ImageZoom>
+                                <Image src="/stickie-g-1.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Goal 1"/>
+                            </ImageZoom>
+                            <ImageZoom>
+                                <Image src="/stickie-g-2.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Goal 2"/>
+                            </ImageZoom>
                         </div>
                     </div>
-                </div>
-
-                <div className="mb-30"></div>
-
-                <div className="w-full mt-20">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-4">
-                        <div className="md:sticky md:top-25 md:self-start">
-                            <Heading text="Brainstorming my solutions" variant="black"/>
-                        </div>
-                        <div>
-                            <div className="w-full bg-[var(--container-bg)] flex flex-col px-10 py-7 rounded-2xl">
-                                <p className="text-sm text-[var(--main-colour)] leading-loose">Solution must solve 2 main goals</p>
-                                <div className="mb-5"></div>
-                                <div className="w-full 2xl:w-[75%] grid grid-cols-2 md:grid-cols-4 gap-x-3">
-                                    <ImageZoom>
-                                        <Image src="/stickie-g-1.png" width={1469} height={1469} className="w-full h-auto mb-2 shadow-lg" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                    <ImageZoom>
-                                        <Image src="/stickie-g-2.png" width={1469} height={1469} className="w-full h-auto mb-2 shadow-lg" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                   <div></div>
-                                   <div></div>
-                                </div>
-                                <div className="mb-10"></div>
-                                <p className="text-sm text-[var(--main-colour)] leading-loose">Possible solutions include</p>
-                                <div className="mb-5"></div>
-                                <div className="w-full 2xl:w-[75%] grid grid-cols-2 md:grid-cols-4 gap-3">
-                                    <ImageZoom>
-                                        <Image src="/stickie-sol-1.png" width={1469} height={1469} className="w-full shadow-lg" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                    <ImageZoom>
-                                        <Image src="/stickie-sol-2.png" width={1469} height={1469} className="w-full shadow-lg" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                    <ImageZoom>
-                                        <Image src="/stickie-sol-3.png" width={1469} height={1469} className="w-full shadow-lg" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                </div>
-                            </div>
+                    <div>
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Possible solutions include</p>
+                        <div className="mb-4"></div>
+                        <div className="w-full lg:w-[60%] grid grid-cols-2 lg:grid-cols-4 gap-3">
+                            <ImageZoom>
+                                <Image src="/stickie-sol-1.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Solution idea 1"/>
+                            </ImageZoom>
+                            <ImageZoom>
+                                <Image src="/stickie-sol-2.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Solution idea 2"/>
+                            </ImageZoom>
+                            <ImageZoom>
+                                <Image src="/stickie-sol-3.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Solution idea 3"/>
+                            </ImageZoom>
                         </div>
                     </div>
                 </div>
 
-                <div className="mb-30"></div>
+                <div className="mb-19"></div>
 
-                <div className="w-full mt-20">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-4">
-                        <div className="md:sticky md:top-22 md:self-start">
-                            <Heading text="What card.io does" variant="black"/>
-                            <MyButton variant="hyperlink" text="View prototype on Figma" link="https://www.figma.com/proto/5SjXuZ0MgUNMOFRmh3qOOY/card.io?page-id=0%3A1&node-id=24-151&viewport=779%2C110%2C0.2&t=Yy6S9WYqbPXyKWdL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=24%3A151" textSize="text-sm" target="blank"/>
-                            <div className="mb-9"></div>
+                <hr className="border-[var(--nav-border)]" />
+
+                <div className="mb-15"></div>
+
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="solution">
+                    What card.io does
+                </p>
+                <div className="mb-4"></div>
+                <div className="flex flex-col gap-6 lg:gap-0 lg:flex-row p-4 border-1 rounded-xl lg:justify-between lg:items-center">
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Personalized, colour-coded cardio playlists with real-time support while running.</p>
+                    <MyButton variant="secondary-external" text="View prototype on Figma" link={PROTOTYPE_URL} target="_blank" textSize="text-sm" onClick={() => {}}/>
+                </div>
+                <div className="mb-8"></div>
+
+                <div>
+                    <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
+                        <div className="w-full lg:w-[45%] grid grid-cols-2 gap-4">
+                            <video src="/sol-1.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
+                            <ImageZoom>
+                                <Image src="/sol-11.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io generated playlist"/>
+                            </ImageZoom>
                         </div>
-                        <div>
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
-                                <div className="w-full md:w-[45%] grid grid-cols-2 gap-x-4">
-                                    <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/sol-1.mp4" type="video/mp4" />
-                                    </video>
-                                    <ImageZoom>
-                                        <Image src="/sol-11.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                </div>
-                            </div>
-                            <div className="mb-4"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Automatically create organized, colour-coded playlists based on users‘ music preferences.</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Makes customizing easier - Suggest songs with similar range of BPM.</p>
+                    </div>
+                    <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Automatically creates organized, colour-coded playlists based on users’ music preferences, and suggests songs with a similar BPM range to make customizing easier.</p>
 
-                            <div className="mb-20"></div>
-
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
-                                <div className="w-full md:w-[65%] grid grid-cols-3 gap-x-4">
-                                    <ImageZoom>
-                                        <Image src="/sol-21.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                    <ImageZoom>
-                                        <Image src="/sol-22.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                    <ImageZoom>
-                                        <Image src="/sol-23.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                </div>
-                            </div>
-                            <div className="mb-4"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Offers questionnaire that collects users’ physical attributes data to create a more personalized playlist.</p>
-
-                            <div className="mb-20"></div>
-
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
-                                <div className="w-full md:w-[45%] grid grid-cols-2 gap-x-4">
-                                    <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/sol-3.mp4" type="video/mp4" />
-                                    </video>
-                                    <ImageZoom>
-                                        <Image src="/sol-3.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                </div>
-                            </div>
-                            <div className="mb-4"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Makes testing easier - Real-time report during running.</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Report includes session’s progress, current BPM, current treadmill settings (speed, incline).</p>
-                        
-                            <div className="mb-20"></div>
-
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
-                                <div className="w-[50%] md:w-[20%]">
-                                    <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/sol-4.mp4" type="video/mp4" />
-                                    </video>
-                                </div>
-                            </div>
-                            <div className="mb-4"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Offers more freedom in creating mixed playlists with different artists, albums, genres, etc.</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">With “Manual Mode”, Michelle can freely add any songs she likes to the cardio playlist while still having all the features above for support.</p>
+                    <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
+                        <div className="w-full lg:w-[65%] grid grid-cols-3 gap-4">
+                            <ImageZoom>
+                                <Image src="/sol-21.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io questionnaire step 1"/>
+                            </ImageZoom>
+                            <ImageZoom>
+                                <Image src="/sol-22.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io questionnaire step 2"/>
+                            </ImageZoom>
+                            <ImageZoom>
+                                <Image src="/sol-23.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io questionnaire step 3"/>
+                            </ImageZoom>
                         </div>
+                    </div>
+                    <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">A questionnaire collects users’ physical attributes to create a more personalized playlist.</p>
+
+                    <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
+                        <div className="w-full lg:w-[45%] grid grid-cols-2 gap-4">
+                            <video src="/sol-3.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
+                            <ImageZoom>
+                                <Image src="/sol-3.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io running report"/>
+                            </ImageZoom>
+                        </div>
+                    </div>
+                    <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Real-time report while running makes testing easier: session progress, current BPM, and treadmill settings (speed, incline).</p>
+
+                    <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
+                        <div className="w-[50%] lg:w-[22%]">
+                            <video src="/sol-4.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
+                        </div>
+                    </div>
+                    <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">“Manual Mode” lets Michelle freely mix artists, albums and genres while keeping all the support features above.</p>
+                </div>
+
+                <div className="mb-18"></div>
+
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="testing">
+                    First prototype & user testing
+                </p>
+                <div className="mb-4"></div>
+                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">I conducted a heuristic evaluation with another UX designer, along with 2 in-person user testing sessions, to discover issues with the first iteration.</p>
+                <div className="mb-6"></div>
+                <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
+                    <div className="w-[50%] lg:w-[22%]">
+                        <video src="/draft.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
+                    </div>
+                </div>
+                <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">First iteration of card.io.</p>
+
+                <div className="p-8 border-1 rounded-xl flex flex-col gap-y-3">
+                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Heuristic issue</p>
+                    <p className="text-md text-[var(--colour-bodytext)] leading-loose">Using a slide bar as a progress indicator gives a false impression.</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">The straight slide bar resembles the draggable bars on platforms like YouTube or Netflix. But in card.io, it functions solely as a progress indicator and isn’t interactive.</p>
+                    <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 gap-3">
+                        <ImageZoom>
+                            <Image src="/slidebar.png" width={1104} height={2312} className="w-full rounded-xl" alt="card.io slide bar"/>
+                        </ImageZoom>
+                        <ImageZoom>
+                            <Image src="/youtube.png" width={1104} height={2312} className="w-full rounded-xl" alt="YouTube scrubber"/>
+                        </ImageZoom>
+                    </div>
+                </div>
+                <div className="mb-6"></div>
+                <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
+                    <div className="w-full lg:w-[45%] grid grid-cols-2">
+                        <ImageZoom>
+                            <Image src="/ut-1.png" width={1469} height={1996} className="w-full h-auto -rotate-6 shadow-lg" alt="User testing theme 1"/>
+                        </ImageZoom>
+                        <ImageZoom>
+                            <Image src="/ut-2.png" width={1469} height={1964} className="w-full h-auto rotate-10 shadow-lg" alt="User testing theme 2"/>
+                        </ImageZoom>
+                    </div>
+                </div>
+                <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">2 reoccurring themes from user testing.</p>
+
+                <div className="mb-12"></div>
+
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="improvements">
+                    3 key UX improvements
+                </p>
+                <div className="mb-6"></div>
+
+                <p className="text-md text-[var(--colour-bodytext)] leading-loose">1. From scrubber to a circular design</p>
+                <div className="mb-4"></div>
+                <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
+                    <div className="w-full lg:w-[45%] grid grid-cols-2 gap-4">
+                        <ImageZoom>
+                            <Image src="/draft.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="Before: scrubber"/>
+                        </ImageZoom>
+                        <ImageZoom>
+                            <Image src="/sol-3.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="After: circular progress"/>
+                        </ImageZoom>
+                    </div>
+                </div>
+                <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-4">Before and after.</p>
+                <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <Gauge className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">More conventional, non-interactive progress indicator.</p>
+                    </div>
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <Info className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Removes confusion with the progress bars of streaming services.</p>
+                    </div>
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <Eye className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Fits a thicker bezel, improving glanceability.</p>
                     </div>
                 </div>
 
-                <div className="mb-30"></div>
+                <div className="mb-14"></div>
 
-                <div className="w-full mt-20">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-4">
-                        <div className="md:sticky md:top-22 md:self-start">
-                            <Heading text="First prototype & User testing" variant="black"/>
-                        </div>
-                        <div>
-                            <p className="text-lg text-[var(--colour-bodytext)] leading-loose">This is the first iteration of card.io. I conducted a Heuristic evaluation session with another UX designer, along with 2 in-person user testing sessions to discover issues with this interface.</p>
-                            <div className="mb-5"></div>
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
-                                <div className="w-[50%] md:w-[20%]">
-                                    <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                        <source src="/draft.mp4" type="video/mp4" />
-                                    </video>
-                                </div>
-                            </div>
-                            <div className="mb-4"></div>
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col rounded-2xl">
-                                <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-3">
-                                    <ImageZoom>
-                                        <Image src="/slidebar.png" width={1104} height={2312} className="w-full rounded-2xl" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                    <ImageZoom>
-                                        <Image src="/youtube.png" width={1104} height={2312} className="w-full rounded-2xl" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                </div>
-                                <div className="w-full justify-center items-center z-2 hidden md:flex">
-                                </div>
-                                <div className="mb-4"></div>
-                                <p className="text-sm text-[var(--main-colour)] leading-loose">Heuristic issue</p>
-                                <div className="mb-2"></div>
-                                <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Using slide bar as progress indicator gives a false impression.</p>
-                                <div className="mb-2"></div>
-                                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">The straight slide bar in card.io resembles the draggable bars on platforms like YouTube or Netflix. But in card.io, it functions solely as a progress indicator and isn’t interactive.</p>
-                            </div>
-                            <div className="mb-4"></div>
-                            <div className="w-[100%] bg-[var(--container-bg)] flex flex-col justify-center p-10 pb-15 rounded-2xl">
-                                <p className="text-sm text-[var(--main-colour)] leading-loose">2 reoccurring themes from UT</p>
-                                <div className="mb-10"></div>
-                                <div className="w-full flex items-center justify-center">
-                                    <div className="w-full md:w-[65%] 2xl:w-[45%] grid grid-cols-2 -gap-x-9">
-                                        <ImageZoom>
-                                            <Image src="/ut-1.png" width={1469} height={1996} className="w-full h-auto mb-2 -rotate-6 shadow-lg" alt="Samsung Knox"/> 
-                                        </ImageZoom>
-                                        <ImageZoom>
-                                            <Image src="/ut-2.png" width={1469} height={1964} className="w-full h-auto mb-2 rotate-10 shadow-lg" alt="Samsung Knox"/> 
-                                        </ImageZoom>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <p className="text-md text-[var(--colour-bodytext)] leading-loose">2. From tapping to swiping</p>
+                <div className="mb-4"></div>
+                <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
+                    <div className="w-[50%] lg:w-[22%]">
+                        <video src="/swiping.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
+                    </div>
+                </div>
+                <div className="mb-4"></div>
+                <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <Hand className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Large interaction area, hard to miss.</p>
+                    </div>
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <Target className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Low precision, high accuracy (compared to tapping, which requires high precision).</p>
+                    </div>
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <Gauge className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Easy to interact with during intense physical activity.</p>
                     </div>
                 </div>
 
-                <div className="mb-30"></div>
+                <div className="mb-14"></div>
 
-                <div className="w-full mt-20">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-4">
-                        <div className="md:sticky md:top-22 md:self-start">
-                            <Heading text="3 key UX improvements" variant="black"/>
-                        </div>
-                        <div>
-                            <p className="text-lg text-[var(--colour-bodytext)] leading-loose">1) From scrubber to a circular design.</p>
-                            <div className="mb-6"></div>
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
-                                <div className="w-full md:w-[75%] grid grid-cols-[1fr_2fr_2fr_1fr] gap-x-2 md:gap-x-4">
-                                    <ImageZoom>
-                                        <Image src="/draft.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                    <ImageZoom>
-                                        <Image src="/sol-3.png" width={1104} height={2312} className="w-full h-auto mb-2 rounded-2xl" alt="Samsung Knox"/> 
-                                    </ImageZoom>
-                                </div>
-                            </div>
-                            <div className="mb-3"></div>
-                            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3">
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">More conventional non interactive progress indicator.</p>
-                                </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Remove confusion with the progress bar for streaming services.</p>
-                                </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Able to incorporate a thicker bezel, improving glanceability.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div></div>
-                        <div className="mt-30">
-                            <p className="text-lg text-[var(--colour-bodytext)] leading-loose">2) From tapping to swiping.</p>
-                            <div className="mb-6"></div>
-                            <div className="w-full bg-[var(--container-bg)] p-10 flex flex-col justify-center items-center rounded-2xl">
-                                <div className="w-full flex justify-center">
-                                    <div className="w-[50%] md:w-[25%]">
-                                        <video className={`w-full object-cover rounded-2xl`} autoPlay muted loop playsInline>
-                                            <source src="/swiping.mp4" type="video/mp4" />
-                                        </video>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="mb-3"></div>
-                            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3">
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Large interaction area, hard to miss.</p>
-                                </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Low precision, high accuracy (compare to tapping which requires high precision).</p>
-                                </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Easy to interact during intense physical activities.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div></div>
-                        <div className="mt-30">
-                            <p className="text-lg text-[var(--colour-bodytext)] leading-loose">3) Chunking information.</p>
-                            <div className="mb-6"></div>
-                            <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-3">
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Instead of showing all information at once, sort them into 3 groups separated by a swipe.</p>
-                                </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Reduce visual clutter, improve glanceability during intense running.</p>
-                                </div>
-                                <div className="bg-[var(--container-bg)] flex flex-col h-full p-7 rounded-2xl">
-                                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Resemblance to a modern treadmill interface.</p>
-                                </div>
-                            </div>
-                        </div>
+                <p className="text-md text-[var(--colour-bodytext)] leading-loose">3. Chunking information</p>
+                <div className="mb-4"></div>
+                <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4">
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <ListMusic className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Instead of showing all information at once, sort it into 3 groups separated by a swipe.</p>
+                    </div>
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <Eye className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Reduces visual clutter, improving glanceability during intense running.</p>
+                    </div>
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-5">
+                        <Gauge className="w-5 h-5 text-[var(--colour-bodytext)]" />
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Resembles a modern treadmill interface.</p>
                     </div>
                 </div>
 
-                <div className="mb-30"></div>
+                <div className="mb-18"></div>
 
-                <div className="w-full mt-20">
-                    <div className="grid grid-cols-1 md:grid-cols-[1fr_3fr] gap-x-4">
-                        <div className="md:sticky md:top-25 md:self-start">
-                            <Heading text="Reflections" variant="black"/>
-                        </div>
-                        <div>
-                            <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Looking back...</p>
-                            <div className="mb-6"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Customize to follow WCAG standard more (using different Figma plugins: A11y Colour Contrast Checker, A11y Text, etc.)</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">See if there is a better way to give user support in customizing other than suggesting songs with similar BPM.</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">I want to conduct more user testing to gather more data for the questionnaire.</p>
-                            <div className="mb-12"></div>
-                            <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Takeaways</p>
-                            <div className="mb-6"></div>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design with a clear goal in mind.</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Pay attention to every steps as it will all come together and it will all have to make sense in the end.</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design for accessibility.</p>
-                        </div>
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="reflection-corner">
+                    Reflection corner
+                </p>
+                <div className="mb-5"></div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-3">
+                        <Accessibility className="w-5 h-5 text-[var(--colour-bodytext)] mb-2"/>
+                        <p className="text-md text-[var(--colour-bodytext)] leading-loose">Looking back...</p>
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">I would follow WCAG standards more closely (using Figma plugins like A11y Colour Contrast Checker and A11y Text), look for better ways to support customizing beyond suggesting songs with a similar BPM, and run more user testing to gather data for the questionnaire.</p>
+                    </div>
+                    <div className="p-8 border-1 rounded-xl flex flex-col gap-y-3">
+                        <Lightbulb className="w-5 h-5 text-[var(--colour-bodytext)] mb-2"/>
+                        <p className="text-md text-[var(--colour-bodytext)] leading-loose">Takeaways</p>
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design with a clear goal in mind. Pay attention to every step, as it will all come together and have to make sense in the end. And always design for accessibility.</p>
                     </div>
                 </div>
 
-                <div className="mb-40"></div>
-                                
-                <div className="w-full flex flex-col md:flex-row justify-center gap-3">
-                    <MyButton variant="secondary" text="Return to home" link="/" textSize="text-sm" target="_self"/>
+                <div className="mb-25"></div>
+
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="other-works">
+                    Other works
+                </p>
+                <div className="mb-8"></div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
+                    <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" imageSrc="/geofenceee.png" imageSrcDark="/geofenceee.png" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/geofence.mp4" target="_self"/>
+                    <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/organizations.mp4" target="_self"/>
+                    <ProjectThumbnailNew isLink="image-link" link="knoxagent" type="UX design, shipped" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" imageSrcDark="/yuhh.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
                 </div>
 
-                <div className="w-full">
-                    <Footer/>
-                </div>
-
+                <div className="mb-25"></div>
             </div>
         </div>
     </div>
