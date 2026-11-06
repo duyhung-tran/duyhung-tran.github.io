@@ -20,7 +20,8 @@
 const W = 1920, H = 1382;
 const CX = 960.01, CY = 691.29;           // ring centre
 const R = 297.1, STROKE = 87.78;          // ring centre-line radius / thickness
-const END = 235 * Math.PI / 180;          // progress end
+const LANDED = 28 * 60 + 5;               // timer lands on 28:05
+const END = LANDED / (45 * 60) * Math.PI * 2;   // ring angle for 28:05 of 45:00 (≈224.7°)
 const FONT = '"PN", "Proxima Nova", "Montserrat", "Helvetica Neue", Arial, sans-serif';
 
 const cvs = document.getElementById("c");
@@ -106,6 +107,13 @@ function drawWave(t) {
 }
 
 // ---------- ring ----------
+// arc sweep in radians at time t — the ring and the timer both read this
+const TOTAL_SECONDS = 45 * 60;
+// the ring and the timer read the same progress, then both stop at 28:05
+const arcSweep = t => END * easeInOutSine(prog(t, ...T.arc));
+const elapsedSeconds = t => Math.min(LANDED, Math.floor(TOTAL_SECONDS * arcSweep(t) / (Math.PI * 2) + 1e-6));
+const fmt = sec => `${String(Math.floor(sec / 60)).padStart(2, "0")}:${String(sec % 60).padStart(2, "0")}`;
+
 function drawRing(t) {
   // track and arc share one scale so they always line up
   const ptRaw = prog(t, ...T.track);
@@ -126,8 +134,7 @@ function drawRing(t) {
 
   const ra = prog(t, ...T.arc);
   if (ra > 0) {
-    const pa = easeInOutSine(ra);
-    const sweep = Math.max(0.0001, END * pa);
+    const sweep = Math.max(0.0001, arcSweep(t));
     const g = ctx.createLinearGradient(0, -R - STROKE / 2 + 44, 0, R - 4);
     g.addColorStop(0, "#1AD558");
     g.addColorStop(1, "#072B71");
@@ -184,9 +191,15 @@ function drawText(t) {
   ctx.save();
   ctx.textBaseline = "alphabetic";
   const BIG_COLOR = "#2A3340", SMALL_COLOR = "#7A828C";   // soft slate instead of pure black
-  ctx.font = bigFont;  ctx.letterSpacing = "-3.5552px";
-  const bigTxt = "28:05 ";
-  const wb = ctx.measureText(bigTxt).width;
+  // big timer: each digit sits in a fixed-width slot so the layout never shifts while counting
+  ctx.font = bigFont;  ctx.letterSpacing = "0px";
+  const SP = -3.5552;
+  const digitW = Math.max(...[..."0123456789"].map(d => ctx.measureText(d).width));
+  const colonW = ctx.measureText(":").width;
+  const spaceW = ctx.measureText(" ").width;
+  const bigTxt = fmt(elapsedSeconds(t));
+  const slotW = c => (c === ":" ? colonW : digitW) + SP;
+  const wb = [...bigTxt].reduce((a, c) => a + slotW(c), 0) + spaceW;
   ctx.font = smallFont; ctx.letterSpacing = "-1.78px";
   const smallTxt = "/ 45:00";
   const ws = ctx.measureText(smallTxt).width;
@@ -195,8 +208,10 @@ function drawText(t) {
   if (pb > 0) {
     ctx.globalAlpha = pb;
     ctx.fillStyle = BIG_COLOR;
-    ctx.font = bigFont; ctx.letterSpacing = "-3.5552px";
-    ctx.fillText(bigTxt, x0, base + yb);
+    ctx.font = bigFont; ctx.letterSpacing = "0px"; ctx.textAlign = "center";
+    let x = x0;
+    for (const c of bigTxt) { const w = slotW(c); ctx.fillText(c, x + (w - SP) / 2, base + yb); x += w; }
+    ctx.textAlign = "left";
   }
   if (ps > 0) {
     ctx.globalAlpha = ps;
