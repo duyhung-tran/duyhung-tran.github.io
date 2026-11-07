@@ -6,7 +6,7 @@ import Hyperlink from "@/components/hyperlink";
 import Nav from "@/components/nav";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import { ExternalLink, Info, Lightbulb, Target, User, Ruler, ListMusic, Gauge, Hand, Eye, Accessibility, SquareArrowOutUpRight } from "lucide-react";
-import ProjectThumbnailNew from "@/components/project-thumbnail-new";
+import ProjectThumbnail from "@/components/project-thumbnail-new";
 
 const PROTOTYPE_URL = "https://www.figma.com/proto/5SjXuZ0MgUNMOFRmh3qOOY/card.io?page-id=0%3A1&node-id=24-151&viewport=779%2C110%2C0.2&t=Yy6S9WYqbPXyKWdL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=24%3A151";
 
@@ -431,9 +431,9 @@ export default function Cardio() {
                 <div className="mb-8"></div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
-                    <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" imageSrc="/geofenceee.png" imageSrcDark="/geofenceee.png" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/geofence.mp4" target="_self"/>
-                    <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/organizations.mp4" target="_self"/>
-                    <ProjectThumbnailNew isLink="image-link" link="knoxagent" type="UX design, shipped" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" imageSrcDark="/yuhh.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
+                    <ProjectThumbnail link="rules" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" videoSrc="/geofence.mp4" target="_self"/>
+                    <ProjectThumbnail link="organizations" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" videoSrc="/organizations.mp4" target="_self"/>
+                    <ProjectThumbnail link="knoxagent" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" target="_self"/>
                 </div>
 
                 <div className="mb-25"></div>

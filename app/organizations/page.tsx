@@ -7,7 +7,7 @@ import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import Menu from "@/components/menu";
 import Nav from "@/components/nav";
 import { ExternalLink, Info, Lightbulb, Puzzle } from "lucide-react";
-import ProjectThumbnailNew from "@/components/project-thumbnail-new";
+import ProjectThumbnail from "@/components/project-thumbnail-new";
 
 export default function Organizations() {
   return (
@@ -165,10 +165,10 @@ export default function Organizations() {
                 <div className="mb-8"></div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
-                    <ProjectThumbnailNew isLink="image-link" link="knoxagent" type="UX design, shipped" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" imageSrcDark="/yuhh.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-                    <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" imageSrc="/geofenceee.png" imageSrcDark="/geofenceee.png" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/geofence.mp4" target="_self"/>
-                    <ProjectThumbnailNew isLink="image-link" link="health" type="UX research" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" imageSrcDark="/health logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-                    {/* <ProjectThumbnailNew isLink="image-link" link="alerts" type="UX design, shipped" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/> */}
+                    <ProjectThumbnail link="knoxagent" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" target="_self"/>
+                    <ProjectThumbnail link="rules" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" videoSrc="/geofence.mp4" target="_self"/>
+                    <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" target="_self"/>
+                    {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
                 </div>
 
                 <div className="mb-25"></div>

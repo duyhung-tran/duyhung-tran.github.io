@@ -48,7 +48,7 @@ export default function Menu() {
                     </a>
                     <div className="mb-1"></div>
                     <a href="/archive" className="mb-1 block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
-                        Archive
+                        Archive of Hung's own
                     </a>
                     <div className="mb-1"></div>
                     {/* <a href="/testimonials" className="mb-1 block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">

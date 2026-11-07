@@ -4,7 +4,7 @@ import Image from "next/image";
 import Hyperlink from "@/components/hyperlink";
 import Footer from "@/components/footer";
 import { useEffect, useState } from "react";
-import ProjectThumbnailNew from "@/components/project-thumbnail-new";
+import ProjectThumbnail from "@/components/project-thumbnail-new";
 import Menu from "@/components/menu";
 import Nav from "@/components/nav";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -31,12 +31,12 @@ export default function Home2() {
           <div className="mb-11"></div>
 
           <div className={`grid grid-cols-1 gap-10 lg:gap-3 lg:grid-cols-2 ${mrForkOpen ? "" : "2xl:grid-cols-3"}`}>
-            <ProjectThumbnailNew isLink="image-link" link="rules" type="UX design, shipped" name="Control devices based on locations" desc="Samsung Knox Manage" imageSrc="/geofenceee.png" imageSrcDark="/geofenceee.png" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/geofence.mp4" target="_self"/>
-            <ProjectThumbnailNew isLink="image-link" link="organizations" type="Design system, shipped" name="Visualize hierarchical device management" desc="Samsung Knox Manage" imageSrc="/orga.png" imageSrcDark="/orga.png" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/organizations.mp4" target="_self"/>
-            <ProjectThumbnailNew isLink="image-link" link="cardio" type="UX design" name="Run with the right music" desc="Spotify POC" imageSrc="/health logo.png" imageSrcDark="" imageSrcPoster="" imageSrcPosterDark="" videoSrc="/cardio animation.mp4" target="_self"/>
-            <ProjectThumbnailNew isLink="image-link" link="knoxagent" type="UX design, shipped" name="Interactive widgets for agents experiences" desc="Samsung Knox AI Assist" imageSrc="/yuhh.png" imageSrcDark="/yuhh.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-            <ProjectThumbnailNew isLink="image-link" link="health" type="UX research" name="Supporting a health weight journey" desc="Samsung Health" imageSrc="/health logo.png" imageSrcDark="/health logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/>
-            {/* <ProjectThumbnailNew isLink="image-link" link="alerts" type="UX design, shipped" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" imageSrcDark="/knox logo.png" imageSrcPoster="" imageSrcPosterDark="" target="_self"/> */}
+            <ProjectThumbnail link="rules" name="Control devices based on locations" desc="Samsung Knox Manage" videoSrc="/geofence.mp4" target="_self"/>
+            <ProjectThumbnail link="organizations" name="Visualize hierarchical device management" desc="Samsung Knox Manage" videoSrc="/organizations.mp4" target="_self"/>
+            <ProjectThumbnail link="cardio" name="Run with the right music" desc="Spotify POC" videoSrc="/cardio animation.mp4" target="_self"/>
+            <ProjectThumbnail link="knoxagent" name="Interactive widgets for agents experiences" desc="Samsung Knox AI Assist" imageSrc="/yuhh.png" target="_self"/>
+            <ProjectThumbnail link="health" name="Supporting a health weight journey" desc="Samsung Health" imageSrc="/health logo.png" target="_self"/>
+            {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
           </div>
 
           <div className="mb-25"></div>
