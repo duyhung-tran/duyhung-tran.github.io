@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import MyButton from "@/components/my-button";
+import Hyperlink from "@/components/hyperlink";
 import Nav from "@/components/nav";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
-import { ExternalLink, Info, Lightbulb, Target, User, Ruler, ListMusic, Gauge, Hand, Eye, Accessibility } from "lucide-react";
+import { ExternalLink, Info, Lightbulb, Target, User, Ruler, ListMusic, Gauge, Hand, Eye, Accessibility, SquareArrowOutUpRight } from "lucide-react";
 import ProjectThumbnailNew from "@/components/project-thumbnail-new";
 
 const PROTOTYPE_URL = "https://www.figma.com/proto/5SjXuZ0MgUNMOFRmh3qOOY/card.io?page-id=0%3A1&node-id=24-151&viewport=779%2C110%2C0.2&t=Yy6S9WYqbPXyKWdL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=24%3A151";
@@ -46,10 +47,7 @@ export default function Cardio() {
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.focus}</p>
                     <div className="mb-6"></div>
-                    <a href={PROTOTYPE_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] leading-loose hover:underline hover:text-[var(--colour-bodytext)]">
-                        Figma prototype
-                        <ExternalLink className="size-3.5" strokeWidth={1.5} aria-hidden="true"/>
-                    </a>
+                    <Hyperlink variant="icon" icon={ExternalLink} text="Figma prototype" link={PROTOTYPE_URL} target="_blank"/>
                 </div>
             </div>
 
@@ -237,7 +235,7 @@ export default function Cardio() {
                 <div className="mb-4"></div>
                 <div className="flex flex-col gap-6 lg:gap-0 lg:flex-row p-4 border-1 rounded-xl lg:justify-between lg:items-center">
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Personalized, colour-coded cardio playlists with real-time support while running.</p>
-                    <MyButton variant="secondary-external" text="View prototype on Figma" link={PROTOTYPE_URL} target="_blank" textSize="text-sm" onClick={() => {}}/>
+                    <MyButton variant="secondary" icon={SquareArrowOutUpRight} text="View prototype on Figma" link={PROTOTYPE_URL} target="_blank" textSize="text-sm"/>
                 </div>
                 <div className="mb-8"></div>
 

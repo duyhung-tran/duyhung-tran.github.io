@@ -23,7 +23,7 @@
 //                     </div>
 //                 </div>
 //                 <div className="flex gap-x-6 items-center">
-//                     {/* <MyButton variant="secondary-contacts" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
+//                     {/* <MyButton variant="secondary" icon={Mail} text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
 //                     {/* <MyButton variant="secondary-theme" text="Dark Mode" link="#" target="_blank" textSize="text-xs"/> */}
 //                     <Menu/>
 //                 </div>
@@ -43,7 +43,7 @@
 //                     </div>
 //                 </div>
 //                 <div className="flex gap-x-6 items-center">
-//                     {/* <MyButton variant="secondary-contacts" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
+//                     {/* <MyButton variant="secondary" icon={Mail} text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/> */}
 //                     {/* <MyButton variant="secondary-theme" text="Dark Mode" link="#" target="_blank" textSize="text-xs"/> */}
 //                     <Menu/>
 //                 </div>

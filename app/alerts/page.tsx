@@ -7,7 +7,7 @@ import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import Menu from "@/components/menu";
 import Nav from "@/components/nav";
-import { CircleAlert, Info } from "lucide-react";
+import { CircleAlert, Info, Mail } from "lucide-react";
 import ProjectThumbnailNew from "@/components/project-thumbnail-new";
 
 export default function Alerts() {
@@ -44,7 +44,7 @@ export default function Alerts() {
                         <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
                         <p className="text-sm text-[var(--colour-bodytext)] leading-loose">This project is likely under a stricter NDA, or hasn't been launched yet.</p>
                     </div>
-                    <MyButton variant="secondary-contacts" text="Contact for details" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-sm"/>
+                    <MyButton variant="secondary" icon={Mail} text="Contact for details" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-sm"/>
                 </div>
 
                 <div className="mb-12"></div>

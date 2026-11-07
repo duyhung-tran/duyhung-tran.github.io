@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import MyButton from "@/components/my-button";
+import Hyperlink from "@/components/hyperlink";
 import Footer from "@/components/footer";
 import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
@@ -46,7 +46,7 @@ export default function Health() {
 
                 <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
                     <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">This research was conducted during my time on the <span className="inline-block"><MyButton link="https://www.samsung.com/ca/apps/samsung-health/" target="_blank" variant="hyperlink" text="Samsung Health" textSize="text-sm"/></span> team as a UX Researcher.</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">This research was conducted during my time on the <Hyperlink link="https://www.samsung.com/ca/apps/samsung-health/" target="_blank" text="Samsung Health"/> team as a UX Researcher.</p>
                 </div>
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)]">

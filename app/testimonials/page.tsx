@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import MyButton from "@/components/my-button";
 import { useState } from "react";
 import Nav from "@/components/nav";
 

@@ -4,7 +4,7 @@ import Image from "next/image";
 import MyButton from "@/components/my-button";
 import { useState } from "react";
 import Nav from "@/components/nav";
-import { Info } from "lucide-react";
+import { Info, Mail } from "lucide-react";
 
 export default function Nothing() {
     return (
@@ -22,7 +22,7 @@ export default function Nothing() {
                             <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">This project is likely under a stricter NDA, or hasn't been launched yet.</p>
                         </div>
-                        <MyButton variant="secondary-contacts" text="Contacts for details" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-sm"/>
+                        <MyButton variant="secondary" icon={Mail} text="Contacts for details" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-sm"/>
                     </div>
                 </div>
                 <div>

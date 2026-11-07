@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import MyButton from "@/components/my-button";
+import Hyperlink from "@/components/hyperlink";
 import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import Menu from "@/components/menu";
@@ -32,10 +32,7 @@ export default function Organizations() {
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design system</p>
                     <div className="mb-6"></div>
-                    <a href="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-organizations/manage-organizations/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] leading-loose hover:underline hover:text-[var(--colour-bodytext)]">
-                        Documentations
-                        <ExternalLink className="size-3.5" strokeWidth={1.5} aria-hidden="true"/>
-                    </a>
+                    <Hyperlink variant="icon" icon={ExternalLink} text="Documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-organizations/manage-organizations/" target="_blank"/>
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
@@ -45,7 +42,7 @@ export default function Organizations() {
 
                 <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
                     <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose"><span className="inline-block"><MyButton link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" target="_blank" variant="hyperlink" text="Knox Manage" textSize="text-sm"/></span> is Samsung's B2B device management solution that allows IT admins to remotely control corporate devices.</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose"><Hyperlink link="https://www.samsungknox.com/en/solutions/it-solutions/knox-manage" target="_blank" text="Knox Manage"/> is Samsung's B2B device management solution that allows IT admins to remotely control corporate devices.</p>
                 </div>
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)]">

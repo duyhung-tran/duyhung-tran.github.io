@@ -2,9 +2,8 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import MyButton from "./my-button";
 // import { useMrFork } from "./mr-fork/provider";
-import { Menu as MenuIcon, /* Utensils, */ X } from "lucide-react";
+import { Menu as MenuIcon, /* Utensils, */ X, Mail } from "lucide-react";
 
 export default function Menu() {
     const [openMenu, setOpenMenu] = useState(false);
@@ -48,7 +47,6 @@ export default function Menu() {
                         About
                     </a>
                     <div className="mb-1"></div>
-                    {/* <MyButton variant="secondary-theme" text="Dark mode" link="" target="" textSize="text-xs" onClick={() => setOpenMenu(false)}/> */}
                     <div className="mb-1"></div>
                     {/* <button
                         type="button"
@@ -66,7 +64,15 @@ export default function Menu() {
                         />
                     </button>
                     <div className="mb-1"></div> */}
-                    <MyButton variant="secondary-contacts" text="Contacts" link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" textSize="text-xs"/>
+                    <a
+                        href="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex justify-between items-center gap-3 p-4 border-1 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)]"
+                    >
+                        <span>Contacts</span>
+                        <Mail className="size-3.5" aria-hidden="true"/>
+                    </a>
                 </div>
             )}
         </div>

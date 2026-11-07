@@ -39,8 +39,8 @@ const mix = (c1, c2, k) => c1.map((v, i) => Math.round(lerp(v, c2[i], k)));
 
 // ---------- timeline (seconds) ----------
 const T = {
-  big:   [0.25, 0.50],   // "28:05"
-  small: [0.40, 0.50],   // "/ 45:00"   (overlaps)
+  slash: [0.20, 0.35],   // "/" appears first
+  split: [0.45, 0.65],   // timer slides out left, "45:00" slides out right
   track: [0.65, 0.55],
   arc:   [0.85, 1.10],
   wave:  [1.55, 0.90],
@@ -181,18 +181,19 @@ function drawIcon(t) {
 }
 
 // ---------- text ----------
+// "/" fades in first, then the timer and "45:00" slide out from behind it,
+// each clipped at the slash so they appear to emerge from it.
 function drawText(t) {
-  const rb = prog(t, ...T.big), rs = prog(t, ...T.small);
-  if (rb <= 0 && rs <= 0) return;
-  const pb = easeOutCubic(clamp(rb * 1.8)), ps = easeOutCubic(clamp(rs * 1.8));
-  const yb = (1 - easeOutCubic(rb)) * 24, ys = (1 - easeOutCubic(rs)) * 18;
+  const rs = prog(t, ...T.slash), rp = prog(t, ...T.split);
+  if (rs <= 0) return;
   const bigFont = `700 88.881px ${FONT}`;
   const smallFont = `300 44.546px ${FONT}`;
+  const BIG_COLOR = "#2A3340", SMALL_COLOR = "#7A828C";   // soft slate instead of pure black
   ctx.save();
   ctx.textBaseline = "alphabetic";
-  const BIG_COLOR = "#2A3340", SMALL_COLOR = "#7A828C";   // soft slate instead of pure black
+
   // big timer: each digit sits in a fixed-width slot so the layout never shifts while counting
-  ctx.font = bigFont;  ctx.letterSpacing = "0px";
+  ctx.font = bigFont; ctx.letterSpacing = "0px";
   const SP = -3.5552;
   const digitW = Math.max(...[..."0123456789"].map(d => ctx.measureText(d).width));
   const colonW = ctx.measureText(":").width;
@@ -201,23 +202,43 @@ function drawText(t) {
   const slotW = c => (c === ":" ? colonW : digitW) + SP;
   const wb = [...bigTxt].reduce((a, c) => a + slotW(c), 0) + spaceW;
   ctx.font = smallFont; ctx.letterSpacing = "-1.78px";
-  const smallTxt = "/ 45:00";
-  const ws = ctx.measureText(smallTxt).width;
+  const ws = ctx.measureText("/ 45:00").width;
+  const slashW = ctx.measureText("/").width;
+  const restX = ctx.measureText("/ ").width;      // where "45:00" starts after the slash
   const x0 = CX - (wb + ws) / 2;
+  const slashX = x0 + wb;
   const base = CY + 31;                            // caps optically centred in the ring
-  if (pb > 0) {
-    ctx.globalAlpha = pb;
+
+  // "/" starts centred in the ring, then drifts to its final spot as the numbers push out
+  const k = easeOutCubic(rp);
+  const sx = lerp(CX - slashW / 2, slashX, k);
+  const d = sx - slashX;
+  ctx.globalAlpha = easeOutCubic(rs);
+  ctx.fillStyle = SMALL_COLOR;
+  ctx.fillText("/", sx, base + (1 - easeOutCubic(rs)) * 14);
+
+  if (rp > 0) {
+    const fade = easeOutCubic(clamp(rp * 2));
+    const top = base - 140, h = 200;
+
+    // timer: starts tucked behind the slash, slides left
+    ctx.save();
+    ctx.beginPath(); ctx.rect(sx - 2000, top, 2000, h); ctx.clip();
+    ctx.globalAlpha = fade;
     ctx.fillStyle = BIG_COLOR;
     ctx.font = bigFont; ctx.letterSpacing = "0px"; ctx.textAlign = "center";
-    let x = x0;
-    for (const c of bigTxt) { const w = slotW(c); ctx.fillText(c, x + (w - SP) / 2, base + yb); x += w; }
-    ctx.textAlign = "left";
-  }
-  if (ps > 0) {
-    ctx.globalAlpha = ps;
+    let x = x0 + (1 - k) * wb + d;
+    for (const c of bigTxt) { const w = slotW(c); ctx.fillText(c, x + (w - SP) / 2, base); x += w; }
+    ctx.restore();
+
+    // "45:00": starts tucked behind the slash, slides right
+    ctx.save();
+    ctx.beginPath(); ctx.rect(sx + slashW, top, 2000, h); ctx.clip();
+    ctx.globalAlpha = fade;
     ctx.fillStyle = SMALL_COLOR;
     ctx.font = smallFont; ctx.letterSpacing = "-1.78px";
-    ctx.fillText(smallTxt, x0 + wb, base + ys);
+    ctx.fillText("45:00", slashX + restX - (1 - k) * (ws - slashW) + d, base);
+    ctx.restore();
   }
   ctx.restore();
 }

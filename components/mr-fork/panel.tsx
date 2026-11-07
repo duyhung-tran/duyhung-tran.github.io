@@ -86,7 +86,7 @@ function RichText({ text, limit = Infinity }: { text: string; limit?: number }) 
               href={seg.href}
               target={external ? "_blank" : undefined}
               rel={external ? "noopener noreferrer" : undefined}
-              // Same look as MyButton's hyperlink variant
+              // Same look as the Hyperlink component
               className="text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] hover:underline hover:text-[var(--colour-bodytext)]"
             >
               {shown}
