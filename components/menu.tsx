@@ -47,7 +47,14 @@ export default function Menu() {
                         About
                     </a>
                     <div className="mb-1"></div>
+                    <a href="/archive" className="mb-1 block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
+                        Archive
+                    </a>
                     <div className="mb-1"></div>
+                    {/* <a href="/testimonials" className="mb-1 block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
+                        Testimonials
+                    </a>
+                    <div className="mb-1"></div> */}
                     {/* <button
                         type="button"
                         onClick={() => {
