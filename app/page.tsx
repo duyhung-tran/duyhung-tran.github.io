@@ -30,7 +30,7 @@ export default function Home2() {
           {/* <p className="text-sm text-[var(--colour-bodytext)]">Reach me via <Hyperlink link="mailto:d.hungtran12@gmail.com" target="_blank" text="email"/>, <Hyperlink link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" text="LinkedIn"/>, or check out my <Hyperlink link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" text="resume"/>!</p> */}          
           <div className="mb-11"></div>
 
-          <div className={`grid grid-cols-1 gap-10 lg:gap-3 lg:grid-cols-2 ${mrForkOpen ? "" : "2xl:grid-cols-3"}`}>
+          <div className={`grid grid-cols-1 gap-10 lg:gap-3 lg:grid-cols-2 2xl:grid-cols-3`}>
             <ProjectThumbnail link="rules" name="Control devices based on locations" desc="Samsung Knox Manage" videoSrc="/geofence.mp4" target="_self"/>
             <ProjectThumbnail link="organizations" name="Visualize hierarchical device management" desc="Samsung Knox Manage" videoSrc="/organizations.mp4" target="_self"/>
             <ProjectThumbnail link="cardio" name="Run with the right music" desc="Spotify POC" videoSrc="/cardio animation.mp4" target="_self"/>
