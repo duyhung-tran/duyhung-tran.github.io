@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 // import { useMrFork } from "./mr-fork/provider";
-import { Menu as MenuIcon, /* Utensils, */ X, Mail } from "lucide-react";
+import { Menu as MenuIcon, /* Utensils, */ X, SquareArrowOutUpRight } from "lucide-react";
 
 export default function Menu() {
     const [openMenu, setOpenMenu] = useState(false);
@@ -77,7 +77,7 @@ export default function Menu() {
                         className="flex justify-between items-center gap-3 p-4 border-1 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)]"
                     >
                         <span>Contacts</span>
-                        <Mail className="size-3.5" aria-hidden="true"/>
+                        <SquareArrowOutUpRight className="size-3.5" aria-hidden="true"/>
                     </a>
                 </div>
             )}

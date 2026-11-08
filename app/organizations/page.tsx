@@ -6,7 +6,7 @@ import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import Menu from "@/components/menu";
 import Nav from "@/components/nav";
-import { ExternalLink, Info, Lightbulb, Puzzle } from "lucide-react";
+import { SquareArrowOutUpRight, Info, Lightbulb, Puzzle } from "lucide-react";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
 
 export default function Organizations() {
@@ -32,7 +32,7 @@ export default function Organizations() {
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design system</p>
                     <div className="mb-6"></div>
-                    <Hyperlink variant="icon" icon={ExternalLink} text="Documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-organizations/manage-organizations/" target="_blank"/>
+                    <Hyperlink variant="icon" icon={SquareArrowOutUpRight} text="Documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-organizations/manage-organizations/" target="_blank"/>
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">

@@ -4,7 +4,7 @@ import Image from "next/image";
 import MyButton from "@/components/my-button";
 import Hyperlink from "@/components/hyperlink";
 import Nav from "@/components/nav";
-import { ExternalLink, Info, Locate, MapPinCheck, SlidersHorizontal, Snail, UserSearch, Pencil, Puzzle, ShieldQuestionMark, SquareArrowOutUpRight } from "lucide-react";
+import { Info, Locate, MapPinCheck, SlidersHorizontal, Snail, UserSearch, Pencil, Puzzle, ShieldQuestionMark, SquareArrowOutUpRight } from "lucide-react";
 import TableOfContents, { TocSection } from "@/components/table-of-contents";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
 
@@ -44,7 +44,7 @@ export default function Rules() {
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Feature design</p>
                     <div className="mb-6"></div>
-                    <Hyperlink variant="icon" icon={ExternalLink} text="Documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/create-rules/" target="_blank"/>
+                    <Hyperlink variant="icon" icon={SquareArrowOutUpRight} text="Documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/create-rules/" target="_blank"/>
                 </div>
             </div>
 

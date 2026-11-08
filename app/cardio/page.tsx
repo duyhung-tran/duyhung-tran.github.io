@@ -5,7 +5,7 @@ import MyButton from "@/components/my-button";
 import Hyperlink from "@/components/hyperlink";
 import Nav from "@/components/nav";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
-import { ExternalLink, Info, Lightbulb, Target, User, Ruler, ListMusic, Gauge, Hand, Eye, Accessibility, SquareArrowOutUpRight } from "lucide-react";
+import { SquareArrowOutUpRight, Info, Lightbulb, Target, User, Ruler, ListMusic, Gauge, Hand, Eye, Accessibility } from "lucide-react";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
 
 const PROTOTYPE_URL = "https://www.figma.com/proto/5SjXuZ0MgUNMOFRmh3qOOY/card.io?page-id=0%3A1&node-id=24-151&viewport=779%2C110%2C0.2&t=Yy6S9WYqbPXyKWdL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=24%3A151";
@@ -47,7 +47,7 @@ export default function Cardio() {
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.focus}</p>
                     <div className="mb-6"></div>
-                    <Hyperlink variant="icon" icon={ExternalLink} text="Figma prototype" link={PROTOTYPE_URL} target="_blank"/>
+                    <Hyperlink variant="icon" icon={SquareArrowOutUpRight} text="Figma prototype" link={PROTOTYPE_URL} target="_blank"/>
                 </div>
             </div>
 

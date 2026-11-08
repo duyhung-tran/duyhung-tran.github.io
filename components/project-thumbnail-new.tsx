@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { SquareArrowOutUpRight } from "lucide-react";
 
 type Props = {
     name: string;
@@ -40,7 +40,7 @@ export default function ProjectThumbnail(props: Props) {
     return (
         <div className="h-full flex flex-col group">
             <a
-                className={`relative ${square ? "aspect-square pb-[12%]" : "aspect-square lg:aspect-[4/3]"} flex justify-center items-center overflow-hidden block group mt-auto bg-[var(--container-bg)]`}
+                className={`relative ${square ? "aspect-square pb-[14%]" : "aspect-square lg:aspect-[4/3]"} flex justify-center items-center overflow-hidden block group mt-auto bg-[var(--container-bg)]`}
                 href={props.link}
                 target={props.target}
             >
@@ -69,7 +69,7 @@ export default function ProjectThumbnail(props: Props) {
 
                 {square && (
                     // top-9 / right-9 matches the p-9 inset of the name and desc
-                    <ExternalLink
+                    <SquareArrowOutUpRight
                         aria-hidden="true"
                         strokeWidth={1.5}
                         className="absolute top-7 right-7 size-5 text-[var(--colour-bodytext-light)] opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
