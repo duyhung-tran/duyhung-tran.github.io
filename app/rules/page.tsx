@@ -252,8 +252,6 @@ export default function Rules() {
                     <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" target="_self"/>
                     {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
                 </div>
-
-                <div className="mb-25"></div>
                 {/* <div className="mb-18"></div>
                 <div>
                     <div className="w-full md:w-[60%] grid grid-cols-2 gap-2 md:gap-5">

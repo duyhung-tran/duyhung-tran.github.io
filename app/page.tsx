@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Hyperlink from "@/components/hyperlink";
-import Footer from "@/components/footer";
 import { useEffect, useState } from "react";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
 import Menu from "@/components/menu";
@@ -38,9 +37,6 @@ export default function Home2() {
             <ProjectThumbnail link="health" name="Supporting a health weight journey" desc="Samsung Health" imageSrc="/health logo.png" eager target="_self"/>
             {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
           </div>
-
-          <div className="mb-25"></div>
-
         </div>
     </div>
   );

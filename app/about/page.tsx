@@ -44,8 +44,6 @@ export default function About() {
                 </div>
             </div>
 
-            <div className="mb-25 lg:mb-0"></div>
-
         </div>
     );
 }

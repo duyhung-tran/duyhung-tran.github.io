@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import MyButton from "@/components/my-button";
-import Footer from "@/components/footer";
 import Heading from "@/components/heading";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import Menu from "@/components/menu";
@@ -65,8 +64,6 @@ export default function Alerts() {
                     <ProjectThumbnail link="organizations" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" videoSrc="/organizations.mp4" target="_self"/>
                     <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" target="_self"/>
                 </div>
-
-                <div className="mb-25"></div>
             </div>
         </div>
     </div>

@@ -5,6 +5,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
+import Footer from "@/components/footer";
 import { MrForkProvider } from "@/components/mr-fork/provider";
 
 const interSans = Inter({
@@ -63,7 +64,10 @@ export default function RootLayout({
           enableSystem
           // disableTransitionOnChange
         >
-          <MrForkProvider>{children}</MrForkProvider>
+          <MrForkProvider>
+            {children}
+            <Footer />
+          </MrForkProvider>
         </ThemeProvider>
       </body>
     </html>

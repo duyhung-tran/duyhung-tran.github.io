@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image";
-import Footer from "@/components/footer";
 import { useEffect, useState } from "react";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
 import Menu from "@/components/menu";
@@ -30,7 +29,6 @@ export default function Home2() {
           <ProjectThumbnail variant="square" link="https://www.figma.com/proto/xYL2PzUpTvgKlnxTzp7a5O/Portfolio-2025?page-id=375%3A2980&node-id=375-2981&viewport=743%2C390%2C0.24&t=AVR9d3tvwFyFaaeT-1&scaling=scale-down&content-scaling=fixed" name="Drag & drop songs between playlists" desc="Spotify POC" videoSrc="/dragdrop.mov" target="_blank"/>
           <ProjectThumbnail variant="square" link="" name="Bring cooling to vulnerable populations" desc="Service design" imageSrc="/Cool tgt.png" target="_blank"/>
         </div>
-        <div className="mb-35"></div>
     </div>
   );
 }

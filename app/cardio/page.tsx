@@ -435,8 +435,6 @@ export default function Cardio() {
                     <ProjectThumbnail link="organizations" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" videoSrc="/organizations.mp4" target="_self"/>
                     <ProjectThumbnail link="knoxagent" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" target="_self"/>
                 </div>
-
-                <div className="mb-25"></div>
             </div>
         </div>
     </div>
