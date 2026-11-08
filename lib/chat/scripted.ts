@@ -104,7 +104,7 @@ const intents: Intent[] = [
     keywords: ["agent", "ai", "assistant", "chatbot", "widget", "knox cloud"],
     reply: {
       paragraphs: [
-        "At [Samsung Canada](https://research.samsung.com/srca), Hung shapes AI agent experiences for Knox Cloud Services.",
+        "At [Samsung Canada](https://www.samsungknox.com/en), Hung shapes AI agent experiences for Knox Cloud Services.",
         "His project designs **interactive widgets for the in-console AI assistant**, so admins can review and act on what the agent created without leaving the chat.",
       ],
       project: "knoxagent",
@@ -144,7 +144,7 @@ const intents: Intent[] = [
     keywords: ["samsung canada", "team", "job", "work at", "current", "role", "experience", "fraser health", "douglas college", "greenwich", "visual designer"],
     reply: {
       paragraphs: [
-        "Hung is a UX designer and engineer at [Samsung Canada](https://research.samsung.com/srca), shaping AI experiences for Samsung's B2B products.",
+        "Hung is a UX designer and engineer at [Samsung Canada](https://www.samsungknox.com/en), shaping AI experiences for Samsung's B2B products.",
         "Before that, he was a visual designer at [Fraser Health](https://www.fraserhealth.ca/), [Douglas College](https://www.douglascollegeroyals.ca/landing/index) and the [University of Greenwich](https://greenwich.edu.vn/en/about-greenwich-vietnam/).",
       ],
       suggestions: [SUGGESTIONS.b2b, SUGGESTIONS.knoxAgent],
