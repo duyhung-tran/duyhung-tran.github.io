@@ -22,7 +22,7 @@ function MetaStatus() {
   return (
     <div className="flex items-center justify-start gap-2">
       <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.status}</p>
-      <span className="w-1.5 h-1.5 rounded-full bg-amber-400" aria-hidden="true"/>
+      <span className="w-1.5 h-1.5 rounded-full bg-blue-500" aria-hidden="true"/>
     </div>
   );
 }
