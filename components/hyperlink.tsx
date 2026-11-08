@@ -19,7 +19,7 @@ export default function Hyperlink({ link, text, target, textSize = "text-sm", ..
       href={link}
       target={target}
       rel={target === "_blank" ? "noopener noreferrer" : undefined}
-      className={`inline-flex items-center gap-1 justify-self-start self-center text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] leading-normal rounded-sm -mx-0.5 px-0.5 hover:text-[var(--colour-bodytext)] hover:bg-[var(--link-hover-bg)] ${textSize}`}
+      className={`inline-flex items-center gap-1 justify-self-start self-center text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] leading-normal -mx-0.5 px-0.5 hover:text-[var(--colour-bodytext)] hover:bg-[var(--link-hover-bg)] ${textSize}`}
     >
       {text}
       {Icon && <Icon className="size-3.5 shrink-0" strokeWidth={1.5} aria-hidden="true" />}

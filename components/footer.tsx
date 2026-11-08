@@ -1,4 +1,3 @@
-import { SquareArrowOutUpRight } from "lucide-react";
 import Hyperlink from "@/components/hyperlink";
 
 const LINKS = [
@@ -13,7 +12,7 @@ export default function Footer() {
             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">©2026 Hung Tran</p>
             <div className="flex gap-10">
                 {LINKS.map(l => (
-                    <Hyperlink key={l.text} variant="icon" icon={SquareArrowOutUpRight} text={l.text} link={l.link} target="_blank" />
+                    <Hyperlink key={l.text} text={l.text} link={l.link} target="_blank" />
                 ))}
             </div>
         </footer>
