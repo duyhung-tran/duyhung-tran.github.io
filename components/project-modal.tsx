@@ -71,7 +71,7 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                 type="button"
                                 onClick={onClose}
                                 aria-label="Close"
-                                className="absolute top-5 right-5 z-10 p-2 text-[var(--colour-bodytext-light)] hover:text-[var(--colour-bodytext)] cursor-pointer"
+                                className="absolute top-5 right-5 z-10 size-8 flex items-center justify-center text-[var(--colour-bodytext-light)] hover:text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] cursor-pointer transition"
                             >
                                 <X className="size-5" strokeWidth={1.5} />
                             </button>
