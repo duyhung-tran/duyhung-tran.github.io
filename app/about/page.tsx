@@ -20,7 +20,7 @@ export default function About() {
                 <div>
                     <p className="text-5xl text-[var(--colour-bodytext)] font-semibold tracking-tight">About me</p>
                     <div className="mb-10 lg:mb-15"></div>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Hi! My name is Hung (as in hungry). I’m a UX Designer and UI Engineer. Currently, I’m reading tickets at <Hyperlink link="https://www.samsungknox.com/en" target="_blank" text="Samsung Electronics Canada"/>.</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Hi! My name is Hung (as in hungry). I’m a UX Designer and UI Engineer. Currently, I’m reading tickets at <Hyperlink link="https://research.samsung.com/srca" target="_blank" text="Samsung R&D Institute Canada"/>.</p>
                     <div className="mb-5"></div>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Reach me via <Hyperlink link="mailto:d.hungtran12@gmail.com" target="_blank" text="email"/>, <Hyperlink link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" text="LinkedIn"/>, or check out my <Hyperlink link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" text="resume"/>!</p>
                     <div className="mb-10"></div>
@@ -28,7 +28,7 @@ export default function About() {
                     <div className="mb-5"></div>
                     <div className="grid grid-cols-2 w-full lg:w-[65%] gap-y-2 gap-x-0">
                         <p className="text-sm text-[var(--colour-bodytext)] leading-loose">UX Designer</p>
-                        <Hyperlink link="https://www.samsungknox.com/en" target="_blank" text="Samsung Electronics Canada"/>
+                        <Hyperlink link="https://research.samsung.com/srca" target="_blank" text="Samsung R&D Institute Canada"/>
                         <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Visual Designer</p>
                         <Hyperlink link="https://www.fraserhealth.ca/" target="_blank" text="Fraser Health"/>
                         <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Visual Designer</p>
