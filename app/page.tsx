@@ -34,8 +34,8 @@ export default function Home2() {
             <ProjectThumbnail link="rules" name="Control devices based on locations" desc="Samsung Knox Manage" videoSrc="/geofence.mp4" target="_self"/>
             <ProjectThumbnail link="organizations" name="Visualize hierarchical device management" desc="Samsung Knox Manage" videoSrc="/organizations.mp4" target="_self"/>
             <ProjectThumbnail link="cardio" name="Run with the right music" desc="Spotify POC" videoSrc="/cardio animation.mp4" target="_self"/>
-            <ProjectThumbnail link="knoxagent" name="Interactive widgets for agents experiences" desc="Samsung Knox AI Assist" imageSrc="/yuhh.png" target="_self"/>
-            <ProjectThumbnail link="health" name="Supporting a health weight journey" desc="Samsung Health" imageSrc="/health logo.png" target="_self"/>
+            <ProjectThumbnail link="knoxagent" name="Interactive widgets for agents experiences" desc="Samsung Knox AI Assist" imageSrc="/yuhh.png" eager target="_self"/>
+            <ProjectThumbnail link="health" name="Supporting a health weight journey" desc="Samsung Health" imageSrc="/health logo.png" eager target="_self"/>
             {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
           </div>
 
