@@ -8,10 +8,17 @@ import Menu from "@/components/menu";
 import Nav from "@/components/nav";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { useMrFork } from "@/components/mr-fork/provider";
+import { useOpenProjectModal } from "@/components/project-modal-host";
+import { homeOverviews, linkTarget, NO_LINK_YET } from "@/lib/project-overviews";
+import { useIsPhone } from "@/lib/use-is-phone";
 
 export default function Home2() {
   const [animate, setAnimate] = useState(false);
   const { open: mrForkOpen, setOpen: setMrForkOpen } = useMrFork();
+  // The overview modal lives in the root layout, so it can stay up while its project page loads
+  const openProjectModal = useOpenProjectModal();
+  // Phones skip the overview modal: tapping a tile goes straight to the project page
+  const isPhone = useIsPhone();
 
   useEffect(() => {
     setTimeout(() => setAnimate(true), 900);
@@ -30,11 +37,25 @@ export default function Home2() {
           <div className="mb-11"></div>
 
           <div className={`grid grid-cols-1 gap-10 lg:gap-3 lg:grid-cols-2 2xl:grid-cols-3`}>
-            <ProjectThumbnail link="rules" name="Control devices based on locations" desc="Samsung Knox Manage" videoSrc="/geofence.mp4" target="_self"/>
-            <ProjectThumbnail link="organizations" name="Visualize hierarchical device management" desc="Samsung Knox Manage" videoSrc="/organizations.mp4" target="_self"/>
-            <ProjectThumbnail link="cardio" name="Run with the right music" desc="Spotify POC" videoSrc="/cardio animation.mp4" target="_self"/>
-            <ProjectThumbnail link="knoxagent" name="Interactive widgets for agents experiences" desc="Samsung Knox AI Assist" imageSrc="/yuhh.png" eager target="_self"/>
-            <ProjectThumbnail link="health" name="Supporting a health weight journey" desc="Samsung Health" imageSrc="/health logo.png" eager target="_self"/>
+            {homeOverviews.map((p, i) => {
+              const media = p.videoSrc !== undefined ? { videoSrc: p.videoSrc } : { imageSrc: p.imageSrc };
+              // Same destination as the modal's "View project" button
+              const link = p.link ?? NO_LINK_YET;
+              return (
+                <ProjectThumbnail
+                  key={p.slug}
+                  name={p.title}
+                  desc={p.summary}
+                  // Cmd/Ctrl-click (and any tap on phones) opens the project page
+                  link={link}
+                  target={linkTarget(link)}
+                  // The image tiles were eager-loaded before
+                  eager={p.imageSrc !== undefined}
+                  onOpen={isPhone ? undefined : () => openProjectModal(p)}
+                  {...media}
+                />
+              );
+            })}
             {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
           </div>
         </div>

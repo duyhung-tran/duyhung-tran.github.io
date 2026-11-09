@@ -1,5 +1,11 @@
-// Archive projects shown as tiles on the archive page and in the project modal.
-// Home page tiles link straight to their project pages instead.
+// Projects shown as tiles on the home and archive pages, and in the project modal.
+
+// One extra piece of media in a project's modal gallery
+export type GalleryItem = {
+    src: string;
+    kind: "video" | "image";
+    alt: string;
+};
 
 export type ProjectOverview = {
     // Unique id (React key and the modal's open state)
@@ -8,10 +14,28 @@ export type ProjectOverview = {
     title: string;
     // The tile's grey text, shown grey under the modal title too
     summary: string;
-    // Opened in a new tab by "View project"; leave out until there is one (the button then goes nowhere)
+    // Where "View project" goes: external URLs open in a new tab, site paths (e.g. "/rules") in the same tab.
+    // Leave out until there is one (the button then goes nowhere)
     link?: string;
     // Shown under the description as "Thank you to:" with one name per line
     credits?: string[];
+    // Company / Product / Status / Focus details shown under the description,
+    // matching the overview block on the project's own page
+    overview?: {
+        company: string;
+        product: string;
+        // "Live" gets a green dot, anything else a blue one
+        status: string;
+        // One line each
+        focus: string[];
+    };
+    // A sentence or two about the project, shown under the overview
+    description?: string;
+    // More media after the main one, scrolled through in the modal's media column.
+    // Scrolling past the last one fills a ring that opens the project page.
+    gallery?: GalleryItem[];
+    // Media fills its half of the modal edge to edge instead of sitting inset
+    coverMedia?: boolean;
 } & (
     | { videoSrc: string; imageSrc?: never }
     | { imageSrc: string; videoSrc?: never }
@@ -30,3 +54,51 @@ export const archiveOverviews: ProjectOverview[] = [
     { slug: "dragdrop", title: "Drag & drop songs between playlists", summary: "Spotify POC", videoSrc: "/dragdrop.mov", link: "https://www.figma.com/proto/xYL2PzUpTvgKlnxTzp7a5O/Portfolio-2025?page-id=375%3A2980&node-id=375-2981&viewport=743%2C390%2C0.24&t=AVR9d3tvwFyFaaeT-1&scaling=scale-down&content-scaling=fixed" },
     { slug: "cooling", title: "Bring cooling to vulnerable populations", summary: "Service design", imageSrc: "/Cool tgt.png", credits: ["Abbey P.", "Mikael G.", "Alexander K."] },
 ];
+
+// Home page projects, in display order. "View project" opens each case study page.
+export const homeOverviews: ProjectOverview[] = [
+    { slug: "rules", title: "Control devices based on locations", summary: "Samsung Knox Manage", videoSrc: "/geofence.mp4", link: "/rules", coverMedia: true,
+      gallery: [
+          { src: "/geofenceee.png", kind: "image", alt: "Geofence in Knox Manage" },
+          { src: "/rules-0.png", kind: "image", alt: "Rules overview table" },
+          { src: "/rules-1.png", kind: "image", alt: "Rule details panel" },
+          { src: "/rules-3.png", kind: "image", alt: "Creating a geofence" },
+          { src: "/rules-4.png", kind: "image", alt: "Geofence settings" },
+      ],
+      description: "Device settings stayed active until IT admins changed them by hand. Event-based rules let admins set the conditions, like being inside a geofence, that switch settings on and off automatically.",
+      overview: { company: "Samsung", product: "Knox Manage (New Console)", status: "Live", focus: ["Feature design"] } },
+    { slug: "organizations", title: "Visualize hierarchical device management", summary: "Samsung Knox Manage", videoSrc: "/organizations.mp4", link: "/organizations", coverMedia: true,
+      gallery: [
+          { src: "/org-00.png", kind: "image", alt: "Organizations table" },
+          { src: "/ds1.png", kind: "image", alt: "Spacing specs in the default state" },
+          { src: "/ds2.png", kind: "image", alt: "Specs during user interactions" },
+          { src: "/ds3.png", kind: "image", alt: "Interaction guidelines for the component" },
+      ],
+      description: "A hierarchical table that shows how settings pass from parent to child organizations and where they are overridden, built from existing design system components.",
+      overview: { company: "Samsung", product: "Knox Manage (New Console)", status: "Live", focus: ["Design system"] } },
+    { slug: "cardio", title: "Run with the right music", summary: "Spotify POC", videoSrc: "/cardio animation.mp4", link: "/cardio", coverMedia: true,
+      gallery: [
+          { src: "/sol-1.mp4", kind: "video", alt: "Generating a playlist" },
+          { src: "/sol-11.png", kind: "image", alt: "card.io generated playlist" },
+          { src: "/sol-21.png", kind: "image", alt: "card.io questionnaire" },
+          { src: "/sol-3.mp4", kind: "video", alt: "Running report" },
+          { src: "/sol-4.mp4", kind: "video", alt: "Manual Mode" },
+      ],
+      description: "Personalized, colour-coded cardio playlists with real-time support while running, inspired by the cardio playlist trend among fitness influencers.",
+      overview: { company: "Personal project", product: "card.io", status: "Concept", focus: ["UX design"] } },
+    { slug: "knoxagent", title: "Interactive widgets for agents experiences", summary: "Samsung Knox AI Assist", imageSrc: "/yuhh.png", link: "/knoxagent", coverMedia: true,
+      gallery: [
+          { src: "/aii biggg.png", kind: "image", alt: "Knox AI Assist widgets" },
+      ],
+      description: "A reusable chassis of interactive widgets for the Knox Cloud Services AI assistant. Details are under NDA or not yet launched.",
+      overview: { company: "Samsung", product: "In-console AI assistant", status: "Shipped", focus: ["Design system", "Agent experience"] } },
+    { slug: "health", title: "Supporting a healthy weight journey", summary: "Samsung Health", imageSrc: "/health logo.png", link: "/health", coverMedia: true,
+      gallery: [
+          { src: "/shapp.jpg", kind: "image", alt: "Samsung Health app" },
+      ],
+      description: "Research into the demand for healthy weight journeys, finding gaps between user needs and existing products where Samsung Health can step in. Details are under NDA.",
+      overview: { company: "Samsung", product: "Samsung Health", status: "Shipped", focus: ["UX Research"] } },
+];
+
+// External links open in a new tab; site pages and the placeholder stay in this one
+export const linkTarget = (link: string) => (/^https?:\/\//.test(link) ? "_blank" : "_self");

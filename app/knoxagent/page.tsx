@@ -62,7 +62,7 @@ export default function KnoxAgent() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
                     <ProjectThumbnail link="rules" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" videoSrc="/geofence.mp4" target="_self"/>
                     <ProjectThumbnail link="organizations" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" videoSrc="/organizations.mp4" target="_self"/>
-                    <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a health weight journey" imageSrc="/health logo.png" target="_self"/>
+                    <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a healthy weight journey" imageSrc="/health logo.png" target="_self"/>
                     {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
                 </div>
             </div>

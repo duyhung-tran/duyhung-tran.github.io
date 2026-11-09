@@ -7,6 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
 import { MrForkProvider } from "@/components/mr-fork/provider";
+import { ProjectModalHost } from "@/components/project-modal-host";
 
 const interSans = Inter({
   subsets: ["latin"],
@@ -65,8 +66,10 @@ export default function RootLayout({
           // disableTransitionOnChange
         >
           <MrForkProvider>
-            {children}
-            <Footer />
+            <ProjectModalHost>
+              {children}
+              <Footer />
+            </ProjectModalHost>
           </MrForkProvider>
         </ThemeProvider>
       </body>
