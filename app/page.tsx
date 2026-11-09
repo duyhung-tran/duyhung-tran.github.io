@@ -56,7 +56,6 @@ export default function Home2() {
                 />
               );
             })}
-            {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
           </div>
         </div>
     </div>

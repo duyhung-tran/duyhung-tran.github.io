@@ -62,7 +62,7 @@ export default function Cardio() {
                 </div>
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)]">
-                    <video src="/cardio animation.mp4" autoPlay muted loop playsInline aria-label="card.io running progress ring" className="w-full" />
+                    <video src="/cardio/cardio animation.mp4" autoPlay muted loop playsInline aria-label="card.io running progress ring" className="w-full" />
                 </div>
 
                 <div className="mb-10"></div>
@@ -121,9 +121,9 @@ export default function Cardio() {
                 <div className="mb-5"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)] p-6 lg:p-12">
                     <div className="w-full lg:w-[60%] grid grid-cols-3 gap-3">
-                        <video src="/context-vid-1.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover rounded-xl" />
-                        <video src="/context-vid-2.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover rounded-xl" />
-                        <video src="/context-vid-3.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover rounded-xl" />
+                        <video src="/cardio/context-vid-1.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover rounded-xl" />
+                        <video src="/cardio/context-vid-2.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover rounded-xl" />
+                        <video src="/cardio/context-vid-3.mp4" autoPlay muted loop playsInline className="w-full h-full object-cover rounded-xl" />
                     </div>
                 </div>
                 <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Cardio playlist trend on TikTok.</p>
@@ -146,13 +146,13 @@ export default function Cardio() {
                 <div className="flex justify-center bg-[var(--container-bg-2)] p-8 lg:p-14">
                     <div className="w-full lg:w-[60%] grid grid-cols-3">
                         <ImageZoom>
-                            <Image src="/stickie-1.png" width={1469} height={1469} className="w-full h-auto rotate-6 shadow-lg" alt="Research theme 1"/>
+                            <Image src="/cardio/stickie-1.png" width={1469} height={1469} className="w-full h-auto rotate-6 shadow-lg" alt="Research theme 1"/>
                         </ImageZoom>
                         <ImageZoom>
-                            <Image src="/stickie-2.png" width={1469} height={1779} className="w-full h-auto -rotate-10 shadow-lg" alt="Research theme 2"/>
+                            <Image src="/cardio/stickie-2.png" width={1469} height={1779} className="w-full h-auto -rotate-10 shadow-lg" alt="Research theme 2"/>
                         </ImageZoom>
                         <ImageZoom>
-                            <Image src="/stickie-3.png" width={1469} height={1511} className="w-full h-auto rotate-5 shadow-lg" alt="Research theme 3"/>
+                            <Image src="/cardio/stickie-3.png" width={1469} height={1511} className="w-full h-auto rotate-5 shadow-lg" alt="Research theme 3"/>
                         </ImageZoom>
                     </div>
                 </div>
@@ -199,10 +199,10 @@ export default function Cardio() {
                         <div className="mb-4"></div>
                         <div className="w-full lg:w-[60%] grid grid-cols-2 lg:grid-cols-4 gap-3">
                             <ImageZoom>
-                                <Image src="/stickie-g-1.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Goal 1"/>
+                                <Image src="/cardio/stickie-g-1.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Goal 1"/>
                             </ImageZoom>
                             <ImageZoom>
-                                <Image src="/stickie-g-2.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Goal 2"/>
+                                <Image src="/cardio/stickie-g-2.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Goal 2"/>
                             </ImageZoom>
                         </div>
                     </div>
@@ -211,13 +211,13 @@ export default function Cardio() {
                         <div className="mb-4"></div>
                         <div className="w-full lg:w-[60%] grid grid-cols-2 lg:grid-cols-4 gap-3">
                             <ImageZoom>
-                                <Image src="/stickie-sol-1.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Solution idea 1"/>
+                                <Image src="/cardio/stickie-sol-1.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Solution idea 1"/>
                             </ImageZoom>
                             <ImageZoom>
-                                <Image src="/stickie-sol-2.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Solution idea 2"/>
+                                <Image src="/cardio/stickie-sol-2.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Solution idea 2"/>
                             </ImageZoom>
                             <ImageZoom>
-                                <Image src="/stickie-sol-3.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Solution idea 3"/>
+                                <Image src="/cardio/stickie-sol-3.png" width={1469} height={1469} className="w-full h-auto shadow-lg" alt="Solution idea 3"/>
                             </ImageZoom>
                         </div>
                     </div>
@@ -242,9 +242,9 @@ export default function Cardio() {
                 <div>
                     <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
                         <div className="w-full lg:w-[45%] grid grid-cols-2 gap-4">
-                            <video src="/sol-1.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
+                            <video src="/cardio/sol-1.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
                             <ImageZoom>
-                                <Image src="/sol-11.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io generated playlist"/>
+                                <Image src="/cardio/sol-11.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io generated playlist"/>
                             </ImageZoom>
                         </div>
                     </div>
@@ -253,13 +253,13 @@ export default function Cardio() {
                     <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
                         <div className="w-full lg:w-[65%] grid grid-cols-3 gap-4">
                             <ImageZoom>
-                                <Image src="/sol-21.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io questionnaire step 1"/>
+                                <Image src="/cardio/sol-21.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io questionnaire step 1"/>
                             </ImageZoom>
                             <ImageZoom>
-                                <Image src="/sol-22.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io questionnaire step 2"/>
+                                <Image src="/cardio/sol-22.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io questionnaire step 2"/>
                             </ImageZoom>
                             <ImageZoom>
-                                <Image src="/sol-23.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io questionnaire step 3"/>
+                                <Image src="/cardio/sol-23.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io questionnaire step 3"/>
                             </ImageZoom>
                         </div>
                     </div>
@@ -267,9 +267,9 @@ export default function Cardio() {
 
                     <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
                         <div className="w-full lg:w-[45%] grid grid-cols-2 gap-4">
-                            <video src="/sol-3.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
+                            <video src="/cardio/sol-3.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
                             <ImageZoom>
-                                <Image src="/sol-3.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io running report"/>
+                                <Image src="/cardio/sol-3.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="card.io running report"/>
                             </ImageZoom>
                         </div>
                     </div>
@@ -277,7 +277,7 @@ export default function Cardio() {
 
                     <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
                         <div className="w-[50%] lg:w-[22%]">
-                            <video src="/sol-4.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
+                            <video src="/cardio/sol-4.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
                         </div>
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">“Manual Mode” lets Michelle freely mix artists, albums and genres while keeping all the support features above.</p>
@@ -293,7 +293,7 @@ export default function Cardio() {
                 <div className="mb-6"></div>
                 <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
                     <div className="w-[50%] lg:w-[22%]">
-                        <video src="/draft.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
+                        <video src="/cardio/draft.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
                     </div>
                 </div>
                 <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">First iteration of card.io.</p>
@@ -304,10 +304,10 @@ export default function Cardio() {
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">The straight slide bar resembles the draggable bars on platforms like YouTube or Netflix. But in card.io, it functions solely as a progress indicator and isn’t interactive.</p>
                     <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 gap-3">
                         <ImageZoom>
-                            <Image src="/slidebar.png" width={1104} height={2312} className="w-full rounded-xl" alt="card.io slide bar"/>
+                            <Image src="/cardio/slidebar.png" width={1104} height={2312} className="w-full rounded-xl" alt="card.io slide bar"/>
                         </ImageZoom>
                         <ImageZoom>
-                            <Image src="/youtube.png" width={1104} height={2312} className="w-full rounded-xl" alt="YouTube scrubber"/>
+                            <Image src="/cardio/youtube.png" width={1104} height={2312} className="w-full rounded-xl" alt="YouTube scrubber"/>
                         </ImageZoom>
                     </div>
                 </div>
@@ -315,10 +315,10 @@ export default function Cardio() {
                 <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
                     <div className="w-full lg:w-[45%] grid grid-cols-2">
                         <ImageZoom>
-                            <Image src="/ut-1.png" width={1469} height={1996} className="w-full h-auto -rotate-6 shadow-lg" alt="User testing theme 1"/>
+                            <Image src="/cardio/ut-1.png" width={1469} height={1996} className="w-full h-auto -rotate-6 shadow-lg" alt="User testing theme 1"/>
                         </ImageZoom>
                         <ImageZoom>
-                            <Image src="/ut-2.png" width={1469} height={1964} className="w-full h-auto rotate-10 shadow-lg" alt="User testing theme 2"/>
+                            <Image src="/cardio/ut-2.png" width={1469} height={1964} className="w-full h-auto rotate-10 shadow-lg" alt="User testing theme 2"/>
                         </ImageZoom>
                     </div>
                 </div>
@@ -336,10 +336,10 @@ export default function Cardio() {
                 <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
                     <div className="w-full lg:w-[45%] grid grid-cols-2 gap-4">
                         <ImageZoom>
-                            <Image src="/draft.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="Before: scrubber"/>
+                            <Image src="/cardio/draft.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="Before: scrubber"/>
                         </ImageZoom>
                         <ImageZoom>
-                            <Image src="/sol-3.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="After: circular progress"/>
+                            <Image src="/cardio/sol-3.png" width={1104} height={2312} className="w-full h-auto rounded-2xl" alt="After: circular progress"/>
                         </ImageZoom>
                     </div>
                 </div>
@@ -365,7 +365,7 @@ export default function Cardio() {
                 <div className="mb-4"></div>
                 <div className="bg-[var(--container-bg-2)] flex justify-center items-center p-8 lg:p-14">
                     <div className="w-[50%] lg:w-[22%]">
-                        <video src="/swiping.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
+                        <video src="/cardio/swiping.mp4" autoPlay muted loop playsInline className="w-full object-cover rounded-2xl" />
                     </div>
                 </div>
                 <div className="mb-4"></div>
@@ -432,9 +432,9 @@ export default function Cardio() {
                 <div className="mb-8"></div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
-                    <ProjectThumbnail link="rules" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" videoSrc="/geofence.mp4" target="_self"/>
-                    <ProjectThumbnail link="organizations" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" videoSrc="/organizations.mp4" target="_self"/>
-                    <ProjectThumbnail link="knoxagent" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" target="_self"/>
+                    <ProjectThumbnail link="rules" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" videoSrc="/rules/geofence.mp4" target="_self"/>
+                    <ProjectThumbnail link="organizations" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" videoSrc="/organizations/organizations.mp4" target="_self"/>
+                    <ProjectThumbnail link="knoxagent" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/knoxagent/agent.png" target="_self"/>
                 </div>
                 */}
 

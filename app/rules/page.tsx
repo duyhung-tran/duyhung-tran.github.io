@@ -34,12 +34,6 @@ export default function Rules() {
             </div>
 
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
-                {/* <div className="rounded-2xl overflow-hidden">
-                    <video className="w-full h-full object-cover" autoPlay muted loop playsInline poster="/rule-poster-wide.png">
-                        <source src="Rule video wide.mp4"type="video/mp4" />
-                    </video>
-                </div> */}
-
                 <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Control devices based on locations</p>
 
                 <div className="mb-8"></div>
@@ -51,7 +45,7 @@ export default function Rules() {
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)] p-6 lg:p-20">
                 {/* <div className="flex justify-center bg-[var(--container-bg-2)]"> */}
-                    <Image src="/geofenceee.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full lg:w-[55%]"/>
+                    <Image src="/rules/addgeofence.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full lg:w-[55%]"/>
                 </div>
 
                 <div className="mb-10"></div>
@@ -142,7 +136,7 @@ export default function Rules() {
                 </div>
                 <div className="mb-4"></div>
                 <div className="bg-[var(--container-bg-2)]">
-                    <video src="/geofence.mp4" autoPlay muted loop playsInline aria-label="knox manage geofence" className="w-full" />
+                    <video src="/rules/geofence.mp4" autoPlay muted loop playsInline aria-label="knox manage geofence" className="w-full" />
                 </div>
 
                 <div className="mb-14"></div>
@@ -151,7 +145,7 @@ export default function Rules() {
                     What I did
                 </p>
                 <div className="mb-4"></div>
-                <Image src="/rules-map.png" alt="knox manage geofence" width={1640} height={1228} className="w-full"/>
+                <Image src="/rules/rules-map.png" alt="knox manage geofence" width={1640} height={1228} className="w-full"/>
 
                 <div className="mb-22"></div> */}
 
@@ -167,15 +161,15 @@ export default function Rules() {
                 <div className="mb-8"></div>
                 <div>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules-0.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
+                        <Image src="/rules/rules-0.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Overview table.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules-1.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
+                        <Image src="/rules/rules-1.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">View details through a sliding panel.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules-1.5.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
+                        <Image src="/rules/rules-1.5.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Detailed sliding panel.</p>
                 </div>
@@ -195,11 +189,11 @@ export default function Rules() {
 
                 <div>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules-3.png" width={3099} height={3363} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
+                        <Image src="/rules/rules-3.png" width={3099} height={3363} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Configuring location-based conditions.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules-4.png" width={2622} height={2622} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
+                        <Image src="/rules/rules-4.png" width={2622} height={2622} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Segment of the location-based conditions configuration flow.</p>
                 </div>
@@ -233,13 +227,11 @@ export default function Rules() {
                 <div className="mb-8"></div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
-                    <ProjectThumbnail link="knoxagent" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" target="_self"/>
-                    <ProjectThumbnail link="organizations" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" videoSrc="/organizations.mp4" target="_self"/>
-                    <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a healthy weight journey" imageSrc="/health logo.png" target="_self"/>
+                    <ProjectThumbnail link="knoxagent" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/knoxagent/agent.png" target="_self"/>
+                    <ProjectThumbnail link="organizations" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" videoSrc="/organizations/organizations.mp4" target="_self"/>
+                    <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a healthy weight journey" imageSrc="/health/health logo.png" target="_self"/>
                 </div>
                 */}
-                {/* Was already hidden inside "Other works": */}
-                {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
 
                 <div className="mb-25"></div>
                 {/* Back to home: natural width, no icon */}
@@ -250,11 +242,11 @@ export default function Rules() {
                 <div>
                     <div className="w-full md:w-[60%] grid grid-cols-2 gap-2 md:gap-5">
                         <div className="flex flex-col justify-start">
-                            <Image src="/uxmas.jpg" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
+                            <Image src="/about/uxmas.jpg" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
                             <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">@ Samsung XMas party 🎄</p>
                         </div>
                         <div className="flex flex-col justify-start">
-                            <Image src="/yehe.png" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
+                            <Image src="/about/yehe.png" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
                             <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Group selfie #116</p>
                         </div>
                     </div>

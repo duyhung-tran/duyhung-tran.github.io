@@ -21,7 +21,7 @@ export default function Testimonials() {
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Overall, his dedication and versatility make him a valuable asset to any design team."</p>
                     <div className="mb-8"></div>
                     <div className="flex w-full gap-6 items-center">
-                        {/* <Image src="/tian.jpeg" alt="tian" width={64} height={64} className="w-[48px] h-[48px] aspect-square rounded-full"/> */}
+                        {/* <Image src="/testimonials/tian.jpeg" alt="tian" width={64} height={64} className="w-[48px] h-[48px] aspect-square rounded-full"/> */}
                         <div>
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Tian Jia</p>
                             <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Senior UX Designer at Samsung Electronics</p>
@@ -33,7 +33,7 @@ export default function Testimonials() {
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">His calm demeanor and ability to clearly communicate his working progress are just some of his strengths."</p>
                     <div className="mb-8"></div>
                     <div className="flex w-full gap-6 items-center">
-                        {/* <Image src="/thomas.jpeg" alt="thomas" width={64} height={64} className="w-[48px] h-[48px] aspect-square rounded-full"/> */}
+                        {/* <Image src="/testimonials/thomas.jpeg" alt="thomas" width={64} height={64} className="w-[48px] h-[48px] aspect-square rounded-full"/> */}
                         <div>
                             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Thomas Nelles</p>
                             <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Senior Communications Consultant at Fraser Health</p>

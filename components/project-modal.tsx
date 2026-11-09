@@ -34,16 +34,16 @@ const coverMediaClass = "absolute inset-0 w-full h-full object-cover";
 const labelClass = "text-xs text-[var(--colour-bodytext-light)] leading-loose";
 const valueClass = "text-sm text-[var(--colour-bodytext)] leading-loose";
 const panelMotion = {
-    initial: { opacity: 0, y: 0, filter: "blur(0px)" },
-    animate: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0 } },
-    exit: { opacity: 0, y: 0, filter: "blur(0px)", transition: { duration: 0 } },
+    initial: { opacity: 0, scale: 0.9, filter: "blur(16px)" },
+    animate: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.25 } },
+    exit: { opacity: 0, scale: 0.9, filter: "blur(16px)", transition: { duration: 0.25 } },
 };
 // Opening the project page from the scroll ring: once the page has loaded underneath,
 // the panel slides up and blurs away, and the backdrop fades, revealing it
 const exitDuration = 0.9;
 // Eases in and out gently, so the slide starts and settles without a jolt
 const exitEase = [0.45, 0, 0.2, 1] as const;
-const leavingMotion = { opacity: 0, y: -120, filter: "blur(22px)", transition: { duration: exitDuration, ease: exitEase } };
+const leavingMotion = { opacity: 0, scale: 0.9, filter: "blur(22px)", transition: { duration: exitDuration, ease: exitEase } };
 
 export default function ProjectModal({ project, onClose }: Props) {
     return (
@@ -89,7 +89,7 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                 initial={{ opacity: 0 }}
                 animate={stage === "exiting" ? { opacity: 0, transition: { duration: exitDuration, ease: exitEase } } : { opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0 }}
+                transition={{ duration: 0.25 }}
                 className="fixed inset-0 bg-black/10 backdrop-blur-[11px]"
                 aria-hidden="true"
             />
@@ -407,17 +407,18 @@ function MediaColumn({
                 aria-label={`${p.title} media`}
                 className="absolute inset-0 overflow-y-auto overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus:outline-none"
             >
-                {/* Wrapper only for the open-time nudge; the transform is gone once it ends */}
+                {/* Wrapper for the open-time nudge (the transform is gone once it ends). It stays one
+                    column tall so the ring section's % heights still work; the items overflow it. */}
                 <div className={`h-full ${nudge ? "media-nudge" : ""}`}>
                 <div className="relative h-full flex items-center justify-center">{main}</div>
 
                 {gallery.map((m) => (
-                    // Screenshots and mockups sit whole, edge to edge, on the light grey used on the project pages
-                    <div key={m.src} className="relative h-full flex items-center justify-center bg-[var(--container-bg-2)]">
+                    // Screenshots and mockups sit whole, full width, each as tall as it is, on the light grey used on the project pages
+                    <div key={m.src} className="bg-[var(--container-bg-2)]">
                         {m.kind === "video" ? (
-                            <video src={m.src} autoPlay muted loop playsInline aria-label={m.alt} className="max-w-full max-h-full object-contain" />
+                            <video src={m.src} autoPlay muted loop playsInline aria-label={m.alt} className="block w-full h-auto" />
                         ) : (
-                            <Image src={m.src} alt={m.alt} width={1640} height={1228} className="w-auto h-auto max-w-full max-h-full object-contain" />
+                            <Image src={m.src} alt={m.alt} width={1640} height={1228} className="block w-full h-auto" />
                         )}
                     </div>
                 ))}

@@ -12,25 +12,25 @@ export const projects: Project[] = [
     id: "knoxagent",
     name: "Samsung Knox in-console AI agent",
     href: "/knoxagent",
-    image: "/yuhh.png",
+    image: "/knoxagent/agent.png",
   },
   {
     id: "organizations",
     name: "Knox Manage's organizations table",
     href: "/organizations",
-    image: "/orga.png",
+    image: "/organizations/organizations.png",
   },
   {
     id: "health",
     name: "Samsung Health research initiatives",
     href: "/health",
-    image: "/health logo.png",
+    image: "/health/health logo.png",
   },
   {
     id: "geofence",
     name: "Knox Manage's geofence creation",
     href: "/rules",
-    image: "/geofenceee.png",
+    image: "/rules/addgeofence.png",
   },
 ];
 

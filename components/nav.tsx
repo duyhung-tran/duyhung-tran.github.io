@@ -15,7 +15,7 @@
 //             <div className={`w-full flex items-center relative justify-between`}>
 //                 <div className="flex gap-x-4 items-center" >
 //                     <a href="/about">
-//                         <Image src="/me.png" width={3363} height={3363} className="w-[54px] aspect-square" alt="Hung Tran"/> 
+//                         <Image src="/about/me.png" width={3363} height={3363} className="w-[54px] aspect-square" alt="Hung Tran"/> 
 //                     </a>
 //                     <div>
 //                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose -mb-1">Hung Tran</p>
@@ -35,7 +35,7 @@
 //             <div className={`w-full flex items-center justify-between sticky top-10`}>
 //                 <div className="flex gap-x-4 items-center" >
 //                     <a href="/">
-//                         <Image src="/me.png" width={3363} height={3363} className="w-[54px] aspect-square" alt="Hung Tran"/> 
+//                         <Image src="/about/me.png" width={3363} height={3363} className="w-[54px] aspect-square" alt="Hung Tran"/> 
 //                     </a>
 //                     <div>
 //                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose -mb-1">Hung Tran</p>
@@ -93,7 +93,7 @@ export default function Nav(props: Props) {
         <div className={`flex gap-x-4 items-center ${isHome ? "" : "transition-all duration-300"}`}>
             <a href="/" className="w-[54px]">
                 <Image
-                    src="/me.png"
+                    src="/about/me.png"
                     width={3363}
                     height={3363}
                     className={`aspect-square ${isHome ? "" : "transition-all duration-300"} hover:w-[54px] ${

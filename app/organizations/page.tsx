@@ -47,8 +47,8 @@ export default function Organizations() {
                 </div>
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)]">
-                    <Image src="/org-00.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full"/>
-                    {/* <video src="/organizations.mp4" autoPlay muted loop playsInline aria-label="knox manage organizations table" className="w-full" /> */}
+                    <Image src="/organizations/organizations-preview.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full"/>
+                    {/* <video src="/organizations/organizations.mp4" autoPlay muted loop playsInline aria-label="knox manage organizations table" className="w-full" /> */}
                 </div>
 
                 <div className="mb-10"></div>
@@ -117,23 +117,23 @@ export default function Organizations() {
 
                 <div>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/ds1.png" width={3099} height={1823} className="w-full lg:w-[80%]" alt="Samsung Knox"/> 
+                        <Image src="/organizations/ds1.png" width={3099} height={1823} className="w-full lg:w-[80%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying spacing specs during default state.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/ds2.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
+                        <Image src="/organizations/ds2.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying specs during user interactions.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/ds3.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
+                        <Image src="/organizations/ds3.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Writing guidelines for multiple ways user can interact with the component.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/ds4.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
+                        <Image src="/organizations/ds4.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying the interactions for multiple variants.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/ds5.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
+                        <Image src="/organizations/ds5.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Final deliverables.</p>
                 </div>
@@ -167,13 +167,11 @@ export default function Organizations() {
                 <div className="mb-8"></div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-3">
-                    <ProjectThumbnail link="knoxagent" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" target="_self"/>
-                    <ProjectThumbnail link="rules" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" videoSrc="/geofence.mp4" target="_self"/>
-                    <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a healthy weight journey" imageSrc="/health logo.png" target="_self"/>
+                    <ProjectThumbnail link="knoxagent" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/knoxagent/agent.png" target="_self"/>
+                    <ProjectThumbnail link="rules" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" videoSrc="/rules/geofence.mp4" target="_self"/>
+                    <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a healthy weight journey" imageSrc="/health/health logo.png" target="_self"/>
                 </div>
                 */}
-                {/* Was already hidden inside "Other works": */}
-                {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
 
                 <div className="mb-25"></div>
                 {/* Back to home: natural width, no icon */}
