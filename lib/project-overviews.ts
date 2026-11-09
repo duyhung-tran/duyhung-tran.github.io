@@ -34,8 +34,12 @@ export type ProjectOverview = {
     // More media after the main one, scrolled through in the modal's media column.
     // Scrolling past the last one fills a ring that opens the project page.
     gallery?: GalleryItem[];
+    // Replaces the modal's "Go back" button with a link to the official
+    // documentation or a prototype (opens in a new tab)
+    secondary?: { label: "Documentation" | "Prototype"; link: string };
     // For projects under NDA: the primary button becomes "Contact for details" linking here
-    // (opens in a new tab), and the scroll ring is left out, so the gallery just ends
+    // (opens in a new tab), the "Go back" button is left out, and so is the scroll ring,
+    // so the gallery just ends
     contact?: string;
     // Media fills its half of the modal edge to edge instead of sitting inset
     coverMedia?: boolean;
@@ -64,6 +68,7 @@ export const archiveOverviews: ProjectOverview[] = [
 // Home page projects, in display order. "View project" opens each case study page.
 export const homeOverviews: ProjectOverview[] = [
     { slug: "rules", title: "Control devices based on locations", summary: "Samsung Knox Manage", videoSrc: "/geofence.mp4", link: "/rules", coverMedia: true,
+      secondary: { label: "Documentation", link: "https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/create-rules/" },
       gallery: [
           { src: "/geofenceee.png", kind: "image", alt: "Geofence in Knox Manage" },
           { src: "/rules-0.png", kind: "image", alt: "Rules overview table" },
@@ -74,6 +79,7 @@ export const homeOverviews: ProjectOverview[] = [
       description: "Device settings stayed active until IT admins changed them by hand. Event-based rules let admins set the conditions, like being inside a geofence, that switch settings on and off automatically.",
       overview: { company: "Samsung", product: "Knox Manage (New Console)", status: "Live", focus: ["Feature design"] } },
     { slug: "organizations", title: "Visualize hierarchical device management", summary: "Samsung Knox Manage", videoSrc: "/organizations.mp4", link: "/organizations", coverMedia: true,
+      secondary: { label: "Documentation", link: "https://docs.samsungknox.com/admin/knox-manage/new-console/manage-organizations/manage-organizations/" },
       gallery: [
           { src: "/org-00.png", kind: "image", alt: "Organizations table" },
           { src: "/ds1.png", kind: "image", alt: "Spacing specs in the default state" },
@@ -83,6 +89,7 @@ export const homeOverviews: ProjectOverview[] = [
       description: "A hierarchical table that shows how settings pass from parent to child organizations and where they are overridden, built from existing design system components.",
       overview: { company: "Samsung", product: "Knox Manage (New Console)", status: "Live", focus: ["Design system"] } },
     { slug: "cardio", title: "Run with the right music", summary: "Spotify POC", videoSrc: "/cardio animation.mp4", link: "/cardio", coverMedia: true,
+      secondary: { label: "Prototype", link: "https://www.figma.com/proto/5SjXuZ0MgUNMOFRmh3qOOY/card.io?page-id=0%3A1&node-id=24-151&viewport=779%2C110%2C0.2&t=Yy6S9WYqbPXyKWdL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=24%3A151" },
       gallery: [
           { src: "/sol-1.mp4", kind: "video", alt: "Generating a playlist" },
           { src: "/sol-11.png", kind: "image", alt: "card.io generated playlist" },

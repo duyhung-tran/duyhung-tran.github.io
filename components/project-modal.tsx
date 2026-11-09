@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import MyButton from "@/components/my-button";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Mail, SquareArrowOutUpRight, Undo2, X } from "lucide-react";
+import { FolderOpen, Mail, SquareArrowOutUpRight, Undo2, X } from "lucide-react";
 import { NO_LINK_YET, linkTarget, type ProjectOverview } from "@/lib/project-overviews";
 
 type Props = {
@@ -40,8 +40,10 @@ const panelMotion = {
 };
 // Opening the project page from the scroll ring: once the page has loaded underneath,
 // the panel slides up and blurs away, and the backdrop fades, revealing it
-const exitDuration = 0.55;
-const leavingMotion = { opacity: 0, y: -120, filter: "blur(16px)", transition: { duration: exitDuration, ease } };
+const exitDuration = 0.9;
+// Eases in and out gently, so the slide starts and settles without a jolt
+const exitEase = [0.45, 0, 0.2, 1] as const;
+const leavingMotion = { opacity: 0, y: -120, filter: "blur(22px)", transition: { duration: exitDuration, ease: exitEase } };
 
 export default function ProjectModal({ project, onClose }: Props) {
     return (
@@ -85,7 +87,7 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
         <Dialog static open onClose={stage === "idle" ? onClose : () => {}} className="relative z-[150]">
             <motion.div
                 initial={{ opacity: 0 }}
-                animate={stage === "exiting" ? { opacity: 0, transition: { duration: exitDuration, ease } } : { opacity: 1 }}
+                animate={stage === "exiting" ? { opacity: 0, transition: { duration: exitDuration, ease: exitEase } } : { opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0 }}
                 className="fixed inset-0 bg-black/10 backdrop-blur-[11px]"
@@ -204,7 +206,7 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                     side-by-side layout. The inner grid's equal columns make both buttons
                                     as wide as the wider one. */}
                                 <div className="flex lg:mt-auto">
-                                    <div className="grid grid-cols-2 gap-3">
+                                    <div className={`grid ${p.contact ? "grid-cols-1" : "grid-cols-2"} gap-3`}>
                                         {p.contact ? (
                                             <MyButton
                                                 variant="primary"
@@ -217,8 +219,8 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                         ) : (
                                         <MyButton
                                             variant="primary"
-                                            icon={SquareArrowOutUpRight}
                                             // Home page projects (the ones with a gallery) open a full case study page
+                                            icon={p.gallery ? FolderOpen : SquareArrowOutUpRight}
                                             text={p.gallery ? "View entire project" : "View project"}
                                             link={link}
                                             // External links open a new tab; site pages and the placeholder stay in this one
@@ -226,7 +228,22 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                             textSize="text-sm"
                                         />
                                         )}
-                                        <MyButton variant="secondary" icon={Undo2} text="Go back" onClick={onClose} textSize="text-sm" />
+                                        {/* Second button: documentation or prototype when the project has one;
+                                            NDA projects get none; everything else (the archive) gets "Go back" */}
+                                        {p.secondary ? (
+                                            <MyButton
+                                                variant="secondary"
+                                                icon={SquareArrowOutUpRight}
+                                                text={p.secondary.label}
+                                                link={p.secondary.link}
+                                                target="_blank"
+                                                textSize="text-sm"
+                                            />
+                                        ) : (
+                                            !p.contact && (
+                                                <MyButton variant="secondary" icon={Undo2} text="Go back" onClick={onClose} textSize="text-sm" />
+                                            )
+                                        )}
                                     </div>
                                 </div>
                             </div>

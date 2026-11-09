@@ -36,7 +36,7 @@ export default function Organizations() {
                 </div>
             </div>
             <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
-                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Visualize how settings are inherited across nested levels</p>
+                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Visualize hierarchical device management</p>
             
                 <div className="mb-8"></div>
 
