@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import MyButton from "@/components/my-button";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { AnimatePresence, motion } from "framer-motion";
-import { FolderOpen, Mail, SquareArrowOutUpRight, Undo2, X } from "lucide-react";
+import { FolderOpen, Mail, SquareArrowOutUpRight, X } from "lucide-react";
 import { NO_LINK_YET, linkTarget, type ProjectOverview } from "@/lib/project-overviews";
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
 //
 // Project overview shown over the home and archive grids (Figma: Portfolio 2027, node 464:18952).
 // A dimmed, blurred backdrop with a white panel: media on the left, title,
-// description, credits and the "View project" / "Go back" buttons on the right.
+// description, credits and the action buttons on the right.
 //
 // The panel slides up into place while fading in and coming into focus
 // (opacity + blur), and reverses on close.
@@ -206,7 +206,7 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                     side-by-side layout. The inner grid's equal columns make both buttons
                                     as wide as the wider one. */}
                                 <div className="flex lg:mt-auto">
-                                    <div className={`grid ${p.contact ? "grid-cols-1" : "grid-cols-2"} gap-3`}>
+                                    <div className={`grid ${p.secondary ? "grid-cols-2" : "grid-cols-1"} gap-3`}>
                                         {p.contact ? (
                                             <MyButton
                                                 variant="primary"
@@ -228,9 +228,9 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                             textSize="text-sm"
                                         />
                                         )}
-                                        {/* Second button: documentation or prototype when the project has one;
-                                            NDA projects get none; everything else (the archive) gets "Go back" */}
-                                        {p.secondary ? (
+                                        {/* Second button only when the project has documentation or a prototype;
+                                            the rest (archive and NDA projects) close with ×, Escape or the backdrop */}
+                                        {p.secondary && (
                                             <MyButton
                                                 variant="secondary"
                                                 icon={SquareArrowOutUpRight}
@@ -239,10 +239,6 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                                 target="_blank"
                                                 textSize="text-sm"
                                             />
-                                        ) : (
-                                            !p.contact && (
-                                                <MyButton variant="secondary" icon={Undo2} text="Go back" onClick={onClose} textSize="text-sm" />
-                                            )
                                         )}
                                     </div>
                                 </div>

@@ -34,12 +34,11 @@ export type ProjectOverview = {
     // More media after the main one, scrolled through in the modal's media column.
     // Scrolling past the last one fills a ring that opens the project page.
     gallery?: GalleryItem[];
-    // Replaces the modal's "Go back" button with a link to the official
-    // documentation or a prototype (opens in a new tab)
+    // The modal's second button: a link to the official documentation or a
+    // prototype (opens in a new tab). Without it the modal shows only one button.
     secondary?: { label: "Documentation" | "Prototype"; link: string };
     // For projects under NDA: the primary button becomes "Contact for details" linking here
-    // (opens in a new tab), the "Go back" button is left out, and so is the scroll ring,
-    // so the gallery just ends
+    // (opens in a new tab), and the scroll ring is left out, so the gallery just ends
     contact?: string;
     // Media fills its half of the modal edge to edge instead of sitting inset
     coverMedia?: boolean;
