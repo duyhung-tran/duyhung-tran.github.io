@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import MyButton from "@/components/my-button";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { AnimatePresence, motion } from "framer-motion";
-import { SquareArrowOutUpRight, Undo2, X } from "lucide-react";
+import { Mail, SquareArrowOutUpRight, Undo2, X } from "lucide-react";
 import { NO_LINK_YET, linkTarget, type ProjectOverview } from "@/lib/project-overviews";
 
 type Props = {
@@ -63,7 +63,8 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
     // The media column's scroller, so a wheel anywhere on the panel can scroll it
     const mediaScrollerRef = useRef<HTMLDivElement>(null);
     // The scroll ring only leads to pages on this site, never to an external link or the placeholder
-    const ringOpens = p.gallery && link.startsWith("/") ? link : null;
+    // (nor for NDA projects, which point to "Contact for details" instead)
+    const ringOpens = p.gallery && !p.contact && link.startsWith("/") ? link : null;
 
     // Load the project page in the background while the modal is open
     useEffect(() => {
@@ -160,7 +161,7 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                                 <div className="flex items-center gap-2">
                                                     <p className={valueClass}>{p.overview.status}</p>
                                                     <span
-                                                        className={`w-1.5 h-1.5 rounded-full ${p.overview.status === "Live" ? "bg-emerald-400" : "bg-blue-500"}`}
+                                                        className={`w-1.5 h-1.5 rounded-full ${p.overview.status === "Live" ? "bg-green-500" : "bg-blue-500"}`}
                                                         aria-hidden="true"
                                                     />
                                                 </div>
@@ -204,15 +205,27 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                     as wide as the wider one. */}
                                 <div className="flex lg:mt-auto">
                                     <div className="grid grid-cols-2 gap-3">
+                                        {p.contact ? (
+                                            <MyButton
+                                                variant="primary"
+                                                icon={Mail}
+                                                text="Contact for details"
+                                                link={p.contact}
+                                                target="_blank"
+                                                textSize="text-sm"
+                                            />
+                                        ) : (
                                         <MyButton
                                             variant="primary"
                                             icon={SquareArrowOutUpRight}
-                                            text="View project"
+                                            // Home page projects (the ones with a gallery) open a full case study page
+                                            text={p.gallery ? "View entire project" : "View project"}
                                             link={link}
                                             // External links open a new tab; site pages and the placeholder stay in this one
                                             target={linkTarget(link)}
                                             textSize="text-sm"
                                         />
+                                        )}
                                         <MyButton variant="secondary" icon={Undo2} text="Go back" onClick={onClose} textSize="text-sm" />
                                     </div>
                                 </div>
@@ -320,7 +333,11 @@ function MediaColumn({
         barTimer.current = setTimeout(() => setBar((b) => ({ ...b, visible: false })), SCROLLBAR_HIDE);
 
         const section = ringSectionRef.current;
-        if (!section) return;
+        if (!section) {
+            // No ring: the hint goes once the last item is reached
+            setRingInView(el.scrollTop >= el.scrollHeight - el.clientHeight - 2);
+            return;
+        }
         // 0 when the ring section reaches the top of the column, 1 at the very end of the scroll
         const start = section.offsetTop;
         // The ring sits in the middle of its first screen, so it shows from half a column before it pins
@@ -412,7 +429,7 @@ function MediaColumn({
                                 />
                             </svg>
                             <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">
-                                {progress >= RING_FULL ? "Opening project" : "Keep scrolling to open project"}
+                                {progress >= RING_FULL ? "Opening project" : "View the nitty-gritty of this project"}
                             </p>
                         </div>
                     </div>

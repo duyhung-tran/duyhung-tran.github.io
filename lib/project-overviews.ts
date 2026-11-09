@@ -34,6 +34,9 @@ export type ProjectOverview = {
     // More media after the main one, scrolled through in the modal's media column.
     // Scrolling past the last one fills a ring that opens the project page.
     gallery?: GalleryItem[];
+    // For projects under NDA: the primary button becomes "Contact for details" linking here
+    // (opens in a new tab), and the scroll ring is left out, so the gallery just ends
+    contact?: string;
     // Media fills its half of the modal edge to edge instead of sitting inset
     coverMedia?: boolean;
 } & (
@@ -43,6 +46,9 @@ export type ProjectOverview = {
 
 // Placeholder href for "View project" on projects without a link yet
 export const NO_LINK_YET = "#";
+
+// Where "Contact for details" goes (the resume, which has contact info)
+export const CONTACT_LINK = "https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing";
 
 // In display order
 export const archiveOverviews: ProjectOverview[] = [
@@ -86,16 +92,10 @@ export const homeOverviews: ProjectOverview[] = [
       ],
       description: "Personalized, colour-coded cardio playlists with real-time support while running, inspired by the cardio playlist trend among fitness influencers.",
       overview: { company: "Personal project", product: "card.io", status: "Concept", focus: ["UX design"] } },
-    { slug: "knoxagent", title: "Interactive widgets for agents experiences", summary: "Samsung Knox AI Assist", imageSrc: "/yuhh.png", link: "/knoxagent", coverMedia: true,
-      gallery: [
-          { src: "/aii biggg.png", kind: "image", alt: "Knox AI Assist widgets" },
-      ],
+    { slug: "knoxagent", title: "Interactive widgets for agents experiences", summary: "Samsung Knox AI Assist", imageSrc: "/yuhh.png", link: "/knoxagent", coverMedia: true, contact: CONTACT_LINK,
       description: "A reusable chassis of interactive widgets for the Knox Cloud Services AI assistant. Details are under NDA or not yet launched.",
       overview: { company: "Samsung", product: "In-console AI assistant", status: "Shipped", focus: ["Design system", "Agent experience"] } },
-    { slug: "health", title: "Supporting a healthy weight journey", summary: "Samsung Health", imageSrc: "/health logo.png", link: "/health", coverMedia: true,
-      gallery: [
-          { src: "/shapp.jpg", kind: "image", alt: "Samsung Health app" },
-      ],
+    { slug: "health", title: "Supporting a healthy weight journey", summary: "Samsung Health", imageSrc: "/health logo.png", link: "/health", coverMedia: true, contact: CONTACT_LINK,
       description: "Research into the demand for healthy weight journeys, finding gaps between user needs and existing products where Samsung Health can step in. Details are under NDA.",
       overview: { company: "Samsung", product: "Samsung Health", status: "Shipped", focus: ["UX Research"] } },
 ];

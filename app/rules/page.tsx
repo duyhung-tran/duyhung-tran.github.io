@@ -38,7 +38,7 @@ export default function Rules() {
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
                     <div className="flex items-center justify-start gap-2">
                         <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Live</p>
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true"/>
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500" aria-hidden="true"/>
                     </div>
                     <div className="mb-6"></div>
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
@@ -85,7 +85,7 @@ export default function Rules() {
                             <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
                             <div className="flex items-center justify-start gap-2">
                                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Live</p>
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" aria-hidden="true"/>
+                                <span className="w-1.5 h-1.5 rounded-full bg-green-500" aria-hidden="true"/>
                             </div>
                         </div>
                         <div>
