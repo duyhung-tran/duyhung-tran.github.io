@@ -5,28 +5,13 @@ import MyButton from "@/components/my-button";
 import Hyperlink from "@/components/hyperlink";
 import Nav from "@/components/nav";
 import { Info, Locate, MapPinCheck, SlidersHorizontal, Snail, UserSearch, Pencil, Puzzle, ShieldQuestionMark, SquareArrowOutUpRight } from "lucide-react";
-import TableOfContents, { TocSection } from "@/components/table-of-contents";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
-
-const sections: TocSection[] = [
-  { id: "overview", label: "Project overview" },
-  { id: "problem", label: "Problem" },
-  { id: "findings", label: "Research insights" },
-  { id: "framing", label: "Framing" },
-  { id: "reviewing-all-rules", label: "Reviewing all rules" },
-  { id: "create-a-geofence", label: "Create a geofence" },
-  { id: "reflection-corner", label: "Reflection corner" },
-];
 
 export default function Rules() {
   return (
     <div className="w-full p-10">
         <Nav variant="others" />
         <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr] 2xl:grid-cols-[0.75fr_3fr]">
-            {/* <div className="w-full md:sticky md:top-[30%] md:self-start flex flex-col justify-end">
-                <TableOfContents sections={sections} />
-            </div> */}
-
             <div className="w-full h-full flex flex-col justify-between hidden lg:block">
                 <div id="overview" className="lg:sticky lg:top-[23%]">
                     <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
@@ -239,6 +224,7 @@ export default function Rules() {
                     </div>
                 </div>
 
+                {/* "Other works" section, hidden for now
                 <div className="mb-25"></div>
 
                 <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="reflection-corner">
@@ -250,7 +236,15 @@ export default function Rules() {
                     <ProjectThumbnail link="knoxagent" name="Samsung Knox AI's interactive widgets" desc="Reusable chassis for Knox Cloud Services' AI assistant" imageSrc="/yuhh.png" target="_self"/>
                     <ProjectThumbnail link="organizations" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" videoSrc="/organizations.mp4" target="_self"/>
                     <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a healthy weight journey" imageSrc="/health logo.png" target="_self"/>
-                    {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
+                </div>
+                */}
+                {/* Was already hidden inside "Other works": */}
+                {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
+
+                <div className="mb-25"></div>
+                {/* Back to home: natural width, no icon */}
+                <div className="flex">
+                    <MyButton variant="primary" text="Back to home" link="/" textSize="text-sm"/>
                 </div>
                 {/* <div className="mb-18"></div>
                 <div>

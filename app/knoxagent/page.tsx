@@ -52,6 +52,7 @@ export default function KnoxAgent() {
                     <Image src="/aii biggg.png" alt="samsung" width={1640} height={1228} className="w-full"/>
                 </div>
                 
+                {/* "Other works" section, hidden for now
                 <div className="mb-16"></div>
                                 
                 <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="reflection-corner">
@@ -63,7 +64,15 @@ export default function KnoxAgent() {
                     <ProjectThumbnail link="rules" name="Knox Manage's geofence creation" desc="Enabling geography-based device management" videoSrc="/geofence.mp4" target="_self"/>
                     <ProjectThumbnail link="organizations" name="Knox Manage's organizations table" desc="Visualizing blast radius across device management levels" videoSrc="/organizations.mp4" target="_self"/>
                     <ProjectThumbnail link="health" name="Samsung Health research initiatives" desc="Supporting a healthy weight journey" imageSrc="/health logo.png" target="_self"/>
-                    {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
+                </div>
+                */}
+                {/* Was already hidden inside "Other works": */}
+                {/* <ProjectThumbnail link="alerts" name="Samsung Knox AI's proactive alerts" desc="Proactively surfacing and troubleshooting device issues" imageSrc="/knox logo.png" target="_self"/> */}
+
+                <div className="mb-25"></div>
+                {/* Back to home: natural width, no icon */}
+                <div className="flex">
+                    <MyButton variant="primary" text="Back to home" link="/" textSize="text-sm"/>
                 </div>
             </div>
         </div>
