@@ -16,7 +16,8 @@ export function ProjectModalHost({ children }: { children: React.ReactNode }) {
   return (
     <ProjectModalContext.Provider value={setProject}>
       {children}
-      <ProjectModal project={project} onClose={() => setProject(null)} />
+      {/* The home page's modal is the wide one; the archive page renders its own, normal width */}
+      <ProjectModal project={project} onClose={() => setProject(null)} wide />
     </ProjectModalContext.Provider>
   );
 }

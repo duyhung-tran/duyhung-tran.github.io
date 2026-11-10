@@ -14,12 +14,24 @@ import { RING_FULL, RING_HOLD, RING_IDLE, RING_SECTION, ScrollRing } from "@/com
 type Props = {
     project: ProjectOverview | null;
     onClose: () => void;
+    // Home page modal: wider (same height), with more room for the media
+    wide?: boolean;
 };
 
 // Sizing: from lg up the panel is two columns, 76% of the window wide at a
-// 1000:585 shape, shrinking further if the window is too short for that shape
+// 1000:540 shape, shrinking further if the window is too short for that shape
 // (min-height keeps room for the text). Below lg the columns stack: 80% wide
 // on tablets, full width as a bottom sheet on phones.
+// The home page's modal (wide) is 86% of the window wide but keeps that same height,
+// and gives the media 60% of the width instead of about 56%.
+const panelSize = {
+    normal: "lg:w-[min(76vw,calc((100dvh-80px)*1000/540))] lg:aspect-[1000/540]",
+    wide: "lg:w-[min(86vw,calc((100dvh-80px)*86/76*1000/540))] lg:h-[min(calc(76vw*540/1000),calc(100dvh-80px))]",
+};
+const panelColumns = {
+    normal: "lg:grid-cols-[2.5fr_2fr]",
+    wide: "lg:grid-cols-[3fr_2fr]",
+};
 //
 // Project overview shown over the home and archive grids (Figma: Portfolio 2027, node 464:18952).
 // A dimmed, blurred backdrop with a white panel: media on the left, title,
@@ -58,17 +70,17 @@ const morphPanelFade = 0.3;
 // Once everything has landed, the overlay fades to reveal the page (and its nav) underneath
 const morphReveal = 0.35;
 
-export default function ProjectModal({ project, onClose }: Props) {
+export default function ProjectModal({ project, onClose, wide = false }: Props) {
     return (
         // AnimatePresence keeps the closing modal (with its last project) mounted
         // until its exit animation finishes
         <AnimatePresence>
-            {project && <ModalContent key={project.slug} p={project} onClose={onClose} />}
+            {project && <ModalContent key={project.slug} p={project} onClose={onClose} wide={wide} />}
         </AnimatePresence>
     );
 }
 
-function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void }) {
+function ModalContent({ p, onClose, wide }: { p: ProjectOverview; onClose: () => void; wide: boolean }) {
     const link = p.link ?? NO_LINK_YET;
     const mediaClass = p.coverMedia ? coverMediaClass : insetMediaClass;
     const router = useRouter();
@@ -176,9 +188,9 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                             onClose();
                         }
                     }}
-                    className="relative w-full md:w-[80vw] max-h-[92dvh] md:max-h-[calc(100dvh-80px)] lg:w-[min(76vw,calc((100dvh-80px)*1000/540))] lg:aspect-[1000/540] lg:min-h-[min(560px,calc(100dvh-80px))] lg:max-h-none overflow-y-auto lg:overflow-hidden bg-[var(--container-bg)] shadow-[0_24px_60px_rgba(0,0,0,0.12)]"
+                    className={`relative w-full md:w-[80vw] max-h-[92dvh] md:max-h-[calc(100dvh-80px)] ${panelSize[wide ? "wide" : "normal"]} lg:min-h-[min(560px,calc(100dvh-80px))] lg:max-h-none overflow-y-auto lg:overflow-hidden bg-[var(--container-bg)] shadow-[0_24px_60px_rgba(0,0,0,0.12)]`}
                 >
-                <DialogPanel className="lg:h-full lg:grid lg:grid-cols-[2.5fr_2fr]">
+                <DialogPanel className={`lg:h-full lg:grid ${panelColumns[wide ? "wide" : "normal"]}`}>
                         <>
                             <button
                                 type="button"
