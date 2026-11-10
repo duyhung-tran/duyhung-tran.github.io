@@ -6,37 +6,42 @@ import Hyperlink from "@/components/hyperlink";
 import Nav from "@/components/nav";
 import { Info, Locate, MapPinCheck, SlidersHorizontal, Snail, UserSearch, Pencil, Puzzle, ShieldQuestionMark, SquareArrowOutUpRight } from "lucide-react";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
+import PageToc, { type TocItem } from "@/components/page-toc";
+import ProjectIntro from "@/components/project-intro";
+import { PageEndRing } from "@/components/scroll-ring";
+import { homeOverviews } from "@/lib/project-overviews";
+
+// The modal's content for this project, shown again as the page's first section
+const project = homeOverviews.find((p) => p.slug === "rules")!;
+
+const toc: TocItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "problem", label: "Problem" },
+  { id: "findings", label: "Findings" },
+  { id: "framing", label: "PRD" },
+  { id: "reviewing-all-rules", label: "Reviewing all rules" },
+  { id: "create-a-geofence", label: "Create a geofence rule" },
+  { id: "reflection-corner", label: "Reflection corner" },
+];
 
 export default function Rules() {
   return (
     <div className="w-full p-10">
-        <Nav variant="others" />
-        <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr] 2xl:grid-cols-[0.75fr_3fr]">
-            <div className="w-full h-full flex flex-col justify-between hidden lg:block">
-                <div id="overview" className="lg:sticky lg:top-[23%]">
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
-                    <div className="mb-6"></div>
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Knox Manage (New Console)</p>
-                    <div className="mb-6"></div>
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
-                    <div className="flex items-center justify-start gap-2">
-                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Live</p>
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-500" aria-hidden="true"/>
-                    </div>
-                    <div className="mb-6"></div>
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Feature design</p>
-                    <div className="mb-6"></div>
-                    <Hyperlink variant="icon" icon={SquareArrowOutUpRight} text="Documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/create-rules/" target="_blank"/>
+        {/* Just the photo and menu: no name beside the photo */}
+        <Nav variant="others" hideName shrinkOnScroll />
+        <div className="grid *:grid-cols-1 lg:gap-x-10 lg:grid-cols-[1fr_5fr] 2xl:grid-cols-[0.75fr_5fr]">
+            <div className="hidden lg:block">
+                {/* Lines up with the title and stays put while the page scrolls */}
+                <div className="sticky top-[166px] mt-[72px]">
+                    <PageToc items={toc} />
                 </div>
             </div>
 
-            <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
-                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Control devices based on locations</p>
+            <div className="mt-15 lg:mt-10 pr-0 lg:pr-32">
+                {/* Same content as the project modal, which morphs into it when opened from the scroll ring */}
+                <ProjectIntro p={project} />
 
-                <div className="mb-8"></div>
+                <div className="mb-15"></div>
 
                 <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
                     <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
@@ -46,32 +51,6 @@ export default function Rules() {
                 <div className="flex justify-center bg-[var(--container-bg-2)] p-6 lg:p-20">
                 {/* <div className="flex justify-center bg-[var(--container-bg-2)]"> */}
                     <Image src="/rules/addgeofence.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full lg:w-[55%]"/>
-                </div>
-
-                <div className="mb-10"></div>
-
-                <div id="overview" className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
-                    <div className="flex flex-col lg:flex-row gap-3 lg:gap-0 w-full lg:justify-between">
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
-                        </div>
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Knox Manage (New Console)</p>
-                        </div>
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
-                            <div className="flex items-center justify-start gap-2">
-                                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Live</p>
-                                <span className="w-1.5 h-1.5 rounded-full bg-green-500" aria-hidden="true"/>
-                            </div>
-                        </div>
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Feature design</p>
-                        </div>
-                    </div>
                 </div>
 
                 <div className="mb-7"></div>
@@ -84,8 +63,8 @@ export default function Rules() {
 
                 <div className="mb-15"></div>
 
-                {/* <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">Problem</p> */}
-                <p className="text-3xl text-[var(--colour-bodytext)] leading-12 font-semibold tracking-tight" id="problem">Current device management practices are applied statically, lacking the ability to adapt to different contexts.</p>
+                {/* <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="problem">Problem</p> */}
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-12 font-normal tracking-tight" id="problem">Current device management practices are applied statically, lacking the ability to adapt to different contexts.</p>
                 <div className="mb-8"></div>
                 <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
                     <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
@@ -96,7 +75,7 @@ export default function Rules() {
 
                 <div className="mb-16"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="findings">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="findings">
                     What emerged from PM's conversations
                 </p>
                 <div className="mb-2"></div>
@@ -123,7 +102,7 @@ export default function Rules() {
 
                 <div className="mb-15"></div>
 
-                <p id="framing" className="text-3xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight">
+                <p id="framing" className="text-3xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight">
                     "Rules" feature's PRD
                 </p>
                 <div className="mb-4"></div>
@@ -141,7 +120,7 @@ export default function Rules() {
 
                 <div className="mb-14"></div>
 
-                {/* <p id="framing" className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight">
+                {/* <p id="framing" className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight">
                     What I did
                 </p>
                 <div className="mb-4"></div>
@@ -149,7 +128,7 @@ export default function Rules() {
 
                 <div className="mb-22"></div> */}
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="reviewing-all-rules">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="reviewing-all-rules">
                     Reviewing all rules
                 </p>
                 <div className="mb-4"></div>
@@ -176,7 +155,7 @@ export default function Rules() {
 
                 <div className="mb-18"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="create-a-geofence">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="create-a-geofence">
                     Create a geofence rule
                 </p>
                 <div className="mb-4"></div>
@@ -200,7 +179,7 @@ export default function Rules() {
 
                 <div className="mb-18"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="reflection-corner">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="reflection-corner">
                     Reflection corner
                 </p>
                 <div className="mb-5"></div>
@@ -221,7 +200,7 @@ export default function Rules() {
                 {/* "Other works" section, hidden for now
                 <div className="mb-25"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="reflection-corner">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="reflection-corner">
                     Other works
                 </p>
                 <div className="mb-8"></div>
@@ -233,11 +212,8 @@ export default function Rules() {
                 </div>
                 */}
 
-                <div className="mb-25"></div>
-                {/* Back to home: natural width, no icon */}
-                <div className="flex">
-                    <MyButton variant="primary" text="Back to home" link="/" textSize="text-sm"/>
-                </div>
+                {/* The same scroll ring as the project modal: scrolling on at the bottom of the page fills it and returns home */}
+                <PageEndRing href="/" label="Keep scrolling to return home" fullLabel="Returning home" />
                 {/* <div className="mb-18"></div>
                 <div>
                     <div className="w-full md:w-[60%] grid grid-cols-2 gap-2 md:gap-5">

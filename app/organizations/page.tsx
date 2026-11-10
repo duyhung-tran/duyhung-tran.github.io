@@ -2,44 +2,43 @@
 
 import Image from "next/image";
 import Hyperlink from "@/components/hyperlink";
-import Heading from "@/components/heading";
-import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
-import Menu from "@/components/menu";
 import Nav from "@/components/nav";
-import MyButton from "@/components/my-button";
-import { SquareArrowOutUpRight, Info, Lightbulb, Puzzle } from "lucide-react";
+import { PageEndRing } from "@/components/scroll-ring";
+import { Info, Lightbulb, Puzzle } from "lucide-react";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
+import PageToc, { type TocItem } from "@/components/page-toc";
+import ProjectIntro from "@/components/project-intro";
+import { homeOverviews } from "@/lib/project-overviews";
+
+// The modal's content for this project, shown again as the page's first section
+const project = homeOverviews.find((p) => p.slug === "organizations")!;
+
+const toc: TocItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "problem", label: "Problem" },
+  { id: "what-i-did", label: "What I did" },
+  { id: "documentation", label: "UX documentations" },
+  { id: "reflection-corner", label: "Reflection corner" },
+];
 
 export default function Organizations() {
   return (
     <div className="w-full p-10">
-        <Nav variant="others" />
+        {/* Just the photo and menu: no name beside the photo */}
+        <Nav variant="others" hideName shrinkOnScroll />
 
-        <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr] 2xl:grid-cols-[0.75fr_3fr]">
-            <div className="w-full h-full flex flex-col justify-between hidden lg:block">
-                <div id="overview" className="md:sticky md:top-[23%]">
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
-                    <div className="mb-6"></div>
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Knox Manage (New Console)</p>
-                    <div className="mb-6"></div>
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
-                    <div className="flex items-center justify-start gap-2">
-                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Live</p>
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-500" aria-hidden="true"/>
-                    </div>
-                    <div className="mb-6"></div>
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design system</p>
-                    <div className="mb-6"></div>
-                    <Hyperlink variant="icon" icon={SquareArrowOutUpRight} text="Documentations" link="https://docs.samsungknox.com/admin/knox-manage/new-console/manage-organizations/manage-organizations/" target="_blank"/>
+        <div className="grid *:grid-cols-1 lg:gap-x-10 lg:grid-cols-[1fr_5fr] 2xl:grid-cols-[0.75fr_5fr]">
+            <div className="hidden lg:block">
+                {/* Lines up with the title and stays put while the page scrolls */}
+                <div className="sticky top-[166px] mt-[72px]">
+                    <PageToc items={toc} />
                 </div>
             </div>
-            <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
-                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Visualize hierarchical device management</p>
-            
-                <div className="mb-8"></div>
+            <div className="mt-15 lg:mt-10 pr-0 lg:pr-32">
+                {/* Same content as the project modal, which morphs into it when opened from the scroll ring */}
+                <ProjectIntro p={project} />
+
+                <div className="mb-15"></div>
 
                 <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
                     <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
@@ -48,33 +47,6 @@ export default function Organizations() {
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)]">
                     <Image src="/organizations/organizations-preview.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full"/>
-                    {/* <video src="/organizations/organizations.mp4" autoPlay muted loop playsInline aria-label="knox manage organizations table" className="w-full" /> */}
-                </div>
-
-                <div className="mb-10"></div>
-
-                <div id="overview" className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
-                    <div className="flex flex-col lg:flex-row gap-3 lg:gap-0 w-full lg:justify-between">
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Samsung</p>
-                        </div>
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Knox Manage (New Console)</p>
-                        </div>
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
-                            <div className="flex items-center justify-start gap-2">
-                                <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Live</p>
-                                <span className="w-1.5 h-1.5 rounded-full bg-green-500" aria-hidden="true"/>
-                            </div>
-                        </div>
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Design system</p>
-                        </div>
-                    </div>
                 </div>
 
                 <div className="mb-7"></div>
@@ -87,8 +59,8 @@ export default function Organizations() {
 
                 <div className="mb-15"></div>
 
-                {/* <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">Problem</p> */}
-                <p className="text-3xl text-[var(--colour-bodytext)] leading-12 font-semibold tracking-tight" id="problem">A need to demonstrate how settings flow from parent to child entities while keeping development effort low.</p>
+                {/* <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="problem">Problem</p> */}
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-12 font-normal tracking-tight" id="problem">A need to demonstrate how settings flow from parent to child entities while keeping development effort low.</p>
                 
                 <div className="mb-8"></div>
                 
@@ -100,7 +72,7 @@ export default function Organizations() {
 
                 <div className="mb-12"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">What I did</p>
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="what-i-did">What I did</p>
                 <div className="mb-4"></div>
                 <p className="text-sm text-[var(--colour-bodytext)] leading-loose">I designed & wrote documentations for a hierarchical table component that displays the inheritance hierarchy and override status of settings, while reusing atom and molecule components from the design system.</p>
 
@@ -110,7 +82,7 @@ export default function Organizations() {
 
                 <div className="mb-12"></div>
 
-                <p className="text-3xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="problem">
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="documentation">
                     UX documentations
                 </p>
                 <div className="mb-5"></div>
@@ -140,7 +112,7 @@ export default function Organizations() {
 
                 <div className="mb-18"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="reflection-corner">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="reflection-corner">
                     Reflection corner
                 </p>
                 <div className="mb-5"></div>
@@ -161,7 +133,7 @@ export default function Organizations() {
                 {/* "Other works" section, hidden for now
                 <div className="mb-25"></div>
                 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="reflection-corner">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="reflection-corner">
                     Other works
                 </p>
                 <div className="mb-8"></div>
@@ -173,11 +145,8 @@ export default function Organizations() {
                 </div>
                 */}
 
-                <div className="mb-25"></div>
-                {/* Back to home: natural width, no icon */}
-                <div className="flex">
-                    <MyButton variant="primary" text="Back to home" link="/" textSize="text-sm"/>
-                </div>
+                {/* The same scroll ring as the project modal: scrolling on at the bottom of the page fills it and returns home */}
+                <PageEndRing href="/" label="Keep scrolling to return home" fullLabel="Returning home" />
 
 
             </div>

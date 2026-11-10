@@ -10,7 +10,7 @@ export default function Testimonials() {
             <Nav variant="home" />
             <div className="mb-20"></div>
 
-            <p className="text-5xl text-[var(--colour-bodytext)] font-semibold tracking-tight">Testimonials</p>
+            <p className="text-5xl text-[var(--colour-bodytext)] font-normal tracking-tight">Testimonials</p>
             <div className="mb-6"></div>
             <p className="text-md text-[var(--colour-bodytext-light)] leading-loose">from those I reported to.</p>
             <div className="mb-15"></div>

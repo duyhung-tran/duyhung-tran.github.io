@@ -5,6 +5,7 @@ import { useIsPhone } from "@/lib/use-is-phone";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
 import Nav from "@/components/nav";
 import ProjectModal from "@/components/project-modal";
+import Enter from "@/components/enter";
 import { archiveOverviews, linkTarget, NO_LINK_YET } from "@/lib/project-overviews";
 
 export default function Archive() {
@@ -16,9 +17,12 @@ export default function Archive() {
 
   return (
     <div className="w-full p-10">
+        {/* The nav stays still; the title and tiles slide up out of a blur */}
         <Nav variant="home" />
         <div className="mb-20"></div>
-        <p className="text-3xl text-[var(--colour-bodytext)] font-semibold tracking-tight">Archive of Hung's own</p>
+        <Enter order={0}>
+          <p className="text-3xl text-[var(--colour-bodytext)] font-normal tracking-tight">Archive of Hung's own</p>
+        </Enter>
         <div className="mb-8"></div>
         {/* <p className="text-sm text-[var(--colour-bodytext)]">One might call it A-Ho.</p> */}
         <div className="mb-10 lg:mb-20"></div>
@@ -28,8 +32,8 @@ export default function Archive() {
             // Same destination as the modal's "View project" button
             const link = p.link ?? NO_LINK_YET;
             return (
+              <Enter key={p.slug} order={1 + i}>
               <ProjectThumbnail
-                key={p.slug}
                 variant="square"
                 name={p.title}
                 desc={p.summary}
@@ -42,6 +46,7 @@ export default function Archive() {
                 onOpen={isPhone ? undefined : () => setOpenProject(p.slug)}
                 {...media}
               />
+              </Enter>
             );
           })}
         </div>

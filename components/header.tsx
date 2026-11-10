@@ -5,7 +5,7 @@ export default function Header(){
     <div className="w-full fixed z-2 h-36 flex top-0 items-center px-10">
         <div className="grid grid-cols-[2fr_3fr] gap-10 w-full">
             <div className="">
-                <p className="text-lg font-semibold text-[var(--colour-bodytext)] leading-loose tracking-tight">Hi, my name is Hung.</p>
+                <p className="text-lg font-normal text-[var(--colour-bodytext)] leading-loose tracking-tight">Hi, my name is Hung.</p>
                 <p className="text-lg text-[var(--colour-bodytext-light)] leading-loose tracking-tight">Currently a UX designer at Samsung Electronics.</p>
             </div>
             <div>

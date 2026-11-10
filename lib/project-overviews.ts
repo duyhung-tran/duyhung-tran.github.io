@@ -69,8 +69,8 @@ export const homeOverviews: ProjectOverview[] = [
     { slug: "rules", title: "Control devices based on locations", summary: "Samsung Knox Manage", videoSrc: "/rules/geofence.mp4", link: "/rules", coverMedia: true,
       secondary: { label: "Documentation", link: "https://docs.samsungknox.com/admin/knox-manage/new-console/manage-rules/create-rules/" },
       gallery: [
-          { src: "/rules/addgeofence-wide.png", kind: "image", alt: "Geofence in Knox Manage" },
-          { src: "/rules/rules-0.png", kind: "image", alt: "Rules overview table" },
+        //   { src: "/rules/addgeofence-wide.png", kind: "image", alt: "Geofence in Knox Manage" },
+          { src: "/rules/rules-0-wide.png", kind: "image", alt: "Rules overview table" },
           { src: "/rules/rules-1.png", kind: "image", alt: "Rule details panel" },
           { src: "/rules/rules-3-wide.png", kind: "image", alt: "Creating a geofence" },
       ],

@@ -1,13 +1,15 @@
 "use client"
 
 import Image from "next/image";
-import { useEffect, useRef, useState, type RefObject, type WheelEvent } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type RefObject, type WheelEvent } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import MyButton from "@/components/my-button";
 import { Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, animate, motion } from "framer-motion";
 import { FolderOpen, Mail, SquareArrowOutUpRight, X } from "lucide-react";
 import { NO_LINK_YET, linkTarget, type ProjectOverview } from "@/lib/project-overviews";
+import { coverPage, revealPage } from "@/lib/project-morph";
+import { RING_FULL, RING_HOLD, RING_IDLE, RING_SECTION, ScrollRing } from "@/components/scroll-ring";
 
 type Props = {
     project: ProjectOverview | null;
@@ -45,6 +47,17 @@ const exitDuration = 0.9;
 const exitEase = [0.45, 0, 0.2, 1] as const;
 const leavingMotion = { opacity: 0, scale: 0.9, filter: "blur(22px)", transition: { duration: exitDuration, ease: exitEase } };
 
+// Pages that repeat the modal's content in their first section (components/project-intro.tsx)
+// get a morph instead: the white panel grows into the page while the title, summary,
+// overview, description and button glide to their places on it. The rest of the panel
+// (media, primary button, ×) fades out first.
+const morphDuration = 0.85;
+const morphEase = [0.76, 0, 0.24, 1] as const;
+// The panel's own fade, before it is covered by the growing sheet
+const morphPanelFade = 0.3;
+// Once everything has landed, the overlay fades to reveal the page (and its nav) underneath
+const morphReveal = 0.35;
+
 export default function ProjectModal({ project, onClose }: Props) {
     return (
         // AnimatePresence keeps the closing modal (with its last project) mounted
@@ -60,8 +73,14 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
     const mediaClass = p.coverMedia ? coverMediaClass : insetMediaClass;
     const router = useRouter();
     const pathname = usePathname();
-    // Scroll ring: idle → navigating (project page loading underneath) → exiting (panel slides away)
-    const [stage, setStage] = useState<"idle" | "navigating" | "exiting">("idle");
+    // Scroll ring: idle → navigating (project page loading underneath) → exiting (panel slides away),
+    // or morphing (panel grows into the page) → revealing (page shows through) when the page
+    // repeats the modal's content
+    const [stage, setStage] = useState<"idle" | "navigating" | "exiting" | "morphing" | "revealing">("idle");
+    const morphing = stage === "morphing" || stage === "revealing";
+    const panelRef = useRef<HTMLDivElement>(null);
+    const sheetRef = useRef<HTMLDivElement>(null);
+    const morphLayerRef = useRef<HTMLDivElement>(null);
     // The media column's scroller, so a wheel anywhere on the panel can scroll it
     const mediaScrollerRef = useRef<HTMLDivElement>(null);
     // The scroll ring only leads to pages on this site, never to an external link or the placeholder
@@ -78,32 +97,84 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
     const openedOn = useRef(pathname);
     useEffect(() => {
         if (pathname === openedOn.current) return;
-        if (stage === "navigating" && pathname === ringOpens) setStage("exiting");
+        if (stage === "navigating" && pathname === ringOpens) setStage(canMorph() ? "morphing" : "exiting");
         else if (stage === "idle") onClose();
     }, [stage, pathname, ringOpens, onClose]);
+
+    // Opens the project page from the scroll ring or "View entire project": the page loads
+    // underneath, then the modal morphs into it (or slides away). Only once, and only for
+    // pages on this site that have one.
+    const openProject =
+        ringOpens && stage === "idle"
+            ? () => {
+                  setStage("navigating");
+                  // The page loads underneath from here; its entrances wait for the reveal
+                  coverPage();
+                  router.push(ringOpens);
+              }
+            : undefined;
+
+    // Measure before the browser paints the new page, so the morph starts on the very next frame
+    const onCloseRef = useRef(onClose);
+    onCloseRef.current = onClose;
+    useLayoutEffect(() => {
+        if (!morphing) return;
+        const panel = panelRef.current, sheet = sheetRef.current, layer = morphLayerRef.current;
+        if (!panel || !sheet || !layer) return onCloseRef.current();
+        let cancelled = false;
+        morphIntoPage(panel, sheet, layer, () => setStage("revealing")).then(() => {
+            if (!cancelled) onCloseRef.current();
+        });
+        return () => {
+            cancelled = true;
+        };
+    }, [morphing]);
+
+    // However the modal goes away, the page underneath is no longer covered
+    useEffect(() => () => revealPage(), []);
 
     return (
         // Escape and backdrop clicks are ignored once the project is opening
         <Dialog static open onClose={stage === "idle" ? onClose : () => {}} className="relative z-[150]">
             <motion.div
                 initial={{ opacity: 0 }}
-                animate={stage === "exiting" ? { opacity: 0, transition: { duration: exitDuration, ease: exitEase } } : { opacity: 1 }}
+                animate={
+                    stage === "exiting"
+                        ? { opacity: 0, transition: { duration: exitDuration, ease: exitEase } }
+                        : stage === "revealing"
+                          ? // The sheet covers the window by now, so the backdrop can go at once
+                            { opacity: 0, transition: { duration: 0 } }
+                          : { opacity: 1 }
+                }
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25 }}
                 className="fixed inset-0 bg-black/10 backdrop-blur-[11px]"
                 aria-hidden="true"
             />
 
+            {/* The white sheet that grows from the panel into the page; hidden until the morph */}
+            <div ref={sheetRef} aria-hidden="true" className="fixed opacity-0 pointer-events-none" />
+
             <div className="fixed inset-0 flex items-end md:items-center justify-center md:p-10">
                 {/* The motion div animates; the Headless UI panel fills it, so any click
                     inside counts as inside (framer's transition prop would clash with
                     Headless UI's own if they were the same element) */}
                 <motion.div
+                    ref={panelRef}
                     {...panelMotion}
-                    animate={stage === "exiting" ? leavingMotion : panelMotion.animate}
+                    animate={
+                        stage === "exiting"
+                            ? leavingMotion
+                            : morphing
+                              ? { opacity: 0, transition: { duration: morphPanelFade, ease: "easeOut" } }
+                              : panelMotion.animate
+                    }
                     onWheel={(e) => forwardWheel(e, mediaScrollerRef.current)}
                     onAnimationComplete={() => {
-                        if (stage === "exiting") onClose();
+                        if (stage === "exiting") {
+                            revealPage();
+                            onClose();
+                        }
                     }}
                     className="relative w-full md:w-[80vw] max-h-[92dvh] md:max-h-[calc(100dvh-80px)] lg:w-[min(76vw,calc((100dvh-80px)*1000/540))] lg:aspect-[1000/540] lg:min-h-[min(560px,calc(100dvh-80px))] lg:max-h-none overflow-y-auto lg:overflow-hidden bg-[var(--container-bg)] shadow-[0_24px_60px_rgba(0,0,0,0.12)]"
                 >
@@ -123,24 +194,17 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                 p={p}
                                 mediaClass={mediaClass}
                                 scrollerRef={mediaScrollerRef}
-                                onRingFull={
-                                    ringOpens && stage === "idle"
-                                        ? () => {
-                                              setStage("navigating");
-                                              router.push(ringOpens);
-                                          }
-                                        : undefined
-                                }
+                                onRingFull={openProject}
                             />
 
                             <div className="p-8 md:p-10 lg:pt-[clamp(48px,8vh,104px)] lg:pb-[clamp(40px,7vh,88px)] lg:overflow-y-auto lg:flex lg:flex-col">
-                                <DialogTitle className="text-xl md:text-xl text-[var(--colour-bodytext)] leading-normal">
+                                <DialogTitle data-morph="title" className="text-xl md:text-xl text-[var(--colour-bodytext)] leading-normal">
                                     {p.title}
                                 </DialogTitle>
 
                                 <div className="mb-1"></div>
                                 {/* The description is the tile's grey text, so it stays grey here */}
-                                <p className="text-sm leading-loose text-[var(--colour-bodytext-light)]">
+                                <p data-morph="summary" className="text-sm leading-loose text-[var(--colour-bodytext-light)]">
                                     {p.summary}
                                 </p>
 
@@ -149,7 +213,7 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                         <div className="mb-7"></div>
                                         {/* Same labels and values as the overview block on the project page */}
                                         {/* Columns size to their content instead of splitting the width */}
-                                        <div className="grid grid-cols-[auto_auto] justify-start gap-x-12 gap-y-4">
+                                        <div data-morph="overview" className="grid grid-cols-[auto_auto] justify-start gap-x-12 gap-y-4">
                                             <div>
                                                 <p className={labelClass}>Company</p>
                                                 <p className={valueClass}>{p.overview.company}</p>
@@ -181,7 +245,7 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                 {p.description && (
                                     <>
                                         <div className="mb-8"></div>
-                                        <p className={valueClass}>{p.description}</p>
+                                        <p data-morph="description" className={valueClass}>{p.description}</p>
                                     </>
                                 )}
 
@@ -217,6 +281,16 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                                 textSize="text-sm"
                                             />
                                         ) : (
+                                        // "View entire project" opens the page the same way a full ring does
+                                        // (page loads underneath, then the modal morphs into it). It stays a
+                                        // real link, so Cmd/Ctrl-click and middle-click still open a new tab.
+                                        <div
+                                            onClickCapture={(e) => {
+                                                if (!openProject || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                                                e.preventDefault();
+                                                openProject();
+                                            }}
+                                        >
                                         <MyButton
                                             variant="primary"
                                             // Home page projects (the ones with a gallery) open a full case study page
@@ -227,18 +301,21 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                                             target={linkTarget(link)}
                                             textSize="text-sm"
                                         />
+                                        </div>
                                         )}
                                         {/* Second button only when the project has documentation or a prototype;
                                             the rest (archive and NDA projects) close with ×, Escape or the backdrop */}
                                         {p.secondary && (
-                                            <MyButton
-                                                variant="secondary"
-                                                icon={SquareArrowOutUpRight}
-                                                text={p.secondary.label}
-                                                link={p.secondary.link}
-                                                target="_blank"
-                                                textSize="text-sm"
-                                            />
+                                            <div data-morph="secondary">
+                                                <MyButton
+                                                    variant="secondary"
+                                                    icon={SquareArrowOutUpRight}
+                                                    text={p.secondary.label}
+                                                    link={p.secondary.link}
+                                                    target="_blank"
+                                                    textSize="text-sm"
+                                                />
+                                            </div>
                                         )}
                                     </div>
                                 </div>
@@ -247,11 +324,126 @@ function ModalContent({ p, onClose }: { p: ProjectOverview; onClose: () => void 
                 </DialogPanel>
                 </motion.div>
             </div>
+
+            {/* Copies of the panel's text, gliding to their places on the page; filled by morphIntoPage */}
+            <div ref={morphLayerRef} aria-hidden="true" className="fixed inset-0 pointer-events-none" />
         </Dialog>
     );
 }
 
 
+
+// The page underneath has a first section to morph into (and the visitor is fine with motion)
+function canMorph() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+    return document.querySelector('[data-morph-target="title"]') !== null;
+}
+
+// The panel → page morph. The backdrop stays while the sheet grows over it. Each [data-morph] piece of the panel is copied into the layer
+// at the same spot and glides (position, width, font size) to its [data-morph-target]
+// twin on the page, while the sheet grows from the panel's box to the whole window,
+// turning from the panel's white to the page background. Once landed, the copies sit
+// exactly over the page's own text, so fading the overlay out reveals the page seamlessly.
+// onCovered runs once the sheet fills the window, just before the reveal.
+async function morphIntoPage(panel: HTMLElement, sheet: HTMLElement, layer: HTMLElement, onCovered: () => void) {
+    // The new page starts at the top; measure it there.
+    // Instant, or the site's smooth scrolling would still be under way when measuring
+    window.scrollTo({ top: 0, behavior: "instant" });
+    const opts = { duration: morphDuration, ease: morphEase };
+    const panelBox = panel.getBoundingClientRect();
+    const panelStyle = getComputedStyle(panel);
+    const pageBg = getComputedStyle(document.body).backgroundColor;
+
+    // Sheet: starts as an exact copy of the panel's box, under the panel as it fades
+    Object.assign(sheet.style, {
+        left: `${panelBox.left}px`,
+        top: `${panelBox.top}px`,
+        width: `${panelBox.width}px`,
+        height: `${panelBox.height}px`,
+        backgroundColor: panelStyle.backgroundColor,
+        boxShadow: panelStyle.boxShadow,
+        opacity: "1",
+    });
+    const runs: Promise<unknown>[] = [
+        animate(
+            sheet,
+            {
+                left: 0,
+                top: 0,
+                width: window.innerWidth,
+                height: window.innerHeight,
+                backgroundColor: pageBg,
+                boxShadow: "0 0 0 rgba(0,0,0,0)",
+            },
+            opts,
+        ).finished,
+    ];
+
+    panel.querySelectorAll<HTMLElement>("[data-morph]").forEach((src) => {
+        const target = document.querySelector<HTMLElement>(`[data-morph-target="${src.dataset.morph}"]`);
+        if (!target) return;
+        const from = src.getBoundingClientRect();
+        const to = target.getBoundingClientRect();
+        const fromStyle = getComputedStyle(src);
+        const toStyle = getComputedStyle(target);
+        const fromSize = parseFloat(fromStyle.fontSize);
+        const toSize = parseFloat(toStyle.fontSize);
+        // Type that differs between the two (e.g. the title: regular in the modal, semibold
+        // and tight on the page) eases across too; Geist is a variable font, so weight is smooth
+        const typeChanges = {
+            ...(toSize !== fromSize ? { fontSize: `${toSize}px` } : {}),
+            ...(toStyle.fontWeight !== fromStyle.fontWeight ? { fontWeight: Number(toStyle.fontWeight) } : {}),
+            ...(toStyle.letterSpacing !== fromStyle.letterSpacing
+                ? { letterSpacing: toStyle.letterSpacing === "normal" ? "0px" : toStyle.letterSpacing }
+                : {}),
+            // Grids (the overview) spread their columns and rows out to the page's spacing
+            ...(toStyle.columnGap !== fromStyle.columnGap && toStyle.columnGap !== "normal" ? { columnGap: toStyle.columnGap } : {}),
+            ...(toStyle.rowGap !== fromStyle.rowGap && toStyle.rowGap !== "normal" ? { rowGap: toStyle.rowGap } : {}),
+        };
+
+        const copy = src.cloneNode(true) as HTMLElement;
+        copy.removeAttribute("id");
+        copy.querySelectorAll("[id]").forEach((el) => el.removeAttribute("id"));
+        Object.assign(copy.style, {
+            position: "fixed",
+            left: `${from.left}px`,
+            top: `${from.top}px`,
+            width: `${from.width}px`,
+            margin: "0",
+            boxSizing: "border-box",
+            fontSize: `${fromSize}px`,
+            fontWeight: fromStyle.fontWeight,
+            letterSpacing: fromStyle.letterSpacing === "normal" ? "0px" : fromStyle.letterSpacing,
+        });
+        layer.appendChild(copy);
+        // The panel's own piece hides now; the copy stands in for it
+        src.style.visibility = "hidden";
+
+        // Width and type animate as real values (not a scale), so text that wraps
+        // differently in the narrow panel reflows into the page's line lengths on the way
+        runs.push(
+            animate(
+                copy,
+                {
+                    x: to.left - from.left,
+                    y: to.top - from.top,
+                    width: to.width,
+                    ...typeChanges,
+                },
+                opts,
+            ).finished,
+        );
+    });
+
+    await Promise.all(runs);
+    onCovered();
+    revealPage();
+    // Landed: reveal the page underneath, nav and table of contents included
+    await Promise.all([
+        animate(sheet, { opacity: 0 }, { duration: morphReveal, ease: "easeOut" }).finished,
+        animate(layer, { opacity: 0 }, { duration: morphReveal, ease: "easeOut" }).finished,
+    ]);
+}
 
 // A wheel over the text side (or anywhere else on the panel) scrolls the media column,
 // unless something under the cursor can still scroll that way itself (e.g. long text).
@@ -268,25 +460,9 @@ function forwardWheel(e: WheelEvent<HTMLElement>, scroller: HTMLElement | null) 
     scroller.scrollBy({ top: dy, behavior: "instant" });
 }
 
-// The ring section is this many column heights tall: one to bring the ring in,
-// the rest to fill it. Taller means more scrolling before a project opens.
-const RING_SECTION = 3;
-// The ring must stay full this long (ms) before the project opens, so a fast
-// flick that lands on the end doesn't open it by accident
-const RING_HOLD = 400;
-// Progress at which the ring counts as full
-const RING_FULL = 0.995;
-// Stop scrolling part way and the ring drains back to empty after this long (ms)
-const RING_IDLE = 500;
-
 // Media column scrollbar: shortest thumb (px), and how long it stays after scrolling stops (ms)
 const SCROLLBAR_MIN = 24;
 const SCROLLBAR_HIDE = 800;
-
-// Size of the scroll ring, in px
-const RING = 56;
-const RING_R = 26;
-const RING_LEN = 2 * Math.PI * RING_R;
 
 // The project's main media, then its gallery, scrolled through inside the column.
 // Past the last item a ring pins in the middle and fills as the scroll continues;
@@ -319,16 +495,17 @@ function MediaColumn({
     const gallery = p.gallery ?? [];
     const hasGallery = gallery.length > 0;
 
-    // Shortly after opening, the media slides up a little and back (media-nudge in globals.css),
-    // showing the column scrolls. It stops as soon as the visitor does anything themselves.
-    const [nudge, setNudge] = useState(true);
-    useEffect(() => {
-        if (!hasGallery) return;
-        const stop = () => setNudge(false);
-        const events = ["wheel", "touchstart", "pointerdown", "keydown"] as const;
-        events.forEach((type) => window.addEventListener(type, stop, { passive: true }));
-        return () => events.forEach((type) => window.removeEventListener(type, stop));
-    }, [hasGallery]);
+    // Turned off for now: shortly after opening, the media slid up a little and back
+    // (media-nudge in globals.css), showing the column scrolls, stopping as soon as the
+    // visitor did anything themselves. Uncomment this and the class below to bring it back.
+    // const [nudge, setNudge] = useState(true);
+    // useEffect(() => {
+    //     if (!hasGallery) return;
+    //     const stop = () => setNudge(false);
+    //     const events = ["wheel", "touchstart", "pointerdown", "keydown"] as const;
+    //     events.forEach((type) => window.addEventListener(type, stop, { passive: true }));
+    //     return () => events.forEach((type) => window.removeEventListener(type, stop));
+    // }, [hasGallery]);
     const hasRing = onRingFull !== undefined || progress >= RING_FULL;
 
     const onScroll = () => {
@@ -341,7 +518,9 @@ function MediaColumn({
         const max = ringSectionRef.current?.offsetTop ?? el.scrollHeight - el.clientHeight;
         const height = Math.max(SCROLLBAR_MIN, (el.clientHeight * el.clientHeight) / (max + el.clientHeight));
         const top = max > 0 ? (Math.min(el.scrollTop, max) / max) * (el.clientHeight - height) : 0;
-        setBar({ top, height, visible: true });
+        // Once the ring is pinned, only the ring shows the scrolling: no scrollbar
+        const ringPinned = ringSectionRef.current !== null && el.scrollTop >= max;
+        setBar({ top, height, visible: !ringPinned });
         clearTimeout(barTimer.current);
         barTimer.current = setTimeout(() => setBar((b) => ({ ...b, visible: false })), SCROLLBAR_HIDE);
 
@@ -405,11 +584,12 @@ function MediaColumn({
                 onScroll={onScroll}
                 tabIndex={0}
                 aria-label={`${p.title} media`}
-                className="absolute inset-0 overflow-y-auto overscroll-contain [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus:outline-none"
+                // overscroll-none: no rubber-band bounce at the end, where the ring fills
+                className="absolute inset-0 overflow-y-auto overscroll-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus:outline-none"
             >
-                {/* Wrapper for the open-time nudge (the transform is gone once it ends). It stays one
-                    column tall so the ring section's % heights still work; the items overflow it. */}
-                <div className={`h-full ${nudge ? "media-nudge" : ""}`}>
+                {/* Wrapper for the open-time nudge (turned off above). It stays one column tall
+                    so the ring section's % heights still work; the items overflow it. */}
+                <div className="h-full" /* className={`h-full ${nudge ? "media-nudge" : ""}`} */>
                 <div className="relative h-full flex items-center justify-center">{main}</div>
 
                 {gallery.map((m) => (
@@ -428,23 +608,11 @@ function MediaColumn({
                     // reaches the top, filling as the scroll goes on
                     <div ref={ringSectionRef} className="relative" style={{ height: `${RING_SECTION * 100}%` }}>
                         <div className="sticky top-0 flex flex-col items-center justify-center gap-5" style={{ height: `${100 / RING_SECTION}%` }}>
-                            <svg width={RING} height={RING} viewBox={`0 0 ${RING} ${RING}`} className="-rotate-90" aria-hidden="true">
-                                <circle cx={RING / 2} cy={RING / 2} r={RING_R} fill="none" strokeWidth={2} className="stroke-[var(--nav-border)]" />
-                                <circle
-                                    cx={RING / 2}
-                                    cy={RING / 2}
-                                    r={RING_R}
-                                    fill="none"
-                                    strokeWidth={2}
-                                    strokeLinecap="round"
-                                    strokeDasharray={RING_LEN}
-                                    strokeDashoffset={RING_LEN * (1 - progress)}
-                                    className="stroke-[var(--colour-bodytext)]"
-                                />
-                            </svg>
-                            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">
-                                {progress >= RING_FULL ? "Opening project" : "View the nitty-gritty of this project"}
-                            </p>
+                            <ScrollRing
+                                progress={progress}
+                                label="View the nitty-gritty of this project"
+                                fullLabel="Opening project"
+                            />
                         </div>
                     </div>
                 )}
@@ -461,7 +629,7 @@ function MediaColumn({
             {/* Hint that the column scrolls; on top of the media until the ring comes into view */}
             <p
                 aria-hidden="true"
-                className={`pointer-events-none absolute z-10 bottom-5 left-1/2 -translate-x-1/2 text-sm text-[var(--colour-bodytext-light)] leading-loose transition-opacity duration-300 ${ringInView ? "opacity-0" : "opacity-100"}`}
+                className={`pointer-events-none absolute z-10 bottom-5 left-1/2 -translate-x-1/2 text-base text-[var(--colour-bodytext-light)] leading-loose transition-opacity duration-300 ${ringInView ? "opacity-0" : "opacity-100"}`}
             >
                 Scroll for more
             </p>

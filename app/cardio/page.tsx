@@ -2,59 +2,50 @@
 
 import Image from "next/image";
 import MyButton from "@/components/my-button";
-import Hyperlink from "@/components/hyperlink";
 import Nav from "@/components/nav";
 import { ImageZoom } from "@/components/ui/shadcn-io/image-zoom";
 import { SquareArrowOutUpRight, Info, Lightbulb, Target, User, Ruler, ListMusic, Gauge, Hand, Eye, Accessibility } from "lucide-react";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
+import PageToc, { type TocItem } from "@/components/page-toc";
+import ProjectIntro from "@/components/project-intro";
+import { PageEndRing } from "@/components/scroll-ring";
+import { homeOverviews } from "@/lib/project-overviews";
 
 const PROTOTYPE_URL = "https://www.figma.com/proto/5SjXuZ0MgUNMOFRmh3qOOY/card.io?page-id=0%3A1&node-id=24-151&viewport=779%2C110%2C0.2&t=Yy6S9WYqbPXyKWdL-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=24%3A151";
 
-// TODO(Hung): confirm these project details
-const META = {
-  company: "Personal project",
-  product: "card.io",
-  status: "Concept",
-  focus: "UX design",
-};
+// The modal's content for this project, shown again as the page's first section
+const project = homeOverviews.find((p) => p.slug === "cardio")!;
 
-function MetaStatus() {
-  return (
-    <div className="flex items-center justify-start gap-2">
-      <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.status}</p>
-      <span className="w-1.5 h-1.5 rounded-full bg-blue-500" aria-hidden="true"/>
-    </div>
-  );
-}
+const toc: TocItem[] = [
+  { id: "overview", label: "Overview" },
+  { id: "problem", label: "Problem" },
+  { id: "findings", label: "Research insights" },
+  { id: "brainstorm", label: "Brainstorming" },
+  { id: "solution", label: "What card.io does" },
+  { id: "testing", label: "User testing" },
+  { id: "improvements", label: "UX improvements" },
+  { id: "reflection-corner", label: "Reflection corner" },
+];
 
 export default function Cardio() {
   return (
     <div className="w-full p-10">
-        <Nav variant="others" />
+        {/* Just the photo and menu: no name beside the photo */}
+        <Nav variant="others" hideName shrinkOnScroll />
 
-        <div className="grid *:grid-cols-1 lg:grid-cols-[1fr_3fr] 2xl:grid-cols-[0.75fr_3fr]">
-            <div className="w-full h-full flex flex-col justify-between hidden lg:block">
-                <div id="overview" className="lg:sticky lg:top-[23%]">
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.company}</p>
-                    <div className="mb-6"></div>
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.product}</p>
-                    <div className="mb-6"></div>
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
-                    <MetaStatus/>
-                    <div className="mb-6"></div>
-                    <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.focus}</p>
-                    <div className="mb-6"></div>
-                    <Hyperlink variant="icon" icon={SquareArrowOutUpRight} text="Figma prototype" link={PROTOTYPE_URL} target="_blank"/>
+        <div className="grid *:grid-cols-1 lg:gap-x-10 lg:grid-cols-[1fr_5fr] 2xl:grid-cols-[0.75fr_5fr]">
+            <div className="hidden lg:block">
+                {/* Lines up with the title and stays put while the page scrolls */}
+                <div className="sticky top-[166px] mt-[72px]">
+                    <PageToc items={toc} />
                 </div>
             </div>
 
-            <div className="mt-15 lg:mt-10 pr-0 lg:pr-18">
-                <p className="text-4xl text-[var(--colour-bodytext)] leading-normal font-semibold tracking-tight">Run with the right music</p>
+            <div className="mt-15 lg:mt-10 pr-0 lg:pr-32">
+                {/* Same content as the project modal, which morphs into it when opened from the scroll ring */}
+                <ProjectIntro p={project} />
 
-                <div className="mb-8"></div>
+                <div className="mb-15"></div>
 
                 <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
                     <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
@@ -65,36 +56,13 @@ export default function Cardio() {
                     <video src="/cardio/cardio animation.mp4" autoPlay muted loop playsInline aria-label="card.io running progress ring" className="w-full" />
                 </div>
 
-                <div className="mb-10"></div>
-
-                <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
-                    <div className="flex flex-col lg:flex-row gap-3 lg:gap-0 w-full lg:justify-between">
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Company</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.company}</p>
-                        </div>
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Product</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.product}</p>
-                        </div>
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Status</p>
-                            <MetaStatus/>
-                        </div>
-                        <div>
-                            <p className="text-xs text-[var(--colour-bodytext-light)] leading-loose">Focus</p>
-                            <p className="text-sm text-[var(--colour-bodytext)] leading-loose">{META.focus}</p>
-                        </div>
-                    </div>
-                </div>
-
                 <div className="mb-15"></div>
 
                 <hr className="border-[var(--nav-border)]" />
 
                 <div className="mb-15"></div>
 
-                <p className="text-3xl text-[var(--colour-bodytext)] leading-12 font-semibold tracking-tight" id="problem">Runners struggle to customize and test a cardio playlist that actually fits their own pace.</p>
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-12 font-normal tracking-tight" id="problem">Runners struggle to customize and test a cardio playlist that actually fits their own pace.</p>
                 <div className="mb-8"></div>
                 <div className="px-8 py-6 border-1 rounded-xl flex gap-x-6 items-center">
                     <Info className="w-5 h-5 text-[var(--colour-bodytext)] flex-shrink-0" />
@@ -103,7 +71,7 @@ export default function Cardio() {
 
                 <div className="mb-16"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="why">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="why">
                     Why this topic?
                 </p>
                 <div className="mb-5"></div>
@@ -115,7 +83,7 @@ export default function Cardio() {
 
                 <div className="mb-16"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="trend">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="trend">
                     The faster the song, the faster the treadmill
                 </p>
                 <div className="mb-5"></div>
@@ -137,7 +105,7 @@ export default function Cardio() {
 
                 <div className="mb-15"></div>
 
-                <p className="text-3xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="findings">
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="findings">
                     Research insights
                 </p>
                 <div className="mb-2"></div>
@@ -164,7 +132,7 @@ export default function Cardio() {
 
                 <div className="mb-16"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="persona">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="persona">
                     Meet Michelle
                 </p>
                 <div className="mb-5"></div>
@@ -189,7 +157,7 @@ export default function Cardio() {
 
                 <div className="mb-16"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="brainstorm">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="brainstorm">
                     Brainstorming solutions
                 </p>
                 <div className="mb-5"></div>
@@ -229,7 +197,7 @@ export default function Cardio() {
 
                 <div className="mb-15"></div>
 
-                <p className="text-3xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="solution">
+                <p className="text-3xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="solution">
                     What card.io does
                 </p>
                 <div className="mb-4"></div>
@@ -285,7 +253,7 @@ export default function Cardio() {
 
                 <div className="mb-18"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="testing">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="testing">
                     First prototype & user testing
                 </p>
                 <div className="mb-4"></div>
@@ -326,7 +294,7 @@ export default function Cardio() {
 
                 <div className="mb-12"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="improvements">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="improvements">
                     3 key UX improvements
                 </p>
                 <div className="mb-6"></div>
@@ -405,7 +373,7 @@ export default function Cardio() {
 
                 <div className="mb-18"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="reflection-corner">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="reflection-corner">
                     Reflection corner
                 </p>
                 <div className="mb-5"></div>
@@ -426,7 +394,7 @@ export default function Cardio() {
                 {/* "Other works" section, hidden for now
                 <div className="mb-25"></div>
 
-                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-semibold tracking-tight" id="other-works">
+                <p className="text-2xl text-[var(--colour-bodytext)] leading-loose font-normal tracking-tight" id="other-works">
                     Other works
                 </p>
                 <div className="mb-8"></div>
@@ -438,11 +406,8 @@ export default function Cardio() {
                 </div>
                 */}
 
-                <div className="mb-25"></div>
-                {/* Back to home: natural width, no icon */}
-                <div className="flex">
-                    <MyButton variant="primary" text="Back to home" link="/" textSize="text-sm"/>
-                </div>
+                {/* The same scroll ring as the project modal: scrolling on at the bottom of the page fills it and returns home */}
+                <PageEndRing href="/" label="Keep scrolling to return home" fullLabel="Returning home" />
             </div>
         </div>
     </div>

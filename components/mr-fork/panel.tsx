@@ -94,7 +94,7 @@ function RichText({ text, limit = Infinity }: { text: string; limit?: number }) 
           );
         }
         return seg.bold ? (
-          <strong key={i} className="font-semibold text-[var(--colour-pure)]">
+          <strong key={i} className="font-normal text-[var(--colour-pure)]">
             {shown}
           </strong>
         ) : (
@@ -111,7 +111,7 @@ function ProjectLink({ id }: { id: Project["id"] }) {
   return (
     <div className="flex flex-col gap-3 p-3 rounded-xl bg-[var(--mrfork-surface)] border border-[var(--nav-border)]">
       <div className="flex items-center justify-between">
-        <p className="text-sm font-semibold tracking-tight text-[var(--colour-bodytext)]">{project.name}</p>
+        <p className="text-sm font-normal tracking-tight text-[var(--colour-bodytext)]">{project.name}</p>
       </div>
       <a href={project.href} className="group relative h-[180px] lg:h-[228px] rounded-[8px] overflow-hidden bg-[var(--container-bg)] border-[var(--nav-border)] border-1">
         <Image src={project.image} alt={project.name} fill sizes="480px" className="object-contain p-8" />
@@ -315,8 +315,8 @@ export default function MrForkPanel({ open, onClose }: { open: boolean; onClose:
         </div>
 
         <div className="mt-8 flex flex-col gap-2">
-          <p className="font-semibold text-xl text-[var(--colour-bodytext)] tracking-tight">Fork found in kitchen.</p>
-          <p className="font-semibold text-xl text-[var(--colour-bodytext)] tracking-tight">But Mr. Fork is found in Hung&rsquo;s portfolio as a virtual assistant.</p>
+          <p className="font-normal text-xl text-[var(--colour-bodytext)] tracking-tight">Fork found in kitchen.</p>
+          <p className="font-normal text-xl text-[var(--colour-bodytext)] tracking-tight">But Mr. Fork is found in Hung&rsquo;s portfolio as a virtual assistant.</p>
           {/* <p>Ask him anything.</p> */}
         </div>
 

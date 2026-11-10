@@ -64,6 +64,10 @@ interface Props {
   variant: string;
   // Show the Mr. Fork button to the left of the menu
   mrFork?: boolean;
+  // Leave out the name and title next to the photo (redesigned project pages)
+  hideName?: boolean;
+  // Shrink the photo (towards its top-left corner) once the page is scrolled (project pages)
+  shrinkOnScroll?: boolean;
 }
 
 export default function Nav(props: Props) {
@@ -96,12 +100,13 @@ export default function Nav(props: Props) {
                     src="/about/me.png"
                     width={3363}
                     height={3363}
-                    className={`aspect-square ${isHome ? "" : "transition-all duration-300"} hover:w-[54px] ${
-                    isScrolled ? "w-[54px]" : "w-[54px]"
+                    className={`w-[54px] aspect-square origin-top-left ${isHome ? "" : "transition-all duration-300"} ${
+                    props.shrinkOnScroll && isScrolled ? "scale-[0.7]" : ""
                     }`}
                     alt="Hung Tran"
                 />
             </a>
+            {!props.hideName && (
             <div
             className={`overflow-hidden hidden lg:block ${isHome ? "" : "transition-all duration-300"} ${
                 isScrolled ? "opacity-0 translate-y-0" : "opacity-100 translate-y-0"
@@ -114,6 +119,7 @@ export default function Nav(props: Props) {
                   UX Designer, UI Engineer
               </p>
             </div>
+            )}
         </div>
         <div className="fixed top-10 right-10 z-100 lg:static flex gap-x-3 items-center bg-[var(--container-bg)] lg:bg-transparent border-1 lg:border-0">
             {/* {props.mrFork && <MrForkToggle />} */}
