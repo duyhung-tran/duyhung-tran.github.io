@@ -79,7 +79,7 @@ export const homeOverviews: ProjectOverview[] = [
     { slug: "organizations", title: "Visualize hierarchical device management", summary: "Samsung Knox Manage", videoSrc: "/organizations/organizations.mp4", link: "/organizations", coverMedia: true,
       secondary: { label: "Documentation", link: "https://docs.samsungknox.com/admin/knox-manage/new-console/manage-organizations/manage-organizations/" },
       gallery: [
-          { src: "/organizations/organizations-preview-wide.png", kind: "image", alt: "Organizations table" },
+          // { src: "/organizations/organizations-preview-wide.png", kind: "image", alt: "Organizations table" },
           { src: "/organizations/ds1-wide.png", kind: "image", alt: "Spacing specs in the default state" },
           { src: "/organizations/ds2.png", kind: "image", alt: "Specs during user interactions" },
           { src: "/organizations/ds3-wide.png", kind: "image", alt: "Interaction guidelines for the component" },
