@@ -28,7 +28,7 @@ export default function Rules() {
   return (
     <div className="w-full p-10">
         {/* Just the photo and menu: no name beside the photo */}
-        <Nav variant="others" hideName shrinkOnScroll />
+        <Nav variant="others" hideName backLink />
         <div className="grid *:grid-cols-1 lg:gap-x-10 lg:grid-cols-[1fr_5fr] 2xl:grid-cols-[0.75fr_5fr]">
             <div className="hidden lg:block">
                 {/* Lines up with the title and stays put while the page scrolls */}

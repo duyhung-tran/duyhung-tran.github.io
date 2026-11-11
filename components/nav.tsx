@@ -59,6 +59,8 @@ import { useState, useEffect } from "react";
 import Menu from "./menu";
 import MrForkToggle from "./mr-fork/toggle-button";
 import Image from "next/image";
+import { Undo2 } from "lucide-react";
+import Hyperlink from "./hyperlink";
 
 interface Props {
   variant: string;
@@ -66,8 +68,8 @@ interface Props {
   mrFork?: boolean;
   // Leave out the name and title next to the photo (redesigned project pages)
   hideName?: boolean;
-  // Shrink the photo (towards its top-left corner) once the page is scrolled (project pages)
-  shrinkOnScroll?: boolean;
+  // Show a "Back" link to the homepage in place of the photo (project pages)
+  backLink?: boolean;
 }
 
 export default function Nav(props: Props) {
@@ -95,17 +97,21 @@ export default function Nav(props: Props) {
       }`}
     >
         <div className={`flex gap-x-4 items-center ${isHome ? "" : "transition-all duration-300"}`}>
+            {props.backLink ? (
+            <div className="h-[54px] flex items-center">
+                <Hyperlink link="/" text="Back" variant="icon" icon={Undo2} muted />
+            </div>
+            ) : (
             <a href="/" className="w-[54px]">
                 <Image
                     src="/about/me.png"
                     width={3363}
                     height={3363}
-                    className={`w-[54px] aspect-square origin-top-left ${isHome ? "" : "transition-all duration-300"} ${
-                    props.shrinkOnScroll && isScrolled ? "scale-[0.7]" : ""
-                    }`}
+                    className="w-[54px] aspect-square"
                     alt="Hung Tran"
                 />
             </a>
+            )}
             {!props.hideName && (
             <div
             className={`overflow-hidden hidden lg:block ${isHome ? "" : "transition-all duration-300"} ${
