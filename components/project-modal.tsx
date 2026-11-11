@@ -474,7 +474,11 @@ function forwardWheel(e: WheelEvent<HTMLElement>, scroller: HTMLElement | null) 
 
 // Media column scrollbar: shortest thumb (px), and how long it stays after scrolling stops (ms)
 const SCROLLBAR_MIN = 24;
+// Gap (px) kept between the scrollbar and the top and bottom edges of the modal
+const SCROLLBAR_INSET = 6;
 const SCROLLBAR_HIDE = 800;
+// How long the scrollbar shows, faintly, after the modal opens (ms)
+const SCROLLBAR_PEEK = 1000;
 
 // The project's main media, then its gallery, scrolled through inside the column.
 // Past the last item a ring pins in the middle and fills as the scroll continues;
@@ -494,6 +498,12 @@ function MediaColumn({
     const [progress, setProgress] = useState(0);
     // "Scroll for more" goes away once the ring comes into view
     const [ringInView, setRingInView] = useState(false);
+    // The scrollbar shows faintly for SCROLLBAR_PEEK ms after opening, or until the first scroll
+    const [peek, setPeek] = useState(true);
+    useEffect(() => {
+        const timer = setTimeout(() => setPeek(false), SCROLLBAR_PEEK);
+        return () => clearTimeout(timer);
+    }, []);
     // Overlay scrollbar: shown while scrolling, fades out SCROLLBAR_HIDE ms after it stops
     const [bar, setBar] = useState({ top: 0, height: 0, visible: false });
     const barTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -520,16 +530,41 @@ function MediaColumn({
     // }, [hasGallery]);
     const hasRing = onRingFull !== undefined || progress >= RING_FULL;
 
+    const measureBar = (el: HTMLElement) => {
+        const max = ringSectionRef.current?.offsetTop ?? el.scrollHeight - el.clientHeight;
+        // The track stops SCROLLBAR_INSET short of the column's top and bottom edges
+        const track = el.clientHeight - SCROLLBAR_INSET * 2;
+        const height = Math.max(SCROLLBAR_MIN, (track * el.clientHeight) / (max + el.clientHeight));
+        const top = SCROLLBAR_INSET + (max > 0 ? (Math.min(el.scrollTop, max) / max) * (track - height) : 0);
+        return { top, height, max };
+    };
+
+    // The scrollbar shows faintly for a moment when the modal opens,
+    // so it needs its size before any scrolling: measured here, and again as the media loads in
+    useEffect(() => {
+        const el = scrollerRef.current;
+        const content = el?.firstElementChild;
+        if (!el || !content) return;
+        const measure = () => {
+            const { top, height } = measureBar(el);
+            setBar((b) => ({ ...b, top, height }));
+        };
+        const observer = new ResizeObserver(measure);
+        observer.observe(el);
+        Array.from(content.children).forEach((child) => observer.observe(child));
+        return () => observer.disconnect();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [hasGallery, hasRing, gallery.length]);
+
     const onScroll = () => {
         const el = scrollerRef.current;
         if (!el) return;
+        setPeek(false);
 
         // Thumb size and position, in px within the column. The track ends where the ring
         // pins in the middle, so the thumb hits the bottom as soon as the ring is reached;
         // the ring's own fill shows the scrolling after that.
-        const max = ringSectionRef.current?.offsetTop ?? el.scrollHeight - el.clientHeight;
-        const height = Math.max(SCROLLBAR_MIN, (el.clientHeight * el.clientHeight) / (max + el.clientHeight));
-        const top = max > 0 ? (Math.min(el.scrollTop, max) / max) * (el.clientHeight - height) : 0;
+        const { top, height, max } = measureBar(el);
         // Once the ring is pinned, only the ring shows the scrolling: no scrollbar
         const ringPinned = ringSectionRef.current !== null && el.scrollTop >= max;
         setBar({ top, height, visible: !ringPinned });
@@ -631,10 +666,11 @@ function MediaColumn({
                 </div>
             </div>
 
-            {/* Scrollbar over the media's right edge, only while scrolling (the native one is hidden) */}
+            {/* Scrollbar over the media's right edge (the native one is hidden): faint for a moment
+                after opening, then only while scrolling */}
             <div
                 aria-hidden="true"
-                className={`pointer-events-none absolute z-10 right-1.5 w-1 rounded-full bg-[var(--colour-bodytext-light)] transition-opacity duration-300 ${bar.visible ? "opacity-60" : "opacity-0"}`}
+                className={`pointer-events-none absolute z-10 right-1.5 w-1 rounded-full bg-[var(--colour-bodytext-light)] transition-opacity duration-300 ${bar.visible ? "opacity-60" : peek ? "opacity-30" : "opacity-0"}`}
                 style={{ top: bar.top, height: bar.height }}
             />
 
