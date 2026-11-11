@@ -6,7 +6,6 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
 import Menu from "@/components/menu";
 import Nav from "@/components/nav";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { useMrFork } from "@/components/mr-fork/provider";
 import { useOpenProjectModal } from "@/components/project-modal-host";
 import { homeOverviews, linkTarget, NO_LINK_YET } from "@/lib/project-overviews";

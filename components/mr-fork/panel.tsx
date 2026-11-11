@@ -290,8 +290,7 @@ export default function MrForkPanel({ open, onClose }: { open: boolean; onClose:
             avatarHidden ? "opacity-100" : "opacity-0 pointer-events-none",
           )}
         >
-          <Image src="/mrfork/fork.svg" alt="" width={28} height={28} className="size-7 dark:hidden" />
-          <Image src="/mrfork/fork-dark.svg" alt="" width={28} height={28} className="size-7 hidden dark:block" />
+          <Image src="/mrfork/fork.svg" alt="" width={28} height={28} className="size-7" />
           <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Mr. Fork</p>
         </div>
         {chatting && (
@@ -309,8 +308,7 @@ export default function MrForkPanel({ open, onClose }: { open: boolean; onClose:
 
       <div ref={scrollRef} className="flex-1 overflow-y-auto overscroll-contain px-7 pt-8 pb-6">
         <div ref={avatarRef} className="flex flex-col items-center gap-2">
-          <Image src="/mrfork/fork.svg" alt="" width={40} height={40} className="size-10 dark:hidden" />
-          <Image src="/mrfork/fork-dark.svg" alt="" width={40} height={40} className="size-10 hidden dark:block" />
+          <Image src="/mrfork/fork.svg" alt="" width={40} height={40} className="size-10" />
           <p className="text-md text-[var(--colour-bodytext-light)] leading-loose">Mr. Fork</p>
         </div>
 

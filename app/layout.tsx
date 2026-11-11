@@ -4,10 +4,10 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
-import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
 import { MrForkProvider } from "@/components/mr-fork/provider";
 import { ProjectModalHost } from "@/components/project-modal-host";
+import { HeyStalker } from "@/components/hey-stalker";
 
 const interSans = Inter({
   subsets: ["latin"],
@@ -51,27 +51,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      {/* hi stalker */}
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} ${ibmPlexSerif.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          // Dark mode is switched off for now; forcedTheme also overrides
-          // the theme saved by visitors who picked dark before
-          forcedTheme="light"
-          enableSystem
-          // disableTransitionOnChange
-        >
-          <MrForkProvider>
-            <ProjectModalHost>
-              {children}
-              <Footer />
-            </ProjectModalHost>
-          </MrForkProvider>
-        </ThemeProvider>
+        <HeyStalker />
+        <MrForkProvider>
+          <ProjectModalHost>
+            {children}
+            <Footer />
+          </ProjectModalHost>
+        </MrForkProvider>
       </body>
     </html>
   );
