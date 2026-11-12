@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, IBM_Plex_Serif } from "next/font/google";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
@@ -9,29 +8,10 @@ import { MrForkProvider } from "@/components/mr-fork/provider";
 import { ProjectModalHost } from "@/components/project-modal-host";
 import { HeyStalker } from "@/components/hey-stalker";
 
-const interSans = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter-sans",
-  weight: ["600", "700"],
-});
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  fallback: ["Inter", "sans-serif"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  fallback: ["monospace"],
-});
-
-const ibmPlexSerif = IBM_Plex_Serif({
-  subsets: ["latin"],
-  variable: "--font-ibm-plex-serif",
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+  fallback: ["sans-serif"],
 });
 
 export const metadata: Metadata = {
@@ -53,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${interSans.variable} ${ibmPlexSerif.variable} antialiased`}
+        className={`${geistSans.variable} antialiased`}
       >
         <HeyStalker />
         <MrForkProvider>

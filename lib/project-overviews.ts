@@ -23,9 +23,11 @@ export type ProjectOverview = {
     // matching the overview block on the project's own page
     overview?: {
         company: string;
+        // Label over the company value, "Company" unless set (e.g. "Type" for a personal project)
+        companyLabel?: string;
         product: string;
-        // "Live" gets a green dot, anything else a blue one
-        status: string;
+        // "Live" gets a green dot, anything else a blue one. Left out, the Status cell is not shown
+        status?: string;
         // One line each
         focus: string[];
     };
@@ -94,7 +96,7 @@ export const homeOverviews: ProjectOverview[] = [
           { src: "/cardio/cardio-preview-2.png", kind: "image", alt: "card.io generated playlist" },
       ],
       description: "Personalized, colour-coded cardio playlists with real-time support while running, inspired by the cardio playlist trend among fitness influencers.",
-      overview: { company: "Personal project", product: "card.io", status: "Concept", focus: ["UX design"] } },
+      overview: { company: "Personal project", companyLabel: "Type", product: "Spotify POC", focus: ["UX design"] } },
     { slug: "knoxagent", title: "Interactive widgets for agents experiences", summary: "Samsung Knox AI Assist", imageSrc: "/knoxagent/agent.png", link: "/knoxagent", coverMedia: true, contact: CONTACT_LINK,
       description: "A reusable chassis of interactive widgets for the Knox Cloud Services AI assistant. Details are under NDA or not yet launched.",
       overview: { company: "Samsung", product: "In-console AI assistant", status: "Shipped", focus: ["Design system", "Agent experience"] } },

@@ -42,8 +42,6 @@ export default function Home2() {
           <Enter order={0}>
             <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Currently reading tickets at <Hyperlink link="https://research.samsung.com/srca" target="_blank" text="Samsung R&D Institute Canada"/>.</p>
           </Enter>
-          {/* <p className="text-sm text-[var(--colour-bodytext)] leading-loose hidden md:block">Summon <span className="inline-block"><button type="button" onClick={() => setMrForkOpen(true)} className="bg-transparent text-[var(--colour-bodytext)] underline lg:no-underline lg:text-[var(--colour-bodytext-light)] leading-loose hover:underline hover:text-[var(--colour-bodytext)] p-0 text-sm cursor-pointer">Mr. Fork</button></span>, my personal assistant.</p> */}
-          {/* <p className="text-sm text-[var(--colour-bodytext)]">Reach me via <Hyperlink link="mailto:d.hungtran12@gmail.com" target="_blank" text="email"/>, <Hyperlink link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" text="LinkedIn"/>, or check out my <Hyperlink link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" text="resume"/>!</p> */}          
           <div className="mb-11"></div>
 
           <div className={`grid grid-cols-1 gap-10 lg:gap-3 lg:grid-cols-2 2xl:grid-cols-3`}>

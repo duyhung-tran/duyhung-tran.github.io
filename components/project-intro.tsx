@@ -13,7 +13,7 @@ export default function ProjectIntro({ p }: { p: ProjectOverview }) {
     return (
         <section id="overview">
             {/* Same style as the other project page titles; the morph eases size, weight and tracking from the modal title */}
-            <h1 data-morph-target="title" className="text-5xl text-[var(--colour-bodytext)] leading-normal tracking-tight">
+            <h1 data-morph-target="title" className="text-5xl text-[var(--colour-bodytext)] font-normal leading-normal tracking-tight">
                 {p.title}
             </h1>
             <div className="mb-1"></div>
@@ -26,23 +26,25 @@ export default function ProjectIntro({ p }: { p: ProjectOverview }) {
                     <div className="mb-10"></div>
                     <div data-morph-target="overview" className="grid grid-cols-[auto_auto] justify-start gap-x-32 gap-y-4">
                         <div>
-                            <p className={labelClass}>Company</p>
+                            <p className={labelClass}>{p.overview.companyLabel ?? "Company"}</p>
                             <p className={valueClass}>{p.overview.company}</p>
                         </div>
                         <div>
                             <p className={labelClass}>Product</p>
                             <p className={valueClass}>{p.overview.product}</p>
                         </div>
-                        <div>
-                            <p className={labelClass}>Status</p>
-                            <div className="flex items-center gap-2">
-                                <p className={valueClass}>{p.overview.status}</p>
-                                <span
-                                    className={`w-1.5 h-1.5 rounded-full ${p.overview.status === "Live" ? "bg-green-500" : "bg-blue-500"}`}
-                                    aria-hidden="true"
-                                />
+                        {p.overview.status && (
+                            <div>
+                                <p className={labelClass}>Status</p>
+                                <div className="flex items-center gap-2">
+                                    <p className={valueClass}>{p.overview.status}</p>
+                                    <span
+                                        className={`w-1.5 h-1.5 rounded-full ${p.overview.status === "Live" ? "bg-green-500" : "bg-blue-500"}`}
+                                        aria-hidden="true"
+                                    />
+                                </div>
                             </div>
-                        </div>
+                        )}
                         <div>
                             <p className={labelClass}>Focus</p>
                             {p.overview.focus.map((f) => (
