@@ -22,11 +22,11 @@ type Props = {
 // 1000:540 shape, shrinking further if the window is too short for that shape
 // (min-height keeps room for the text). Below lg the columns stack: 80% wide
 // on tablets, full width as a bottom sheet on phones.
-// The home page's modal (wide) is 86% of the window wide but keeps that same height,
-// and gives the media 60% of the width instead of about 56%.
+// The home page's modal (wide) is 83% of the window wide and slightly taller
+// (76vw at 1000:580), and gives the media 60% of the width instead of about 56%.
 const panelSize = {
     normal: "lg:w-[min(76vw,calc((100dvh-80px)*1000/540))] lg:aspect-[1000/540]",
-    wide: "lg:w-[min(86vw,calc((100dvh-80px)*86/76*1000/540))] lg:h-[min(calc(76vw*540/1000),calc(100dvh-80px))]",
+    wide: "lg:w-[min(83vw,calc((100dvh-80px)*83/76*1000/580))] lg:h-[min(calc(76vw*580/1000),calc(100dvh-80px))]",
 };
 const panelColumns = {
     normal: "lg:grid-cols-[2.5fr_2fr]",
@@ -479,6 +479,8 @@ const SCROLLBAR_MIN = 24;
 // Gap (px) kept between the scrollbar and the top and bottom edges of the modal
 const SCROLLBAR_INSET = 6;
 const SCROLLBAR_HIDE = 800;
+// Share of the column's height the ring takes, at its bottom
+const RING_SHARE = 1;
 // How long the scrollbar shows, faintly, after the modal opens (ms)
 const SCROLLBAR_PEEK = 1000;
 
@@ -497,6 +499,11 @@ function MediaColumn({
     onRingFull?: () => void;
 }) {
     const ringSectionRef = useRef<HTMLDivElement>(null);
+    // The media and the ring, scrolled as one; it pins once its bottom reaches the column's
+    // bottom (stageTop: column height minus its own, measured), so the media stops moving
+    // while the ring fills
+    const stageRef = useRef<HTMLDivElement>(null);
+    const [stageTop, setStageTop] = useState<number>();
     const [progress, setProgress] = useState(0);
     // "Scroll for more" goes away once the ring comes into view
     const [ringInView, setRingInView] = useState(false);
@@ -507,7 +514,9 @@ function MediaColumn({
         return () => clearTimeout(timer);
     }, []);
     // Overlay scrollbar: shown while scrolling, fades out SCROLLBAR_HIDE ms after it stops
-    const [bar, setBar] = useState({ top: 0, height: 0, visible: false });
+    const [bar, setBar] = useState({ top: 0, height: 0, visible: false, pinned: false });
+    // The scrollbar also shows, faintly, while the mouse is over the media
+    const [hover, setHover] = useState(false);
     const barTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
     const holdTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
     const idleTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
@@ -532,8 +541,12 @@ function MediaColumn({
     // }, [hasGallery]);
     const hasRing = onRingFull !== undefined || progress >= RING_FULL;
 
+    // Where the ring pins: once the ring section's top reaches the column's bottom RING_SHARE
+    const ringStart = (el: HTMLElement, section: HTMLElement) => section.offsetTop - el.clientHeight * (1 - RING_SHARE);
+
     const measureBar = (el: HTMLElement) => {
-        const max = ringSectionRef.current?.offsetTop ?? el.scrollHeight - el.clientHeight;
+        const section = ringSectionRef.current;
+        const max = section ? ringStart(el, section) : el.scrollHeight - el.clientHeight;
         // The track stops SCROLLBAR_INSET short of the column's top and bottom edges
         const track = el.clientHeight - SCROLLBAR_INSET * 2;
         const height = Math.max(SCROLLBAR_MIN, (track * el.clientHeight) / (max + el.clientHeight));
@@ -550,6 +563,7 @@ function MediaColumn({
         const measure = () => {
             const { top, height } = measureBar(el);
             setBar((b) => ({ ...b, top, height }));
+            if (stageRef.current) setStageTop(el.clientHeight - stageRef.current.offsetHeight);
         };
         const observer = new ResizeObserver(measure);
         observer.observe(el);
@@ -564,12 +578,12 @@ function MediaColumn({
         setPeek(false);
 
         // Thumb size and position, in px within the column. The track ends where the ring
-        // pins in the middle, so the thumb hits the bottom as soon as the ring is reached;
+        // pins in the column's bottom RING_SHARE, so the thumb hits the bottom as soon as the ring is reached;
         // the ring's own fill shows the scrolling after that.
         const { top, height, max } = measureBar(el);
         // Once the ring is pinned, only the ring shows the scrolling: no scrollbar
         const ringPinned = ringSectionRef.current !== null && el.scrollTop >= max;
-        setBar({ top, height, visible: !ringPinned });
+        setBar({ top, height, visible: !ringPinned, pinned: ringPinned });
         clearTimeout(barTimer.current);
         barTimer.current = setTimeout(() => setBar((b) => ({ ...b, visible: false })), SCROLLBAR_HIDE);
 
@@ -579,10 +593,10 @@ function MediaColumn({
             setRingInView(el.scrollTop >= el.scrollHeight - el.clientHeight - 2);
             return;
         }
-        // 0 when the ring section reaches the top of the column, 1 at the very end of the scroll
-        const start = section.offsetTop;
-        // The ring sits in the middle of its first screen, so it shows from half a column before it pins
-        setRingInView(el.scrollTop > start - el.clientHeight / 2);
+        // 0 when the ring pins in the column's bottom RING_SHARE, 1 at the very end of the scroll
+        const start = ringStart(el, section);
+        // The ring shows as soon as its section comes up from the column's bottom edge
+        setRingInView(el.scrollTop > section.offsetTop - el.clientHeight);
         const end = el.scrollHeight - el.clientHeight;
         const next = Math.min(1, Math.max(0, (el.scrollTop - start) / Math.max(1, end - start)));
         setProgress(next);
@@ -627,19 +641,28 @@ function MediaColumn({
     }
 
     return (
-        <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden bg-[var(--container-bg)]">
+        <div
+            className="relative aspect-[4/3] lg:aspect-auto lg:h-full overflow-hidden bg-[var(--container-bg)]"
+            onPointerEnter={(e) => e.pointerType === "mouse" && setHover(true)}
+            onPointerLeave={() => setHover(false)}
+        >
             <div
                 ref={scrollerRef}
                 onScroll={onScroll}
                 tabIndex={0}
                 aria-label={`${p.title} media`}
                 // overscroll-none: no rubber-band bounce at the end, where the ring fills
-                className="absolute inset-0 overflow-y-auto overscroll-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus:outline-none"
+                className="absolute inset-0 overflow-y-auto overscroll-none [container-type:size] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden focus:outline-none"
             >
-                {/* Wrapper for the open-time nudge (turned off above). It stays one column tall
-                    so the ring section's % heights still work; the items overflow it. */}
-                <div className="h-full" /* className={`h-full ${nudge ? "media-nudge" : ""}`} */>
-                <div className="relative h-full flex items-center justify-center">{main}</div>
+                {/* Wrapper for the open-time nudge (turned off above). Heights inside use cqh,
+                    the column's height (the scroller is a size container). */}
+                <div /* className={nudge ? "media-nudge" : ""} */>
+                <div
+                    ref={stageRef}
+                    className={hasRing ? "sticky" : undefined}
+                    style={hasRing && stageTop !== undefined ? { top: stageTop } : undefined}
+                >
+                <div className="relative flex items-center justify-center" style={{ height: "100cqh" }}>{main}</div>
 
                 {gallery.map((m) => (
                     // Screenshots and mockups sit whole, full width, each as tall as it is, on the light grey used on the project pages
@@ -653,26 +676,31 @@ function MediaColumn({
                 ))}
 
                 {hasRing && (
-                    // RING_SECTION column heights tall: the ring pins in the middle once the section
-                    // reaches the top, filling as the scroll goes on
-                    <div ref={ringSectionRef} className="relative" style={{ height: `${RING_SECTION * 100}%` }}>
-                        <div className="sticky top-0 flex flex-col items-center justify-center gap-5" style={{ height: `${100 / RING_SECTION}%` }}>
-                            <ScrollRing
-                                progress={progress}
-                                label="View the nitty-gritty of this project"
-                                fullLabel="Opening project"
-                            />
-                        </div>
+                    // The ring takes the whole column (RING_SHARE), after the last item.
+                    // Once it is fully in view the whole stage pins and the ring fills as the scroll goes on.
+                    <div
+                        ref={ringSectionRef}
+                        className="flex flex-col items-center justify-center gap-5"
+                        style={{ height: `${RING_SHARE * 100}cqh` }}
+                    >
+                        <ScrollRing
+                            progress={progress}
+                            label="View the nitty-gritty of this project"
+                            fullLabel="Opening project"
+                        />
                     </div>
                 )}
+                </div>
+                {/* Scroll room for filling the ring while the stage stays pinned: the same distance as before */}
+                {hasRing && <div aria-hidden="true" style={{ height: `${(RING_SECTION - 1) * 100}cqh` }} />}
                 </div>
             </div>
 
             {/* Scrollbar over the media's right edge (the native one is hidden): faint for a moment
-                after opening, then only while scrolling */}
+                after opening, then while the mouse is over the media or while scrolling (not once the ring is pinned) */}
             <div
                 aria-hidden="true"
-                className={`pointer-events-none absolute z-10 right-1.5 w-1 rounded-full bg-[var(--colour-bodytext-light)] transition-opacity duration-300 ${bar.visible ? "opacity-60" : peek ? "opacity-30" : "opacity-0"}`}
+                className={`pointer-events-none absolute z-10 right-1.5 w-1 rounded-full bg-[var(--colour-bodytext-light)] transition-opacity duration-300 ${bar.visible ? "opacity-60" : peek || (hover && !bar.pinned) ? "opacity-30" : "opacity-0"}`}
                 style={{ top: bar.top, height: bar.height }}
             />
 
