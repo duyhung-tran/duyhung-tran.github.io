@@ -16,10 +16,10 @@ export default function ProjectIntro({ p }: { p: ProjectOverview }) {
             <h1 data-morph-target="title" className="text-5xl text-[var(--colour-bodytext)] font-normal leading-normal tracking-tight">
                 {p.title}
             </h1>
-            <div className="mb-1"></div>
+            {/* <div className="mb-1"></div>
             <p data-morph-target="summary" className="text-sm leading-loose text-[var(--colour-bodytext-light)]">
                 {p.summary}
-            </p>
+            </p> */}
 
             {p.overview && (
                 <>

@@ -32,6 +32,12 @@ const panelColumns = {
     normal: "lg:grid-cols-[2.5fr_2fr]",
     wide: "lg:grid-cols-[3fr_2fr]",
 };
+// Space above the overview and above the description. The home page's modal (wide)
+// spreads them out a little on desktop (lg) and more on 2xl screens.
+const textGaps = {
+    normal: { overview: "mb-7", description: "mb-8" },
+    wide: { overview: "mb-7 lg:mb-9 2xl:mb-11", description: "mb-8 lg:mb-10 2xl:mb-12" },
+};
 //
 // Project overview shown over the home and archive grids (Figma: Portfolio 2027, node 464:18952).
 // A dimmed, blurred backdrop with a white panel: media on the left, title,
@@ -48,9 +54,9 @@ const coverMediaClass = "absolute inset-0 w-full h-full object-cover";
 const labelClass = "text-xs text-[var(--colour-bodytext-light)] leading-loose";
 const valueClass = "text-sm text-[var(--colour-bodytext)] leading-loose";
 const panelMotion = {
-    initial: { opacity: 0, scale: 0.9, filter: "blur(16px)" },
+    initial: { opacity: 0, scale: 0.96, filter: "blur(16px)" },
     animate: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.25 } },
-    exit: { opacity: 0, scale: 0.9, filter: "blur(16px)", transition: { duration: 0.25 } },
+    exit: { opacity: 0, scale: 0.96, filter: "blur(16px)", transition: { duration: 0.25 } },
 };
 // Opening the project page from the scroll ring: once the page has loaded underneath,
 // the panel slides up and blurs away, and the backdrop fades, revealing it
@@ -210,19 +216,19 @@ function ModalContent({ p, onClose, wide }: { p: ProjectOverview; onClose: () =>
                             />
 
                             <div className="p-8 md:p-10 lg:pt-[clamp(48px,8vh,104px)] lg:pb-[clamp(40px,7vh,88px)] lg:overflow-y-auto lg:flex lg:flex-col">
-                                <DialogTitle data-morph="title" className="text-xl md:text-xl text-[var(--colour-bodytext)] leading-normal">
+                                <DialogTitle data-morph="title" className="text-xl md:text-xl text-[var(--colour-bodytext)] 2xl:text-2xl leading-normal">
                                     {p.title}
                                 </DialogTitle>
 
                                 <div className="mb-1"></div>
                                 {/* The description is the tile's grey text, so it stays grey here */}
-                                <p data-morph="summary" className="text-sm leading-loose text-[var(--colour-bodytext-light)]">
+                                {/* <p data-morph="summary" className="text-sm leading-loose text-[var(--colour-bodytext-light)]">
                                     {p.summary}
-                                </p>
+                                </p> */}
 
                                 {p.overview && (
                                     <>
-                                        <div className="mb-7"></div>
+                                        <div className={textGaps[wide ? "wide" : "normal"].overview}></div>
                                         {/* Same labels and values as the overview block on the project page */}
                                         {/* Columns size to their content instead of splitting the width */}
                                         <div data-morph="overview" className="grid grid-cols-[auto_auto] justify-start gap-x-12 gap-y-4">
@@ -258,7 +264,7 @@ function ModalContent({ p, onClose, wide }: { p: ProjectOverview; onClose: () =>
 
                                 {p.description && (
                                     <>
-                                        <div className="mb-8"></div>
+                                        <div className={textGaps[wide ? "wide" : "normal"].description}></div>
                                         <p data-morph="description" className={valueClass}>{p.description}</p>
                                     </>
                                 )}

@@ -21,7 +21,7 @@ export default function About() {
                 </div>
                 <div>
                     <Enter order={0}>
-                    <p className="text-5xl text-[var(--colour-bodytext)] font-normal tracking-tight">About me</p>
+                    <p className="text-5xl text-[var(--colour-bodytext)] font-normal tracking-tight">Information</p>
                     </Enter>
                     <div className="mb-10 lg:mb-15"></div>
                     <Enter order={1}>
