@@ -26,7 +26,7 @@ type Props = {
 // and gives the media 60% of the width instead of about 56%.
 const panelSize = {
     normal: "lg:w-[min(76vw,calc((100dvh-80px)*1000/540))] lg:aspect-[1000/540]",
-    wide: "lg:w-[min(86vw,calc((100dvh-80px)*86/76*1000/540))] lg:h-[min(calc(76vw*540/1000),calc(100dvh-80px))]",
+    wide: "lg:w-[min(80vw,calc((100dvh-80px)*80/76*1000/540))] lg:h-[min(calc(76vw*540/1000),calc(100dvh-80px))]",
 };
 const panelColumns = {
     normal: "lg:grid-cols-[2.5fr_2fr]",

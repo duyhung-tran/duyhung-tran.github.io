@@ -47,7 +47,7 @@ export default function About() {
                 </div>
                 <div className="hidden lg:flex items-start justify-end">
                     <Enter order={1} className="block overflow-hidden aspect-square w-[35%]">
-                        <Image src="/about/about.png" width={3363} height={3363} className="w-full scale-103 origin-bottom aspect-square" alt="Hung Tran"/>
+                        <Image src="/about/4-1.jpg" width={3363} height={3363} className="w-full scale-103 origin-bottom aspect-square brightness-110" alt="Hung Tran"/>
                     </Enter>
                 </div>
             </div>
