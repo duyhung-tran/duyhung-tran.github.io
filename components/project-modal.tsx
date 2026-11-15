@@ -22,11 +22,11 @@ type Props = {
 // 1000:540 shape, shrinking further if the window is too short for that shape
 // (min-height keeps room for the text). Below lg the columns stack: 80% wide
 // on tablets, full width as a bottom sheet on phones.
-// The home page's modal (wide) is 83% of the window wide and slightly taller
-// (76vw at 1000:580), and gives the media 60% of the width instead of about 56%.
+// The home page's modal (wide) is 86% of the window wide but keeps that same height,
+// and gives the media 60% of the width instead of about 56%.
 const panelSize = {
     normal: "lg:w-[min(76vw,calc((100dvh-80px)*1000/540))] lg:aspect-[1000/540]",
-    wide: "lg:w-[min(83vw,calc((100dvh-80px)*83/76*1000/580))] lg:h-[min(calc(76vw*580/1000),calc(100dvh-80px))]",
+    wide: "lg:w-[min(86vw,calc((100dvh-80px)*86/76*1000/540))] lg:h-[min(calc(76vw*540/1000),calc(100dvh-80px))]",
 };
 const panelColumns = {
     normal: "lg:grid-cols-[2.5fr_2fr]",
