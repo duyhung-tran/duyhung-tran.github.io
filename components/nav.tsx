@@ -49,7 +49,7 @@ export default function Nav(props: Props) {
             ) : (
             <a href="/" className="w-[54px]">
                 <Image
-                    src="/about/3.jpg"
+                    src="/about/3 copy.jpg"
                     width={3363}
                     height={3363}
                     className="w-[54px] aspect-square"
