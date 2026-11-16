@@ -9,8 +9,8 @@ import Enter from "@/components/enter";
 import { archiveOverviews, linkTarget, NO_LINK_YET } from "@/lib/project-overviews";
 
 export default function Archive() {
-  // Slug of the archive project whose overview modal is open
-  const [openProject, setOpenProject] = useState<string | null>(null);
+  // The archive project whose overview modal is open, and the tile it grows out of
+  const [openProject, setOpenProject] = useState<{ slug: string; origin: HTMLElement } | null>(null);
 
   // Phones (below md) skip the overview modal: tapping a tile goes straight to the project
   const isPhone = useIsPhone();
@@ -43,7 +43,7 @@ export default function Archive() {
                 target={linkTarget(link)}
                 // The first two tiles are near the top of the page
                 eager={i < 2}
-                onOpen={isPhone ? undefined : () => setOpenProject(p.slug)}
+                onOpen={isPhone ? undefined : (tile) => setOpenProject({ slug: p.slug, origin: tile })}
                 {...media}
               />
               </Enter>
@@ -52,7 +52,8 @@ export default function Archive() {
         </div>
 
         <ProjectModal
-          project={archiveOverviews.find((p) => p.slug === openProject) ?? null}
+          project={archiveOverviews.find((p) => p.slug === openProject?.slug) ?? null}
+          origin={openProject?.origin}
           onClose={() => setOpenProject(null)}
         />
     </div>

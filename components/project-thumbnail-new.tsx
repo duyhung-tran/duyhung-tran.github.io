@@ -16,8 +16,9 @@ type Props = {
     // square: square tile with the image or video at 65% width, centred
     variant?: "default" | "square";
     // Called on a plain left click instead of following the link (e.g. to open
-    // an overview modal). Cmd/Ctrl/Shift/middle clicks still open the link.
-    onOpen?: () => void;
+    // an overview modal), with the tile itself so the modal can grow out of it.
+    // Cmd/Ctrl/Shift/middle clicks still open the link.
+    onOpen?: (tile: HTMLElement) => void;
 } & (
     // Image tile
     | { imageSrc: string; videoSrc?: never; videoSrcSafari?: never; imageSrcPoster?: never }
@@ -52,7 +53,7 @@ export default function ProjectThumbnail(props: Props) {
                 onClick={props.onOpen && ((e) => {
                     if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
                     e.preventDefault();
-                    props.onOpen?.();
+                    props.onOpen?.(e.currentTarget);
                 })}
             >
                 {props.videoSrc !== undefined ? (
@@ -65,6 +66,7 @@ export default function ProjectThumbnail(props: Props) {
                         playsInline
                         preload="auto"
                         aria-label={props.name}
+                        data-tile-media
                         className={square ? "w-[65%] h-auto" : "absolute inset-0 w-full h-full object-cover"}
                     />
                 ) : (
@@ -74,6 +76,7 @@ export default function ProjectThumbnail(props: Props) {
                         alt={props.name}
                         width={1640}
                         height={1228}
+                        data-tile-media
                         className={square ? "w-[65%] h-auto object-contain" : "object-contain w-auto h-auto"}
                     />
                 )}
@@ -92,10 +95,10 @@ export default function ProjectThumbnail(props: Props) {
                 })()}
 
                 <div className={`absolute inset-0 flex flex-col justify-end p-9 ${square ? "" : "opacity-100 lg:opacity-0 group-hover:opacity-100"}`}>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">
+                    <p data-tile-name className="text-sm text-[var(--colour-bodytext)] leading-loose">
                         {props.name}
                     </p>
-                    <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">
+                    <p data-tile-desc className="text-sm text-[var(--colour-bodytext-light)] leading-loose">
                         {props.desc}
                     </p>
                 </div>

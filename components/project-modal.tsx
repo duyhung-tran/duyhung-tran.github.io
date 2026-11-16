@@ -14,6 +14,8 @@ import { RING_FULL, RING_HOLD, RING_IDLE, RING_SECTION, ScrollRing } from "@/com
 type Props = {
     project: ProjectOverview | null;
     onClose: () => void;
+    // The home tile it was opened from: the modal grows out of it, and shrinks back into it on close
+    origin?: HTMLElement;
     // Home page modal: wider (same height), with more room for the media
     wide?: boolean;
 };
@@ -24,9 +26,13 @@ type Props = {
 // on tablets, full width as a bottom sheet on phones.
 // The home page's modal (wide) is 86% of the window wide but keeps that same height,
 // and gives the media 60% of the width instead of about 56%.
+// On 2xl screens both are 90% of that size, same shape.
 const panelSize = {
-    normal: "lg:w-[min(76vw,calc((100dvh-80px)*1000/540))] lg:aspect-[1000/540]",
-    wide: "lg:w-[min(80vw,calc((100dvh-80px)*80/76*1000/540))] lg:h-[min(calc(76vw*540/1000),calc(100dvh-80px))]",
+    normal:
+        "lg:w-[min(76vw,calc((100dvh-80px)*1000/540))] 2xl:w-[min(68.4vw,calc((100dvh-80px)*0.9*1000/540))] lg:aspect-[1000/540]",
+    wide:
+        "lg:w-[min(80vw,calc((100dvh-80px)*80/76*1000/540))] lg:h-[min(calc(76vw*540/1000),calc(100dvh-80px))] " +
+        "2xl:w-[min(72vw,calc((100dvh-80px)*0.9*80/76*1000/540))] 2xl:h-[min(calc(68.4vw*540/1000),calc((100dvh-80px)*0.9))]",
 };
 const panelColumns = {
     normal: "lg:grid-cols-[2.5fr_2fr]",
@@ -76,25 +82,48 @@ const morphPanelFade = 0.3;
 // Once everything has landed, the overlay fades to reveal the page (and its nav) underneath
 const morphReveal = 0.35;
 
-export default function ProjectModal({ project, onClose, wide = false }: Props) {
+// Opening from a home tile: the tile's white box grows into the panel while its media glides
+// to its place in it, then everything else in the panel fades in. Closing reverses it.
+const tileMorphDuration = 0.55;
+// The panel's fade in once the tile has landed (and its fade out as closing starts)
+const tilePanelFade = 0.2;
+// The tile's own media fading back in behind the backdrop once the modal has opened
+const tileContentFade = 0.3;
+
+export default function ProjectModal({ project, onClose, origin, wide = false }: Props) {
     return (
         // AnimatePresence keeps the closing modal (with its last project) mounted
         // until its exit animation finishes
         <AnimatePresence>
-            {project && <ModalContent key={project.slug} p={project} onClose={onClose} wide={wide} />}
+            {project && <ModalContent key={project.slug} p={project} onClose={onClose} origin={origin} wide={wide} />}
         </AnimatePresence>
     );
 }
 
-function ModalContent({ p, onClose, wide }: { p: ProjectOverview; onClose: () => void; wide: boolean }) {
+function ModalContent({
+    p,
+    onClose,
+    origin,
+    wide,
+}: {
+    p: ProjectOverview;
+    onClose: () => void;
+    origin?: HTMLElement;
+    wide: boolean;
+}) {
     const link = p.link ?? NO_LINK_YET;
     const mediaClass = p.coverMedia ? coverMediaClass : insetMediaClass;
     const router = useRouter();
     const pathname = usePathname();
     // Scroll ring: idle → navigating (project page loading underneath) → exiting (panel slides away),
     // or morphing (panel grows into the page) → revealing (page shows through) when the page
-    // repeats the modal's content
-    const [stage, setStage] = useState<"idle" | "navigating" | "exiting" | "morphing" | "revealing">("idle");
+    // repeats the modal's content.
+    // Opened from a home tile it starts at "opening" (growing out of the tile), and closes
+    // through "closing" (shrinking back into it) while the tile is still on screen.
+    const [tileMorph] = useState(() => canTileMorph(origin));
+    const [stage, setStage] = useState<"idle" | "navigating" | "exiting" | "morphing" | "revealing" | "opening" | "closing">(
+        tileMorph ? "opening" : "idle",
+    );
     const morphing = stage === "morphing" || stage === "revealing";
     const panelRef = useRef<HTMLDivElement>(null);
     const sheetRef = useRef<HTMLDivElement>(null);
@@ -148,12 +177,69 @@ function ModalContent({ p, onClose, wide }: { p: ProjectOverview; onClose: () =>
         };
     }, [morphing]);
 
+    // Grow out of the tile. The Dialog's portal attaches a moment after mounting, so wait for it.
+    useLayoutEffect(() => {
+        if (stage !== "opening") return;
+        let cancelled = false;
+        let wait: ReturnType<typeof setTimeout> | undefined;
+        const start = () => {
+            const panel = panelRef.current, sheet = sheetRef.current, layer = morphLayerRef.current;
+            if (!origin) return setStage("idle");
+            if (!panel || !sheet || !layer) {
+                wait = setTimeout(start, 10);
+                return;
+            }
+            tileToPanel(origin, panel, sheet, layer).then(() => {
+                if (cancelled) return;
+                // Landed: the panel fades in over the copies, then they go
+                syncVideo(layer, panel.querySelector("[data-morph-media]"));
+                setStage("idle");
+                setTimeout(() => {
+                    showTileContent(origin, tileContentFade);
+                    clearMorphLayer(sheet, layer);
+                }, tilePanelFade * 1000);
+            });
+        };
+        start();
+        return () => {
+            cancelled = true;
+            clearTimeout(wait);
+        };
+    }, [stage, origin]);
+
+    // Shrink back into the tile, then close
+    useLayoutEffect(() => {
+        if (stage !== "closing") return;
+        const panel = panelRef.current, sheet = sheetRef.current, layer = morphLayerRef.current;
+        if (!origin || !panel || !sheet || !layer) return onCloseRef.current();
+        let cancelled = false;
+        panelToTile(origin, panel, sheet, layer).then(() => {
+            if (cancelled) return;
+            syncVideo(layer, origin.querySelector("[data-tile-media]"));
+            showTileContent(origin, 0, tileContentFade);
+            clearMorphLayer(sheet, layer);
+            onCloseRef.current();
+        });
+        return () => {
+            cancelled = true;
+        };
+    }, [stage, origin]);
+
+    // ×, Escape and backdrop clicks: shrink back into the tile when it is on screen and the
+    // media is at its start (scrolled down the gallery, the main media isn't there to glide)
+    const requestClose = () => {
+        if (stage !== "idle") return;
+        const scrolled = (mediaScrollerRef.current?.scrollTop ?? 0) > 2;
+        if (!scrolled && canTileMorph(origin)) setStage("closing");
+        else onClose();
+    };
+
     // However the modal goes away, the page underneath is no longer covered
     useEffect(() => () => revealPage(), []);
 
     return (
         // Escape and backdrop clicks are ignored once the project is opening
-        <Dialog static open onClose={stage === "idle" ? onClose : () => {}} className="relative z-[150]">
+        <Dialog static open onClose={stage === "idle" ? requestClose : () => {}} className="relative z-[150]">
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={
@@ -162,7 +248,11 @@ function ModalContent({ p, onClose, wide }: { p: ProjectOverview; onClose: () =>
                         : stage === "revealing"
                           ? // The sheet covers the window by now, so the backdrop can go at once
                             { opacity: 0, transition: { duration: 0 } }
-                          : { opacity: 1 }
+                          : stage === "closing"
+                            ? { opacity: 0, transition: { duration: tileMorphDuration, ease: morphEase } }
+                            : stage === "opening"
+                              ? { opacity: 1, transition: { duration: tileMorphDuration, ease: morphEase } }
+                              : { opacity: 1 }
                 }
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.25 }}
@@ -180,12 +270,20 @@ function ModalContent({ p, onClose, wide }: { p: ProjectOverview; onClose: () =>
                 <motion.div
                     ref={panelRef}
                     {...panelMotion}
+                    // Growing out of a tile, the panel is measured where it will rest: full size, just invisible
+                    initial={tileMorph ? { opacity: 0, scale: 1, filter: "blur(0px)" } : panelMotion.initial}
                     animate={
                         stage === "exiting"
                             ? leavingMotion
                             : morphing
                               ? { opacity: 0, transition: { duration: morphPanelFade, ease: "easeOut" } }
-                              : panelMotion.animate
+                              : stage === "opening"
+                                ? { opacity: 0, scale: 1, filter: "blur(0px)", transition: { duration: 0 } }
+                                : stage === "closing"
+                                  ? { opacity: 0, transition: { duration: tilePanelFade, ease: "easeOut" } }
+                                  : tileMorph
+                                    ? { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: tilePanelFade, ease: "easeOut" } }
+                                    : panelMotion.animate
                     }
                     onWheel={(e) => forwardWheel(e, mediaScrollerRef.current)}
                     onAnimationComplete={() => {
@@ -200,7 +298,7 @@ function ModalContent({ p, onClose, wide }: { p: ProjectOverview; onClose: () =>
                         <>
                             <button
                                 type="button"
-                                onClick={onClose}
+                                onClick={requestClose}
                                 aria-label="Close"
                                 className="absolute top-5 right-5 z-10 size-8 flex items-center justify-center text-[var(--colour-bodytext-light)] hover:text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] cursor-pointer transition"
                             >
@@ -352,6 +450,261 @@ function ModalContent({ p, onClose, wide }: { p: ProjectOverview; onClose: () =>
 }
 
 
+
+// The tile the modal was opened from is still on the page and on screen (and the visitor is fine with motion)
+function canTileMorph(tile?: HTMLElement) {
+    if (!tile || !tile.isConnected) return false;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+    const box = tile.getBoundingClientRect();
+    return box.width > 0 && box.bottom > 0 && box.top < window.innerHeight;
+}
+
+type Box = { left: number; top: number; width: number; height: number };
+
+// Where a piece of media actually shows. The modal's inset media (object-contain, 80% of
+// the column at most) is worked out from the media's own shape, since a video may not
+// have loaded its size yet; cover media fills its own box.
+function mediaBox(el: HTMLElement, shapeOf: HTMLElement): Box {
+    const box = el.getBoundingClientRect();
+    if (getComputedStyle(el).objectFit === "cover" || !el.parentElement) return box;
+    const aspect = naturalAspect(shapeOf) ?? naturalAspect(el) ?? box.width / box.height;
+    const parent = el.parentElement.getBoundingClientRect();
+    const width = Math.min(parent.width * 0.8, parent.height * 0.8 * aspect);
+    const height = width / aspect;
+    return { left: parent.left + (parent.width - width) / 2, top: parent.top + (parent.height - height) / 2, width, height };
+}
+
+function naturalAspect(el: HTMLElement) {
+    if (el instanceof HTMLVideoElement && el.videoWidth > 0) return el.videoWidth / el.videoHeight;
+    if (el instanceof HTMLImageElement && el.naturalWidth > 0) return el.naturalWidth / el.naturalHeight;
+    return undefined;
+}
+
+// A copy of a piece of media in the layer, in a clipping box at `box`. The copy covers its
+// box, so as the box changes shape the framing changes with it; at either end the box has
+// the shape the media shows at, so it matches exactly. A video copy carries on from the
+// frame the original is at.
+function copyMedia(src: HTMLElement, box: Box, layer: HTMLElement) {
+    const wrap = document.createElement("div");
+    Object.assign(wrap.style, {
+        position: "fixed",
+        left: `${box.left}px`,
+        top: `${box.top}px`,
+        width: `${box.width}px`,
+        height: `${box.height}px`,
+        overflow: "hidden",
+    });
+    const copy = src.cloneNode(true) as HTMLElement;
+    copy.removeAttribute("class");
+    copy.removeAttribute("id");
+    Object.assign(copy.style, {
+        position: "absolute",
+        inset: "0",
+        width: "100%",
+        height: "100%",
+        maxWidth: "none",
+        maxHeight: "none",
+        margin: "0",
+        objectFit: "cover",
+        visibility: "visible",
+    });
+    copy.dataset.morphCopy = "media";
+
+    if (src instanceof HTMLVideoElement && copy instanceof HTMLVideoElement) {
+        // A fresh video shows nothing until it has loaded and sought to the frame, so a still
+        // of the current frame sits underneath until the copy shows its first frame
+        if (src.videoWidth > 0) {
+            const still = document.createElement("canvas");
+            still.width = src.videoWidth;
+            still.height = src.videoHeight;
+            try {
+                still.getContext("2d")?.drawImage(src, 0, 0);
+                Object.assign(still.style, { position: "absolute", inset: "0", width: "100%", height: "100%", objectFit: "cover" });
+                wrap.appendChild(still);
+                // Removed as soon as the copy is showing frames (it may be see-through, so the still mustn't linger under it)
+                const drop = () => still.remove();
+                // (Older Safari has no requestVideoFrameCallback)
+                const video: HTMLVideoElement = copy;
+                if (typeof video.requestVideoFrameCallback === "function") video.requestVideoFrameCallback(drop);
+                else video.addEventListener("playing", drop, { once: true });
+            } catch {
+                // A frame that can't be read just means no still
+            }
+        }
+        copy.muted = true;
+        copy.currentTime = src.currentTime;
+        copy.play().catch(() => {});
+    } else if (src instanceof HTMLImageElement && copy instanceof HTMLImageElement) {
+        // The exact file already showing, loaded and decoded straight away (not lazily, not re-picked from srcset)
+        copy.removeAttribute("srcset");
+        copy.removeAttribute("sizes");
+        copy.loading = "eager";
+        copy.decoding = "sync";
+        copy.src = src.currentSrc || src.src;
+    }
+    // The copy also carries the opacity the original was hidden with; it should show
+    copy.style.opacity = "1";
+    copy.style.transition = "none";
+    wrap.appendChild(copy);
+    layer.appendChild(wrap);
+    return wrap;
+}
+
+// How visible a piece of the tile is: its name and summary only show on hover on desktop
+function shownOpacity(el: HTMLElement) {
+    let opacity = 1;
+    for (let node: HTMLElement | null = el; node && node !== document.body; node = node.parentElement) {
+        opacity *= Number(getComputedStyle(node).opacity);
+    }
+    return opacity;
+}
+
+// The tile → panel morph. The sheet starts as the tile's box and grows into the panel's,
+// gaining its shadow, while the tile's media glides to the panel's media. Only the media
+// moves: the tile's text fades, and the panel's (title and all) fades in after landing.
+// The tile itself hides while its copies stand in for it.
+async function tileToPanel(tile: HTMLElement, panel: HTMLElement, sheet: HTMLElement, layer: HTMLElement) {
+    const opts = { duration: tileMorphDuration, ease: morphEase };
+    layer.replaceChildren();
+    layer.style.opacity = "";
+    const tileBox = tile.getBoundingClientRect();
+    const panelBox = panel.getBoundingClientRect();
+    const panelStyle = getComputedStyle(panel);
+    Object.assign(sheet.style, {
+        left: `${tileBox.left}px`,
+        top: `${tileBox.top}px`,
+        width: `${tileBox.width}px`,
+        height: `${tileBox.height}px`,
+        backgroundColor: getComputedStyle(tile).backgroundColor,
+        boxShadow: "0 0 0 rgba(0,0,0,0)",
+        opacity: "1",
+    });
+    const runs: Promise<unknown>[] = [
+        animate(
+            sheet,
+            {
+                left: panelBox.left,
+                top: panelBox.top,
+                width: panelBox.width,
+                height: panelBox.height,
+                backgroundColor: panelStyle.backgroundColor,
+                boxShadow: panelStyle.boxShadow,
+            },
+            opts,
+        ).finished,
+    ];
+
+    const media = tile.querySelector<HTMLElement>("[data-tile-media]");
+    const target = panel.querySelector<HTMLElement>("[data-morph-media]");
+    if (media && target) {
+        const to = mediaBox(target, media);
+        const wrap = copyMedia(media, media.getBoundingClientRect(), layer);
+        runs.push(animate(wrap, { left: to.left, top: to.top, width: to.width, height: to.height }, opts).finished);
+    }
+
+    // The tile's name and summary (when showing) fade where they are; the panel's own text
+    // comes in with the rest of the panel once the media has landed
+    tile.querySelectorAll<HTMLElement>("[data-tile-name], [data-tile-desc]").forEach((text) => {
+        const shown = shownOpacity(text);
+        if (shown === 0) return;
+        const box = text.getBoundingClientRect();
+        const copy = text.cloneNode(true) as HTMLElement;
+        Object.assign(copy.style, {
+            position: "fixed",
+            left: `${box.left}px`,
+            top: `${box.top}px`,
+            width: `${box.width}px`,
+            margin: "0",
+            opacity: String(shown),
+        });
+        layer.appendChild(copy);
+        runs.push(animate(copy, { opacity: 0 }, { duration: tilePanelFade, ease: "easeOut" }).finished);
+    });
+
+    // The copies stand in for the tile's media and text; its white box stays put
+    hideTileContent(tile, 0);
+    await Promise.all(runs);
+}
+
+// The panel → tile morph, the other way: the panel (text and all) fades, the sheet shrinks
+// back to the tile's box, and the media glides back to the tile's
+async function panelToTile(tile: HTMLElement, panel: HTMLElement, sheet: HTMLElement, layer: HTMLElement) {
+    const opts = { duration: tileMorphDuration, ease: morphEase };
+    layer.replaceChildren();
+    layer.style.opacity = "";
+    const panelBox = panel.getBoundingClientRect();
+    const panelStyle = getComputedStyle(panel);
+    const tileBox = tile.getBoundingClientRect();
+    Object.assign(sheet.style, {
+        left: `${panelBox.left}px`,
+        top: `${panelBox.top}px`,
+        width: `${panelBox.width}px`,
+        height: `${panelBox.height}px`,
+        backgroundColor: panelStyle.backgroundColor,
+        boxShadow: panelStyle.boxShadow,
+        opacity: "1",
+    });
+    const runs: Promise<unknown>[] = [
+        animate(
+            sheet,
+            {
+                left: tileBox.left,
+                top: tileBox.top,
+                width: tileBox.width,
+                height: tileBox.height,
+                backgroundColor: getComputedStyle(tile).backgroundColor,
+                boxShadow: "0 0 0 rgba(0,0,0,0)",
+            },
+            opts,
+        ).finished,
+    ];
+
+    const media = tile.querySelector<HTMLElement>("[data-tile-media]");
+    const source = panel.querySelector<HTMLElement>("[data-morph-media]");
+    if (media && source) {
+        const to = media.getBoundingClientRect();
+        const wrap = copyMedia(source, mediaBox(source, media), layer);
+        source.style.visibility = "hidden";
+        // The tile's own media (and text) fades out under the backdrop while the copy flies back to it
+        hideTileContent(tile, tilePanelFade);
+        runs.push(animate(wrap, { left: to.left, top: to.top, width: to.width, height: to.height }, opts).finished);
+    }
+
+    await Promise.all(runs);
+}
+
+// The tile's media, name and summary: hidden (fading over `fade` seconds) while copies stand
+// in for them, and shown again after. The tile's white box itself always stays, so the page
+// behind the backdrop never has a hole pop in or out.
+const tileContent = "[data-tile-media], [data-tile-name], [data-tile-desc]";
+function hideTileContent(tile: HTMLElement, fade: number) {
+    tile.querySelectorAll<HTMLElement>(tileContent).forEach((el) => {
+        el.style.transition = fade ? `opacity ${fade}s ease-out` : "none";
+        el.style.opacity = "0";
+    });
+}
+// `textFade` for the name and summary (always showing on archive tiles), so they don't pop
+// in when the media lands instantly on close
+function showTileContent(tile: HTMLElement, mediaFade: number, textFade = mediaFade) {
+    tile.querySelectorAll<HTMLElement>(tileContent).forEach((el) => {
+        const fade = el.hasAttribute("data-tile-media") ? mediaFade : textFade;
+        el.style.transition = fade ? `opacity ${fade}s ease-out` : "none";
+        el.style.opacity = "";
+        if (fade) el.addEventListener("transitionend", () => (el.style.transition = ""), { once: true });
+        else el.style.transition = "";
+    });
+}
+
+// After a morph, the real video carries on from the frame its copy reached
+function syncVideo(layer: HTMLElement, video: Element | null) {
+    const copy = layer.querySelector('[data-morph-copy="media"]');
+    if (copy instanceof HTMLVideoElement && video instanceof HTMLVideoElement) video.currentTime = copy.currentTime;
+}
+
+function clearMorphLayer(sheet: HTMLElement, layer: HTMLElement) {
+    sheet.style.opacity = "0";
+    layer.replaceChildren();
+}
 
 // The page underneath has a first section to morph into (and the visitor is fine with motion)
 function canMorph() {
@@ -624,7 +977,7 @@ function MediaColumn({
     };
 
     const main = p.videoSrc !== undefined ? (
-        <video key={p.videoSrc} src={p.videoSrc} autoPlay muted loop playsInline aria-label={p.title} className={mediaClass} />
+        <video key={p.videoSrc} src={p.videoSrc} autoPlay muted loop playsInline aria-label={p.title} data-morph-media className={mediaClass} />
     ) : (
         <Image
             src={p.imageSrc}
@@ -633,6 +986,7 @@ function MediaColumn({
             loading="eager"
             width={1640}
             height={1228}
+            data-morph-media
             className={mediaClass}
         />
     );

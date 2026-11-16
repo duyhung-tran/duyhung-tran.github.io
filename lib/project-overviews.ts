@@ -73,7 +73,7 @@ export const homeOverviews: ProjectOverview[] = [
       gallery: [
         //   { src: "/rules/addgeofence-wide.png", kind: "image", alt: "Geofence in Knox Manage" },
           { src: "/rules/rules-0-wide.png", kind: "image", alt: "Rules overview table" },
-          { src: "/rules/rules-1.png", kind: "image", alt: "Rule details panel" },
+          { src: "/rules/rules-1-wide.png", kind: "image", alt: "Rule details panel" },
           { src: "/rules/rules-3-wide.png", kind: "image", alt: "Creating a geofence" },
       ],
       description: "Event-based rules let IT admins switch device settings on and off automatically, like when a device enters a geofence.",

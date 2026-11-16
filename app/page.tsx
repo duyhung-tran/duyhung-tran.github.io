@@ -59,7 +59,8 @@ export default function Home2() {
                   target={linkTarget(link)}
                   // The image tiles were eager-loaded before
                   eager={p.imageSrc !== undefined}
-                  onOpen={isPhone ? undefined : () => openProjectModal(p)}
+                  // The modal grows out of the clicked tile
+                  onOpen={isPhone ? undefined : (tile) => openProjectModal(p, tile)}
                   {...media}
                 />
                 </Enter>
