@@ -17,7 +17,7 @@ const toc: TocItem[] = [
   { id: "overview", label: "Overview" },
   { id: "problem", label: "Problem" },
   { id: "what-i-did", label: "What I did" },
-  { id: "documentation", label: "UX documentations" },
+  { id: "documentation", label: "Documentations" },
   { id: "reflection-corner", label: "Reflection corner" },
 ];
 

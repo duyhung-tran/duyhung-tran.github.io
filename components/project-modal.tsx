@@ -486,7 +486,7 @@ const SCROLLBAR_MIN = 24;
 const SCROLLBAR_INSET = 6;
 const SCROLLBAR_HIDE = 800;
 // Share of the column's height the ring takes, at its bottom
-const RING_SHARE = 1;
+const RING_SHARE = 4/5;
 // How long the scrollbar shows, faintly, after the modal opens (ms)
 const SCROLLBAR_PEEK = 1000;
 

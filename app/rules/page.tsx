@@ -19,8 +19,7 @@ const toc: TocItem[] = [
   { id: "problem", label: "Problem" },
   { id: "findings", label: "Findings" },
   { id: "framing", label: "PRD" },
-  { id: "reviewing-all-rules", label: "Reviewing all rules" },
-  { id: "create-a-geofence", label: "Create a geofence rule" },
+  { id: "reviewing-all-rules", label: "Screens" },
   { id: "reflection-corner", label: "Reflection corner" },
 ];
 
