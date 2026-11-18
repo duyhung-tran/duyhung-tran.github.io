@@ -113,8 +113,8 @@ export default function Rules() {
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">An event-based approach enables IT admins to define conditions that automatically trigger device configurations—providing more nuanced control while reducing manual intervention and response time.</p> */}
                 </div>
                 <div className="mb-4"></div>
-                <div className="bg-[var(--container-bg-2)]">
-                    <video src="/rules/geofence.mp4" autoPlay muted loop playsInline aria-label="knox manage geofence" className="w-full" />
+                <div className="bg-[var(--container-bg)] flex justify-center items-center">
+                    <video src="/rules/geofence.mp4" autoPlay muted loop playsInline aria-label="knox manage geofence" className="w-3/4" />
                 </div>
 
                 <div className="mb-14"></div>

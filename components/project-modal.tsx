@@ -329,7 +329,8 @@ function ModalContent({
                                         <div className={textGaps[wide ? "wide" : "normal"].overview}></div>
                                         {/* Same labels and values as the overview block on the project page */}
                                         {/* Columns size to their content instead of splitting the width */}
-                                        <div data-morph="overview" className="grid grid-cols-[auto_auto] justify-start gap-x-12 gap-y-4">
+                                        {/* The home page's modal (wide) spaces the two columns further apart */}
+                                        <div data-morph="overview" className={`grid grid-cols-[auto_auto] justify-start ${wide ? "gap-x-20" : "gap-x-12"} gap-y-4`}>
                                             <div>
                                                 <p className={labelClass}>{p.overview.companyLabel ?? "Company"}</p>
                                                 <p className={valueClass}>{p.overview.company}</p>
