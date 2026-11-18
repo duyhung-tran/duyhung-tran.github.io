@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { whenPageRevealed } from "@/lib/project-morph";
+import { useAnimationsOn } from "@/lib/animation-setting";
 
 export type TocItem = { id: string; label: string };
 
@@ -15,8 +16,10 @@ const slideEase = [0.22, 1, 0.36, 1] as const;
 export default function PageToc({ items }: { items: TocItem[] }) {
     const [active, setActive] = useState(items[0]?.id);
     const [shown, setShown] = useState(false);
-    // Reduced motion: the items are simply there
-    const reduceMotion = useReducedMotion();
+    // Reduced motion, or animations off in the menu: the items are simply there from the start
+    const systemReduced = useReducedMotion();
+    const animationsOn = useAnimationsOn();
+    const reduceMotion = systemReduced || !animationsOn;
     // Hidden until the modal has revealed the page (when it arrives that way) and the page
     // itself scrolls down. Only real page scrolling counts: wheel events while the modal is
     // still up (e.g. filling its scroll ring) don't. Already scrolled (a reload part way down)
@@ -65,8 +68,10 @@ export default function PageToc({ items }: { items: TocItem[] }) {
                 {items.map(({ id, label }, i) => (
                     <motion.li
                         key={id}
+                        // Animations off: shown in place by CSS from the first paint (app/globals.css)
+                        data-enter
                         initial={reduceMotion ? false : { opacity: 0, y: 14 }}
-                        animate={shown ? { opacity: 1, y: 0 } : undefined}
+                        animate={shown || reduceMotion ? { opacity: 1, y: 0 } : undefined}
                         transition={{ duration: 0.6, ease: slideEase, delay: i * 0.06 }}
                         // Not clickable while still hidden
                         className={shown || reduceMotion ? "" : "pointer-events-none"}

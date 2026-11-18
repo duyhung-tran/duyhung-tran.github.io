@@ -140,3 +140,25 @@ html {
 @media (prefers-reduced-motion: reduce) {
   .media-nudge { animation: none; }
 }
+
+/* Animations switched off in the menu (lib/animation-setting.ts): every CSS transition and
+   keyframe animation finishes at once. Durations go to zero rather than "none", so anything
+   with a fill mode still ends in its final state. */
+html.no-motion,
+html.no-motion *,
+html.no-motion *::before,
+html.no-motion *::after {
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+}
+/* Page entrances (components/enter.tsx) start hidden and wait for a frame to play; with
+   animations off they show in place straight away */
+html.no-motion [data-enter] {
+  opacity: 1 !important;
+  filter: none !important;
+  transform: none !important;
+}

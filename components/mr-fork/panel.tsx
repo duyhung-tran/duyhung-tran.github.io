@@ -3,12 +3,12 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUp, CornerDownRight, PanelLeftClose, RotateCcw, SquareArrowOutUpRight } from "lucide-react";
-import MyButton from "@/components/my-button";
 import { cn } from "@/lib/utils";
 import { getProject, type Project } from "@/lib/site";
 import { scriptedEngine, STARTER_SUGGESTIONS } from "@/lib/chat/scripted";
 import type { ChatEngine, ChatMessage, ChatReply } from "@/lib/chat/types";
 import { loadSession, saveSession } from "./session";
+import { motionAllowed } from "@/lib/animation-setting";
 
 // Swap this for an AI-backed engine later; nothing else needs to change.
 const engine: ChatEngine = scriptedEngine;
@@ -16,8 +16,8 @@ const engine: ChatEngine = scriptedEngine;
 // Typing speed for replies, in characters per second
 const TYPE_CPS = 140;
 
-const reduceMotion = () =>
-  typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+// Animations off in the menu, or the system asks for reduced motion: replies show at once
+const reduceMotion = () => typeof window !== "undefined" && !motionAllowed();
 
 // Figma "Suggested prompt"
 function SuggestedPrompt({ text, onClick, className }: { text: string; onClick: () => void; className?: string }) {

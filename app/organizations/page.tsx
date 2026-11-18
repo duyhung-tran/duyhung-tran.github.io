@@ -5,7 +5,7 @@ import Hyperlink from "@/components/hyperlink";
 import Nav from "@/components/nav";
 import { PageEndRing } from "@/components/scroll-ring";
 import { Info, Lightbulb, Puzzle } from "lucide-react";
-import ProjectThumbnail from "@/components/project-thumbnail-new";
+// import ProjectThumbnail from "@/components/project-thumbnail-new"; // for the hidden "Other works" section
 import PageToc, { type TocItem } from "@/components/page-toc";
 import ProjectIntro from "@/components/project-intro";
 import { homeOverviews } from "@/lib/project-overviews";
@@ -46,7 +46,7 @@ export default function Organizations() {
                 </div>
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)]">
-                    <Image src="/organizations/organizations-preview.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full"/>
+                    <Image sizes="(min-width: 1024px) 70vw, 100vw" src="/organizations/organizations-preview.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full"/>
                 </div>
 
                 <div className="mb-7"></div>
@@ -89,23 +89,23 @@ export default function Organizations() {
 
                 <div>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/organizations/ds1.png" width={3099} height={1823} className="w-full lg:w-[80%]" alt="Samsung Knox"/> 
+                        <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/organizations/ds1.png" width={3099} height={1823} className="w-full lg:w-[80%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying spacing specs during default state.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/organizations/ds2.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
+                        <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/organizations/ds2.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying specs during user interactions.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/organizations/ds3.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
+                        <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/organizations/ds3.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Writing guidelines for multiple ways user can interact with the component.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/organizations/ds4.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
+                        <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/organizations/ds4.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Specifying the interactions for multiple variants.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/organizations/ds5.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
+                        <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/organizations/ds5.png" width={3099} height={1823} className="w-full lg:w-[90%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Final deliverables.</p>
                 </div>

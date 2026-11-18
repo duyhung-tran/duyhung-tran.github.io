@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Maximize2, SquareArrowOutUpRight } from "lucide-react";
+import LazyVideo from "@/components/lazy-video";
 
 
 type Props = {
@@ -57,14 +58,11 @@ export default function ProjectThumbnail(props: Props) {
                 })}
             >
                 {props.videoSrc !== undefined ? (
-                    <video
-                        src={(isSafari && props.videoSrcSafari) || props.videoSrc}
+                    // Only downloads near the screen, and pauses off it
+                    <LazyVideo
+                        src={((isSafari && props.videoSrcSafari) || props.videoSrc)!}
                         poster={props.imageSrcPoster}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="auto"
+                        eager={props.eager}
                         aria-label={props.name}
                         data-tile-media
                         className={square ? "w-[65%] h-auto" : "absolute inset-0 w-full h-full object-cover"}
@@ -76,6 +74,8 @@ export default function ProjectThumbnail(props: Props) {
                         alt={props.name}
                         width={1640}
                         height={1228}
+                        // How wide the tile shows: home grid (1 / 2 / 3 columns), archive squares (65% of 1 / 3 / 4 columns)
+                        sizes={square ? "(min-width: 1536px) 17vw, (min-width: 1024px) 22vw, 65vw" : "(min-width: 1536px) 33vw, (min-width: 1024px) 50vw, 100vw"}
                         data-tile-media
                         className={square ? "w-[65%] h-auto object-contain" : "object-contain w-auto h-auto"}
                     />

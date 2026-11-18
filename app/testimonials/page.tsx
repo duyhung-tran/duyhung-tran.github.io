@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
+// import Image from "next/image"; // for the commented-out photos
 import Nav from "@/components/nav";
 
 export default function Testimonials() {

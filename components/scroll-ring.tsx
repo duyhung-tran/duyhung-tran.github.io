@@ -1,9 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { animate } from "framer-motion";
 import { markRingArrival } from "@/lib/ring-arrival";
+import { useAnimationsOn } from "@/lib/animation-setting";
 
 // The scroll ring: past the end of something, a ring pins in place and fills as the
 // scroll continues; once it is full (and stays full briefly) it goes somewhere.
@@ -58,7 +59,15 @@ const PAGE_RING_FILL = 2.25;
 // footer. The page scrolls to its bottom as usual, footer and all; scrolling on from
 // there (wheel or touch, since the page can't move any further) fills the ring, and
 // full, it goes to `href`. Scrolling back up empties it; stopping part way drains it.
-export function PageEndRing({ href, label, fullLabel }: { href: string; label: string; fullLabel: string }) {
+type PageEndRingProps = { href: string; label: string; fullLabel: string };
+
+// No ring at all with animations off in the menu: the page just ends
+export function PageEndRing(props: PageEndRingProps) {
+    const animationsOn = useAnimationsOn();
+    return animationsOn ? <PageEndRingOn {...props} /> : null;
+}
+
+function PageEndRingOn({ href, label, fullLabel }: PageEndRingProps) {
     const router = useRouter();
     const [progress, setProgress] = useState(0);
 

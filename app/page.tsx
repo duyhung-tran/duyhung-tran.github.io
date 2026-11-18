@@ -1,12 +1,9 @@
 "use client"
 
-import Image from "next/image";
 import Hyperlink from "@/components/hyperlink";
-import { useEffect, useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import ProjectThumbnail from "@/components/project-thumbnail-new";
-import Menu from "@/components/menu";
 import Nav from "@/components/nav";
-import { useMrFork } from "@/components/mr-fork/provider";
 import { useOpenProjectModal } from "@/components/project-modal-host";
 import { homeOverviews, linkTarget, NO_LINK_YET } from "@/lib/project-overviews";
 import { useIsPhone } from "@/lib/use-is-phone";
@@ -14,8 +11,6 @@ import Enter from "@/components/enter";
 import { cameThroughRing } from "@/lib/ring-arrival";
 
 export default function Home2() {
-  const [animate, setAnimate] = useState(false);
-  const { open: mrForkOpen, setOpen: setMrForkOpen } = useMrFork();
   // The overview modal lives in the root layout, so it can stay up while its project page loads
   const openProjectModal = useOpenProjectModal();
   // Phones skip the overview modal: tapping a tile goes straight to the project page
@@ -26,10 +21,6 @@ export default function Home2() {
   useLayoutEffect(() => {
     if (throughRing) window.scrollTo({ top: 0, behavior: "instant" });
   }, [throughRing]);
-
-  useEffect(() => {
-    setTimeout(() => setAnimate(true), 900);
-  }, []);
 
   return (
     <div className="flex items-center justify-center" id="top">
@@ -57,8 +48,8 @@ export default function Home2() {
                   // Cmd/Ctrl-click (and any tap on phones) opens the project page
                   link={link}
                   target={linkTarget(link)}
-                  // The image tiles were eager-loaded before
-                  eager={p.imageSrc !== undefined}
+                  // The first row (up to 3 tiles) loads straight away; the rest as they come near the screen
+                  eager={i < 3}
                   // The modal grows out of the clicked tile
                   onOpen={isPhone ? undefined : (tile) => openProjectModal(p, tile)}
                   {...media}

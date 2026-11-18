@@ -1,5 +1,6 @@
-import MyButton from "@/components/my-button";
-import { SquareArrowOutUpRight } from "lucide-react";
+// For the hidden secondary button below
+// import MyButton from "@/components/my-button";
+// import { SquareArrowOutUpRight } from "lucide-react";
 import type { ProjectOverview } from "@/lib/project-overviews";
 
 // First section of a project page: the same content as the project modal's text

@@ -25,6 +25,8 @@ export default function Enter({
     if (reduceMotion) return className ? <div className={className}>{children}</div> : <>{children}</>;
     return (
         <motion.div
+            // Animations off in the menu: shown in place at once by CSS (app/globals.css)
+            data-enter
             className={className}
             initial={{ opacity: 0, y: 32, filter: "blur(12px)" }}
             // Once in place, drop the filter and transform: left on, they would trap anything

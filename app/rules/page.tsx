@@ -1,11 +1,12 @@
 "use client"
 
 import Image from "next/image";
+import LazyVideo from "@/components/lazy-video";
 import MyButton from "@/components/my-button";
 import Hyperlink from "@/components/hyperlink";
 import Nav from "@/components/nav";
-import { Info, Locate, MapPinCheck, SlidersHorizontal, Snail, UserSearch, Pencil, Puzzle, ShieldQuestionMark, SquareArrowOutUpRight } from "lucide-react";
-import ProjectThumbnail from "@/components/project-thumbnail-new";
+import { Info, MapPinCheck, SlidersHorizontal, UserSearch, Pencil, Puzzle, ShieldQuestionMark, SquareArrowOutUpRight } from "lucide-react";
+// import ProjectThumbnail from "@/components/project-thumbnail-new"; // for the hidden "Other works" section
 import PageToc, { type TocItem } from "@/components/page-toc";
 import ProjectIntro from "@/components/project-intro";
 import { PageEndRing } from "@/components/scroll-ring";
@@ -49,7 +50,7 @@ export default function Rules() {
                 <div className="mb-10"></div>
                 <div className="flex justify-center bg-[var(--container-bg-2)] p-6 lg:p-20">
                 {/* <div className="flex justify-center bg-[var(--container-bg-2)]"> */}
-                    <Image src="/rules/addgeofence.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full lg:w-[55%]"/>
+                    <Image sizes="(min-width: 1024px) 40vw, 100vw" src="/rules/addgeofence.png" loading="eager" alt="knox manage geofence" width={1640} height={1228} className="w-full lg:w-[55%]"/>
                 </div>
 
                 <div className="mb-7"></div>
@@ -114,7 +115,7 @@ export default function Rules() {
                 </div>
                 <div className="mb-4"></div>
                 <div className="bg-[var(--container-bg)] flex justify-center items-center">
-                    <video src="/rules/geofence.mp4" autoPlay muted loop playsInline aria-label="knox manage geofence" className="w-3/4" />
+                    <LazyVideo src="/rules/geofence.mp4" aria-label="knox manage geofence" className="w-3/4" />
                 </div>
 
                 <div className="mb-14"></div>
@@ -123,7 +124,7 @@ export default function Rules() {
                     What I did
                 </p>
                 <div className="mb-4"></div>
-                <Image src="/rules/rules-map.png" alt="knox manage geofence" width={1640} height={1228} className="w-full"/>
+                <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/rules/rules-map.png" alt="knox manage geofence" width={1640} height={1228} className="w-full"/>
 
                 <div className="mb-22"></div> */}
 
@@ -139,15 +140,15 @@ export default function Rules() {
                 <div className="mb-8"></div>
                 <div>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules/rules-0.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
+                        <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/rules/rules-0.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Overview table.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules/rules-1.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
+                        <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/rules/rules-1.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">View details through a sliding panel.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules/rules-1.5.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
+                        <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/rules/rules-1.5.png" width={3099} height={1823} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Detailed sliding panel.</p>
                 </div>
@@ -167,11 +168,11 @@ export default function Rules() {
 
                 <div>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules/rules-3.png" width={3099} height={3363} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
+                        <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/rules/rules-3.png" width={3099} height={3363} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Configuring location-based conditions.</p>
                     <div className="bg-[var(--container-bg-2)] block flex justify-center items-center">
-                        <Image src="/rules/rules-4.png" width={2622} height={2622} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
+                        <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/rules/rules-4.png" width={2622} height={2622} className="w-full lg:w-[70%]" alt="Samsung Knox"/> 
                     </div>
                     <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose mb-6">Segment of the location-based conditions configuration flow.</p>
                 </div>
@@ -217,11 +218,11 @@ export default function Rules() {
                 <div>
                     <div className="w-full md:w-[60%] grid grid-cols-2 gap-2 md:gap-5">
                         <div className="flex flex-col justify-start">
-                            <Image src="/about/uxmas.jpg" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
+                            <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/about/uxmas.jpg" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
                             <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">@ Samsung XMas party 🎄</p>
                         </div>
                         <div className="flex flex-col justify-start">
-                            <Image src="/about/yehe.png" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
+                            <Image sizes="(min-width: 1024px) 60vw, 100vw" src="/about/yehe.png" width={3099} height={3363} className="w-full mb-2 rounded-2xl shadow-md" alt="Hung Tran" style={{ filter: 'contrast(85%)' }}/> 
                             <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">Group selfie #116</p>
                         </div>
                     </div>

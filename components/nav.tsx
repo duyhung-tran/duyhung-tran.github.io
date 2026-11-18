@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Menu from "./menu";
-import MrForkToggle from "./mr-fork/toggle-button";
+// import MrForkToggle from "./mr-fork/toggle-button"; // for the hidden Mr. Fork button
 import Image from "next/image";
+import Link from "next/link";
 import { Undo2 } from "lucide-react";
 import Hyperlink from "./hyperlink";
 
@@ -47,15 +48,16 @@ export default function Nav(props: Props) {
                 <Hyperlink link="/" text="Back" variant="icon" icon={Undo2} muted />
             </div>
             ) : (
-            <a href="/" className="w-[54px]">
+            <Link href="/" className="w-[54px]">
                 <Image
                     src="/about/3 copy.jpg"
-                    width={3363}
-                    height={3363}
+                    // Shown at 54px: sized for that (and sharp screens), not the 3363px original
+                    width={108}
+                    height={108}
                     className="w-[54px] aspect-square"
                     alt="Hung Tran"
                 />
-            </a>
+            </Link>
             )}
             {!props.hideName && (
             <div

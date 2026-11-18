@@ -9,6 +9,9 @@ import { AnimatePresence, animate, motion } from "framer-motion";
 import { FolderOpen, Mail, SquareArrowOutUpRight, X } from "lucide-react";
 import { NO_LINK_YET, linkTarget, type ProjectOverview } from "@/lib/project-overviews";
 import { coverPage, revealPage } from "@/lib/project-morph";
+import { motionAllowed, useAnimationsOn } from "@/lib/animation-setting";
+import LazyVideo from "@/components/lazy-video";
+import { videoAspect } from "@/lib/video-sizes";
 import { RING_FULL, RING_HOLD, RING_IDLE, RING_SECTION, ScrollRing } from "@/components/scroll-ring";
 
 type Props = {
@@ -51,7 +54,6 @@ const textGaps = {
 //
 // The panel slides up into place while fading in and coming into focus
 // (opacity + blur), and reverses on close.
-const ease = [0.22, 1, 0.36, 1] as const;
 
 // Media sits inset on the white column by default; coverMedia projects crop it to fill the column
 const insetMediaClass = "relative w-[80%] h-auto max-h-[80%] object-contain";
@@ -121,6 +123,7 @@ function ModalContent({
     // Opened from a home tile it starts at "opening" (growing out of the tile), and closes
     // through "closing" (shrinking back into it) while the tile is still on screen.
     const [tileMorph] = useState(() => canTileMorph(origin));
+    const animationsOn = useAnimationsOn();
     const [stage, setStage] = useState<"idle" | "navigating" | "exiting" | "morphing" | "revealing" | "opening" | "closing">(
         tileMorph ? "opening" : "idle",
     );
@@ -310,7 +313,8 @@ function ModalContent({
                                 p={p}
                                 mediaClass={mediaClass}
                                 scrollerRef={mediaScrollerRef}
-                                onRingFull={openProject}
+                                // No scroll ring with animations off in the menu ("View entire project" still opens the page)
+                                onRingFull={animationsOn ? openProject : undefined}
                             />
 
                             <div className="p-8 md:p-10 lg:pt-[clamp(48px,8vh,104px)] lg:pb-[clamp(40px,7vh,88px)] lg:overflow-y-auto lg:flex lg:flex-col">
@@ -455,7 +459,8 @@ function ModalContent({
 // The tile the modal was opened from is still on the page and on screen (and the visitor is fine with motion)
 function canTileMorph(tile?: HTMLElement) {
     if (!tile || !tile.isConnected) return false;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+    // Off in the menu, or the system asks for reduced motion
+    if (!motionAllowed()) return false;
     const box = tile.getBoundingClientRect();
     return box.width > 0 && box.bottom > 0 && box.top < window.innerHeight;
 }
@@ -709,7 +714,8 @@ function clearMorphLayer(sheet: HTMLElement, layer: HTMLElement) {
 
 // The page underneath has a first section to morph into (and the visitor is fine with motion)
 function canMorph() {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
+    // Off in the menu, or the system asks for reduced motion
+    if (!motionAllowed()) return false;
     return document.querySelector('[data-morph-target="title"]') !== null;
 }
 
@@ -978,7 +984,19 @@ function MediaColumn({
     };
 
     const main = p.videoSrc !== undefined ? (
-        <video key={p.videoSrc} src={p.videoSrc} autoPlay muted loop playsInline aria-label={p.title} data-morph-media className={mediaClass} />
+        <video
+            key={p.videoSrc}
+            src={p.videoSrc}
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-label={p.title}
+            data-morph-media
+            // Its final shape from the start, so the panel doesn't shift when it loads
+            style={{ aspectRatio: videoAspect(p.videoSrc) }}
+            className={mediaClass}
+        />
     ) : (
         <Image
             src={p.imageSrc}
@@ -987,6 +1005,8 @@ function MediaColumn({
             loading="eager"
             width={1640}
             height={1228}
+            // The media column is about half the window at most
+            sizes="(min-width: 1024px) 50vw, 100vw"
             data-morph-media
             className={mediaClass}
         />
@@ -1029,9 +1049,10 @@ function MediaColumn({
                     // Screenshots and mockups sit whole, full width, each as tall as it is, on the light grey used on the project pages
                     <div key={m.src} className="bg-[var(--container-bg-2)]">
                         {m.kind === "video" ? (
-                            <video src={m.src} autoPlay muted loop playsInline aria-label={m.alt} className="block w-full h-auto" />
+                            // Gallery videos further down the column load as they're scrolled to
+                            <LazyVideo src={m.src} aria-label={m.alt} className="block w-full h-auto" />
                         ) : (
-                            <Image src={m.src} alt={m.alt} width={1640} height={1228} className="block w-full h-auto" />
+                            <Image src={m.src} alt={m.alt} width={1640} height={1228} sizes="(min-width: 1024px) 50vw, 100vw" className="block w-full h-auto" />
                         )}
                     </div>
                 ))}

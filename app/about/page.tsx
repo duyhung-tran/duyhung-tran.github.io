@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Hyperlink from "@/components/hyperlink";
-import { useState } from "react";
 import Nav from "@/components/nav";
 import Enter from "@/components/enter";
 
@@ -16,7 +15,7 @@ export default function About() {
             <div className="grid grid-cols-1 lg:grid-cols-2 w-full">
                 <div className="flex lg:hidden items-center justify-center mb-15">
                     <Enter order={0} className="block overflow-hidden aspect-square w-[100%]">
-                        <Image src="/about/4-1.jpg" width={3363} height={3363} className="w-full scale-103 origin-bottom aspect-square" alt="Hung Tran"/>
+                        <Image sizes="(min-width: 1024px) 50vw, 100vw" src="/about/4-1.jpg" width={3363} height={3363} className="w-full scale-103 origin-bottom aspect-square" alt="Hung Tran"/>
                     </Enter>
                 </div>
                 <div>
@@ -47,7 +46,7 @@ export default function About() {
                 </div>
                 <div className="hidden lg:flex items-start justify-end">
                     <Enter order={1} className="block overflow-hidden aspect-square w-[35%] 2xl:w-[28%]">
-                        <Image src="/about/4-1.jpg" width={3363} height={3363} className="w-full scale-103 origin-bottom aspect-square brightness-110" alt="Hung Tran"/>
+                        <Image sizes="(min-width: 1024px) 50vw, 100vw" src="/about/4-1.jpg" width={3363} height={3363} className="w-full scale-103 origin-bottom aspect-square brightness-110" alt="Hung Tran"/>
                     </Enter>
                 </div>
             </div>
