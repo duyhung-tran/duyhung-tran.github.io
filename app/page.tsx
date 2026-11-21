@@ -9,12 +9,16 @@ import { homeOverviews, linkTarget, NO_LINK_YET } from "@/lib/project-overviews"
 import { useIsPhone } from "@/lib/use-is-phone";
 import Enter from "@/components/enter";
 import { cameThroughRing } from "@/lib/ring-arrival";
+import { useAnimationsOn } from "@/lib/animation-setting";
 
 export default function Home2() {
   // The overview modal lives in the root layout, so it can stay up while its project page loads
   const openProjectModal = useOpenProjectModal();
   // Phones skip the overview modal: tapping a tile goes straight to the project page
   const isPhone = useIsPhone();
+  // So do visitors who turned animations off in the menu (the archive page keeps its modal)
+  const animationsOn = useAnimationsOn();
+  const skipModal = isPhone || !animationsOn;
   const [throughRing] = useState(cameThroughRing);
   // Arriving through the ring from the bottom of a project page: start at the top,
   // before the first paint so the bottom of the page never shows
@@ -45,13 +49,13 @@ export default function Home2() {
                 <ProjectThumbnail
                   name={p.title}
                   desc={p.summary}
-                  // Cmd/Ctrl-click (and any tap on phones) opens the project page
+                  // Cmd/Ctrl-click (and any click when the modal is skipped) opens the project page
                   link={link}
                   target={linkTarget(link)}
                   // The first row (up to 3 tiles) loads straight away; the rest as they come near the screen
                   eager={i < 3}
                   // The modal grows out of the clicked tile
-                  onOpen={isPhone ? undefined : (tile) => openProjectModal(p, tile)}
+                  onOpen={skipModal ? undefined : (tile) => openProjectModal(p, tile)}
                   {...media}
                 />
                 </Enter>
