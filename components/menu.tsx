@@ -43,17 +43,17 @@ export default function Menu() {
             {/* Next.js links: pages switch in place (prefetched) instead of reloading the whole site */}
             {openMenu && (
                 <div className="absolute right-0 mt-0 bg-[var(--container-bg)] border border-[var(--nav-border)] p-1 overflow-hidden">
-                    <Link href="/" onClick={() => setOpenMenu(false)} className="mb-1 block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
+                    <Link href="/" onClick={() => setOpenMenu(false)} className="mb-1 block w-70 px-4 py-5 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
                         Home
                     </Link>
-                    <Link href="/about" onClick={() => setOpenMenu(false)} className="mb-1 block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
+                    <Link href="/about" onClick={() => setOpenMenu(false)} className="mb-1 block w-70 px-4 py-5 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
                         About
                     </Link>
-                    <Link href="/archive" onClick={() => setOpenMenu(false)} className="mb-1 block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
+                    <Link href="/archive" onClick={() => setOpenMenu(false)} className="mb-1 block w-70 px-4 py-5 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
                         Archive
                     </Link>
                     <div className="mb-1"></div>
-                    {/* <a href="/testimonials" className="mb-1 block w-70 p-4 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
+                    {/* <a href="/testimonials" className="mb-1 block w-70 px-4 py-5 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)]">
                         Testimonials
                     </a>
                     <div className="mb-1"></div> */}
@@ -91,10 +91,17 @@ export default function Menu() {
                         type="button"
                         role="switch"
                         aria-checked={animationsOn}
+                        aria-describedby="animations-hint"
                         onClick={() => setAnimations(!animationsOn)}
-                        className="flex w-70 items-center justify-between p-4 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] cursor-pointer"
+                        className="flex w-70 items-center justify-between gap-3 px-4 py-2.5 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] cursor-pointer"
                     >
-                        Transition animations
+                        {/* The label, with a small hint under it on when to switch it off */}
+                        <span className="flex flex-col gap-1">
+                            Transition animations
+                            <span id="animations-hint" className="text-[var(--colour-bodytext-light)]">
+                                Turn off if things feel laggy
+                            </span>
+                        </span>
                         <span
                             aria-hidden="true"
                             className={`relative inline-flex h-4 w-7 shrink-0 items-center rounded-full transition-colors ${
