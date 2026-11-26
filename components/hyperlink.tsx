@@ -21,7 +21,7 @@ export default function Hyperlink({ link, text, target, textSize = "text-sm", mu
       href={link}
       target={target}
       rel={target === "_blank" ? "noopener noreferrer" : undefined}
-      className={`inline-flex items-center gap-1 justify-self-start self-center group leading-normal ${textSize} ${
+      className={`inline-flex items-center gap-1 justify-self-start self-center group leading-normal] ${textSize} ${
         muted
           ? "text-[var(--colour-bodytext-light)] hover:text-[var(--colour-bodytext)] transition-colors"
           : "text-[var(--colour-bodytext)]"

@@ -12,7 +12,8 @@ import { coverPage, revealPage } from "@/lib/project-morph";
 import { motionAllowed, useAnimationsOn } from "@/lib/animation-setting";
 import LazyVideo from "@/components/lazy-video";
 import { videoAspect } from "@/lib/video-sizes";
-import { RING_FULL, RING_HOLD, RING_IDLE, RING_SECTION, ScrollRing } from "@/components/scroll-ring";
+import { ScrollCursor } from "@/components/scroll-cursor";
+import { RING_FULL, RING_HOLD, RING_IDLE, RING_PULL, RING_SECTION, ScrollRing, rubberBand } from "@/components/scroll-ring";
 
 type Props = {
     project: ProjectOverview | null;
@@ -133,6 +134,9 @@ function ModalContent({
     const morphLayerRef = useRef<HTMLDivElement>(null);
     // The media column's scroller, so a wheel anywhere on the panel can scroll it
     const mediaScrollerRef = useRef<HTMLDivElement>(null);
+    // The cursor circle is a "this scrolls" hint: once the media has scrolled
+    // CURSOR_HINT_SCROLL px it has done its job and stays gone for this modal
+    const [scrollHintDone, setScrollHintDone] = useState(false);
     // The scroll ring only leads to pages on this site, never to an external link or the placeholder
     // (nor for NDA projects, which point to "Contact for details" instead)
     const ringOpens = p.gallery && !p.contact && link.startsWith("/") ? link : null;
@@ -263,6 +267,14 @@ function ModalContent({
                 aria-hidden="true"
             />
 
+            {/* Home page modal: a "scroll down" pill beside the cursor while it is over the panel */}
+            {wide && (
+                <ScrollCursor
+                    active={stage === "idle" && !scrollHintDone}
+                    label="scroll down"
+                />
+            )}
+
             {/* The white sheet that grows from the panel into the page; hidden until the morph */}
             <div ref={sheetRef} aria-hidden="true" className="fixed opacity-0 pointer-events-none" />
 
@@ -272,6 +284,7 @@ function ModalContent({
                     Headless UI's own if they were the same element) */}
                 <motion.div
                     ref={panelRef}
+                    data-scroll-cursor
                     {...panelMotion}
                     // Growing out of a tile, the panel is measured where it will rest: full size, just invisible
                     initial={tileMorph ? { opacity: 0, scale: 1, filter: "blur(0px)" } : panelMotion.initial}
@@ -313,6 +326,7 @@ function ModalContent({
                                 p={p}
                                 mediaClass={mediaClass}
                                 scrollerRef={mediaScrollerRef}
+                                onScrolled={(top) => top > CURSOR_HINT_SCROLL && setScrollHintDone(true)}
                                 // No scroll ring with animations off in the menu ("View entire project" still opens the page)
                                 onRingFull={animationsOn ? openProject : undefined}
                             />
@@ -846,7 +860,9 @@ const SCROLLBAR_MIN = 24;
 const SCROLLBAR_INSET = 6;
 const SCROLLBAR_HIDE = 800;
 // Share of the column's height the ring takes, at its bottom
-const RING_SHARE = 1;
+const RING_SHARE = 1 / 3;
+// Media scrolled this far (px), the cursor circle fades out for good
+const CURSOR_HINT_SCROLL = 350;
 // How long the scrollbar shows, faintly, after the modal opens (ms)
 const SCROLLBAR_PEEK = 1000;
 
@@ -858,21 +874,24 @@ function MediaColumn({
     mediaClass,
     scrollerRef,
     onRingFull,
+    onScrolled,
 }: {
     p: ProjectOverview;
     mediaClass: string;
     scrollerRef: RefObject<HTMLDivElement | null>;
     onRingFull?: () => void;
+    // Told the column's scroll position on every scroll
+    onScrolled?: (top: number) => void;
 }) {
     const ringSectionRef = useRef<HTMLDivElement>(null);
     // The media and the ring, scrolled as one; it pins once its bottom reaches the column's
-    // bottom (stageTop: column height minus its own, measured), so the media stops moving
-    // while the ring fills
+    // bottom (stageTop: column height minus its own, measured) while the ring fills. Pinned,
+    // it doesn't stop dead: it keeps creeping up by `pull` px, with more and more resistance
+    // the further the scroll goes (a rubber band, see rubberBand)
     const stageRef = useRef<HTMLDivElement>(null);
     const [stageTop, setStageTop] = useState<number>();
     const [progress, setProgress] = useState(0);
-    // "Scroll for more" goes away once the ring comes into view
-    const [ringInView, setRingInView] = useState(false);
+    const [pull, setPull] = useState(0);
     // The scrollbar shows faintly for SCROLLBAR_PEEK ms after opening, or until the first scroll
     const [peek, setPeek] = useState(true);
     useEffect(() => {
@@ -942,6 +961,7 @@ function MediaColumn({
         const el = scrollerRef.current;
         if (!el) return;
         setPeek(false);
+        onScrolled?.(el.scrollTop);
 
         // Thumb size and position, in px within the column. The track ends where the ring
         // pins in the column's bottom RING_SHARE, so the thumb hits the bottom as soon as the ring is reached;
@@ -954,15 +974,10 @@ function MediaColumn({
         barTimer.current = setTimeout(() => setBar((b) => ({ ...b, visible: false })), SCROLLBAR_HIDE);
 
         const section = ringSectionRef.current;
-        if (!section) {
-            // No ring: the hint goes once the last item is reached
-            setRingInView(el.scrollTop >= el.scrollHeight - el.clientHeight - 2);
-            return;
-        }
+        if (!section) return;
         // 0 when the ring pins in the column's bottom RING_SHARE, 1 at the very end of the scroll
         const start = ringStart(el, section);
-        // The ring shows as soon as its section comes up from the column's bottom edge
-        setRingInView(el.scrollTop > section.offsetTop - el.clientHeight);
+        setPull(rubberBand(Math.max(0, el.scrollTop - start), RING_PULL));
         const end = el.scrollHeight - el.clientHeight;
         const next = Math.min(1, Math.max(0, (el.scrollTop - start) / Math.max(1, end - start)));
         setProgress(next);
@@ -1041,7 +1056,11 @@ function MediaColumn({
                 <div
                     ref={stageRef}
                     className={hasRing ? "sticky" : undefined}
-                    style={hasRing && stageTop !== undefined ? { top: stageTop } : undefined}
+                    style={
+                        hasRing && stageTop !== undefined
+                            ? { top: stageTop, transform: pull ? `translateY(${-pull}px)` : undefined }
+                            : undefined
+                    }
                 >
                 <div className="relative flex items-center justify-center" style={{ height: "100cqh" }}>{main}</div>
 
@@ -1058,17 +1077,20 @@ function MediaColumn({
                 ))}
 
                 {hasRing && (
-                    // The ring takes the whole column (RING_SHARE), after the last item.
-                    // Once it is fully in view the whole stage pins and the ring fills as the scroll goes on.
+                    // The ring takes the bottom third of the column (RING_SHARE), after the last item.
+                    // Once it is fully in view the whole stage pins (creeping up against resistance) and the ring fills as the scroll goes on.
                     <div
                         ref={ringSectionRef}
                         className="flex flex-col items-center justify-center gap-5"
-                        style={{ height: `${RING_SHARE * 100}cqh` }}
+                        // As the stage creeps up (pull), the space under the last item grows by that much:
+                        // moving down half of it keeps the ring centred in that space
+                        style={{ height: `${RING_SHARE * 100}cqh`, transform: pull ? `translateY(${pull / 2}px)` : undefined }}
                     >
                         <ScrollRing
                             progress={progress}
                             label="View the nitty-gritty of this project"
                             fullLabel="Opening project"
+                            strongLabel
                         />
                     </div>
                 )}
@@ -1085,14 +1107,6 @@ function MediaColumn({
                 className={`pointer-events-none absolute z-10 right-1.5 w-1 rounded-full bg-[var(--colour-bodytext-light)] transition-opacity duration-300 ${bar.visible ? "opacity-60" : peek || (hover && !bar.pinned) ? "opacity-30" : "opacity-0"}`}
                 style={{ top: bar.top, height: bar.height }}
             />
-
-            {/* Hint that the column scrolls; on top of the media until the ring comes into view */}
-            <p
-                aria-hidden="true"
-                className={`pointer-events-none absolute z-10 bottom-5 left-1/2 -translate-x-1/2 text-base text-[var(--colour-bodytext-light)] leading-loose transition-opacity duration-300 ${ringInView ? "opacity-0" : "opacity-100"}`}
-            >
-                Scroll for more
-            </p>
         </div>
     );
 }

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { animate } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { markRingArrival } from "@/lib/ring-arrival";
 import { useAnimationsOn } from "@/lib/animation-setting";
 
@@ -13,24 +14,48 @@ import { useAnimationsOn } from "@/lib/animation-setting";
 
 // In the modal, the ring section is this many column heights tall: one to bring the
 // ring in, the rest to fill it. Taller means more scrolling before it goes.
-export const RING_SECTION = 3;
+export const RING_SECTION = 2.7;
 // The ring must stay full this long (ms) before it goes, so a fast flick that
-// lands on the end doesn't trigger it by accident
-export const RING_HOLD = 400;
+// lands on the end doesn't trigger it by accident. It also gives the ring's bounce
+// (.ring-done in globals.css, 0.42s) time to play before the page changes
+export const RING_HOLD = 450;
 // Progress at which the ring counts as full
 export const RING_FULL = 0.995;
-// Stop scrolling part way and the ring drains back to empty after this long (ms)
-export const RING_IDLE = 500;
+// Stop scrolling part way and the ring drains back to empty after this long (ms):
+// just long enough to tell a stop from the gap between wheel events
+export const RING_IDLE = 50;
+
+// Filling the ring in the project modal, the media keeps moving up, but with resistance: never further
+// than this (px), and slower the closer it gets
+export const RING_PULL = 90;
+// How far (px) content moves for `distance` px of scrolling against a rubber band that
+// tops out at `limit` px: about a third of the scroll at first, slowing toward the limit
+// (iOS's overscroll curve, stiffer)
+export const rubberBand = (distance: number, limit: number) => (1 - 1 / ((distance * 0.35) / limit + 1)) * limit;
 
 // Size of the ring, in px
-const RING = 56;
-const RING_R = 26;
+const RING = 48;
+const RING_R = 22;
 const RING_LEN = 2 * Math.PI * RING_R;
 
-// The ring and its label; progress runs 0 → 1
-export function ScrollRing({ progress, label, fullLabel }: { progress: number; label: string; fullLabel: string }) {
+// The ring and its label; progress runs 0 → 1. strongLabel shows the label in the
+// body text colour instead of the light one (the project modal)
+export function ScrollRing({
+    progress,
+    label,
+    fullLabel,
+    strongLabel = false,
+}: {
+    progress: number;
+    label: string;
+    fullLabel: string;
+    strongLabel?: boolean;
+}) {
     return (
         <>
+            {/* Full: a quick bouncy scale before it goes (on a wrapper, since the svg's own
+                transform is its rotation); the chevron inside bounces with it */}
+            <span className={`relative block ${progress >= RING_FULL ? "ring-done" : ""}`}>
             <svg width={RING} height={RING} viewBox={`0 0 ${RING} ${RING}`} className="-rotate-90" aria-hidden="true">
                 <circle cx={RING / 2} cy={RING / 2} r={RING_R} fill="none" strokeWidth={2} className="stroke-[var(--nav-border)]" />
                 <circle
@@ -45,7 +70,17 @@ export function ScrollRing({ progress, label, fullLabel }: { progress: number; l
                     className="stroke-[var(--colour-bodytext)]"
                 />
             </svg>
-            <p className="text-sm text-[var(--colour-bodytext-light)] leading-loose">
+            {/* Chevron in the middle: goes from the light text colour to the dark one as the ring fills */}
+            <ChevronDown
+                aria-hidden="true"
+                strokeWidth={1.5}
+                className="absolute inset-0 m-auto size-5"
+                style={{
+                    color: `color-mix(in srgb, var(--colour-bodytext) ${Math.round(Math.min(1, progress) * 100)}%, var(--colour-bodytext-light))`,
+                }}
+            />
+            </span>
+            <p className={`text-sm ${strongLabel ? "text-[var(--colour-bodytext)]" : "text-[var(--colour-bodytext-light)]"} leading-loose`}>
                 {progress >= RING_FULL ? fullLabel : label}
             </p>
         </>
@@ -53,7 +88,7 @@ export function ScrollRing({ progress, label, fullLabel }: { progress: number; l
 }
 
 // How much scrolling past the bottom of the page fills the ring, in window heights
-const PAGE_RING_FILL = 2.25;
+const PAGE_RING_FILL = 1.9;
 
 // The ring at the end of a page: a short section (1/2.5 of the window) above the
 // footer. The page scrolls to its bottom as usual, footer and all; scrolling on from
@@ -70,7 +105,6 @@ export function PageEndRing(props: PageEndRingProps) {
 function PageEndRingOn({ href, label, fullLabel }: PageEndRingProps) {
     const router = useRouter();
     const [progress, setProgress] = useState(0);
-
     useEffect(() => {
         router.prefetch(href);
     }, [href, router]);
