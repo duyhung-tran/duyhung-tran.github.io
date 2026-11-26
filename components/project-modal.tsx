@@ -268,7 +268,8 @@ function ModalContent({
             />
 
             {/* Home page modal: a "scroll down" pill beside the cursor while it is over the panel */}
-            {wide && (
+            {/* Only when the media column has something to scroll to (a gallery; the ring needs one too) */}
+            {wide && (p.gallery?.length ?? 0) > 0 && (
                 <ScrollCursor
                     active={stage === "idle" && !scrollHintDone}
                     label="scroll down"
