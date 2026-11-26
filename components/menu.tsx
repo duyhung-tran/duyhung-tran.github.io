@@ -94,7 +94,7 @@ export default function Menu() {
                         onClick={() => setAnimations(!animationsOn)}
                         className="flex w-70 items-center justify-between p-4 text-xs text-left text-[var(--colour-bodytext)] hover:bg-[var(--nav-border)] cursor-pointer"
                     >
-                        Animations
+                        Transition animations
                         <span
                             aria-hidden="true"
                             className={`relative inline-flex h-4 w-7 shrink-0 items-center rounded-full transition-colors ${
