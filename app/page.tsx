@@ -16,9 +16,10 @@ export default function Home2() {
   const openProjectModal = useOpenProjectModal();
   // Phones skip the overview modal: tapping a tile goes straight to the project page
   const isPhone = useIsPhone();
-  // So do visitors who turned animations off in the menu (the archive page keeps its modal)
+  // So do visitors who turned animations off in the menu (the archive page keeps its modal),
+  // except for projects with no page of their own (no gallery, or details under NDA):
+  // those still open their modal, since there's nowhere else to go
   const animationsOn = useAnimationsOn();
-  const skipModal = isPhone || !animationsOn;
   const [throughRing] = useState(cameThroughRing);
   // Arriving through the ring from the bottom of a project page: start at the top,
   // before the first paint so the bottom of the page never shows
@@ -44,6 +45,8 @@ export default function Home2() {
               const media = p.videoSrc !== undefined ? { videoSrc: p.videoSrc } : { imageSrc: p.imageSrc };
               // Same destination as the modal's "View project" button
               const link = p.link ?? NO_LINK_YET;
+              const hasPage = (p.gallery?.length ?? 0) > 0 && !p.contact;
+              const skipModal = isPhone || (!animationsOn && hasPage);
               return (
                 <Enter key={p.slug} order={1 + i}>
                 <ProjectThumbnail
