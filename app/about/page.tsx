@@ -33,7 +33,7 @@ export default function About() {
                     <p className="text-lg text-[var(--colour-bodytext)] leading-loose">Where I have been</p>
                     <div className="mb-5"></div>
                     <div className="grid grid-cols-2 w-full lg:w-[65%] gap-y-2 gap-x-0">
-                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">UX Designer</p>
+                        <p className="text-sm text-[var(--colour-bodytext)] leading-loose">UX Designer <span className="text-[var(--colour-bodytext)]">(now)</span></p>
                         <Hyperlink link="https://research.samsung.com/srca" target="_blank" text="Samsung R&D Institute Canada"/>
                         <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Visual Designer</p>
                         <Hyperlink link="https://www.fraserhealth.ca/" target="_blank" text="Fraser Health"/>
