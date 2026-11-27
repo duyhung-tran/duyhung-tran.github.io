@@ -23,7 +23,7 @@ export const RING_HOLD = 450;
 export const RING_FULL = 0.995;
 // Stop scrolling part way and the ring drains back to empty after this long (ms):
 // just long enough to tell a stop from the gap between wheel events
-export const RING_IDLE = 50;
+export const RING_IDLE = 300;
 
 // Filling the ring in the project modal, the media keeps moving up, but with resistance: never further
 // than this (px), and slower the closer it gets
