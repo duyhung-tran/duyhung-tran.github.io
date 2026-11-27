@@ -135,7 +135,7 @@ function ModalContent({
     // The media column's scroller, so a wheel anywhere on the panel can scroll it
     const mediaScrollerRef = useRef<HTMLDivElement>(null);
     // The cursor circle is a "this scrolls" hint: once the media has scrolled
-    // CURSOR_HINT_SCROLL px it has done its job and stays gone for this modal
+    // past CURSOR_HINT_SCROLL px it has done its job and stays gone for this modal
     const [scrollHintDone, setScrollHintDone] = useState(false);
     // The scroll ring only leads to pages on this site, never to an external link or the placeholder
     // (nor for NDA projects, which point to "Contact for details" instead)
@@ -862,8 +862,9 @@ const SCROLLBAR_INSET = 6;
 const SCROLLBAR_HIDE = 800;
 // Share of the column's height the ring takes, at its bottom
 const RING_SHARE = 1 / 3;
-// Media scrolled this far (px), the cursor circle fades out for good
-const CURSOR_HINT_SCROLL = 350;
+// Media scrolled past this (px), the cursor pill fades out for good: 0, so it goes as
+// soon as the visitor starts scrolling
+const CURSOR_HINT_SCROLL = 0;
 // How long the scrollbar shows, faintly, after the modal opens (ms)
 const SCROLLBAR_PEEK = 1000;
 
