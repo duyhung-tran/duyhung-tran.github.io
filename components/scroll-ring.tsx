@@ -67,16 +67,17 @@ export function ScrollRing({
                     strokeLinecap="round"
                     strokeDasharray={RING_LEN}
                     strokeDashoffset={RING_LEN * (1 - progress)}
-                    className="stroke-[var(--colour-bodytext)]"
+                    // Same grey as the modal's scroll hint icons (60% body text, 40% light text)
+                    className="stroke-[color-mix(in_srgb,var(--colour-bodytext)_60%,var(--colour-bodytext-light))]"
                 />
             </svg>
-            {/* Chevron in the middle: goes from the light text colour to the dark one as the ring fills */}
+            {/* Chevron in the middle: goes from the light text colour to the ring's grey as the ring fills */}
             <ChevronDown
                 aria-hidden="true"
                 strokeWidth={1.5}
                 className="absolute inset-0 m-auto size-5"
                 style={{
-                    color: `color-mix(in srgb, var(--colour-bodytext) ${Math.round(Math.min(1, progress) * 100)}%, var(--colour-bodytext-light))`,
+                    color: `color-mix(in srgb, var(--colour-bodytext) ${Math.round(Math.min(1, progress) * 60)}%, var(--colour-bodytext-light))`,
                 }}
             />
             </span>
