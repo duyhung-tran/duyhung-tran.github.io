@@ -54,12 +54,12 @@ export function ScrollCursor({ active, label }: { active: boolean; label: string
         <div
             ref={ref}
             aria-hidden="true"
-            className={`fixed left-0 top-0 z-10 pointer-events-none flex items-center justify-center px-3.5 py-2.5 rounded-full border-[0.75px] border-[#bebebe] bg-white/50 backdrop-blur-[6px] text-sm text-[var(--colour-bodytext)] leading-loose whitespace-nowrap transition-opacity duration-150 ${active && visible ? "opacity-100" : "opacity-0"}`}
+            className={`fixed left-0 top-0 z-10 pointer-events-none flex items-center justify-center px-2.5 py-2.5 rounded-full border-[0.75px] border-[#bebebe] bg-white/50 backdrop-blur-[6px] text-sm text-[var(--colour-bodytext)] leading-loose whitespace-nowrap transition-opacity duration-150 ${active && visible ? "opacity-100" : "opacity-0"}`}
         >
             {/* {label} */}
             {/* The arrow moves down and back up on a loop (.scroll-arrow in globals.css) */}
-            <MoveDown className="scroll-arrow relative top-px size-4 -mr-0.5" strokeWidth={1.5} aria-label={label} />
-            <Mouse className="size-[22px]" strokeWidth={1.5} />
+            <MoveDown className="scroll-arrow relative top-px size-3.5 -mr-0.5" strokeWidth={1.5} aria-label={label} />
+            <Mouse className="size-[18px]" strokeWidth={1.5} />
         </div>
     );
 }

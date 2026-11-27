@@ -98,7 +98,8 @@ export default function Menu() {
                         {/* The label, with a small hint under it on when to switch it off */}
                         <span className="flex flex-col gap-1">
                             Transition animations
-                            <span id="animations-hint" className="text-[var(--colour-bodytext-light)]">
+                            {/* A bit darker than the light text colour, so it still reads on the hover background */}
+                            <span id="animations-hint" className="text-[color-mix(in_srgb,var(--colour-bodytext)_35%,var(--colour-bodytext-light))]">
                                 Turn off if things feel laggy
                             </span>
                         </span>
