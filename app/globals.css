@@ -163,7 +163,7 @@ html.no-motion [data-enter] {
   transform: none !important;
 }
 
-/* The project modal's cursor pill: the down arrow beside the mouse icon moves down
+/* The project modal's scroll hint pill: the down arrow beside the mouse icon moves down
    and back up on a loop, as a "scroll" hint */
 @keyframes scroll-arrow-bob {
   0%, 100% { transform: translateY(-2px); }
@@ -192,6 +192,22 @@ html.no-motion [data-enter] {
 }
 @media (prefers-reduced-motion: reduce) {
   .ring-done {
+    animation: none;
+  }
+}
+
+/* The project modal's scroll hint pill, the first time it shows: grows from half
+   size with a slight overshoot (components/scroll-hint.tsx) */
+@keyframes cursor-pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.cursor-pop {
+  animation: cursor-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .cursor-pop {
     animation: none;
   }
 }

@@ -12,7 +12,7 @@ import { coverPage, revealPage } from "@/lib/project-morph";
 import { motionAllowed, useAnimationsOn } from "@/lib/animation-setting";
 import LazyVideo from "@/components/lazy-video";
 import { videoAspect } from "@/lib/video-sizes";
-import { ScrollCursor } from "@/components/scroll-cursor";
+import { ScrollHint } from "@/components/scroll-hint";
 import { RING_FULL, RING_HOLD, RING_IDLE, RING_PULL, RING_SECTION, ScrollRing, rubberBand } from "@/components/scroll-ring";
 
 type Props = {
@@ -134,7 +134,7 @@ function ModalContent({
     const morphLayerRef = useRef<HTMLDivElement>(null);
     // The media column's scroller, so a wheel anywhere on the panel can scroll it
     const mediaScrollerRef = useRef<HTMLDivElement>(null);
-    // The cursor circle is a "this scrolls" hint: once the media has scrolled
+    // The scroll hint (a pill at the top of the media): once the media has scrolled
     // past CURSOR_HINT_SCROLL px it has done its job and stays gone for this modal
     const [scrollHintDone, setScrollHintDone] = useState(false);
     // The scroll ring only leads to pages on this site, never to an external link or the placeholder
@@ -267,15 +267,6 @@ function ModalContent({
                 aria-hidden="true"
             />
 
-            {/* Home page modal: a "scroll down" pill beside the cursor while it is over the panel */}
-            {/* Only when the media column has something to scroll to (a gallery; the ring needs one too) */}
-            {wide && (p.gallery?.length ?? 0) > 0 && (
-                <ScrollCursor
-                    active={stage === "idle" && !scrollHintDone}
-                    label="scroll down"
-                />
-            )}
-
             {/* The white sheet that grows from the panel into the page; hidden until the morph */}
             <div ref={sheetRef} aria-hidden="true" className="fixed opacity-0 pointer-events-none" />
 
@@ -285,7 +276,6 @@ function ModalContent({
                     Headless UI's own if they were the same element) */}
                 <motion.div
                     ref={panelRef}
-                    data-scroll-cursor
                     {...panelMotion}
                     // Growing out of a tile, the panel is measured where it will rest: full size, just invisible
                     initial={tileMorph ? { opacity: 0, scale: 1, filter: "blur(0px)" } : panelMotion.initial}
@@ -328,6 +318,9 @@ function ModalContent({
                                 mediaClass={mediaClass}
                                 scrollerRef={mediaScrollerRef}
                                 onScrolled={(top) => top > CURSOR_HINT_SCROLL && setScrollHintDone(true)}
+                                // Home page modal: a "scroll down" hint at the top of the media while it is open,
+                                // until the first scroll; only when there's something to scroll to (a gallery)
+                                scrollHint={wide && (p.gallery?.length ?? 0) > 0 ? stage === "idle" && !scrollHintDone : undefined}
                                 // No scroll ring with animations off in the menu ("View entire project" still opens the page)
                                 onRingFull={animationsOn ? openProject : undefined}
                             />
@@ -862,7 +855,7 @@ const SCROLLBAR_INSET = 6;
 const SCROLLBAR_HIDE = 800;
 // Share of the column's height the ring takes, at its bottom
 const RING_SHARE = 1 / 3;
-// Media scrolled past this (px), the cursor pill fades out for good: 0, so it goes as
+// Media scrolled past this (px), the scroll hint fades out for good: 0, so it goes as
 // soon as the visitor starts scrolling
 const CURSOR_HINT_SCROLL = 0;
 // How long the scrollbar shows, faintly, after the modal opens (ms)
@@ -877,6 +870,7 @@ function MediaColumn({
     scrollerRef,
     onRingFull,
     onScrolled,
+    scrollHint,
 }: {
     p: ProjectOverview;
     mediaClass: string;
@@ -884,6 +878,8 @@ function MediaColumn({
     onRingFull?: () => void;
     // Told the column's scroll position on every scroll
     onScrolled?: (top: number) => void;
+    // Whether the "scroll down" hint shows at the top of the column (undefined: no hint at all)
+    scrollHint?: boolean;
 }) {
     const ringSectionRef = useRef<HTMLDivElement>(null);
     // The media and the ring, scrolled as one; it pins once its bottom reaches the column's
@@ -1044,6 +1040,7 @@ function MediaColumn({
             onPointerEnter={(e) => e.pointerType === "mouse" && setHover(true)}
             onPointerLeave={() => setHover(false)}
         >
+            {scrollHint !== undefined && <ScrollHint show={scrollHint} />}
             <div
                 ref={scrollerRef}
                 onScroll={onScroll}

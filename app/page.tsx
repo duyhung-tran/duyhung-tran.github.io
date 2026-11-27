@@ -48,7 +48,8 @@ export default function Home2() {
               const hasPage = (p.gallery?.length ?? 0) > 0 && !p.contact;
               const skipModal = isPhone || (!animationsOn && hasPage);
               return (
-                <Enter key={p.slug} order={1 + i}>
+                // Phones have no modal to show a project without a page, so those tiles are left out there
+                <Enter key={p.slug} order={1 + i} className={hasPage ? undefined : "max-md:hidden"}>
                 <ProjectThumbnail
                   name={p.title}
                   desc={p.summary}
