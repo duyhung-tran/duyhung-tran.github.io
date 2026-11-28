@@ -157,7 +157,7 @@ const intents: Intent[] = [
     reply: {
       paragraphs: [
         "The best way to reach Hung is by email at [d.hungtran12@gmail.com](mailto:d.hungtran12@gmail.com), or say hi to him on [LinkedIn](https://www.linkedin.com/in/hung-tran-profile/).",
-        "You can also check out his [resume](/Hung-Tran-Resume.pdf).",
+        "You can also check out his [resume](/resume.pdf).",
       ],
       suggestions: [SUGGESTIONS.b2b, SUGGESTIONS.person],
     },

@@ -3,7 +3,7 @@ import Hyperlink from "@/components/hyperlink";
 const LINKS = [
     { text: "Email", link: "mailto:d.hungtran12@gmail.com" },
     { text: "LinkedIn", link: "https://www.linkedin.com/in/hung-tran-profile/" },
-    { text: "Resume", link: "/Hung-Tran-Resume.pdf" },
+    { text: "Resume", link: "/resume.pdf" },
 ];
 
 export default function Footer() {

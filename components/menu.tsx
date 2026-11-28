@@ -75,7 +75,7 @@ export default function Menu() {
                     <div className="mb-1"></div> */}
                     {/* Contacts button, hidden for now
                     <a
-                        href="/Hung-Tran-Resume.pdf"
+                        href="/resume.pdf"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex justify-between items-center gap-3 p-4 border-1 text-xs text-[var(--colour-bodytext)] hover:bg-[var(--container-bg-reversed)] hover:text-[var(--colour-bodytext-reversed)]"
