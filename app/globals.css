@@ -196,18 +196,3 @@ html.no-motion [data-enter] {
   }
 }
 
-/* The project modal's scroll hint pill, the first time it shows: grows from half
-   size with a slight overshoot (components/scroll-hint.tsx) */
-@keyframes cursor-pop {
-  0% { transform: scale(0.5); opacity: 0; }
-  60% { transform: scale(1.08); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
-}
-.cursor-pop {
-  animation: cursor-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-@media (prefers-reduced-motion: reduce) {
-  .cursor-pop {
-    animation: none;
-  }
-}

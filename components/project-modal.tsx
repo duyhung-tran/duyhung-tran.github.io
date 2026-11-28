@@ -373,12 +373,14 @@ function ModalContent({
                                     </>
                                 )}
 
-                                {p.description && (
+                                {/* Left out of the modal; the project page still shows it (components/project-intro.tsx),
+                                    revealed with the page when the modal morphs into it */}
+                                {/* {p.description && (
                                     <>
                                         <div className={textGaps[wide ? "wide" : "normal"].description}></div>
                                         <p data-morph="description" className={valueClass}>{p.description}</p>
                                     </>
-                                )}
+                                )} */}
 
                                 {p.credits && p.credits.length > 0 && (
                                     <>
