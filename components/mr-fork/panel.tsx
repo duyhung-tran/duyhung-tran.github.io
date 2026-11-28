@@ -78,8 +78,8 @@ function RichText({ text, limit = Infinity }: { text: string; limit?: number }) 
         const shown = seg.text.slice(0, left);
         left -= seg.text.length;
         if (seg.href) {
-          // Other sites open in a new tab; pages on this site and mailto: don't
-          const external = seg.href.startsWith("http");
+          // Other sites and files (the resume PDF) open in a new tab; pages on this site and mailto: don't
+          const external = seg.href.startsWith("http") || seg.href.endsWith(".pdf");
           return (
             <a
               key={i}

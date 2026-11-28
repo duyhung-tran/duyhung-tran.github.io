@@ -53,7 +53,7 @@ export type ProjectOverview = {
 export const NO_LINK_YET = "#";
 
 // Where "Contact for details" goes (the resume, which has contact info)
-export const CONTACT_LINK = "https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing";
+export const CONTACT_LINK = "/Hung-Tran-Resume.pdf";
 
 // In display order
 export const archiveOverviews: ProjectOverview[] = [

@@ -26,7 +26,7 @@ export default function About() {
                     <Enter order={1}>
                     <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Hi! My name is Hung (as in hungry). I’m a UX Designer and UI Engineer. Currently, I’m reading tickets at <Hyperlink link="https://research.samsung.com/srca" target="_blank" text="Samsung R&D Institute Canada"/>.</p>
                     <div className="mb-5"></div>
-                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Reach me via <Hyperlink link="mailto:d.hungtran12@gmail.com" target="_blank" text="email"/>, <Hyperlink link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" text="LinkedIn"/>, or check out my <Hyperlink link="https://drive.google.com/file/d/1JYPJBnjpH8uPTDL_dIxU2rgNodNIwsK1/view?usp=sharing" target="_blank" text="resume"/>!</p>
+                    <p className="text-sm text-[var(--colour-bodytext)] leading-loose">Reach me via <Hyperlink link="mailto:d.hungtran12@gmail.com" target="_blank" text="email"/>, <Hyperlink link="https://www.linkedin.com/in/hung-tran-profile/" target="_blank" text="LinkedIn"/>, or check out my <Hyperlink link="/Hung-Tran-Resume.pdf" target="_blank" text="resume"/>!</p>
                     </Enter>
                     <div className="mb-10"></div>
                     <Enter order={2}>
